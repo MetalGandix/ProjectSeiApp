@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SeiappApplication<seiapp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.project.seiapp.SeiappApplication",
+            "projectName": "seiapp",
+            "args": ""
+        }
+    ]
+}
