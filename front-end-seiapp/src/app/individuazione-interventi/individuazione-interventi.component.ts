@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { StrutturaVerticaleService } from '../struttura-verticale.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StrutturaVerticale } from '../struttura-verticale';
+
 
 @Component({
   selector: 'app-individuazione-interventi',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndividuazioneInterventiComponent implements OnInit {
 
-  constructor() { }
+  struttura: StrutturaVerticale;
+  verticale: StrutturaVerticale[];
 
-  ngOnInit(): void {
+  constructor(private strutturaVerticaleService: StrutturaVerticaleService,
+              private route: ActivatedRoute,
+              private router: Router) {
+              this.struttura = new StrutturaVerticale();
+               }
+
+  ngOnInit() {
+    this.strutturaVerticaleService.getStrutturaVerticale().subscribe(data=>{
+      this.verticale = data;
+    })
   }
 
 }

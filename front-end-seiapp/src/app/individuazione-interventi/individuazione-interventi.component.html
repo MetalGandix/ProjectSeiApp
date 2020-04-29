@@ -9,9 +9,9 @@
         <div class="form-group">
           <label for="struttura"><b>Struttura verticale</b></label>
           <select class="form-control" id="struttura" name="struttura">
-            <option value="strutturaArco">Struttura ad arco in muratura</option>
-            <option value="strutturaParetiMuraturaPiena">Struttura a pareti portanti in muratura piena</option>
-            <option value="strutturaParetiMuraturaSacco">Struttura a pareti portanti in muratura a sacco</option>
+            <option *ngFor="let StrutturaVerticale of verticale">
+            {{ StrutturaVerticale.strutturaVerticale }}
+          </option>
           </select>
         </div>
 
