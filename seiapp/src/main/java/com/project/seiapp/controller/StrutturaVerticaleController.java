@@ -16,10 +16,10 @@ public class StrutturaVerticaleController {
         this.verticaleRepository = verticaleRepository;
     }
 
-        private StrutturaVerticaleRepository verticaleRepository;
+    private StrutturaVerticaleRepository verticaleRepository;
 
     @GetMapping("/strutturaVerticale")
-    public List<StrutturaVerticale> getAnalisi(){
+    public List<StrutturaVerticale> getStruttura(){
     return (List<StrutturaVerticale>) verticaleRepository.findAll();
       
     }

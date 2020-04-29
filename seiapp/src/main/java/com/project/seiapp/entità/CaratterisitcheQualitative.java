@@ -23,7 +23,7 @@ public class CaratterisitcheQualitative {
     }
 
     public void setCaratteristicheQualitative(String caratteristicheQualitative) {
-        CaratteristicheQualitative = caratteristicheQualitative;
+        this.CaratteristicheQualitative = caratteristicheQualitative;
     }
 
 
