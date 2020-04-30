@@ -18,11 +18,9 @@
         <div class="form-group">
         <label for="struttura"><b>Caratteristiche qualitative e peculiarità negative</b></label>
         <select class="form-control" id="struttura" name="struttura">
-          <option value="strutturaArco">Scarsa qualità costruttiva</option>
-          <option value="strutturaParetiMuraturaPiena">Elevato degrado</option>
-          <option value="strutturaParetiMuraturaSacco">Pareti di elevate dimensioni non controventate</option>
-          <option value="strutturaParetiMuraturaSacco">Pannelli murari male ammorsati tra loro</option>
-        </select>
+          <option *ngFor="let CaratteristicheQualitative of caratteristica">
+            {{ CaratteristicheQualitative.caratteristicheQualitative }}
+          </option>        </select>
       </div>
 
       <button type="submit" class="btn btn-primary" class="btn btn-info">Avanti</button>
