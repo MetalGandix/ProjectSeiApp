@@ -5,9 +5,10 @@ import java.util.List;
 import com.project.seiapp.entità.CaratteristicheQualitative;
 import com.project.seiapp.repository.CaratteristicheQualitativeRepository;
 
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,6 +23,12 @@ public class CaratteristicheQualitativeController {
     @GetMapping("/caratteristicheQualitative")
     public List<CaratteristicheQualitative> getCaratteristiche(){
     return (List<CaratteristicheQualitative>) caratteristicheQualitativeRepository.findAll();
-      
     }
+
+    @PostMapping("/caratteristicheQualitative")
+    void addUser(@RequestBody CaratteristicheQualitative caratteristiche) {
+        caratteristicheQualitativeRepository.save(caratteristiche);
+    }
+      
+    
     }

@@ -7,6 +7,8 @@ import com.project.seiapp.repository.StrutturaVerticaleRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,6 +23,11 @@ public class StrutturaVerticaleController {
     @GetMapping("/strutturaVerticale")
     public List<StrutturaVerticale> getStruttura(){
     return (List<StrutturaVerticale>) verticaleRepository.findAll();
-      
     }
+
+    @PostMapping("/strutturaVerticale")
+    void addUser(@RequestBody StrutturaVerticale strutturaVerticale) {
+        verticaleRepository.save(strutturaVerticale);
+    }
+
     }
