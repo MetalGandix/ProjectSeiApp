@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+        <p><b>Inserisci un nuovo intervento</b></p>
+    </div>
+    <div class="card-body">
+
+        <form (ngSubmit)="onSubmitStrutturaVerticale()" #strutturaVerticaleForm="ngForm">
+            <div class="row" *ngIf="showMsg1">
+                <div class="col-xs-12">
+                    <div class="alert alert-success">
+                        <p>
+                            <strong>Struttura verticale aggiunta con successo!</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="strutturaVerticale">Struttura Verticale</label>
+                <input type="text" [(ngModel)]="strutturaVerticale.strutturaVerticale" class="form-control"
+                    id="strutturaVerticale" name="strutturaVerticale">
+            </div>
+
+            <div class="container" style="justify-content: center; margin-bottom: 40px;">
+                <button type="submit"  
+              class="btn btn-info">Submit</button>
+            </div>
+        </form>
+
+        <form (ngSubmit)="onSubmitCaratteristicaQualitativa()" #caratteristicaQualitativaForm="ngForm">
+            <div class="row" *ngIf="showMsg2">
+                <div class="col-xs-12">
+                    <div class="alert alert-success">
+                        <p>
+                            <strong>Caratteristica qualitativa aggiunta con successo!</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="caratteristicaQualitativa">Caratteristica Qualitativa</label>
+                <input type="text" [(ngModel)]="caratteristicaQualitativa.caratteristicheQualitative" class="form-control"
+                    id="caratteristicaQualitativa" name="caratteristicaQualitativa">
+            </div>
+
+            <div class="container" style="justify-content: center;">
+                <button type="submit" class="btn btn-info">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

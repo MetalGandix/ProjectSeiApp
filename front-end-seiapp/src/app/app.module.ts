@@ -10,6 +10,7 @@ import { IndividuazioneInterventiComponent } from './individuazione-interventi/i
 import { StrutturaVerticaleService } from './classi-servizi/service/struttura-verticale.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AggiungiInterventoComponent } from './aggiungi-intervento/aggiungi-intervento.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     LoginComponent,
     OptionComponent,
-    IndividuazioneInterventiComponent
+    IndividuazioneInterventiComponent,
+    AggiungiInterventoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
 export class StrutturaVerticale {
     id: number;
-    verticale: String;
+    strutturaVerticale: String;
 }
