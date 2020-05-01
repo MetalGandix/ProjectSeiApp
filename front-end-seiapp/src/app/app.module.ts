@@ -11,6 +11,7 @@ import { StrutturaVerticaleService } from './classi-servizi/service/struttura-ve
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AggiungiInterventoComponent } from './aggiungi-intervento/aggiungi-intervento.component';
+import { VisualizzaInterventiDisponibiliComponent } from './visualizza-interventi-disponibili/visualizza-interventi-disponibili.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AggiungiInterventoComponent } from './aggiungi-intervento/aggiungi-inte
     LoginComponent,
     OptionComponent,
     IndividuazioneInterventiComponent,
-    AggiungiInterventoComponent
+    AggiungiInterventoComponent,
+    VisualizzaInterventiDisponibiliComponent
   ],
   imports: [
     BrowserModule,

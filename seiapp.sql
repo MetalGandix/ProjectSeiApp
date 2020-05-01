@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 30, 2020 alle 17:00
+-- Creato il: Mag 01, 2020 alle 18:10
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -49,7 +49,11 @@ CREATE TABLE `caratterisitche_qualitative` (
 --
 
 INSERT INTO `caratterisitche_qualitative` (`id`, `caratteristiche_qualitative`) VALUES
-(1, 'caratteristica 1');
+(14, 'Scarsa qualità costruttiva'),
+(15, 'Elevato degrato'),
+(16, 'Presenza di numerose nicchie'),
+(17, 'Pareti di elevate dimensioni non controventate'),
+(18, 'Pannelli murari male ammorsati tra loro');
 
 -- --------------------------------------------------------
 
@@ -125,13 +129,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT per la tabella `caratterisitche_qualitative`
 --
 ALTER TABLE `caratterisitche_qualitative`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT per la tabella `struttura_verticale`
 --
 ALTER TABLE `struttura_verticale`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT per la tabella `user`
