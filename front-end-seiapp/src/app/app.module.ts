@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { OptionComponent } from './option/option.component';
 import { IndividuazioneInterventiComponent } from './individuazione-interventi/individuazione-interventi.component';
-import { StrutturaVerticaleService } from './struttura-verticale.service';
+import { StrutturaVerticaleService } from './classi-servizi/service/struttura-verticale.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StrutturaVerticaleService } from '../struttura-verticale.service';
+import { StrutturaVerticaleService } from '../classi-servizi/service/struttura-verticale.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StrutturaVerticale } from '../struttura-verticale';
-import { CaratteristicheQualitative } from '../caratteristiche-qualitative';
-import { CaratteristicheQualitativeService } from '../caratteristiche-qualitative.service';
+import { StrutturaVerticale } from '../classi-servizi/classes/struttura-verticale';
+import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 
 
 @Component({
@@ -18,7 +17,6 @@ export class IndividuazioneInterventiComponent implements OnInit {
   caratteristica: CaratteristicheQualitative[];
 
   constructor(private strutturaVerticaleService: StrutturaVerticaleService,
-    private caratteristicheQualitativeService: CaratteristicheQualitativeService,
               private route: ActivatedRoute,
               private router: Router) {
               this.struttura = new StrutturaVerticale();
@@ -30,7 +28,7 @@ export class IndividuazioneInterventiComponent implements OnInit {
       this.verticale = data;
     })
       
-      this.caratteristicheQualitativeService.getCaratteristicheQualitative().subscribe(data=>{
+      this.strutturaVerticaleService.getCaratteristicheQualitative().subscribe(data=>{
         this.caratteristica = data;
     })
   }
