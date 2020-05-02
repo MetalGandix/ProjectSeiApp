@@ -15,18 +15,26 @@ export class IndividuazioneInterventiComponent implements OnInit {
   struttura: StrutturaVerticale;
   verticale: StrutturaVerticale[];
   caratteristica: CaratteristicheQualitative[];
-
-
-
+  
   constructor(private strutturaVerticaleService: StrutturaVerticaleService,
     private route: ActivatedRoute,
     private router: Router) {
     this.struttura = new StrutturaVerticale();
   }
 
-
+  //Trasformo l'array di oggetti in un array di stringhe
   visualizzaArrayVerticale() {
-   this.verticale[0]
+    var elementiArrayVerticale = this.verticale.map(function(verticale) {
+      return verticale['strutturaVerticale'];
+    })
+    var elementiArrayCaratteristica = this.caratteristica.map(function(caratteristica){
+      return caratteristica['caratteristicheQualitative'];
+    })
+
+    if(elementiArrayVerticale[0] && elementiArrayCaratteristica[0]){
+      console.log("L'operazione consigliata è questa.")
+    }
+
   }
 
   ngOnInit() {
