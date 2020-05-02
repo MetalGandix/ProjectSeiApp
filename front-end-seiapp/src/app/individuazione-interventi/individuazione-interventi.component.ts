@@ -12,14 +12,12 @@ import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteris
 })
 export class IndividuazioneInterventiComponent implements OnInit {
 
-  struttura: StrutturaVerticale;
   verticale: StrutturaVerticale[];
   caratteristica: CaratteristicheQualitative[];
   
   constructor(private strutturaVerticaleService: StrutturaVerticaleService,
     private route: ActivatedRoute,
     private router: Router) {
-    this.struttura = new StrutturaVerticale();
   }
 
   //Trasformo l'array di oggetti in un array di stringhe

@@ -9,8 +9,8 @@
         <div class="form-group">
           <label for="struttura"><b>Struttura verticale</b></label>
           <select class="form-control" id="struttura" name="struttura">
-            <option *ngFor="let StrutturaVerticale of verticale">
-            {{ StrutturaVerticale.strutturaVerticale }}
+            <option *ngFor="let StrutturaVerticale of verticale; index as i">
+              {{i}} - {{ StrutturaVerticale.strutturaVerticale }}
           </option>
           </select>
         </div>
@@ -18,8 +18,8 @@
         <div class="form-group">
         <label for="struttura"><b>Caratteristiche qualitative e peculiarità negative</b></label>
         <select class="form-control" id="struttura" name="struttura">
-          <option *ngFor="let CaratteristicheQualitative of caratteristica">
-            {{ CaratteristicheQualitative.caratteristicheQualitative }}
+          <option *ngFor="let CaratteristicheQualitative of caratteristica; index as i">
+            {{i}} - {{ CaratteristicheQualitative.caratteristicheQualitative }}
           </option>        
         </select>
       </div>
