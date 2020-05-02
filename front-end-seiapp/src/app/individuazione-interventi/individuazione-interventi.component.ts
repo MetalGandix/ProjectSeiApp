@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { StrutturaVerticaleService } from '../classi-servizi/service/struttura-verticale.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StrutturaVerticale } from '../classi-servizi/classes/struttura-verticale';
@@ -12,13 +12,24 @@ import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteris
 })
 export class IndividuazioneInterventiComponent implements OnInit {
 
-  verticale: StrutturaVerticale[];
-  caratteristica: CaratteristicheQualitative[];
+  @Input('verticale') verticale: StrutturaVerticale[]; 
+  @Input('caratteristica') caratteristica: CaratteristicheQualitative[];
+
+  @Output() valori: EventEmitter<string> = new EventEmitter();
   
   constructor(private strutturaVerticaleService: StrutturaVerticaleService,
     private route: ActivatedRoute,
     private router: Router) {
   }
+
+  selectItem(value) {
+    this.valori.emit(value);
+  }
+
+ prova(){
+  var select1 = (<HTMLInputElement>document.getElementById("strutturaVerticale")).value;
+  document.write(select1);
+}
 
   //Trasformo l'array di oggetti in un array di stringhe
   visualizzaArrayVerticale() {
@@ -30,7 +41,9 @@ export class IndividuazioneInterventiComponent implements OnInit {
     })
 
     if(elementiArrayVerticale[0] && elementiArrayCaratteristica[0]){
-      console.log("L'operazione consigliata è questa.")
+      alert("Hello! I am an alert box!!");
+    }else{
+      console.log("errore")
     }
 
   }

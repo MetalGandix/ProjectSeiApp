@@ -7,24 +7,22 @@
       <form>
 
         <div class="form-group">
-          <label for="struttura"><b>Struttura verticale</b></label>
-          <select class="form-control" id="struttura" name="struttura">
+          <label for="struttura" ><b>Struttura verticale</b></label>
+          <select value="verticale" class="form-control" id="strutturaVerticale" name="struttura">
             <option *ngFor="let StrutturaVerticale of verticale; index as i">
               {{i}} - {{ StrutturaVerticale.strutturaVerticale }}
           </option>
           </select>
-        </div>
-
-        <div class="form-group">
-        <label for="struttura"><b>Caratteristiche qualitative e peculiarità negative</b></label>
-        <select class="form-control" id="struttura" name="struttura">
+        
+        <label for="struttura" style="margin-top: 30px"><b>Caratteristiche qualitative e peculiarità negative</b></label>
+        <select value="caratteristica" class="form-control" id="strutturaCaratteristica" name="struttura">
           <option *ngFor="let CaratteristicheQualitative of caratteristica; index as i">
             {{i}} - {{ CaratteristicheQualitative.caratteristicheQualitative }}
           </option>        
         </select>
-      </div>
 
-      <button type="submit" class="btn btn-primary" (click)="visualizzaArrayVerticale()" class="btn btn-info">Avanti</button>
+        <button type="submit" (click)="prova()" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
+      </div>
 
       </form>
     </div>
