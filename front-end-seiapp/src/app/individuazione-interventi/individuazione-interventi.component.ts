@@ -32,7 +32,7 @@ export class IndividuazioneInterventiComponent implements OnInit {
     alert("Il metodo selezionato è questo: 0-0 ")
   }
   if(valore1.valueOf() == 0 && valore2.valueOf() == 1){
-    alert("Il metodo selezionato è questo: 0-1 ")
+    window.open("http://localhost:4200/home")
   }
   if(valore1.valueOf() == 0 && valore2.valueOf() == 2){
     alert("Il metodo selezionato è questo: 0-2 ")
