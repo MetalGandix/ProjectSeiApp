@@ -28,7 +28,34 @@ export class IndividuazioneInterventiComponent implements OnInit {
 
  prova(){
   var select1 = (<HTMLInputElement>document.getElementById("strutturaVerticale")).value;
-  document.write(select1);
+  var select2 = (<HTMLInputElement>document.getElementById("strutturaCaratteristica")).value;
+  var valore1 = parseInt(select1)
+  var valore2 = parseInt(select2)
+  //Scrive i valori presi in input document.write(select1,select2);
+  if(valore1.valueOf() == 0 && valore2.valueOf() == 0){
+    alert("Il metodo selezionato è questo: 0-0 ")
+  }
+  if(valore1.valueOf() == 0 && valore2.valueOf() == 1){
+    alert("Il metodo selezionato è questo: 0-1 ")
+  }
+  if(valore1.valueOf() == 0 && valore2.valueOf() == 2){
+    alert("Il metodo selezionato è questo: 0-2 ")
+  }
+  if(valore1.valueOf() == 0 && valore2.valueOf() == 3){
+    alert("Il metodo selezionato è questo: 0-3 ")
+  }
+  if(valore1.valueOf() == 0 && valore2.valueOf() == 4){
+    alert("Il metodo selezionato è questo: 0-4 ")
+  }
+  if(valore1.valueOf() == 0 && valore2.valueOf() == 5){
+    alert("Il metodo selezionato è questo: 0-5 ")
+  }
+  if(valore1.valueOf() == 1 && valore2.valueOf() == 0){
+    alert("Il metodo selezionato è questo: 1-0 ")
+  }
+  if(valore1.valueOf() == 2 && valore2.valueOf() == 0){
+    alert("Il metodo selezionato è questo: 2-0 ")
+  }
 }
 
   //Trasformo l'array di oggetti in un array di stringhe
