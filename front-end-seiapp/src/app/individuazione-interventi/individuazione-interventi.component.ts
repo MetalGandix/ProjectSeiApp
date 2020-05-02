@@ -43,9 +43,6 @@ export class IndividuazioneInterventiComponent implements OnInit {
   if(valore1.valueOf() == 0 && valore2.valueOf() == 4){
     alert("Il metodo selezionato è questo: 0-4 ")
   }
-  if(valore1.valueOf() == 0 && valore2.valueOf() == 5){
-    alert("Il metodo selezionato è questo: 0-5 ")
-  }
   if(valore1.valueOf() == 1 && valore2.valueOf() == 0){
     alert("Il metodo selezionato è questo: 1-0 ")
   }
@@ -61,14 +58,20 @@ export class IndividuazioneInterventiComponent implements OnInit {
   if(valore1.valueOf() == 1 && valore2.valueOf() == 4){
     alert("Il metodo selezionato è questo: 1-4 ")
   }
-  if(valore1.valueOf() == 1 && valore2.valueOf() == 5){
-    alert("Il metodo selezionato è questo: 1-5 ")
-  }
   if(valore1.valueOf() == 2 && valore2.valueOf() == 0){
     alert("Il metodo selezionato è questo: 2-0 ")
   }
   if(valore1.valueOf() == 2 && valore2.valueOf() == 1){
     alert("Il metodo selezionato è questo: 2-1 ")
+  }
+  if(valore1.valueOf() == 2 && valore2.valueOf() == 2){
+    alert("Il metodo selezionato è questo: 2-2 ")
+  }
+  if(valore1.valueOf() == 2 && valore2.valueOf() == 3){
+    alert("Il metodo selezionato è questo: 2-3 ")
+  }
+  if(valore1.valueOf() == 2 && valore2.valueOf() == 4){
+    alert("Il metodo selezionato è questo: 2-4 ")
   }
 }  
 
@@ -109,20 +112,6 @@ export class IndividuazioneInterventiComponent implements OnInit {
       alert("Hello! I am an alert box!!");
     }else{
       console.log("errore")
-    }
-
-  }
-
-  onSubmit() {
-    var oggettoStrutturaVerticale: StrutturaVerticale = new StrutturaVerticale();
-    if (oggettoStrutturaVerticale.strutturaVerticale == "Struttura ad arco in muratura") {
-      console.log("Hai selezionato struttura ad arco in muratura");
-    }
-    if (oggettoStrutturaVerticale.strutturaVerticale == "Struttura a pareti portanti in muratura piena") {
-      console.log("Hai selezionato struttura a pareti portanti in muratura piena");
-    }
-    if (oggettoStrutturaVerticale.strutturaVerticale == "Struttura a pareti portanti in muratura a sacco") {
-      console.log("Hai selezionato struttura a pareti portanti in muratura a sacco");
     }
 
   }
