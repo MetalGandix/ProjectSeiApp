@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { StrutturaVerticaleService } from '../classi-servizi/service/struttura-verticale.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StrutturaVerticale } from '../classi-servizi/classes/struttura-verticale';
@@ -22,7 +22,7 @@ export class IndividuazioneInterventiComponent implements OnInit {
     private router: Router) {
   }
 
- prova(){
+ outputSelezione(){
   var select1 = (<HTMLInputElement>document.getElementById("strutturaVerticale")).value;
   var select2 = (<HTMLInputElement>document.getElementById("strutturaCaratteristica")).value;
   var valore1 = parseInt(select1)
@@ -79,27 +79,12 @@ export class IndividuazioneInterventiComponent implements OnInit {
     this.strutturaVerticaleService.getStrutturaVerticale().subscribe(data => {
       this.verticale = data;
     })
-
     this.strutturaVerticaleService.getCaratteristicheQualitative().subscribe(data => {
       this.caratteristica = data;
     })
   }
 
-
-
- 
-
-  /* 
-  PROVE JAVASCRIPT
-
-  prova(){
-    this.verticale.forEach(this.funzioneProva);
-  }
-  funzioneProva(item, index){
-    console.log(document.getElementById("demo").innerHTML += index + ":" + item + "");
-  }*/
-
-  //Trasformo l'array di oggetti in un array di stringhe
+  //Trasformo l'array di oggetti in un array di stringhe, non ci serve per ora
   visualizzaArrayVerticale() {
     var elementiArrayVerticale = this.verticale.map(function(verticale) {
       return verticale['strutturaVerticale'];
@@ -109,7 +94,7 @@ export class IndividuazioneInterventiComponent implements OnInit {
     })
 
     if(elementiArrayVerticale[0] && elementiArrayCaratteristica[0]){
-      alert("Hello! I am an alert box!!");
+      alert("funziona");
     }else{
       console.log("errore")
     }
