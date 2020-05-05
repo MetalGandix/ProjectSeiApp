@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AggiungiInterventoComponent } from './aggiungi-intervento/aggiungi-intervento.component';
 import { VisualizzaInterventiDisponibiliComponent } from './visualizza-interventi-disponibili/visualizza-interventi-disponibili.component';
+import { A1Component } from './a1/a1.component';
+import { A2Component } from './a2/a2.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { VisualizzaInterventiDisponibiliComponent } from './visualizza-intervent
     OptionComponent,
     IndividuazioneInterventiComponent,
     AggiungiInterventoComponent,
-    VisualizzaInterventiDisponibiliComponent
+    VisualizzaInterventiDisponibiliComponent,
+    A1Component,
+    A2Component
   ],
   imports: [
     BrowserModule,

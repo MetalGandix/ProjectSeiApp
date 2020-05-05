@@ -32,10 +32,10 @@ export class IndividuazioneInterventiComponent implements OnInit {
     alert("Il metodo selezionato è questo: 0-0 ")
   }
   if(valore1.valueOf() == 0 && valore2.valueOf() == 1){
-    this.router.navigate(['/home']);
+    this.router.navigate(['/a1']);
   }
   if(valore1.valueOf() == 0 && valore2.valueOf() == 2){
-    alert("Il metodo selezionato è questo: 0-2 ")
+    this.router.navigate(['/a2']);
   }
   if(valore1.valueOf() == 0 && valore2.valueOf() == 3){
     alert("Il metodo selezionato è questo: 0-3 ")
