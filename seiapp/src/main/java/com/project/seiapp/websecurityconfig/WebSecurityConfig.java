@@ -66,7 +66,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// We don't need CSRF for this example
 		httpSecurity.csrf().disable()
 				//Serve per autenticare queste pagine senza uso di alcun token (più avanti le toglieremo)
-				.authorizeRequests().antMatchers("/authenticate", "/register","/strutturaVerticale", "/caratteristicheQualitative").permitAll().
+				.authorizeRequests().antMatchers("/authenticate","/interventoA2","/interventoA1","/interventoA1/{interventoid}","/interventoA2{interventoid}", "/register","/strutturaVerticale", "/caratteristicheQualitative").permitAll().
 				
 				anyRequest().authenticated().and().
 				exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
