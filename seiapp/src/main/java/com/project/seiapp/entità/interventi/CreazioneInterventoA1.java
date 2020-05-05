@@ -1,5 +1,6 @@
 package com.project.seiapp.entità.interventi;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +12,13 @@ import javax.persistence.Table;
 public class CreazioneInterventoA1 {
 
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column
     private String titolo;
+    @Column
     private String corpo;
+    @Column
     private String immagine;
 
     public String getTitolo() {
