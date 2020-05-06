@@ -4,20 +4,31 @@
     </div>
     <div class="card-body">
 
-        <form (ngSubmit)="onSubmitStrutturaVerticale()" #strutturaVerticaleForm="ngForm">
+        <form (ngSubmit)="onSubmitA1()" #interventoA1Form="ngForm">
             <div class="row" *ngIf="showMsg1">
                 <div class="col-xs-12">
                     <div class="alert alert-success">
                         <p>
-                            <strong>Struttura verticale aggiunta con successo!</strong>
+                            <strong>InterventoA1 aggiunto con successo</strong>
                         </p>
+                        <a routerLink="/a1" routerLinkActive="active">Guarda l'intervento A1</a>
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="strutturaVerticale">Struttura Verticale</label>
-                <input type="text" [(ngModel)]="strutturaVerticale.strutturaVerticale" class="form-control"
-                    id="strutturaVerticale" name="strutturaVerticale">
+                <label for="interventoA1">Inserisci il titolo dell'intervento A1</label>
+                <input type="text" [(ngModel)]="interventoA1.titolo" class="form-control"
+                    id="interventoA1" name="interventoA1">
+            </div>
+            <div class="form-group">
+                <label for="interventoA1">Inserisci il corpo dell'intervento A1</label>
+                <input type="text" [(ngModel)]="interventoA1.corpo" class="form-control"
+                    id="interventoA1" name="interventoA1">
+            </div>
+            <div class="form-group">
+                <label for="interventoA1">Inserisci l'immagine dell'intervento A1</label>
+                <input type="file" [(ngModel)]="interventoA1.immagine" class="form-control"
+                    id="interventoA1" name="interventoA1">
             </div>
 
             <div class="container" style="justify-content: center; margin-bottom: 40px;">
@@ -26,20 +37,31 @@
             </div>
         </form>
 
-        <form (ngSubmit)="onSubmitCaratteristicaQualitativa()" #caratteristicaQualitativaForm="ngForm">
+        <form (ngSubmit)="onSubmitA2()" #interventoA2Form="ngForm">
             <div class="row" *ngIf="showMsg2">
                 <div class="col-xs-12">
                     <div class="alert alert-success">
                         <p>
-                            <strong>Caratteristica qualitativa aggiunta con successo!</strong>
+                            <strong>InterventoA2 aggiunto con successo</strong>
                         </p>
+                        <a routerLink="/a2" routerLinkActive="active">Guarda l'intervento A2</a>
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="caratteristicaQualitativa">Caratteristica Qualitativa</label>
-                <input type="text" [(ngModel)]="caratteristicaQualitativa.caratteristicheQualitative" class="form-control"
-                    id="caratteristicaQualitativa" name="caratteristicaQualitativa">
+                <label for="interventoA2">Inserisci il titolo dell'intervento A2</label>
+                <input type="text" [(ngModel)]="interventoA2.titolo" class="form-control"
+                    id="interventoA2" name="InterventoA2">
+            </div>
+            <div class="form-group">
+                <label for="interventoA2">Inserisci il corpo dell'intervento A2</label>
+                <input type="text" [(ngModel)]="interventoA2.corpo" class="form-control"
+                    id="interventoA2" name="InterventoA2">
+            </div>
+            <div class="form-group">
+                <label for="interventoA2">Inserisci l'immagine dell'intervento A2</label>
+                <input type="file" [(ngModel)]="interventoA2.immagine" class="form-control"
+                    id="interventoA2" name="InterventoA2">
             </div>
 
             <div class="container" style="justify-content: center;">

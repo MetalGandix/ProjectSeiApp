@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
-import { StrutturaVerticale } from '../classi-servizi/classes/struttura-verticale';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StrutturaVerticaleService } from '../classi-servizi/service/struttura-verticale.service';
+import { InterventoA1 } from '../classi-servizi/classes/intervento-a1';
+import { InterventoA2 } from '../classi-servizi/classes/intervento-a2';
+import { InterventiService } from '../classi-servizi/service/interventi.service';
 
 @Component({
   selector: 'app-aggiungi-intervento',
@@ -11,8 +11,8 @@ import { StrutturaVerticaleService } from '../classi-servizi/service/struttura-v
 })
 export class AggiungiInterventoComponent {
 
-  caratteristicaQualitativa: CaratteristicheQualitative;
-  strutturaVerticale: StrutturaVerticale;
+  interventoA1: InterventoA1;
+  interventoA2: InterventoA2;
   showMsg1: boolean = false;
   showMsg2: boolean = false;
 
@@ -20,19 +20,19 @@ export class AggiungiInterventoComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private servizio: StrutturaVerticaleService) {
-    this.caratteristicaQualitativa = new CaratteristicheQualitative();
-    this.strutturaVerticale = new StrutturaVerticale();
+    private interventoService: InterventiService) {
+    this.interventoA1 = new InterventoA1();
+    this.interventoA2 = new InterventoA2();
   }
 
-  onSubmitStrutturaVerticale() {
-    this.servizio.saveStrutturaVerticale(this.strutturaVerticale).subscribe(data => {
+  onSubmitA1() {
+    this.interventoService.saveA1(this.interventoA1).subscribe(data => {
       this.showMsg1 = true;
         })
   }
 
-  onSubmitCaratteristicaQualitativa(){
-    this.servizio.saveCaratteristicaQualitativa(this.caratteristicaQualitativa).subscribe(data => {
+  onSubmitA2(){
+    this.interventoService.saveA2(this.interventoA2).subscribe(data => {
       this.showMsg2 = true;
       })
   }
