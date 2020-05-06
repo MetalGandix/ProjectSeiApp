@@ -5,6 +5,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CaratteristicheQualitative } from '../classes/caratteristiche-qualitative';
 
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'Bearer'
+  })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,8 +44,5 @@ export class StrutturaVerticaleService {
   public saveCaratteristicaQualitativa(caratteristicheQualitativa: CaratteristicheQualitative){
     return this.http.post<CaratteristicheQualitative>(this.url + 'caratteristicheQualitative', caratteristicheQualitativa);
   }
-
-  
-
  
 }
