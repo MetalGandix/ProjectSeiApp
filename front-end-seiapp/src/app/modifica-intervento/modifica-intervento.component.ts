@@ -13,12 +13,36 @@ export class ModificaInterventoComponent implements OnInit {
 
   interventoA2: InterventoA2[];
   interventoA1: InterventoA1[];
+  interventoa1: InterventoA1;
+  interventoa2: InterventoA2;
+  showMsg: boolean = false;
 
   constructor(
     private interventoService: InterventiService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+    this.interventoa1 = new InterventoA1();
+    this.interventoa2 = new InterventoA2();
+   }
+
+  aggiornaInterventoA1(interventoa1: InterventoA1){
+    console.log(interventoa1);
+    this.interventoService.updateA1(interventoa1).subscribe(()=>{
+      this.showMsg=true;
+    },err=>{
+      console.log(err)
+    })
+  }
+
+  aggiornaInterventoA2(interventoa2: InterventoA2){
+    console.log(interventoa2);
+    this.interventoService.updateA2(interventoa2).subscribe(()=>{
+      this.showMsg=true;
+    },err=>{
+      console.log(err)
+    })
+  }
 
   ngOnInit(){
     this.interventoService.getA1().subscribe(data =>{

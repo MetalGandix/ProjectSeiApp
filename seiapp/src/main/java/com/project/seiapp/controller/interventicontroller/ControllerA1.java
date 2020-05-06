@@ -43,6 +43,9 @@ public class ControllerA1 {
 
     @PutMapping("/interventoA1/{interventoA1id}")
     public CreazioneInterventoA1 saveOrUpdateIntervento(@RequestBody CreazioneInterventoA1 interventoA1) {
+        interventoA1.getTitolo();
+        interventoA1.getCorpo();
+        interventoA1.getImmagine();
         a1Repository.save(interventoA1);
         return interventoA1;
     }

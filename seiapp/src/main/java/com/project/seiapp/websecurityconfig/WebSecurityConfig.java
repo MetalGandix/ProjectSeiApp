@@ -25,6 +25,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
+			
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
@@ -63,11 +65,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		// We don't need CSRF for this example
 		httpSecurity.csrf().disable()
 				//Serve per autenticare queste pagine senza uso di alcun token (più avanti le toglieremo)
-				.authorizeRequests().antMatchers("/authenticate","/interventoA2","/interventoA1","/interventoA1/{interventoid}","/interventoA2{interventoid}", "/register","/strutturaVerticale", "/caratteristicheQualitative").permitAll().
-				
+				.authorizeRequests().antMatchers("/authenticate","/interventoA2","/interventoA1","/interventoA1/{interventoA1id}","/interventoA1/{titolo}","/interventoA2/{interventoA2id}", "/register","/strutturaVerticale", "/caratteristicheQualitative").permitAll().	
 				anyRequest().authenticated().and().
 				exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
