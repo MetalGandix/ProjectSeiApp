@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { InterventoA1 } from '../classi-servizi/classes/intervento-a1';
+import { InterventiService } from '../classi-servizi/service/interventi.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-a1',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class A1Component implements OnInit {
 
-  constructor() { }
+  interventoA1: InterventoA1[]
 
-  ngOnInit(): void {
+  constructor(
+    private interventoa1Service: InterventiService,
+    private route: ActivatedRoute,
+    private router: Router) 
+    {     }
+
+  ngOnInit() {
+    this.interventoa1Service.getA1().subscribe(data =>{
+      this.interventoA1 = data;
+    })
   }
 
 }

@@ -1,18 +1,11 @@
-<div class="container">
+<div class="container" *ngFor="let InterventoA1 of interventoA1">
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-        <p><b>Intervento A1</b></p>
+        <p><b>Titolo Intervento:</b> {{InterventoA1.titolo}}</p>
     </div>
-    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-        <p><b>Titolo Intervento</b></p>
+    <div class="corpo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+        <p><b>Testo:</b> {{InterventoA1.corpo}}</p>
     </div>
-    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-        <p><b>Testo</b></p>
+    <div class="immagine" style="text-align: center;margin-top: 30px; font-size: 30px;">
+        <p><b>immagine:</b> {{InterventoA1.immagine}}</p>
     </div>
-
-
-   
-
-        
-      
-    
 </div>
