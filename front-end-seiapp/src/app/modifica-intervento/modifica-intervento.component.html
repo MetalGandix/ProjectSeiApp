@@ -1,0 +1,32 @@
+<div style="float: left; margin-left: 40px;">
+<div class="container" style="margin-top: 30px;" *ngFor="let InterventoA1 of interventoA1">
+    <div class="titolo" style="text-align: center;margin-top: 10px; font-size: 15px;">
+        <p><b>Titolo Intervento:</b></p>
+        <input type="text" [(ngModel)]="InterventoA1.titolo">
+    </div>
+    <div class="corpo" style="text-align: center;margin-top: 10px; font-size: 15px;">
+        <p><b>Testo:</b></p>
+        <input type="text" [(ngModel)]="InterventoA1.corpo">
+    </div>
+    <div class="immagine" style="text-align: center;margin-top: 10px; margin-bottom:30px; font-size: 15px;">
+        <p><b>immagine:</b></p>        
+        <input type="text" [(ngModel)]="InterventoA1.immagine">
+    </div>
+</div>
+
+<div class="container1" *ngFor="let InterventoA2 of interventoA2" style="margin-top: 90px; margin-bottom: 20px;">
+    <div class="titolo" style="text-align: center;margin-top: 10px; font-size: 15px;">
+        <p><b>Titolo Intervento:</b></p>
+        <input type="text" [(ngModel)]="InterventoA2.titolo">
+
+    </div>
+    <div class="corpo" style="text-align: center;margin-top: 10px; font-size: 15px;">
+        <p><b>Testo:</b></p>
+        <input type="text" [(ngModel)]="InterventoA2.corpo">
+    </div>
+    <div class="immagine" style="text-align: center;margin-top: 10px; font-size: 15px;">
+        <p><b>immagine:</b></p>
+        <input type="text" [(ngModel)]="InterventoA2.immagine">
+    </div>
+</div>
+</div>

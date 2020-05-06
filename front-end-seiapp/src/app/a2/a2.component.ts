@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class A2Component implements OnInit {
 
-  interventoA2: InterventoA2[]
+  interventoA2: InterventoA2[];
 
   constructor(
     private interventoa2Service: InterventiService,

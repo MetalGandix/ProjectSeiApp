@@ -7,6 +7,7 @@ import { IndividuazioneInterventiComponent } from './individuazione-interventi/i
 import { AggiungiInterventoComponent } from './aggiungi-intervento/aggiungi-intervento.component';
 import { A1Component } from './a1/a1.component';
 import { A2Component } from './a2/a2.component';
+import { ModificaInterventoComponent } from './modifica-intervento/modifica-intervento.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'aggiungi-intervento', component: AggiungiInterventoComponent },
   { path: 'a1', component: A1Component },
   { path: 'a2', component: A2Component },
+  { path: 'modifica-interventi', component: ModificaInterventoComponent },
 
 ];
 

@@ -14,6 +14,7 @@ import { AggiungiInterventoComponent } from './aggiungi-intervento/aggiungi-inte
 import { VisualizzaInterventiDisponibiliComponent } from './visualizza-interventi-disponibili/visualizza-interventi-disponibili.component';
 import { A1Component } from './a1/a1.component';
 import { A2Component } from './a2/a2.component';
+import { ModificaInterventoComponent } from './modifica-intervento/modifica-intervento.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { A2Component } from './a2/a2.component';
     AggiungiInterventoComponent,
     VisualizzaInterventiDisponibiliComponent,
     A1Component,
-    A2Component
+    A2Component,
+    ModificaInterventoComponent
   ],
   imports: [
     BrowserModule,
