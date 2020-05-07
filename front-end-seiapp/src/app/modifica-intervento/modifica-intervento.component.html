@@ -2,16 +2,18 @@
 <div class="container" style="margin-top: 30px;" *ngFor="let InterventoA1 of interventoA1; let x = index;">
     <div class="titolo" style="text-align: center;margin-top: 10px; font-size: 15px;">
         <p><b>Titolo Intervento:</b></p>
-        <input type="text" [(ngModel)]="interventoA1[x].titolo" class="form-control">
+        <input type="text" style="margin-right: 15px;" [(ngModel)]="interventoA1[x].titolo">
         <button class="btn btn-danger" (click)="aggiornaInterventoA1(interventoA1[x])">Cambia il titolo</button>
     </div>
     <div class="corpo" style="text-align: center;margin-top: 10px; font-size: 15px;">
         <p><b>Testo:</b></p>
-        <input type="text" [(ngModel)]="InterventoA1.corpo">
+        <input type="text" style="margin-right: 15px;" [(ngModel)]="interventoA1[x].corpo">
+        <button class="btn btn-danger" (click)="aggiornaInterventoA1(interventoA1[x])">Cambia il corpo</button>
     </div>
     <div class="immagine" style="text-align: center;margin-top: 10px; margin-bottom:30px; font-size: 15px;">
         <p><b>immagine:</b></p>        
-        <input type="text" [(ngModel)]="InterventoA1.immagine">
+        <input type="text" style="margin-right: 15px;" [(ngModel)]="interventoA1[x].immagine">
+        <button class="btn btn-danger" (click)="aggiornaInterventoA1(interventoA1[x])">Cambia l'immagine</button>
     </div>
     <div class="row" style="margin-top: 30px; width: 350px; height: 350px;" *ngIf="showMsg">
         <div class="col-xs-12">
@@ -25,19 +27,21 @@
       </div>
 </div>
 
-<div class="container1" *ngFor="let InterventoA2 of interventoA2" style="margin-top: 90px; margin-bottom: 20px;">
+<div class="container1" *ngFor="let InterventoA2 of interventoA2; let x = index;" style="margin-top: 90px; margin-bottom: 20px;">
     <div class="titolo" style="text-align: center;margin-top: 10px; font-size: 15px;">
         <p><b>Titolo Intervento:</b></p>
-        <input type="text" [(ngModel)]="InterventoA2.titolo">
-
+        <input type="text" style="margin-right: 15px;" [(ngModel)]="interventoA2[x].titolo">
+        <button class="btn btn-danger" (click)="aggiornaInterventoA1(interventoA2[x])">Cambia il titolo</button>
     </div>
     <div class="corpo" style="text-align: center;margin-top: 10px; font-size: 15px;">
         <p><b>Testo:</b></p>
-        <input type="text" [(ngModel)]="InterventoA2.corpo">
+        <input type="text" style="margin-right: 15px;" [(ngModel)]="interventoA2[x].corpo">
+        <button class="btn btn-danger" (click)="aggiornaInterventoA1(interventoA2[x])">Cambia il corpo</button>
     </div>
     <div class="immagine" style="text-align: center;margin-top: 10px; font-size: 15px;">
         <p><b>immagine:</b></p>
-        <input type="text" [(ngModel)]="InterventoA2.immagine">
+        <input type="text" style="margin-right: 15px;" [(ngModel)]="interventoA2[x].immagine">
+        <button class="btn btn-danger" (click)="aggiornaInterventoA1(interventoA2[x])">Cambia l'immagine</button>
     </div>
 </div>
 </div>
