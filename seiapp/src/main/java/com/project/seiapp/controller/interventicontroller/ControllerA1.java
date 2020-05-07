@@ -30,7 +30,11 @@ public class ControllerA1 {
 
     @PostMapping("/interventoA1")
     public CreazioneInterventoA1 postMethodName(@RequestBody CreazioneInterventoA1 a1) {
-        a1Repository.save(a1);
+        if(a1Repository.findAll().isEmpty() == true){
+            a1Repository.save(a1);
+        }else{
+            System.out.println("L'intervento esiste già nel db");
+        }
         return a1;
     }
 
