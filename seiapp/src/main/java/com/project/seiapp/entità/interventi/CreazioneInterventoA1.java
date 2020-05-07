@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class CreazioneInterventoA1 {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String titolo;
@@ -20,10 +20,6 @@ public class CreazioneInterventoA1 {
     private String corpo;
     @Column
     private String immagine;
-
-    public CreazioneInterventoA1(final long Id){
-        this.id = id;
-    }
 
     public String getTitolo() {
         return titolo;
@@ -49,17 +45,5 @@ public class CreazioneInterventoA1 {
         this.immagine = immagine;
     }
     
-    @Override
-	public String toString(){
-		return "" + id + "" + titolo + "" + corpo + "" + immagine + "";
-	}
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(final long id) {
-        this.id = id;
-    }
     
 }
