@@ -28,7 +28,7 @@ export class AggiungiInterventoComponent {
   onSubmitA1() {
     this.interventoService.saveA1(this.interventoA1).subscribe(data => {
       this.showMsg1 = true;
-        })
+      })
   }
 
   onSubmitA2(){

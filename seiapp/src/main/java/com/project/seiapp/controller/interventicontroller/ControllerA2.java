@@ -39,17 +39,21 @@ public class ControllerA2 {
         return a2;
     }
 
-    @DeleteMapping("/interventoA2/{interventoA2id}")
-    public String deleteIntervento(@PathVariable String interventoId) {
+    @DeleteMapping("/interventoA2/{id}")
+    public String deleteIntervento(@PathVariable Long interventoId) {
         CreazioneInterventoA2 intervento = a2repository.getOne(interventoId);
         a2repository.delete(intervento);
         return "Elemento cancellato";
     }
 
-    @PutMapping("/interventoA2/{interventoA2id}")
-    public CreazioneInterventoA2 saveOrUpdateIntervento(@RequestBody CreazioneInterventoA2 interventoA2) {
-        a2repository.save(interventoA2);
-        return interventoA2;
+    @PutMapping("/interventoA2/{id}")
+    public CreazioneInterventoA2 saveOrUpdateIntervento(@RequestBody CreazioneInterventoA2 a2) {
+        if(a2repository.findAll().isEmpty() == true){
+            a2repository.save(a2);
+        }else{
+            System.out.println("Esiste già l'intervento nel DB");
+        }
+        return a2;
     }
 
 }

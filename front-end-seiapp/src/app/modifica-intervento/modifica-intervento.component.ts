@@ -15,7 +15,9 @@ export class ModificaInterventoComponent implements OnInit {
   interventoA1: InterventoA1[];
   interventoa1: InterventoA1;
   interventoa2: InterventoA2;
-  showMsg: boolean = false;
+  showMsg1: boolean = false;
+  showMsg2: boolean = false;
+
 
   constructor(
     private interventoService: InterventiService,
@@ -28,8 +30,10 @@ export class ModificaInterventoComponent implements OnInit {
 
   aggiornaInterventoA1(interventoa1: InterventoA1){
     console.log(interventoa1);
-    this.interventoService.updateA1(interventoa1).subscribe(()=>{
-      this.showMsg=true;
+    this.interventoService
+    .updateA1(interventoa1)
+    .subscribe(()=>{
+      this.showMsg1=true;
     },err=>{
       console.log(err)
     })
@@ -37,8 +41,10 @@ export class ModificaInterventoComponent implements OnInit {
 
   aggiornaInterventoA2(interventoa2: InterventoA2){
     console.log(interventoa2);
-    this.interventoService.updateA2(interventoa2).subscribe(()=>{
-      this.showMsg=true;
+    this.interventoService
+    .updateA2(interventoa2)
+    .subscribe(()=>{
+      this.showMsg2=true;
     },err=>{
       console.log(err)
     })

@@ -38,20 +38,20 @@ public class ControllerA1 {
         return a1;
     }
 
-    @DeleteMapping("/interventoA1/{interventoA1id}")
-    public String deleteIntervento(@PathVariable String interventoId) {
+    @DeleteMapping("/interventoA1/{id}")
+    public String deleteIntervento(@PathVariable Long interventoId) {
         CreazioneInterventoA1 intervento = a1Repository.getOne(interventoId);
         a1Repository.delete(intervento);
         return "Elemento cancellato";
     }
 
-    @PutMapping("/interventoA1/{interventoA1id}")
-    public CreazioneInterventoA1 saveOrUpdateIntervento(@RequestBody CreazioneInterventoA1 interventoA1) {
-        interventoA1.getTitolo();
-        interventoA1.getCorpo();
-        interventoA1.getImmagine();
-        a1Repository.save(interventoA1);
-        return interventoA1;
+    @PutMapping("/interventoA1/{id}")
+    public CreazioneInterventoA1 saveOrUpdateIntervento(@RequestBody CreazioneInterventoA1 a1) {
+        a1.getTitolo();
+        a1.getCorpo();
+        a1.getImmagine();
+        a1Repository.save(a1);
+        return a1;
     }
 
 }
