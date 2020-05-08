@@ -15,6 +15,9 @@ import { VisualizzaInterventiDisponibiliComponent } from './visualizza-intervent
 import { A1Component } from './a1/a1.component';
 import { A2Component } from './a2/a2.component';
 import { ModificaInterventoComponent } from './modifica-intervento/modifica-intervento.component';
+import { SceltaEdificioComponent } from './scelta-edificio/scelta-edificio.component';
+import { EdificioSingoloComponent } from './edificio-singolo/edificio-singolo.component';
+import { EdificioInaggregatoComponent } from './edificio-inaggregato/edificio-inaggregato.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { ModificaInterventoComponent } from './modifica-intervento/modifica-inte
     VisualizzaInterventiDisponibiliComponent,
     A1Component,
     A2Component,
-    ModificaInterventoComponent
+    ModificaInterventoComponent,
+    SceltaEdificioComponent,
+    EdificioSingoloComponent,
+    EdificioInaggregatoComponent
   ],
   imports: [
     BrowserModule,
