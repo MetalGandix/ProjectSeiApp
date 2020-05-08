@@ -20,7 +20,7 @@ public class StrutturaVerticaleController {
 
     private StrutturaVerticaleRepository verticaleRepository;
 
-    @GetMapping("/strutturaVerticale/{id}")
+    @GetMapping("/strutturaVerticale")
     public List<StrutturaVerticale> getStruttura(){
     return (List<StrutturaVerticale>) verticaleRepository.findAll();
     }

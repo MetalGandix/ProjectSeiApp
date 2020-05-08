@@ -8,7 +8,9 @@ import { AggiungiInterventoComponent } from './aggiungi-intervento/aggiungi-inte
 import { A1Component } from './a1/a1.component';
 import { A2Component } from './a2/a2.component';
 import { ModificaInterventoComponent } from './modifica-intervento/modifica-intervento.component';
-import { SceltaEdificioComponent } from './scelta-edificio/scelta-edificio.component';
+import { SceltaEdificioComponent } from './edificio/scelta-edificio/scelta-edificio.component';
+import { EdificioSingoloComponent } from './edificio/edificio-singolo/edificio-singolo.component';
+import { EdificioInaggregatoComponent } from './edificio/edificio-inaggregato/edificio-inaggregato.component';
 
 
 const routes: Routes = [
@@ -21,10 +23,8 @@ const routes: Routes = [
   { path: 'a2', component: A2Component },
   { path: 'modifica-interventi', component: ModificaInterventoComponent },
   { path: 'scelta-edificio', component: SceltaEdificioComponent },
-  { path: 'edificio-singolo', component: SceltaEdificioComponent },
-  { path: 'edificio-inaggregato', component: SceltaEdificioComponent },
-
-
+  { path: 'edificio-singolo', component: EdificioSingoloComponent },
+  { path: 'edificio-inaggregato', component: EdificioInaggregatoComponent }
 ];
 
 @NgModule({
