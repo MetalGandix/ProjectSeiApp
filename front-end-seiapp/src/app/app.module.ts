@@ -20,6 +20,7 @@ import { EdificioSingoloComponent } from './edificio/edificio-singolo/edificio-s
 import { EdificioInaggregatoComponent } from './edificio/edificio-inaggregato/edificio-inaggregato.component';
 import { InterventiService } from './classi-servizi/service/interventi.service';
 import { EdificioService } from './classi-servizi/service/edificio.service';
+import { QualitàEdificiService } from './classi-servizi/service/qualità-edifici.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { EdificioService } from './classi-servizi/service/edificio.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [StrutturaVerticaleService,InterventiService,EdificioService],
+  providers: [StrutturaVerticaleService,InterventiService,EdificioService,QualitàEdificiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
