@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class TipologiaStrutturaController {
 
-    private TipologiaStrutturaRepository tipo;
-
     public TipologiaStrutturaController(TipologiaStrutturaRepository tipo) {
         this.tipo = tipo;
     }
+
+    private TipologiaStrutturaRepository tipo;
+
 
     @GetMapping("/tipologiaStruttura")
     public List<TipologiaStruttura> getStruttura(){

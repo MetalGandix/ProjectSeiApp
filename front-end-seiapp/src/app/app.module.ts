@@ -15,9 +15,11 @@ import { VisualizzaInterventiDisponibiliComponent } from './visualizza-intervent
 import { A1Component } from './a1/a1.component';
 import { A2Component } from './a2/a2.component';
 import { ModificaInterventoComponent } from './modifica-intervento/modifica-intervento.component';
-import { SceltaEdificioComponent } from './scelta-edificio/scelta-edificio.component';
-import { EdificioSingoloComponent } from './edificio-singolo/edificio-singolo.component';
-import { EdificioInaggregatoComponent } from './edificio-inaggregato/edificio-inaggregato.component';
+import { SceltaEdificioComponent } from './edificio/scelta-edificio/scelta-edificio.component';
+import { EdificioSingoloComponent } from './edificio/edificio-singolo/edificio-singolo.component';
+import { EdificioInaggregatoComponent } from './edificio/edificio-inaggregato/edificio-inaggregato.component';
+import { InterventiService } from './classi-servizi/service/interventi.service';
+import { EdificioService } from './classi-servizi/service/edificio.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,7 @@ import { EdificioInaggregatoComponent } from './edificio-inaggregato/edificio-in
     HttpClientModule,
     FormsModule
   ],
-  providers: [StrutturaVerticaleService],
+  providers: [StrutturaVerticaleService,InterventiService,EdificioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

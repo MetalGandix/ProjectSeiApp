@@ -8,17 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TipologiaStruttura")
+@Table(name = "tipologiaStruttura")
 public class TipologiaStruttura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private String TipologiaStrutture;
-
-    public TipologiaStruttura(String tipologiaStrutture) {
-        this.TipologiaStrutture = tipologiaStrutture;
-    }
+    private String TipologiaStruttura;
 
     public long getId() {
         return id;
@@ -29,11 +25,11 @@ public class TipologiaStruttura {
     }
 
     public String getTipologiaStrutture() {
-        return TipologiaStrutture;
+        return TipologiaStruttura;
     }
 
     public void setTipologiaStrutture(String tipologiaStrutture) {
-        TipologiaStrutture = tipologiaStrutture;
+        TipologiaStruttura = tipologiaStrutture;
     }
 
   
