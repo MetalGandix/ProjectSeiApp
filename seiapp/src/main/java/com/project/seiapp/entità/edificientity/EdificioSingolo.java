@@ -1,4 +1,4 @@
-package com.project.seiapp.entità;
+package com.project.seiapp.entità.edificientity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name= "EdificioSingolo")
-public class EdifcioSingolo {
+public class EdificioSingolo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

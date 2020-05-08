@@ -1,4 +1,4 @@
-package com.project.seiapp.entità;
+package com.project.seiapp.entità.edificientity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
