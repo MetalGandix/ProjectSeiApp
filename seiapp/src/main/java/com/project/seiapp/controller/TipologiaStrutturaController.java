@@ -19,7 +19,7 @@ public class TipologiaStrutturaController {
         this.tipo = tipo;
     }
 
-    @GetMapping("/caratteristicheQualitative")
+    @GetMapping("/tipologiaStruttura")
     public List<TipologiaStruttura> getStruttura(){
         return (List<TipologiaStruttura>) tipo.findAll();
         
