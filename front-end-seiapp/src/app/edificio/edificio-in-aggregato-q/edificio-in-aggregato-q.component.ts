@@ -10,7 +10,9 @@ import { EdificioInAggregato } from 'src/app/classi-servizi/classes/edificio-in-
 })
 export class EdificioInAggregatoQComponent implements OnInit {
 
-  edificioInAggregato: EdificioInAggregato[];
+  edificioInAggregato: {[key: string]: EdificioInAggregato[]} = {}
+  edificioSelezionato: EdificioInAggregato;
+  edificioFiltro: EdificioInAggregato[];
 
   constructor(
     private route: ActivatedRoute,
@@ -19,9 +21,31 @@ export class EdificioInAggregatoQComponent implements OnInit {
     ) { }
 
     ngOnInit(){
-      this.qualità.getQEdificioInAggregato().subscribe(data =>{
-        this.edificioInAggregato = data;
+      this.qualità.getQEdificio().subscribe(data =>{
+        console.log(this.edificioInAggregato)
+        const edifici = {}
+        for(const edificio of data){
+          const {tipoStruttura} = edificio.quality.tQuality
+          if(!edifici[tipoStruttura]){
+            edifici[tipoStruttura] = []
+          }
+          edifici[tipoStruttura].push(edificio)
+        }
+        console.log(edifici)
+        this.edificioInAggregato = edifici
       })
+    }
+
+    onChange(value){
+      console.log(this.edificioSelezionato)
+      console.log(value)
+      const arr: EdificioInAggregato[] = []
+      for(const edificio of this.edificioInAggregato[value.quality.tQuality.tipoStruttura]){
+        if(edificio.quality.id === value.quality.id){
+          arr.push(edificio)
+        }
+      }
+      this.edificioFiltro = arr;
     }
 
 }

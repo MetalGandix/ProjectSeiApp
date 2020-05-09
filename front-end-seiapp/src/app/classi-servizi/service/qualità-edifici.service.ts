@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, ObservedValueOf } from 'rxjs';
 import { EdificioSingolo } from 'src/app/classi-servizi/classes/edificio-singolo';
 import { EdificioInAggregato } from 'src/app/classi-servizi/classes/edificio-in-aggregato';
 
@@ -17,10 +17,10 @@ export class QualitàEdificiService {
   }
 
   public getQEdificioSingolo(): Observable<EdificioSingolo[]>{
-    return this.http.get<EdificioSingolo[]>(this.url + 'edificioSingolo');
+  return this.http.get<EdificioSingolo[]>(this.url + 'edificioSingolo');
   }
 
-  public getQEdificioInAggregato(): Observable<EdificioInAggregato[]>{
+  public getQEdificio(): Observable<EdificioInAggregato[]>{
     return this.http.get<EdificioInAggregato[]>(this.url + 'edificioInAggregato');
   }
 }

@@ -34,6 +34,9 @@ export class EdificioSingoloComponent implements OnInit {
     if(valore1.valueOf() == 3){
       alert("Il tipo di edificio non può essere selezionato")
     }
+    if(valore1.valueOf() == 2){
+      this.router.navigate["/edificio-singolo-q"]
+    }
   }
 
 

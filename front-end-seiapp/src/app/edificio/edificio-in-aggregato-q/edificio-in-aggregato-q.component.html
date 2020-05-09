@@ -1,6 +1,6 @@
 <div class="container">
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-      <p><b>Seleziona il tipo di edificio singolo</b></p>
+      <p><b>Seleziona il tipo di edificio in edificio In Aggregato</b></p>
     </div>
     <div class="card my-5">
       <div class="card-body">
@@ -8,15 +8,23 @@
 
             <div class="form-group">
                 <label for="tipologiaStrutture" ><b>Qualità</b></label>
-                <select value="edificioInAggregato" class="form-control" id="edificioInAggregato" name="edificioInAggregato">
-                  <option *ngFor="let EdificioInAggretato of edificioInAggregato; index as i">
-                    {{i}} - {{ EdificioInAggretato.descrizione }}
+                <select [ngModel]="edificioSelezionato" (ngModelChange)="onChange($event)"  class="form-control" name="edificioInAggregato">
+                  <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of edificioInAggregato['EdificioInAggregato']; index as i">
+                    {{i}} - {{ EdificioInAggregato.quality.quality }}
+                  </option>
+                </select>
+                <select [ngModel]="edificioSelezionato" (ngModelChange)="onChange($event)"  class="form-control" name="edificioInAggregato">
+                  <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of edificioFiltro; index as i">
+                    {{ EdificioInAggregato.descrizione }}
+                    {{ EdificioInAggregato.valutazione }}
+                    {{ EdificioInAggregato.punteggio }}
                   </option>
                 </select>
                 <select value="edificioInAggregato" class="form-control" id="edificioInAggregato" name="edificioInAggregato">
-                  <option *ngFor="let EdificioInAggretato of edificioInAggregato; index as i">
-                    {{i}} - {{ EdificioInAggretato.valutazione }}
-                    {{ EdificioInAggretato.punteggio }}
+                  <option *ngFor="let EdificioInAggregato of edificioInAggregato['EdificioSingolo']; index as i">
+                    {{i}} - {{ EdificioInAggregato.descrizione }}
+                    {{ EdificioInAggregato.valutazione }}
+                    {{ EdificioInAggregato.punteggio }}
                 </option>
                 </select>
             </div>

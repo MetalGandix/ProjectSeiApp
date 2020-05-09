@@ -23,5 +23,4 @@ public class EdificioInAggregatoController {
     public List<EdificioInAggregato> getCaratteristiche() {
         return (List<EdificioInAggregato>) edificioInAggregato.findAll();
     }
-
 }

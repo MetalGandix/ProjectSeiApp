@@ -3,4 +3,5 @@ export class EdificioSingolo {
     punteggio: number
     descrizione: string
     valutazione: string
+    tipologia: number
 }
