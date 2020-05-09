@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 09, 2020 alle 19:45
+-- Creato il: Mag 09, 2020 alle 20:14
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -99,12 +99,12 @@ INSERT INTO `edificio` (`id`, `descrizione`, `punteggio`, `valutazione`, `tipolo
 (34, 'strutture non adeguate per oltre il 70% (punteggio 8)\r\n', '8', 'A', 0, 12),
 (35, 'percentuale tra 30% e 70% (punteggio 4)\r\n', '4', 'M', 0, 12),
 (36, 'strutture non adeguate per meno del 30% (punteggio 0)\r\n', '0', 'B', 0, 12),
-(37, 'rapporto lato maggiore/lato minore >4 + posizione all\'estremità o d\'angolo\r\n', '000', 'A', 0, 13),
-(38, 'rapporto lato maggiore/lato minore tra 3 e 4 + posizione all\'estremità o d\'angolo\r\n', '000', 'M', 0, 13),
-(39, 'altri casi\r\n', '000', 'B', 0, 13),
-(40, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta >20% rispetto al piano inferiore\"\r\n', '000', 'A', 0, 14),
-(41, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta tra il 10% e il 20% rispetto al piano inferiore\"\r\n', '000', 'M', 0, 14),
-(42, 'superfici decrescono con continuità + riduzione <10%\r\n', '000', 'B', 0, 14),
+(37, 'rapporto lato maggiore/lato minore >4 + posizione all\'estremità o d\'angolo\r\n', '0', 'A', 0, 13),
+(38, 'rapporto lato maggiore/lato minore tra 3 e 4 + posizione all\'estremità o d\'angolo\r\n', '0', 'M', 0, 13),
+(39, 'altri casi\r\n', '0', 'B', 0, 13),
+(40, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta >20% rispetto al piano inferiore\"\r\n', '0', 'A', 0, 14),
+(41, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta tra il 10% e il 20% rispetto al piano inferiore\"\r\n', '0', 'M', 0, 14),
+(42, 'superfici decrescono con continuità + riduzione <10%\r\n', '0', 'B', 0, 14),
 (43, 'elementi non strutturali non ben collegati con dimensioni o massa grandi\r\n', '3', 'A', 0, 15),
 (44, 'elementi non strutturali non ben collegati ma con dimensioni o massa piccole\r\n', '1', 'M', 0, 15),
 (45, 'elementi non strutturali ben collegati\r\n', '0', 'B', 0, 15),
@@ -275,7 +275,36 @@ INSERT INTO `quality_edificio` (`quality_id`, `edificio_id`) VALUES
 (11, 33),
 (12, 34),
 (12, 35),
-(12, 36);
+(12, 36),
+(13, 37),
+(13, 38),
+(13, 39),
+(14, 40),
+(14, 41),
+(14, 42),
+(15, 43),
+(15, 44),
+(15, 45),
+(16, 46),
+(16, 47),
+(16, 48),
+(16, 49),
+(17, 50),
+(17, 51),
+(17, 52),
+(17, 53),
+(18, 54),
+(18, 55),
+(18, 56),
+(18, 57),
+(19, 58),
+(19, 59),
+(19, 60),
+(19, 61),
+(20, 62),
+(20, 63),
+(20, 64),
+(20, 65);
 
 -- --------------------------------------------------------
 
