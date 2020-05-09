@@ -19,9 +19,6 @@ export class EdificioSingoloQComponent implements OnInit {
     ) { }
 
     ngOnInit(){
-      this.qualità.getQEdificioSingolo().subscribe(data =>{
-        this.edificioSingolo = data;
-      })
     }
 
 }

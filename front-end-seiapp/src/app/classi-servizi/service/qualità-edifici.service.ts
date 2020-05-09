@@ -16,11 +16,7 @@ export class QualitàEdificiService {
     this.url = 'http://localhost:8080/';
   }
 
-  public getQEdificioSingolo(): Observable<EdificioSingolo[]>{
-  return this.http.get<EdificioSingolo[]>(this.url + 'edificioSingolo');
-  }
-
   public getQEdificio(): Observable<EdificioInAggregato[]>{
-    return this.http.get<EdificioInAggregato[]>(this.url + 'edificioInAggregato');
+    return this.http.get<EdificioInAggregato[]>(this.url + 'edificio');
   }
 }

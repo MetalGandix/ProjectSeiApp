@@ -2,7 +2,7 @@ package com.project.seiapp.entità;
 
 import java.util.List;
 
-import com.project.seiapp.entità.edificientity.EdificioInAggregato;
+import com.project.seiapp.entità.edificientity.Edificio;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,7 +37,7 @@ public class Quality {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable 
-    private List<EdificioInAggregato> edificio;
+    private List<Edificio> edificio;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private TipeQuality tQuality;
@@ -58,7 +58,7 @@ public class Quality {
         this.tQuality = tQuality;
     }
 
-    public void setEdificio(List<EdificioInAggregato> edificio) {
+    public void setEdificio(List<Edificio> edificio) {
         this.edificio = edificio;
     }
 

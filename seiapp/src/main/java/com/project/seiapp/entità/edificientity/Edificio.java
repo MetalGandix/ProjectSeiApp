@@ -12,8 +12,8 @@ import javax.persistence.Table;
 import com.project.seiapp.entità.Quality;
 
 @Entity
-@Table(name = "EdificioInAggregato")
-public class EdificioInAggregato {
+@Table(name = "edificio")
+public class Edificio{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
