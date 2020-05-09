@@ -11,6 +11,8 @@ import { ModificaInterventoComponent } from './modifica-intervento/modifica-inte
 import { SceltaEdificioComponent } from './edificio/scelta-edificio/scelta-edificio.component';
 import { EdificioSingoloComponent } from './edificio/edificio-singolo/edificio-singolo.component';
 import { EdificioInaggregatoComponent } from './edificio/edificio-inaggregato/edificio-inaggregato.component';
+import { EdificioInAggregatoQComponent } from './edificio/edificio-in-aggregato-q/edificio-in-aggregato-q.component';
+import { EdificioSingoloQComponent } from './edificio/edificio-singolo-q/edificio-singolo-q.component';
 
 
 const routes: Routes = [
@@ -24,7 +26,9 @@ const routes: Routes = [
   { path: 'modifica-interventi', component: ModificaInterventoComponent },
   { path: 'scelta-edificio', component: SceltaEdificioComponent },
   { path: 'edificio-singolo', component: EdificioSingoloComponent },
-  { path: 'edificio-inaggregato', component: EdificioInaggregatoComponent }
+  { path: 'edificio-inaggregato', component: EdificioInaggregatoComponent },
+  { path: 'edificio-in-aggregato-q', component: EdificioInAggregatoQComponent },
+  { path: 'edificio-singolo-q', component: EdificioSingoloQComponent }
 ];
 
 @NgModule({

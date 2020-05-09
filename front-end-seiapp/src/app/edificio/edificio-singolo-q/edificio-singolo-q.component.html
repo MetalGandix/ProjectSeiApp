@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+      <p><b>Seleziona il tipo di edificio singolo</b></p>
+    </div>
+    <div class="card my-5">
+      <div class="card-body">
+        <form>
+
+            <div class="form-group">
+                <label for="tipologiaStrutture" ><b>Qualità</b></label>
+                <div>
+                <select value="edificioInAggregato" class="form-control" id="edificioInAggregato" name="edificioInAggregato">
+                  <option *ngFor="let EdificioSingolo of edificioSingolo; index as i">
+                    {{i}} - {{ EdificioSingolo.descrizione }}
+                  </option>
+                </select>
+            </div>
+            <div>
+                <select style="margin-top: 20px;" value="edificioInAggregato" class="form-control" id="edificioInAggregato" name="edificioInAggregato">
+                  <option *ngFor="let EdificioSingolo of edificioSingolo; index as i">
+                    {{i}} - {{ EdificioSingolo.valutazione }}
+                    {{ EdificioSingolo.punteggio }}
+                </option>
+                </select>
+            </div>
+            </div>
+
+        <button type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
+        </form>
+      </div>
+    </div>
+</div>

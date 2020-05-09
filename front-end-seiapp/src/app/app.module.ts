@@ -21,6 +21,8 @@ import { EdificioInaggregatoComponent } from './edificio/edificio-inaggregato/ed
 import { InterventiService } from './classi-servizi/service/interventi.service';
 import { EdificioService } from './classi-servizi/service/edificio.service';
 import { QualitàEdificiService } from './classi-servizi/service/qualità-edifici.service';
+import { EdificioSingoloQComponent } from './edificio/edificio-singolo-q/edificio-singolo-q.component';
+import { EdificioInAggregatoQComponent } from './edificio/edificio-in-aggregato-q/edificio-in-aggregato-q.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { QualitàEdificiService } from './classi-servizi/service/qualità-edific
     ModificaInterventoComponent,
     SceltaEdificioComponent,
     EdificioSingoloComponent,
-    EdificioInaggregatoComponent
+    EdificioInaggregatoComponent,
+    EdificioSingoloQComponent,
+    EdificioInAggregatoQComponent
   ],
   imports: [
     BrowserModule,
