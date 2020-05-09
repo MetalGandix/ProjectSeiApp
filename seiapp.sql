@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 09, 2020 alle 18:24
+-- Creato il: Mag 09, 2020 alle 18:54
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -63,27 +63,27 @@ CREATE TABLE `edificio` (
 --
 
 INSERT INTO `edificio` (`id`, `descrizione`, `punteggio`, `valutazione`, `tipologia`, `quality_id`) VALUES
-(1, '\"inerti di piccole dimensioni e malta di scarsa resistenza sul 30%\r\ndel volume della muratura\"', '3\r\n', 'A', 0, NULL),
-(2, '\"caso precedente + giunti sottili (<10 mm), listature e/o diatoni\r\noppure caso precedente con incidenza minore del 30%\"\r\n', '2', 'M', 0, NULL),
-(3, '\"giunti sottili,diatoni o listature per oltre il 70% della muratura con inerti medi o grandi\"\r\n', '0', 'B', 0, NULL),
-(4, 'cattivo stato di conservazione per almeno il 70% delle murature, della copertura o dei solai di interpiano\r\n', '15', 'A', 0, NULL),
-(5, 'percentuale tra 30% e 70%\r\n', '8', 'M', 0, NULL),
-(6, 'percentuale <30%\r\n', '0', 'B', 0, NULL),
-(7, 'più del 50% di copertura e solai sono spingenti senza cordoli o catene\r\n', '4', 'A', 0, NULL),
-(8, 'percentuale tra 20% e 50%\r\n', '2', 'M', 0, NULL),
-(9, 'percentuale <20%\r\n', '0', 'B', 0, NULL),
-(10, 'connessioni efficaci per meno del 20%\r\n', '4', 'A', 0, NULL),
-(11, 'percentuale tra 20% e 80%\r\n', '2', 'M', 0, NULL),
-(12, 'connessioni efficaci per l\'80%\r\n', '0', 'B', 0, NULL),
-(13, 'collegamenti di piano efficaci per meno del 50% (punteggio 8)\r\n', '8', 'A', 0, NULL),
-(14, 'percentuale tra 50% e 80% (punteggio 4)\r\n', '4', 'M', 0, NULL),
-(15, 'collegamenti di piano efficaci per l\'80% (punteggio 0)\r\n', '0', 'B', 0, NULL),
-(16, 'strutture non adeguate per oltre il 70% (punteggio 20)\r\n', '20', 'A', 0, NULL),
-(17, 'percentuale tra 30% e 70% (punteggio 10)\r\n', '10', 'M', 0, NULL),
-(18, 'strutture non adeguate meno del 30% (punteggio 0)\r\n', '0', 'B', 0, NULL),
-(19, 'bucature per oltre il 50%\r\n', '4', 'A', 0, NULL),
-(20, 'percentuale tra 25% e 50%\r\n', '2', 'M', 0, NULL),
-(21, 'bucature per meno del 25%\r\n', '0', 'B', 0, NULL),
+(1, '\"inerti di piccole dimensioni e malta di scarsa resistenza sul 30%\r\ndel volume della muratura\"', '3\r\n', 'A', 0, 1),
+(2, '\"caso precedente + giunti sottili (<10 mm), listature e/o diatoni\r\noppure caso precedente con incidenza minore del 30%\"\r\n', '2', 'M', 0, 1),
+(3, '\"giunti sottili,diatoni o listature per oltre il 70% della muratura con inerti medi o grandi\"\r\n', '0', 'B', 0, 1),
+(4, 'cattivo stato di conservazione per almeno il 70% delle murature, della copertura o dei solai di interpiano\r\n', '15', 'A', 0, 2),
+(5, 'percentuale tra 30% e 70%\r\n', '8', 'M', 0, 2),
+(6, 'percentuale <30%\r\n', '0', 'B', 0, 2),
+(7, 'più del 50% di copertura e solai sono spingenti senza cordoli o catene\r\n', '4', 'A', 0, 3),
+(8, 'percentuale tra 20% e 50%\r\n', '2', 'M', 0, 3),
+(9, 'percentuale <20%\r\n', '0', 'B', 0, 3),
+(10, 'connessioni efficaci per meno del 20%\r\n', '4', 'A', 0, 4),
+(11, 'percentuale tra 20% e 80%\r\n', '2', 'M', 0, 4),
+(12, 'connessioni efficaci per l\'80%\r\n', '0', 'B', 0, 4),
+(13, 'collegamenti di piano efficaci per meno del 50% (punteggio 8)\r\n', '8', 'A', 0, 5),
+(14, 'percentuale tra 50% e 80% (punteggio 4)\r\n', '4', 'M', 0, 5),
+(15, 'collegamenti di piano efficaci per l\'80% (punteggio 0)\r\n', '0', 'B', 0, 5),
+(16, 'strutture non adeguate per oltre il 70% (punteggio 20)\r\n', '20', 'A', 0, 6),
+(17, 'percentuale tra 30% e 70% (punteggio 10)\r\n', '10', 'M', 0, 6),
+(18, 'strutture non adeguate meno del 30% (punteggio 0)\r\n', '0', 'B', 0, 6),
+(19, 'bucature per oltre il 50%\r\n', '4', 'A', 0, 7),
+(20, 'percentuale tra 25% e 50%\r\n', '2', 'M', 0, 7),
+(21, 'bucature per meno del 25%\r\n', '0', 'B', 0, 7),
 (22, 'bucature per oltre il 50%\r\n', '4', 'A', 0, NULL),
 (23, 'percentuale tra 25% e 50%\r\n', '2', 'M', 0, NULL),
 (24, 'bucature per meno del 25%\r\n', '0', 'B', 0, NULL),
