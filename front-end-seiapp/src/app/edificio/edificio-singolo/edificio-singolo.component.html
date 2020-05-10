@@ -8,9 +8,9 @@
 
             <div class="form-group">
                 <label for="tipologiaStrutture" ><b>Tipi</b></label>
-                <select value="edificioSingolo" class="form-control" id="edificioSingolo" name="edificio">
-                  <option *ngFor="let TipoEdificio of edificioSingolo; index as i">
-                  <li>{{i}} - {{ TipoEdificio.tipologiaStrutture }}</li>
+                <select value="edificio" class="form-control" id="edificioSingolo" name="edificio">
+                  <option *ngFor="let TipoEdificio of edificioSingolo; index as i" [ngStyle]="{'background-color': i==1 ? 'orange' : 'transparent' && i==3 ? 'orange' : 'transparent'}">
+                  {{i}} - {{ TipoEdificio.tipologiaStrutture }}
                 </option>
                 </select>
             </div>
