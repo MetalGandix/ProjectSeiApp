@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'modifica-interventi', component: ModificaInterventoComponent },
   { path: 'scelta-edificio', component: SceltaEdificioComponent },
   { path: 'edificio-singolo', component: EdificioSingoloComponent },
-  { path: 'edificio-inaggregato', component: EdificioInaggregatoComponent },
+  { path: 'edificio-in-aggregato', component: EdificioInaggregatoComponent },
   { path: 'edificio-in-aggregato-q', component: EdificioInAggregatoQComponent },
   { path: 'edificio-singolo-q', component: EdificioSingoloQComponent }
 ];
