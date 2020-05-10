@@ -10,6 +10,7 @@ import { TipoEdificio } from 'src/app/classi-servizi/classes/tipo-edificio';
 })
 export class EdificioSingoloComponent implements OnInit {
 
+  bomb: number
   edificioSingolo: TipoEdificio[];
 
   constructor(
@@ -19,10 +20,13 @@ export class EdificioSingoloComponent implements OnInit {
     ) { }
 
   ngOnInit(){
-    this.edificioService.getTipoEdificio().subscribe(data =>{
+      this.edificioService.getTipoEdificio().subscribe(data =>{
       this.edificioSingolo = data;
+      console.log(this.edificioSingolo)
     })
   }
+
+  
 
   outputSelezione(){
     var select1 = (<HTMLInputElement>document.getElementById("edificioSingolo")).value;

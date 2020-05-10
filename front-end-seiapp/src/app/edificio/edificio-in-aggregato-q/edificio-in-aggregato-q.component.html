@@ -1,29 +1,30 @@
 <div class="container">
-    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-      <p><b>Seleziona il tipo di edificio in edificio In Aggregato</b></p>
-    </div>
-    <div class="card my-5">
-      <div class="card-body">
-        <form>
+  <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+    <p><b>Seleziona il tipo di edificio in edificio In Aggregato</b></p>
+  </div>
+  <div class="card my-5">
+    <div class="card-body">
+      <form>
 
-            <div class="form-group">
-                <label for="tipologiaStrutture" ><b>Qualità</b></label>
-                <select [ngModel]="edificioSelezionato" (ngModelChange)="onChange($event)"  class="form-control" name="edificioInAggregato">
-                  <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of edificioInAggregato['EdificioInAggregato']; index as i">
-                    {{i}} - {{ EdificioInAggregato.quality.quality }}
-                  </option>
-                </select>
-                <select [ngModel]="edificioSelezionato" (ngModelChange)="onChange($event)"  class="form-control" name="edificioInAggregato">
-                  <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of edificioFiltro; index as i">
-                    {{ EdificioInAggregato.descrizione }}
-                    {{ EdificioInAggregato.valutazione }}
-                    {{ EdificioInAggregato.punteggio }}
-                  </option>
+          <div>
+              <label for="tipologiaStrutture"><b>Qualità</b></label>
+              <select [ngModel]="edificioSelezionato" (ngModelChange)="onChange($event)" class="form-control" name="edificio">
+                <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of edificioInAggregato['Edificio']; index as i">
+                  {{i}} - {{ EdificioInAggregato.quality.quality }}
+                </option>
+              </select>
+              <select [ngModel]="edificioSelezionato" style="margin-top: 20px;" (ngModelChange)="onChange($event)"  class="form-control" name="edificio">
+                <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of edificioFiltro; index as i">
+                  {{ EdificioInAggregato.descrizione }}
+                  {{ EdificioInAggregato.valutazione }}
+                  {{ EdificioInAggregato.punteggio }}
+                  {{ EdificioInAggregato.tipologia }}
+                </option>
                 </select>
             </div>
 
-        <button type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
-        </form>
-      </div>
+      <button type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
+      </form>
     </div>
+  </div>
 </div>

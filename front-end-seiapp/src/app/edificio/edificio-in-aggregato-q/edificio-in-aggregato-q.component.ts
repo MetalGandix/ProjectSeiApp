@@ -47,5 +47,5 @@ export class EdificioInAggregatoQComponent implements OnInit {
       }
       this.edificioFiltro = arr;
     }
-
+    
 }
