@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QualitàEdificiService } from 'src/app/classi-servizi/service/qualità-edifici.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EdificioInAggregato } from 'src/app/classi-servizi/classes/edificio-in-aggregato';
+import { Quality } from 'src/app/classi-servizi/classes/quality';
 
 @Component({
   selector: 'app-edificio-in-aggregato-q',
@@ -13,6 +14,7 @@ export class EdificioInAggregatoQComponent implements OnInit {
   edificioInAggregato: { [key: string]: EdificioInAggregato[] } = {}
   edificioSelezionato: EdificioInAggregato;
   edificioFiltro: EdificioInAggregato[];
+  quality: Quality[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -42,19 +44,40 @@ export class EdificioInAggregatoQComponent implements OnInit {
       console.log(edifici)
       //L'array di oggetti edificioInAggregato prende i valori di edifici(quindi prende le sue chiavi e i suoi)
       this.edificioInAggregato = edifici
-    })
+      this.edificioInAggregato['Edificio Singolo'].forEach(element => {
+        this.quality.push(element.quality)
+      });
+      this.edificioInAggregato['Edificio In Aggregato'].forEach(element => {
+        this.quality.push(element.quality);
+      })
+      this.cleanQualityArray();
+    });
   }
 
-  onChange(value) {
+  onChange(value: Quality) {
     console.log(this.edificioSelezionato)
-    console.log(value)
+    console.log(value.tQuality.tipoStruttura)
     const arr: EdificioInAggregato[] = []
-    for (const edificio of this.edificioInAggregato[value.quality.tQuality.tipoStruttura]) {
-      if (edificio.quality.id === value.quality.id) {
+    for (const edificio of this.edificioInAggregato[value.tQuality.tipoStruttura]) {
+      if (edificio.quality.id === value.id) {
         arr.push(edificio)
       }
     }
     this.edificioFiltro = arr;
   }
 
+  cleanQualityArray(): void{
+    const qualityIds: number[] = [];
+
+    this.quality.forEach(el => {
+      qualityIds.push(el.id)
+    });
+
+    const unique = new Set(qualityIds);
+    const qualityTemp : Quality[] = [];
+    unique.forEach( u => {
+      qualityTemp.push(this.quality.find( qE => qE.id == u))
+    });
+    this.quality = qualityTemp
+  }
 }

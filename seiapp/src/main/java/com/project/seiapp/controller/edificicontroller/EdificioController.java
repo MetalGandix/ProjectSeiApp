@@ -21,6 +21,8 @@ public class EdificioController {
 
     @GetMapping("/edificio")
     public List<Edificio> getCaratteristiche() {
-        return (List<Edificio>) edificio.findAll();
+        List<Edificio> lE = edificio.findAll();
+        System.out.println(lE);
+        return lE;
     }
 }
