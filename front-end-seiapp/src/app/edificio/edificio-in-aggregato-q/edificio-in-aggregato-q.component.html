@@ -4,27 +4,369 @@
   </div>
   <div class="card my-5">
     <div class="card-body">
-      <form>
 
+      <form>
           <div>
               <label for="tipologiaStrutture"><b>Qualità</b></label>
-              <select [ngModel]="edificioSelezionato" (ngModelChange)="onChange($event)" class="form-control" name="edificio">
-                <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality; index as i">
-                 {{i+1}} - {{ EdificioInAggregato.quality }}
+              <select [ngModel]="edificioSelezionato1" (ngModelChange)="onChange($event)" class="form-control" name="edificio" id="1">
+                <option [ngValue]="EdificioInAggregato1" *ngFor="let EdificioInAggregato1 of quality | slice:0:1;">
+                 {{ EdificioInAggregato1.quality }}
                 </option>
               </select>
-              <select [ngModel]="edificioSelezionato" style="margin-top: 20px;" class="form-control" name="edificio">
-                <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of edificioFiltro; index as i">
-                  {{ EdificioInAggregato.descrizione }}
-                  {{ EdificioInAggregato.valutazione }}
-                  {{ EdificioInAggregato.punteggio }}
-                  {{ EdificioInAggregato.tipologia }}
+              <select [ngModel]="edificioSelezionato2" style="margin-top: 20px;" class="form-control" name="edificio" id="1">
+                <option [ngValue]="EdificioInAggregato1" *ngFor="let EdificioInAggregato1 of edificioFiltro; index as i"> 
+                  {{ EdificioInAggregato1.descrizione }}
+                  {{ EdificioInAggregato1.valutazione }}
+                  {{ EdificioInAggregato1.punteggio }}
                 </option>
                 </select>
             </div>
+          </form>
+
+          <form>
+          <div>
+              <label for="tipologiaStrutture"><b><hr></b></label>
+              <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+                <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:1:2;">
+                 {{ EdificioInAggregato.quality }}
+                </option>
+              </select>
+              <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+                <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+                  {{ EdificioInAggregato2.descrizione }}
+                  {{ EdificioInAggregato2.valutazione }}
+                  {{ EdificioInAggregato2.punteggio }}
+                </option>
+                </select>
+            </div>
+      </form>
+
+      <form>
+        <div>
+            <label for="tipologiaStrutture"><b><hr></b></label>
+            <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+              <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:2:3;">
+               {{ EdificioInAggregato.quality }}
+              </option>
+            </select>
+            <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+              <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+                {{ EdificioInAggregato2.descrizione }}
+                {{ EdificioInAggregato2.valutazione }}
+                {{ EdificioInAggregato2.punteggio }}
+              </option>
+              </select>
+          </div>
+    </form>
+
+    <form>
+      <div>
+          <label for="tipologiaStrutture"><b><hr></b></label>
+          <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+            <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:3:4;">
+             {{ EdificioInAggregato.quality }}
+            </option>
+          </select>
+          <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+            <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+              {{ EdificioInAggregato2.descrizione }}
+              {{ EdificioInAggregato2.valutazione }}
+              {{ EdificioInAggregato2.punteggio }}
+            </option>
+            </select>
+        </div>
+  </form>
+
+  <form>
+    <div>
+        <label for="tipologiaStrutture"><b><hr></b></label>
+        <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+          <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:4:5;">
+           {{ EdificioInAggregato.quality }}
+          </option>
+        </select>
+        <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+          <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+            {{ EdificioInAggregato2.descrizione }}
+            {{ EdificioInAggregato2.valutazione }}
+            {{ EdificioInAggregato2.punteggio }}
+          </option>
+          </select>
+      </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:5:6;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:6:7;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:7:8;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:8:9;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:9:10;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:10:11;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:11:12;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:12:13;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:13:14;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:14:15;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:15:16;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:16:17;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:17:18;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:18:19;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
+<form>
+  <div>
+      <label for="tipologiaStrutture"><b><hr></b></label>
+      <select [ngModel]="edificioSelezionato3" (ngModelChange)="onChange($event)" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato" *ngFor="let EdificioInAggregato of quality | slice:19:20;">
+         {{ EdificioInAggregato.quality }}
+        </option>
+      </select>
+      <select [ngModel]="edificioSelezionato4" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+        <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioFiltro; index as i">
+          {{ EdificioInAggregato2.descrizione }}
+          {{ EdificioInAggregato2.valutazione }}
+          {{ EdificioInAggregato2.punteggio }}
+        </option>
+        </select>
+    </div>
+</form>
+
 
       <button type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
-      </form>
     </div>
   </div>
 </div>

@@ -12,7 +12,11 @@ import { Quality } from 'src/app/classi-servizi/classes/quality';
 export class EdificioInAggregatoQComponent implements OnInit {
 
   edificioInAggregato: { [key: string]: EdificioInAggregato[] } = {}
-  edificioSelezionato: EdificioInAggregato;
+  edificioSelezionato1: EdificioInAggregato;
+  edificioSelezionato2: EdificioInAggregato;
+  edificioSelezionato3: EdificioInAggregato;
+  edificioSelezionato4: EdificioInAggregato;
+
   edificioFiltro: EdificioInAggregato[];
   quality: Quality[] = [];
 
@@ -44,6 +48,7 @@ export class EdificioInAggregatoQComponent implements OnInit {
       console.log(edifici)
       //L'array di oggetti edificioInAggregato prende i valori di edifici(quindi prende le sue chiavi e i suoi)
       this.edificioInAggregato = edifici
+      //edificioInAggregato['KEY'].forEach(ELEMENTI)
       this.edificioInAggregato['Edificio Singolo'].forEach(element => {
         this.quality.push(element.quality)
       });
@@ -55,10 +60,11 @@ export class EdificioInAggregatoQComponent implements OnInit {
   }
 
   onChange(value: Quality) {
-    console.log(this.edificioSelezionato)
-    console.log(value.tQuality.tipoStruttura)
+    //Creo un array di tipo EdificioInAggregato[]
     const arr: EdificioInAggregato[] = []
+    //Per ogni elemento controllo se è un edificio in aggregato o singolo
     for (const edificio of this.edificioInAggregato[value.tQuality.tipoStruttura]) {
+      //
       if (edificio.quality.id === value.id) {
         arr.push(edificio)
       }
@@ -67,17 +73,25 @@ export class EdificioInAggregatoQComponent implements OnInit {
   }
 
   cleanQualityArray(): void{
+    //Crea un array di numeri
     const qualityIds: number[] = [];
-
+    //Metto nell'array ogni ID dell'elemento scelto
     this.quality.forEach(el => {
       qualityIds.push(el.id)
     });
-
+    //Questo Set filtra GLI ID DUPLICATI
     const unique = new Set(qualityIds);
+    //Creo un altro array di tipo Quality
     const qualityTemp : Quality[] = [];
     unique.forEach( u => {
+    //Con questo push, associo ad ongi id il resto della stringa
       qualityTemp.push(this.quality.find( qE => qE.id == u))
     });
+    //Rimetto tutto qualityTempo all'interno di quality
     this.quality = qualityTemp
+  }
+
+  trackByIndex(index: number, quality: Quality ){
+    return quality;
   }
 }
