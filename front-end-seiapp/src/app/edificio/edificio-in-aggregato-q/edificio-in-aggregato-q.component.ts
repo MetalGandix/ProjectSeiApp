@@ -12,7 +12,7 @@ import { Quality } from 'src/app/classi-servizi/classes/quality';
 export class EdificioInAggregatoQComponent implements OnInit {
 
   edificioInAggregato: { [key: string]: EdificioInAggregato[] } = {}
-  edificioSelezionato1: EdificioInAggregato;
+  edificioSelezionato1: EdificioInAggregato[];
   edificioSelezionato2: EdificioInAggregato;
   edificioSelezionato3: EdificioInAggregato;
   edificioSelezionato4: EdificioInAggregato;
@@ -57,9 +57,12 @@ export class EdificioInAggregatoQComponent implements OnInit {
       })
       this.cleanQualityArray();
     });
+    this.qualità.getQEdificio().subscribe(data =>{
+      this.edificioSelezionato1 = data;
+    })
   }
 
-  onChange(value: Quality) {
+  /*onChange(value: Quality) {
     //Creo un array di tipo EdificioInAggregato[]
     const arr: EdificioInAggregato[] = []
     //Per ogni elemento controllo se è un edificio in aggregato o singolo
@@ -71,6 +74,9 @@ export class EdificioInAggregatoQComponent implements OnInit {
     }
     this.edificioFiltro = arr;
   }
+
+  onChangeAnother(value: Quality){
+  }*/
 
   cleanQualityArray(): void{
     //Crea un array di numeri
@@ -92,6 +98,6 @@ export class EdificioInAggregatoQComponent implements OnInit {
   }
 
   trackByIndex(index: number, quality: Quality ){
-    return quality;
+    return index;
   }
 }
