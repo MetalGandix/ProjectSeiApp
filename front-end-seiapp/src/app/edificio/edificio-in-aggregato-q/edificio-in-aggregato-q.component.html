@@ -16,7 +16,7 @@
           <select [ngModel]="edificioSelezionato1" style="margin-top: 20px;" class="form-control" name="edificio"
             id="id1">
             <option *ngFor="let EdificioInAggregato1 of edificioSelezionato1 | slice:0:3; index as i">
-              {{i}} - {{ EdificioInAggregato1.descrizione }}
+              {{i+1}} - {{ EdificioInAggregato1.descrizione }}
               {{ EdificioInAggregato1.valutazione }}
               {{ EdificioInAggregato1.punteggio }}
             </option>
@@ -34,7 +34,7 @@
           <select [ngModel]="edificioSelezionato1" style="margin-top: 20px;" class="form-control" name="edificio1"
             id="id2">
             <option *ngFor="let EdificioInAggregato1 of edificioSelezionato1 | slice:3:6; index as i">
-              {{i+3}} - {{ EdificioInAggregato1.descrizione }}
+              {{i+4}} - {{ EdificioInAggregato1.descrizione }}
               {{ EdificioInAggregato1.valutazione }}
               {{ EdificioInAggregato1.punteggio }}
             </option>
