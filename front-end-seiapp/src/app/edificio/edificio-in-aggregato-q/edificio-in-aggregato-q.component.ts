@@ -60,7 +60,6 @@ export class EdificioInAggregatoQComponent implements OnInit {
     });
     this.qualità.getQEdificio().subscribe(data =>{
       this.edificioSelezionato1 = data;
-      console.log(this.edificioSelezionato1)
     })
   }
 
@@ -97,13 +96,24 @@ export class EdificioInAggregatoQComponent implements OnInit {
     this.quality = qualityTemp
   }
 
+  vediNumeroSelezionato(id: EdificioInAggregato){
+    console.log(id.punteggio.valueOf)
+  }
+
   outputSelection(){
-    var select1 = (<HTMLInputElement>document.getElementById("quality")).value;
+    var select1 = (<HTMLInputElement>document.getElementById("id1")).value;
+    var select2 = (<HTMLInputElement>document.getElementById("id2")).value;
     var valore1 = parseInt(select1)
+    var valore2 = parseInt(select2)
     const numeriSelezionati: number[] = []
-    if(valore1.valueOf() == 3){
-      this.value[0] = 15
+    if(valore1.valueOf() == 0){
+      this.value[0] = 3
       numeriSelezionati.push(this.value[0])
+      console.log(numeriSelezionati)
+    }
+    if(valore2.valueOf() == 3){
+      this.value[1] = 15
+      numeriSelezionati.push(this.value[1])
       console.log(numeriSelezionati)
     }
   }
