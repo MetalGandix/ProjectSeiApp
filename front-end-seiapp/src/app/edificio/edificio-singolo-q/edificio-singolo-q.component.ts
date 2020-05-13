@@ -98,8 +98,7 @@ export class EdificioSingoloQComponent implements OnInit {
     this.quality = qualityTemp
   }
 
-  trackByIndex(index: number, quality: Quality ){
-    return index;
-  }
+
+  
 }
 

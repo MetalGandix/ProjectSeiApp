@@ -16,6 +16,7 @@ export class EdificioInAggregatoQComponent implements OnInit {
   edificioSelezionato2: EdificioInAggregato;
   edificioSelezionato3: EdificioInAggregato;
   edificioSelezionato4: EdificioInAggregato;
+  value: number[] = [];
 
   edificioFiltro: EdificioInAggregato[];
   quality: Quality[] = [];
@@ -59,6 +60,7 @@ export class EdificioInAggregatoQComponent implements OnInit {
     });
     this.qualità.getQEdificio().subscribe(data =>{
       this.edificioSelezionato1 = data;
+      console.log(this.edificioSelezionato1)
     })
   }
 
@@ -74,9 +76,7 @@ export class EdificioInAggregatoQComponent implements OnInit {
     }
     this.edificioFiltro = arr;
   }
-
-  onChangeAnother(value: Quality){
-  }*/
+*/
 
   cleanQualityArray(): void{
     //Crea un array di numeri
@@ -97,7 +97,18 @@ export class EdificioInAggregatoQComponent implements OnInit {
     this.quality = qualityTemp
   }
 
-  trackByIndex(index: number, quality: Quality ){
-    return index;
+  outputSelection(){
+    var select1 = (<HTMLInputElement>document.getElementById("quality")).value;
+    var valore1 = parseInt(select1)
+    const numeriSelezionati: number[] = []
+    if(valore1.valueOf() == 3){
+      this.value[0] = 15
+      numeriSelezionati.push(this.value[0])
+      console.log(numeriSelezionati)
+    }
+  }
+
+  sommaNumeri(){
+
   }
 }
