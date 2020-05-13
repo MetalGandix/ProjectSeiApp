@@ -5,33 +5,17 @@
   <div class="card my-5">
     <div class="card-body">
 
-      <form>
-          <div>
-              <div name="edificio" id="1">
-                <div  *ngFor="let EdificioInAggregato1 of quality | slice:0:1;">
-                 {{ EdificioInAggregato1.quality }}
-                </div>
-              </div>
-              <select [ngModel]="edificioSelezionato1" style="margin-top: 20px;" class="form-control" name="edificio" id="1">
-                <option [ngValue]="EdificioInAggregato1" *ngFor="let EdificioInAggregato1 of edificioSelezionato1 | slice:0:3;"> 
-                  {{ EdificioInAggregato1.descrizione }}
-                  {{ EdificioInAggregato1.valutazione }}
-                  {{ EdificioInAggregato1.punteggio }}
-                </option>
-                </select>
-            </div>
-          </form>
 
           <form>
           <div>
               <label for="tipologiaStrutture"><b><hr></b></label>
               <div name="edificio" id="1">
-                <div *ngFor="let EdificioInAggregato1 of quality | slice:1:2;">
+                <div *ngFor="let EdificioInAggregato1 of quality;">
                  {{ EdificioInAggregato1.quality }}
                 </div>
               </div>
-              <select [ngModel]="edificioSelezionato1" style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
-                <option [ngValue]="EdificioInAggregato2" *ngFor="let EdificioInAggregato2 of edificioSelezionato1 | slice:3:6;">
+              <select style="margin-top: 20px;" class="form-control" name="edificio1" id="2">
+                <option *ngFor="let EdificioInAggregato2 of edificioSelezionato1;">
                   {{ EdificioInAggregato2.descrizione }}
                   {{ EdificioInAggregato2.valutazione }}
                   {{ EdificioInAggregato2.punteggio }}
