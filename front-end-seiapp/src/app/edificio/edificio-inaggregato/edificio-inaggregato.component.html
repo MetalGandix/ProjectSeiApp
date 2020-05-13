@@ -1,6 +1,6 @@
 <div class="container">
   <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-    <p><b>Seleziona il tipo di edificio in aggregato</b></p>
+    <p><b>Seleziona la tipologia EMS</b></p>
   </div>
   <div class="card my-5">
     <div class="card-body">
@@ -10,7 +10,7 @@
           <select value="edificio" class="form-control" id="edificioInAggregato" name="edificio">
             <option *ngFor="let TipoEdificio of edificioInAggregato; index as i"
               [ngStyle]="{'background-color': i==1 ? 'orange' : 'transparent' && i==3 ? 'orange' : 'transparent'}">
-              {{i}} - {{ TipoEdificio.tipologiaStrutture }}
+              {{i+1}} - {{ TipoEdificio.tipologiaStrutture }}
             </option>
           </select>
           <button type="submit" (click)="outputSelezione()" style="margin-top: 30px;" class="btn btn-primary"
