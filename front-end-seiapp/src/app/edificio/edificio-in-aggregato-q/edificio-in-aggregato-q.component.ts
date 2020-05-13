@@ -103,8 +103,52 @@ export class EdificioInAggregatoQComponent implements OnInit {
   outputSelection(){
     var select1 = (<HTMLInputElement>document.getElementById("id1")).value;
     var select2 = (<HTMLInputElement>document.getElementById("id2")).value;
+    var select3 = (<HTMLInputElement>document.getElementById("id3")).value;
+    var select4 = (<HTMLInputElement>document.getElementById("id4")).value;
+    var select5 = (<HTMLInputElement>document.getElementById("id5")).value;
+    var select6 = (<HTMLInputElement>document.getElementById("id6")).value;
+    var select7 = (<HTMLInputElement>document.getElementById("id7")).value;
+    var select8 = (<HTMLInputElement>document.getElementById("id8")).value;
+    var select9 = (<HTMLInputElement>document.getElementById("id9")).value;
+    var select10 = (<HTMLInputElement>document.getElementById("id10")).value;
+    var select11 = (<HTMLInputElement>document.getElementById("id11")).value;
+    var select12 = (<HTMLInputElement>document.getElementById("id12")).value;
+    var select13 = (<HTMLInputElement>document.getElementById("id13")).value;
+    var select14 = (<HTMLInputElement>document.getElementById("id14")).value;
+    var select15 = (<HTMLInputElement>document.getElementById("id15")).value;
+    var select16 = (<HTMLInputElement>document.getElementById("id16")).value;
+    var select17 = (<HTMLInputElement>document.getElementById("id17")).value;
+    var select18 = (<HTMLInputElement>document.getElementById("id18")).value;
+    var select19 = (<HTMLInputElement>document.getElementById("id19")).value;
+    var select20 = (<HTMLInputElement>document.getElementById("id20")).value;
     var valore1 = parseInt(select1)
     var valore2 = parseInt(select2)
+    var valore3 = parseInt(select3)
+    var valore4 = parseInt(select4)
+    var valore5 = parseInt(select5)
+    var valore6 = parseInt(select6)
+    var valore7 = parseInt(select7)
+    var valore8 = parseInt(select8)
+    var valore9 = parseInt(select9)
+    var valore10 = parseInt(select10)
+    var valore11 = parseInt(select11)
+    var valore12 = parseInt(select12)
+    var valore13 = parseInt(select13)
+    var valore14 = parseInt(select14)
+    var valore15 = parseInt(select15)
+    var valore16 = parseInt(select16)
+    var valore17 = parseInt(select17)
+    var valore18 = parseInt(select18)
+
+
+
+
+
+
+
+
+
+
     const numeriSelezionati: number[] = []
     const totale = (accumulator, currentValue) => accumulator + currentValue;
     if(valore1.valueOf() == 0){
