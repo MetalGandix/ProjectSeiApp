@@ -106,19 +106,39 @@ export class EdificioInAggregatoQComponent implements OnInit {
     var valore1 = parseInt(select1)
     var valore2 = parseInt(select2)
     const numeriSelezionati: number[] = []
+    const totale = (accumulator, currentValue) => accumulator + currentValue;
     if(valore1.valueOf() == 0){
       this.value[0] = 3
       numeriSelezionati.push(this.value[0])
+      console.log(numeriSelezionati)
+    } else if(valore1.valueOf() == 1){
+      this.value[0] = 2
+      numeriSelezionati.push(this.value[1])
+      console.log(numeriSelezionati)
+    } else if(valore1.valueOf() == 2){
+      this.value[0] = 0
+      numeriSelezionati.push(this.value[2])
       console.log(numeriSelezionati)
     }
     if(valore2.valueOf() == 3){
       this.value[1] = 15
       numeriSelezionati.push(this.value[1])
       console.log(numeriSelezionati)
+    } else if(valore2.valueOf() == 4){
+      this.value[1] = 8
+      numeriSelezionati.push(this.value[1])
+      console.log(numeriSelezionati)
+    } else if(valore2.valueOf() == 5){
+      this.value[1] = 0
+      numeriSelezionati.push(this.value[1])
+      console.log(numeriSelezionati)
     }
+    console.log(numeriSelezionati.reduce(totale));
+
+    
   }
 
-  sommaNumeri(){
 
-  }
+
+  
 }
