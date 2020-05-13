@@ -65,7 +65,8 @@ export class EdificioInaggregatoComponent implements OnInit {
     }
     this.emp = muraturaSelezionata.reduce(totale)
     console.log(this.emp)
-    let navigationExtras: NavigationExtras = {state: {empVar: this.emp}};
-    this.router.navigate(['/edificio-in-aggregato-q', navigationExtras]);
+    this.router.navigate(['/edificio-in-aggregato-q'], { 
+      state: { varEmp: this.emp } 
+    });
   }
 }

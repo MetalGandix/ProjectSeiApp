@@ -31,14 +31,11 @@ export class EdificioInAggregatoQComponent implements OnInit {
     private router: Router,
     private qualità: QualitàEdificiService,
   ) {
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation.extras.state as {empVar};
-    this.varEmp= state.empVar;
   }
 
 
   ngOnInit() {
-    this.varEmp = window.history.state;
+    this.varEmp = window.history.state.varEmp;
     //Prendo il metodo dal servizio e lo metto dentro un dizionario edifici
     this.qualità.getQEdificio().subscribe(data => {
       //Creo un dizionario edifici (const edifici = new Object() è la sintassi più vecchia)
@@ -372,10 +369,10 @@ export class EdificioInAggregatoQComponent implements OnInit {
 
   vediMuratura() {
   console.log(this.varEmp)
-    if (this.muratura.emp == 1) {
+    if (this.varEmp == 1) {
       alert("La classe di vulnerabilità è V6")
     }
-    if (this.muratura.emp == 3) {
+    if (this.varEmp == 3) {
       if (this.totalePunteggio <= 50) {
         alert("La classe di vulnerabilità è V5")
       }
