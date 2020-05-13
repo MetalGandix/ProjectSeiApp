@@ -11,14 +11,15 @@ import { EdificioInAggregatoQComponent } from '../edificio-in-aggregato-q/edific
 })
 export class EdificioInaggregatoComponent implements OnInit {
 
-  object: EdificioInAggregatoQComponent
+  object: number[];
   edificioInAggregato: TipoEdificio[];
   //showMsg1: boolean = false
-  pietraASecco: number
-  pietraSbozzata: number
-  pietraLavorata: number
-  solaiRigidezza: number
-  orizzontamentiRigidezza: number
+  pietraASecco: number = 1
+  pietraSbozzata: number = 3
+  pietraLavorata: number = 5
+  solaiRigidezza: number = 6
+  orizzontamentiRigidezza: number = 7
+
 
   constructor(
     private route: ActivatedRoute,
@@ -65,6 +66,7 @@ export class EdificioInaggregatoComponent implements OnInit {
       muraturaSelezionata.push(this.orizzontamentiRigidezza)
       this.router.navigate(['/edificio-in-aggregato-q']);
     }
+    this.object = muraturaSelezionata
     console.log(muraturaSelezionata)
   }
 
