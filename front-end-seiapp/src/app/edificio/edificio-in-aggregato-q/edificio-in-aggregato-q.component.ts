@@ -3,6 +3,7 @@ import { QualitàEdificiService } from 'src/app/classi-servizi/service/qualità-
 import { ActivatedRoute, Router } from '@angular/router';
 import { EdificioInAggregato } from 'src/app/classi-servizi/classes/edificio-in-aggregato';
 import { Quality } from 'src/app/classi-servizi/classes/quality';
+import { EdificioInaggregatoComponent } from '../edificio-inaggregato/edificio-inaggregato.component';
 
 @Component({
   selector: 'app-edificio-in-aggregato-q',
@@ -17,9 +18,10 @@ export class EdificioInAggregatoQComponent implements OnInit {
   edificioSelezionato3: EdificioInAggregato;
   edificioSelezionato4: EdificioInAggregato;
   value: number[] = [];
-
+  muratura: EdificioInaggregatoComponent;
   edificioFiltro: EdificioInAggregato[];
   quality: Quality[] = [];
+  totalePunteggio: number
 
   constructor(
     private route: ActivatedRoute,
@@ -141,7 +143,6 @@ export class EdificioInAggregatoQComponent implements OnInit {
     var valore18 = parseInt(select18)
     var valore19 = parseInt(select19)
     var valore20 = parseInt(select20)
-
     const numeriSelezionati: number[] = []
     const totale = (accumulator, currentValue) => accumulator + currentValue;
     if(valore1.valueOf() == 1){
@@ -360,12 +361,12 @@ export class EdificioInAggregatoQComponent implements OnInit {
       this.value[19] = 11
       numeriSelezionati.push(this.value[19])
     }
-    console.log(numeriSelezionati.reduce(totale));
-
-    
+    this.totalePunteggio = numeriSelezionati.reduce(totale)
+    console.log(this.totalePunteggio);
   }
 
-
+  vediMuratura(){
+  }
 
   
 }
