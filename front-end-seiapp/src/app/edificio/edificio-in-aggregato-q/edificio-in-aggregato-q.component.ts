@@ -139,43 +139,226 @@ export class EdificioInAggregatoQComponent implements OnInit {
     var valore16 = parseInt(select16)
     var valore17 = parseInt(select17)
     var valore18 = parseInt(select18)
-
-
-
-
-
-
-
-
-
+    var valore19 = parseInt(select19)
+    var valore20 = parseInt(select20)
 
     const numeriSelezionati: number[] = []
     const totale = (accumulator, currentValue) => accumulator + currentValue;
-    if(valore1.valueOf() == 0){
+    if(valore1.valueOf() == 1){
       this.value[0] = 3
       numeriSelezionati.push(this.value[0])
-      console.log(numeriSelezionati)
-    } else if(valore1.valueOf() == 1){
-      this.value[0] = 2
-      numeriSelezionati.push(this.value[1])
-      console.log(numeriSelezionati)
     } else if(valore1.valueOf() == 2){
+      this.value[0] = 2
+      numeriSelezionati.push(this.value[0])
+    } else if(valore1.valueOf() == 3){
       this.value[0] = 0
-      numeriSelezionati.push(this.value[2])
-      console.log(numeriSelezionati)
+      numeriSelezionati.push(this.value[0])
     }
-    if(valore2.valueOf() == 3){
+    if(valore2.valueOf() == 4){
       this.value[1] = 15
       numeriSelezionati.push(this.value[1])
-      console.log(numeriSelezionati)
-    } else if(valore2.valueOf() == 4){
+    } else if(valore2.valueOf() == 5){
       this.value[1] = 8
       numeriSelezionati.push(this.value[1])
-      console.log(numeriSelezionati)
-    } else if(valore2.valueOf() == 5){
+    } else if(valore2.valueOf() == 6){
       this.value[1] = 0
       numeriSelezionati.push(this.value[1])
-      console.log(numeriSelezionati)
+    }
+    if(valore3.valueOf() == 7){
+      this.value[2] = 4
+      numeriSelezionati.push(this.value[2])
+
+    } else if(valore3.valueOf() == 8){
+      this.value[2] = 2
+      numeriSelezionati.push(this.value[2])
+    } else if(valore3.valueOf() == 9){
+      this.value[2] = 0
+      numeriSelezionati.push(this.value[2])
+    }
+    if(valore4.valueOf() == 10){
+      this.value[3] = 4
+      numeriSelezionati.push(this.value[3])
+    } else if(valore4.valueOf() == 11){
+      this.value[3] = 2
+      numeriSelezionati.push(this.value[3])
+    } else if(valore4.valueOf() == 12){
+      this.value[3] = 0
+      numeriSelezionati.push(this.value[3])
+    }
+    if(valore5.valueOf() == 13){
+      this.value[4] = 8
+      numeriSelezionati.push(this.value[4])
+    } else if(valore5.valueOf() == 14){
+      this.value[4] = 4
+      numeriSelezionati.push(this.value[4])
+    } else if(valore5.valueOf() == 15){
+      this.value[4] = 0
+      numeriSelezionati.push(this.value[4])
+    }
+    if(valore6.valueOf() == 16){
+      this.value[5] = 20
+      numeriSelezionati.push(this.value[5])
+    } else if(valore6.valueOf() == 17){
+      this.value[5] = 10
+      numeriSelezionati.push(this.value[5])
+    } else if(valore6.valueOf() == 18){
+      this.value[5] = 0
+      numeriSelezionati.push(this.value[5])
+    }
+    if(valore7.valueOf() == 19){
+      this.value[6] = 4
+      numeriSelezionati.push(this.value[6])
+    } else if(valore7.valueOf() == 20){
+      this.value[6] = 2
+      numeriSelezionati.push(this.value[6])
+    } else if(valore7.valueOf() == 21){
+      this.value[6] = 0
+      numeriSelezionati.push(this.value[6])
+    }
+    if(valore8.valueOf() == 22){
+      this.value[7] = 4
+      numeriSelezionati.push(this.value[7])
+    } else if(valore8.valueOf() == 23){
+      this.value[7] = 2
+      numeriSelezionati.push(this.value[7])
+    } else if(valore8.valueOf() == 24){
+      this.value[7] = 0
+      numeriSelezionati.push(this.value[7])
+    }
+    if(valore9.valueOf() == 25){
+      this.value[8] = 4
+      numeriSelezionati.push(this.value[8])
+    } else if(valore9.valueOf() == 26){
+      this.value[8] = 2
+      numeriSelezionati.push(this.value[8])
+    } else if(valore9.valueOf() == 27){
+      this.value[8] = 0
+      numeriSelezionati.push(this.value[8])
+    }
+    if(valore10.valueOf() == 28){
+      this.value[9] = 4
+      numeriSelezionati.push(this.value[9])
+    } else if(valore10.valueOf() == 29){
+      this.value[9] = 2
+      numeriSelezionati.push(this.value[9])
+    } else if(valore10.valueOf() == 30){
+      this.value[9] = 0
+      numeriSelezionati.push(this.value[9])
+    }
+    if(valore11.valueOf() == 31){
+      this.value[10] = 4
+      numeriSelezionati.push(this.value[10])
+    } else if(valore11.valueOf() == 32){
+      this.value[10] = 2
+      numeriSelezionati.push(this.value[10])
+    } else if(valore11.valueOf() == 33){
+      this.value[10] = 0
+      numeriSelezionati.push(this.value[10])
+    }
+    if(valore12.valueOf() == 34){
+      this.value[11] = 8
+      numeriSelezionati.push(this.value[11])
+    } else if(valore12.valueOf() == 35){
+      this.value[11] = 4
+      numeriSelezionati.push(this.value[11])
+    } else if(valore12.valueOf() == 36){
+      this.value[11] = 0
+      numeriSelezionati.push(this.value[11])
+    }
+    if(valore13.valueOf() == 37){
+      this.value[12] = 0
+      numeriSelezionati.push(this.value[12])
+    } else if(valore13.valueOf() == 38){
+      this.value[12] = 0
+      numeriSelezionati.push(this.value[12])
+    } else if(valore13.valueOf() == 39){
+      this.value[12] = 0
+      numeriSelezionati.push(this.value[12])
+    }
+    if(valore14.valueOf() == 40){
+      this.value[13] = 0
+      numeriSelezionati.push(this.value[13])
+    } else if(valore14.valueOf() == 41){
+      this.value[13] = 0
+      numeriSelezionati.push(this.value[13])
+    } else if(valore14.valueOf() == 42){
+      this.value[13] = 0
+      numeriSelezionati.push(this.value[13])
+    }
+    if(valore15.valueOf() == 43){
+      this.value[14] = 3
+      numeriSelezionati.push(this.value[14])
+    } else if(valore15.valueOf() == 44){
+      this.value[14] = 1
+      numeriSelezionati.push(this.value[14])
+    } else if(valore15.valueOf() == 45){
+      this.value[14] = 0
+      numeriSelezionati.push(this.value[14])
+    }
+    if(valore16.valueOf() == 46){
+      this.value[15] = -5
+      numeriSelezionati.push(this.value[15])
+    } else if(valore16.valueOf() == 47){
+      this.value[15] = 0
+      numeriSelezionati.push(this.value[15])
+    } else if(valore16.valueOf() == 48){
+      this.value[15] = 4
+      numeriSelezionati.push(this.value[15])
+    } else if(valore16.valueOf() == 49){
+      this.value[15] = 11
+      numeriSelezionati.push(this.value[15])
+    }
+    if(valore17.valueOf() == 50){
+      this.value[16] = -15
+      numeriSelezionati.push(this.value[16])
+    } else if(valore17.valueOf() == 51){
+      this.value[16] = -9
+      numeriSelezionati.push(this.value[16])
+    } else if(valore17.valueOf() == 52){
+      this.value[16] = -5
+      numeriSelezionati.push(this.value[16])
+    } else if(valore17.valueOf() == 53){
+      this.value[16] = 0
+      numeriSelezionati.push(this.value[16])
+    }
+    if(valore18.valueOf() == 54){
+      this.value[17] = 0
+      numeriSelezionati.push(this.value[17])
+    } else if(valore18.valueOf() == 55){
+      this.value[17] = 2
+      numeriSelezionati.push(this.value[17])
+    } else if(valore18.valueOf() == 56){
+      this.value[17] = 3
+      numeriSelezionati.push(this.value[17])
+    } else if(valore18.valueOf() == 57){
+      this.value[17] = 6
+      numeriSelezionati.push(this.value[17])
+    }
+    if(valore19.valueOf() == 58){
+      this.value[18] = -4
+      numeriSelezionati.push(this.value[18])
+    } else if(valore19.valueOf() == 59){
+      this.value[18] = -3
+      numeriSelezionati.push(this.value[18])
+    } else if(valore19.valueOf() == 60){
+      this.value[18] = 0
+      numeriSelezionati.push(this.value[18])
+    } else if(valore19.valueOf() == 61){
+      this.value[18] = 13
+      numeriSelezionati.push(this.value[18])
+    }
+    if(valore20.valueOf() == 62){
+      this.value[19] = -5
+      numeriSelezionati.push(this.value[19])
+    } else if(valore20.valueOf() == 63){
+      this.value[19] = 0
+      numeriSelezionati.push(this.value[19])
+    } else if(valore20.valueOf() == 64){
+      this.value[19] = 6
+      numeriSelezionati.push(this.value[19])
+    } else if(valore20.valueOf() == 65){
+      this.value[19] = 11
+      numeriSelezionati.push(this.value[19])
     }
     console.log(numeriSelezionati.reduce(totale));
 
