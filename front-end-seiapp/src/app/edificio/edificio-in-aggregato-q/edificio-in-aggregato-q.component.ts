@@ -22,7 +22,7 @@ export class EdificioInAggregatoQComponent implements OnInit {
   muratura: EdificioInaggregatoComponent;
   edificioFiltro: EdificioInAggregato[];
   quality: Quality[] = [];
-  totalePunteggio: number
+  totalePunteggio: Number
   varEmp: Number
 
 
@@ -373,9 +373,20 @@ export class EdificioInAggregatoQComponent implements OnInit {
       alert("La classe di vulnerabilità è V6")
     }
     if (this.varEmp == 3) {
-      if (this.totalePunteggio <= 50) {
-        alert("La classe di vulnerabilità è V5")
+      if (this.totalePunteggio < 50) {
+      alert("La classe di vulnerabilità è V5")
+        }else{
+      alert("La classe di vulnerabilità è V6")
+        }
+      }
+      if(this.varEmp == 5){
+        if(this.totalePunteggio < 30){
+          alert("La classe di vulnerabilità è V4")
+        }else if(this.totalePunteggio >= 60){
+          alert("La classe di vulnerabilità è V6")
+        }else if(this.totalePunteggio >= 30 && this.totalePunteggio <= 60){
+          alert("La classe di vulnerabilità è V5")
+        }
       }
     }
-  }
 }
