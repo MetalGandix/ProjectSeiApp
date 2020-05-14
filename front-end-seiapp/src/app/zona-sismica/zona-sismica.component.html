@@ -1,1 +1,28 @@
-<p>zona-sismica works!</p>
+<div class="container">
+    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 15px;">
+      <p><b>Seleziona la zona sismica</b></p>
+      <hr>
+    </div>
+    <div class="card my-5">
+      <div class="card-body">
+
+<form>
+<div>
+    <label for="tipologiaStrutture" style="margin-top: 20px;">
+      Zona sismica</label>
+    <select class="form-control">
+      <option *ngFor="let id of zonaSismica;">
+        {{id.id}}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" (click)="vediClasseRischio" style="margin-top: 30px;" class="btn btn-primary"
+  class="btn btn-info">Avanti</button>
+
+</form>
+
+
+</div>
+</div>
+</div>

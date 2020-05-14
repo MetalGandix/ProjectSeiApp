@@ -389,24 +389,21 @@
           </select>
         </div>
 
-        <div>
-          <label for="tipologiaStrutture" style="margin-top: 20px;">
-            Scegli la zona sismica</label>
-          <select class="form-control">
-            <option *ngFor="let id of zonaSismica;">
-              {{id.id}}
-            </option>
-          </select>
-        </div>
+
           
       </form>
 
     
-
-
-
       <button type="submit" (click)="vediMuratura()" (click)="outputSelection()" style="margin-top: 30px;" class="btn btn-primary"
-        class="btn btn-info">Avanti</button>
+        class="btn btn-info">Ottieni risultato</button>
+    <div></div>
+    <div class="buttonHolder">
+      <a routerLink="/zona-sismica" routerLinkActive="active">
+          <button type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">
+              Avanti
+          </button>
+      </a>
+  </div>
     </div>
   </div>
 </div>
