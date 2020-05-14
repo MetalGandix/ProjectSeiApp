@@ -368,25 +368,49 @@ export class EdificioInAggregatoQComponent implements OnInit {
   }
 
   vediMuratura() {
-  console.log(this.varEmp)
+    console.log(this.varEmp)
     if (this.varEmp == 1) {
       alert("La classe di vulnerabilità è V6")
     }
     if (this.varEmp == 3) {
       if (this.totalePunteggio < 50) {
-      alert("La classe di vulnerabilità è V5")
-        }else if (this.totalePunteggio >= 50){
-      alert("La classe di vulnerabilità è V6")
-        }
-      }
-      if(this.varEmp == 5){
-        if(this.totalePunteggio < 30){
-          alert("La classe di vulnerabilità è V4")
-        }else if(this.totalePunteggio >= 60){
-          alert("La classe di vulnerabilità è V6")
-        }else if(this.totalePunteggio >= 30 && this.totalePunteggio <= 60){
-          alert("La classe di vulnerabilità è V5")
-        }
+        alert("La classe di vulnerabilità è V5")
+      } else if (this.totalePunteggio >= 50) {
+        alert("La classe di vulnerabilità è V6")
       }
     }
+    if (this.varEmp == 5) {
+      if (this.totalePunteggio < 30) {
+        alert("La classe di vulnerabilità è V4")
+      } else if (this.totalePunteggio >= 60) {
+        alert("La classe di vulnerabilità è V6")
+      } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
+        alert("La classe di vulnerabilità è V5")
+      }
+    } if (this.varEmp == 6) {
+      if (this.totalePunteggio < 30) {
+        alert("La classe di vulnerabilità è V3")
+      } else if (this.totalePunteggio >= 60) {
+        alert("La classe di vulnerabilità è V5")
+      } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
+        alert("La classe di vulnerabilità è V4")
+      }
+    } if (this.varEmp == 7) {
+      if (this.totalePunteggio < 30) {
+        alert("La classe di vulnerabilità è V2")
+      } else if (this.totalePunteggio >= 60) {
+        alert("La classe di vulnerabilità è V4")
+      } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
+        alert("La classe di vulnerabilità è V3")
+      }
+    }
+  }
+
+  zonaSismica = [
+    {id: 1},
+    {id: 2},
+    {id: 3},
+    {id: 4}
+  ];
+  
 }

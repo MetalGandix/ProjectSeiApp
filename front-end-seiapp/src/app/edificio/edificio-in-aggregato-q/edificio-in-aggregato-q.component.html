@@ -388,7 +388,20 @@
             </option>
           </select>
         </div>
+
+        <div>
+          <label for="tipologiaStrutture" style="margin-top: 20px;">
+            Scegli la zona sismica</label>
+          <select class="form-control">
+            <option *ngFor="let id of zonaSismica;">
+              {{id.id}}
+            </option>
+          </select>
+        </div>
+          
       </form>
+
+    
 
 
 
