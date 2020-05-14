@@ -13,6 +13,7 @@ import { EdificioSingoloComponent } from './edificio/edificio-singolo/edificio-s
 import { EdificioInaggregatoComponent } from './edificio/edificio-inaggregato/edificio-inaggregato.component';
 import { EdificioInAggregatoQComponent } from './edificio/edificio-in-aggregato-q/edificio-in-aggregato-q.component';
 import { EdificioSingoloQComponent } from './edificio/edificio-singolo-q/edificio-singolo-q.component';
+import { ZonaSismicaComponent } from './zona-sismica/zona-sismica.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'edificio-singolo', component: EdificioSingoloComponent },
   { path: 'edificio-in-aggregato', component: EdificioInaggregatoComponent },
   { path: 'edificio-in-aggregato-q', component: EdificioInAggregatoQComponent },
-  { path: 'edificio-singolo-q', component: EdificioSingoloQComponent }
+  { path: 'edificio-singolo-q', component: EdificioSingoloQComponent },
+  { path: 'zona-sismica', component: ZonaSismicaComponent }
 ];
 
 @NgModule({

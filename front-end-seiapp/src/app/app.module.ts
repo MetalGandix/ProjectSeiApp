@@ -23,6 +23,7 @@ import { EdificioService } from './classi-servizi/service/edificio.service';
 import { QualitàEdificiService } from './classi-servizi/service/qualità-edifici.service';
 import { EdificioSingoloQComponent } from './edificio/edificio-singolo-q/edificio-singolo-q.component';
 import { EdificioInAggregatoQComponent } from './edificio/edificio-in-aggregato-q/edificio-in-aggregato-q.component';
+import { ZonaSismicaComponent } from './zona-sismica/zona-sismica.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EdificioInAggregatoQComponent } from './edificio/edificio-in-aggregato-
     EdificioSingoloComponent,
     EdificioInaggregatoComponent,
     EdificioSingoloQComponent,
-    EdificioInAggregatoQComponent
+    EdificioInAggregatoQComponent,
+    ZonaSismicaComponent
   ],
   imports: [
     BrowserModule,
