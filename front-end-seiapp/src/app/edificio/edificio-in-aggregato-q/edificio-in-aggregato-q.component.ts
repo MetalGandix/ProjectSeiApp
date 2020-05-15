@@ -24,6 +24,7 @@ export class EdificioInAggregatoQComponent implements OnInit {
   quality: Quality[] = [];
   totalePunteggio: Number
   varEmp: Number
+  vulnerability: Number
   msg1: boolean = false;
 
 
@@ -365,46 +366,46 @@ export class EdificioInAggregatoQComponent implements OnInit {
       numeriSelezionati.push(this.value[19])
     }
     this.totalePunteggio = numeriSelezionati.reduce(totale)
+    this.vediMuratura()
+    this.vulnerability
     this.msg1 = true;
-    
-
   }
 
   vediMuratura() {
     console.log(this.varEmp)
     if (this.varEmp == 1) {
-      alert("La classe di vulnerabilità è V6")
+      this.vulnerability = 6;
     }
     if (this.varEmp == 3) {
       if (this.totalePunteggio < 50) {
-        alert("La classe di vulnerabilità è V5")
+      this.vulnerability = 5;
       } else if (this.totalePunteggio >= 50) {
-        alert("La classe di vulnerabilità è V6")
+      this.vulnerability = 6;
       }
     }
     if (this.varEmp == 5) {
       if (this.totalePunteggio < 30) {
-        alert("La classe di vulnerabilità è V4")
+        this.vulnerability = 4;
       } else if (this.totalePunteggio >= 60) {
-        alert("La classe di vulnerabilità è V6")
+        this.vulnerability = 6;
       } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
-        alert("La classe di vulnerabilità è V5")
+        this.vulnerability = 5;
       }
     } if (this.varEmp == 6) {
       if (this.totalePunteggio < 30) {
-        alert("La classe di vulnerabilità è V3")
+        this.vulnerability = 3;
       } else if (this.totalePunteggio >= 60) {
-        alert("La classe di vulnerabilità è V5")
+        this.vulnerability = 5;
       } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
-        alert("La classe di vulnerabilità è V4")
+        this.vulnerability = 4;
       }
     } if (this.varEmp == 7) {
       if (this.totalePunteggio < 30) {
-        alert("La classe di vulnerabilità è V2")
+        this.vulnerability = 2;
       } else if (this.totalePunteggio >= 60) {
-        alert("La classe di vulnerabilità è V4")
+        this.vulnerability = 4;
       } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
-        alert("La classe di vulnerabilità è V3")
+        this.vulnerability = 3;
       }
     }
   }

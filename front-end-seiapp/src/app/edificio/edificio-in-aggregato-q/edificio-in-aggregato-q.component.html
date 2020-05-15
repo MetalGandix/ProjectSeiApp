@@ -389,17 +389,19 @@
           </select>
         </div>
 
-        <div class="row" style="margin-top: 30px;" *ngIf="msg1">
+        <div class="row" style="margin-top: 30px; justify-content: center;" *ngIf="msg1">
           <div class="col-xs-12">
-              <div class="alert alert-success">
+              <div class="alert alert-secondary">
                   <p>
-                      <strong>Il risultato è: {{totalePunteggio}}</strong>
-                  </p>
+                      Il risultato della somma dei punteggi è: <strong>{{totalePunteggio}}</strong>
+                    </p>
+                    <p>
+                      Il tipo di muratura è <strong>V {{vulnerability}}</strong>
+                    </p>
                   <a routerLink="/zona-sismica" routerLinkActive="active">Scegli il tipo di zona sismica</a>
               </div>
           </div>
       </div>
-          
       </form>
 
     
