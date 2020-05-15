@@ -8,7 +8,6 @@ import { AggiungiInterventoComponent } from './aggiungi-intervento/aggiungi-inte
 import { A1Component } from './a1/a1.component';
 import { A2Component } from './a2/a2.component';
 import { ModificaInterventoComponent } from './modifica-intervento/modifica-intervento.component';
-import { SceltaEdificioComponent } from './edificio/scelta-edificio/scelta-edificio.component';
 import { EdificioSingoloComponent } from './edificio/edificio-singolo/edificio-singolo.component';
 import { EdificioInaggregatoComponent } from './edificio/edificio-inaggregato/edificio-inaggregato.component';
 import { EdificioInAggregatoQComponent } from './edificio/edificio-in-aggregato-q/edificio-in-aggregato-q.component';
@@ -25,7 +24,6 @@ const routes: Routes = [
   { path: 'a1', component: A1Component },
   { path: 'a2', component: A2Component },
   { path: 'modifica-interventi', component: ModificaInterventoComponent },
-  { path: 'scelta-edificio', component: SceltaEdificioComponent },
   { path: 'edificio-singolo', component: EdificioSingoloComponent },
   { path: 'edificio-in-aggregato', component: EdificioInaggregatoComponent },
   { path: 'edificio-in-aggregato-q', component: EdificioInAggregatoQComponent },
