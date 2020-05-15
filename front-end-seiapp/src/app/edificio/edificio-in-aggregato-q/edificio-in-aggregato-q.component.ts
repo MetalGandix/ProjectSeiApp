@@ -22,8 +22,9 @@ export class EdificioInAggregatoQComponent implements OnInit {
   muratura: EdificioInaggregatoComponent;
   edificioFiltro: EdificioInAggregato[];
   quality: Quality[] = [];
-  totalePunteggio: number
+  totalePunteggio: Number
   varEmp: Number
+  msg1: boolean = false;
 
 
   constructor(
@@ -364,7 +365,9 @@ export class EdificioInAggregatoQComponent implements OnInit {
       numeriSelezionati.push(this.value[19])
     }
     this.totalePunteggio = numeriSelezionati.reduce(totale)
-    console.log(this.totalePunteggio);
+    this.msg1 = true;
+    
+
   }
 
   vediMuratura() {
@@ -405,7 +408,4 @@ export class EdificioInAggregatoQComponent implements OnInit {
       }
     }
   }
-
- 
-  
 }
