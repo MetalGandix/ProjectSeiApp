@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ZonaSismicaComponent implements OnInit {
   vulClass: Number;
   risk: String
+  pam: String
   msg1: boolean = false;
   riskType: Number;
   value: number[] = [];
@@ -26,10 +27,10 @@ export class ZonaSismicaComponent implements OnInit {
   }
 
   zonaSismica = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 }
+    { id: " " },
+    { id: " " },
+    { id: " " },
+    { id: " " }
   ];
 
   viewRiskClass() {
@@ -66,27 +67,83 @@ export class ZonaSismicaComponent implements OnInit {
   gradoDiRischio() {
     if (this.vulClass == 6 && this.riskType == 1) {
       this.risk = "G"
+      this.pam = "7,5%"
     }
     if (this.vulClass == 6 && this.riskType == 2) {
       this.risk = "F"
+      this.pam = "4,5% ÷ 7,5%"
     }
     if (this.vulClass == 6 && this.riskType == 3) {
       this.risk = "D"
+      this.pam = "2,5% ÷ 3,5%"
     }
     if (this.vulClass == 6 && this.riskType == 4) {
       this.risk = "C"
+      this.pam = "1,5% ÷ 2,5%"
     }
     if (this.vulClass == 5 && this.riskType == 1) {
       this.risk = "F"
+      this.pam = "4,5% ÷ 7,5%"
     }
     if (this.vulClass == 5 && this.riskType == 2) {
       this.risk = "E"
+      this.pam = "3,5% ÷ 4,5%"
     }
     if (this.vulClass == 5 && this.riskType == 3) {
       this.risk = "D"
+      this.pam = "2,5% ÷ 3,5%"
     }
     if (this.vulClass == 5 && this.riskType == 4) {
       this.risk = "B"
+      this.pam = "1% ÷ 1,5%"
+    }
+    if (this.vulClass == 4 && this.riskType == 1) {
+      this.risk = "E"
+      this.pam = "3,5% ÷ 4,5%"
+    }
+    if (this.vulClass == 4 && this.riskType == 2) {
+      this.risk = "D"
+      this.pam = "2,5% ÷ 3,5%"
+    }
+    if (this.vulClass == 4 && this.riskType == 3) {
+      this.risk = "C"
+      this.pam = "1,5% ÷ 2,5%"
+    }
+    if (this.vulClass == 4 && this.riskType == 4) {
+      this.risk = "A"
+      this.pam = "0,5% ÷ 1%"
+    }
+    if (this.vulClass == 3 && this.riskType == 1) {
+      this.risk = "D"
+      this.pam = "2,5% ÷ 3,5%"
+    }
+    if (this.vulClass == 3 && this.riskType == 2) {
+      this.risk = "C"
+      this.pam = "1,5% ÷ 2,5%"
+    }
+    if (this.vulClass == 3 && this.riskType == 3) {
+      this.risk = "B"
+      this.pam = "1% ÷ 1,5%"
+    }
+    if (this.vulClass == 3 && this.riskType == 4) {
+      this.risk = "A"
+      this.pam = "0,5% ÷ 1%"
+    }
+    if (this.vulClass == 2 && this.riskType == 1) {
+      this.risk = "C"
+      this.pam = "1,5% ÷ 2,5%"
+    }
+    if (this.vulClass == 2 && this.riskType == 2) {
+      this.risk = "B"
+      this.pam = "1% ÷ 1,5%"
+    }
+    if (this.vulClass == 2 && this.riskType == 3) {
+      this.risk = "A"
+      this.pam = "0,5% ÷ 1%"
+    }
+    if (this.vulClass == 2 && this.riskType == 4) {
+      this.risk = "A+"
+      this.pam = "≤0,5%"
     }
   }
 
