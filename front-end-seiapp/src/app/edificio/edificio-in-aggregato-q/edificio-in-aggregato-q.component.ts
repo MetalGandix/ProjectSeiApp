@@ -409,4 +409,10 @@ export class EdificioInAggregatoQComponent implements OnInit {
       }
     }
   }
+
+  trasferisciClassVul(){
+    this.router.navigate(['/zona-sismica'], { 
+    state: { vulClass: this.vulnerability } 
+    })
+  }
 }

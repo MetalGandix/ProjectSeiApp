@@ -396,9 +396,9 @@
                       Il risultato della somma dei punteggi è: <strong>{{totalePunteggio}}</strong>
                     </p>
                     <p>
-                      Il tipo di muratura è <strong>V {{vulnerability}}</strong>
+                      La classe di vulnerabilità è: <strong>V{{vulnerability}}</strong>
                     </p>
-                  <a routerLink="/zona-sismica" routerLinkActive="active">Scegli il tipo di zona sismica</a>
+                  <a routerLink="active" (click)="trasferisciClassVul()">Scegli il tipo di zona sismica</a>
               </div>
           </div>
       </div>
