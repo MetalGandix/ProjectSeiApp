@@ -22,7 +22,7 @@ public class Edificio{
     @Column
     private String Valutazione;
     private String Descrizione;
-    private String Punteggio;
+    private int Punteggio;
     private int tipologia;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -53,11 +53,11 @@ public class Edificio{
         Descrizione = descrizione;
     }
 
-    public String getPunteggio() {
+    public int getPunteggio() {
         return Punteggio;
     }
 
-    public void setPunteggio(String punteggio) {
+    public void setPunteggio(int punteggio) {
         Punteggio = punteggio;
     }
 
