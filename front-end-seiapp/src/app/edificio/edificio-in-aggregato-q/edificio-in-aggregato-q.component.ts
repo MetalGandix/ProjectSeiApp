@@ -86,30 +86,10 @@ export class EdificioInAggregatoQComponent implements OnInit {
         this.edificioByQuality[element.quality.id].push(element)
         qualityId = element.quality.id
       })
-      this.cleanQualityArray();
     });
     this.qualità.getQEdificio().subscribe(data => {
       this.edificioSelezionato1 = data;
     })
-  }
-
-  cleanQualityArray(): void {
-    //Crea un array di numeri
-    const qualityIds: number[] = [];
-    //Metto nell'array ogni ID dell'elemento scelto
-    this.quality.forEach(el => {
-      qualityIds.push(el.id)
-    });
-    //Questo Set filtra GLI ID DUPLICATI
-    const unique = new Set(qualityIds);
-    //Creo un altro array di tipo Quality
-    const qualityTemp: Quality[] = [];
-    unique.forEach(u => {
-      //Con questo push, associo ad ongi id il resto della stringa
-      qualityTemp.push(this.quality.find(qE => qE.id == u))
-    });
-    //Rimetto tutto qualityTempo all'interno di quality
-    this.quality = qualityTemp
   }
 
   outputSelection() {
