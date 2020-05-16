@@ -23,6 +23,7 @@ import { QualitàEdificiService } from './classi-servizi/service/qualità-edific
 import { EdificioSingoloQComponent } from './edificio/edificio-singolo-q/edificio-singolo-q.component';
 import { EdificioInAggregatoQComponent } from './edificio/edificio-in-aggregato-q/edificio-in-aggregato-q.component';
 import { ZonaSismicaComponent } from './zona-sismica/zona-sismica.component';
+import { faSquare, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,10 @@ import { ZonaSismicaComponent } from './zona-sismica/zona-sismica.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [StrutturaVerticaleService,InterventiService,EdificioService,QualitàEdificiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }

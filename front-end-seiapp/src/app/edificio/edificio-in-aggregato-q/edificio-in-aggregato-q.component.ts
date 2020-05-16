@@ -120,7 +120,6 @@ export class EdificioInAggregatoQComponent implements OnInit {
         list.forEach(function (edificio, edificioIndex, edificioArray) {
           if (edificio.id === value) {
             totalePunteggio = totalePunteggio + parseInt(edificio.punteggio)
-            console.log("trovato edificio ", edificio.punteggio)
           }
         })
       }
