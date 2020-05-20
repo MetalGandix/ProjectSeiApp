@@ -1,22 +1,39 @@
-<div class="container">
-    <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-      <p><b>Seleziona la tipologia EMS</b></p>
-    </div>
-    <div class="card my-5">
-      <div class="card-body">
-        <form>
+<div class="container ems">
 
-            <div class="form-group">
-                <label for="tipologiaStrutture" ><b>Tipi</b></label>
-                <select value="edificio" class="form-control" id="edificioSingolo" name="edificio">
-                  <option *ngFor="let TipoEdificio of edificioSingolo; index as i" [ngStyle]="{'background-color': i==1 ? 'orange' : 'transparent' && i==3 ? 'orange' : 'transparent'}">
-                  {{i+1}} - {{ TipoEdificio.tipologiaStrutture }}
-                </option>
-                </select>
+  <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+    <p><b>Seleziona la tipologia EMS</b></p>
+  </div>
+
+  <div class="card my-5">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="tipologiaStrutture"></label>
+
+          <div class="titolo" style="text-align: center;">
+            <p><b>Seleziona la tipologia EMS per l'edificio singolo</b></p>
+          </div>
+
+          <select value="edificio" class="form-control" id="edificioSingolo" name="edificio">
+            <option *ngFor="let TipoEdificio of edificioInAggregato; index as i"
+              [ngStyle]="{'background-color': i==1 ? 'orange' : 'transparent' && i==3 ? 'orange' : 'transparent'}">
+              {{i+1}} - {{ TipoEdificio.tipologiaStrutture }}
+            </option>
+          </select>
+
+          <div class="container bottoni">
+            <div class="mbr-section-btn">
+              <a class="btn btn-md1 btn-secondary display-4" routerLink="/home" routerLinkActive="active"
+                role="button">&laquo; Indietro</a>
+
+              <a class="btn btn-md2 btn-secondary display-4" routerLink="/edificio-in-aggregato-q"
+                routerLinkActive="active" button type="submit" (click)="outputSelezione()" role="button">Avanti &raquo;
+              </a>
+
             </div>
-
-        <button type="submit" (click)="outputSelezione()" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
-        </form>
-      </div>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </div>

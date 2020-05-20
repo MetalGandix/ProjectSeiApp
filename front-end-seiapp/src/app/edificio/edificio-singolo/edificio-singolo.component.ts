@@ -11,50 +11,62 @@ import { TipoEdificio } from 'src/app/classi-servizi/classes/tipo-edificio';
 export class EdificioSingoloComponent implements OnInit {
 
 
-  edificioSingolo: TipoEdificio[];
+   
+  emp: Number = 0;
+  edificioInAggregato: TipoEdificio[];
+  //showMsg1: boolean = false
+  pietraASecco: number = 1
+  pietraSbozzata: number = 3
+  pietraLavorata: number = 5
+  solaiRigidezza: number = 6
+  orizzontamentiRigidezza: number = 7
 
-  valori: EventEmitter<string> = new EventEmitter();
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private edificioService: EdificioService
-    ) { }
+    ) { 
+      
+    }
 
   ngOnInit(){
       this.edificioService.getTipoEdificio().subscribe(data =>{
-      this.edificioSingolo = data;
-      console.log(this.edificioSingolo)
+      this.edificioInAggregato = data;
     })
   }
 
   outputSelezione(){
     var select1 = (<HTMLInputElement>document.getElementById("edificioSingolo")).value;
     var valore1 = parseInt(select1)
+    const muraturaSelezionata: number[] = []
+    const totale = (accumulator, currentValue) => accumulator + currentValue;
     //Scrive i valori presi in input document.write(select1,select2);
     if(valore1.valueOf() == 1){
-      this.router.navigate(['/edificio-singolo-q']);
+      muraturaSelezionata.push(this.pietraASecco)
     }
     if(valore1.valueOf() == 2){
-      //this.showMsg1 = true;
       alert("Questo edificio non può essere selezionato");
     }
     if(valore1.valueOf() == 3){
-      this.router.navigate(['/edificio-singolo-q']);
+      muraturaSelezionata.push(this.pietraSbozzata)
     }
     if(valore1.valueOf() == 4){
-      //this.showMsg1 = true;
       alert("Questo edificio non può essere selezionato");
     }
     if(valore1.valueOf() == 5){
-      this.router.navigate(['/edificio-singolo-q']);
+      muraturaSelezionata.push(this.pietraLavorata)
     }
     if(valore1.valueOf() == 6){
-      this.router.navigate(['/edificio-singolo-q']);
+      muraturaSelezionata.push(this.solaiRigidezza)
     }
     if(valore1.valueOf() == 7){
-      this.router.navigate(['/edificio-singolo-q']);
-
+      muraturaSelezionata.push(this.orizzontamentiRigidezza)
     }
+    this.emp = muraturaSelezionata.reduce(totale)
+    console.log(this.emp)
+    this.router.navigate(['/edificio-singolo-q'], { 
+      state: { varEmp: this.emp } 
+    });
   }
 }

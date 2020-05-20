@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EdificioSingolo } from 'src/app/classi-servizi/classes/edificio-singolo';
 import { QualitàEdificiService } from 'src/app/classi-servizi/service/qualità-edifici.service';
 import { EdificioInAggregato } from 'src/app/classi-servizi/classes/edificio-in-aggregato';
 import { Quality } from 'src/app/classi-servizi/classes/quality';
+import { EdificioInaggregatoComponent } from '../edificio-inaggregato/edificio-inaggregato.component';
 
 @Component({
   selector: 'app-edificio-singolo-q',
@@ -17,17 +17,28 @@ export class EdificioSingoloQComponent implements OnInit {
   edificioSelezionato2: EdificioInAggregato;
   edificioSelezionato3: EdificioInAggregato;
   edificioSelezionato4: EdificioInAggregato;
-
+  selezione: number[] = [];
+  value: number[] = [];
+  muratura: EdificioInaggregatoComponent;
   edificioFiltro: EdificioInAggregato[];
   quality: Quality[] = [];
+  totalePunteggio: Number
+  varEmp: Number
+  vulnerability: Number
+  msg1: boolean = false;
+  edificioByQuality: { [key: number]: EdificioInAggregato[] } = {}
+
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private qualità: QualitàEdificiService
-  ) { }
+    private qualità: QualitàEdificiService,
+  ) {
+  }
+
 
   ngOnInit() {
+    this.varEmp = window.history.state.varEmp;
     //Prendo il metodo dal servizio e lo metto dentro un dizionario edifici
     this.qualità.getQEdificio().subscribe(data => {
       //Creo un dizionario edifici (const edifici = new Object() è la sintassi più vecchia)
@@ -50,36 +61,90 @@ export class EdificioSingoloQComponent implements OnInit {
       //L'array di oggetti edificioInAggregato prende i valori di edifici(quindi prende le sue chiavi e i suoi)
       this.edificioInAggregato = edifici
       //edificioInAggregato['KEY'].forEach(ELEMENTI)
+      let qualityId = null
       this.edificioInAggregato['Edificio Singolo'].forEach(element => {
         this.quality.push(element.quality)
+        if (qualityId !== element.quality.id) {
+          this.selezione.push(element.id)
+        }
+        if(!this.edificioByQuality[element.quality.id]){
+          this.edificioByQuality[element.quality.id] = []
+        }
+        this.edificioByQuality[element.quality.id].push(element)
+        qualityId = element.quality.id
       });
-      this.edificioInAggregato['Edificio In Aggregato'].forEach(element => {
-        this.quality.push(element.quality);
-      })
-      this.cleanQualityArray();
+      qualityId = null
+      this.cleanQualityArray()
     });
-    this.qualità.getQEdificio().subscribe(data =>{
+    this.qualità.getQEdificio().subscribe(data => {
       this.edificioSelezionato1 = data;
     })
   }
 
-  /*onChange(value: Quality) {
-    //Creo un array di tipo EdificioInAggregato[]
-    const arr: EdificioInAggregato[] = []
-    //Per ogni elemento controllo se è un edificio in aggregato o singolo
-    for (const edificio of this.edificioInAggregato[value.tQuality.tipoStruttura]) {
-      //
-      if (edificio.quality.id === value.id) {
-        arr.push(edificio)
+  outputSelection() {
+    let totalePunteggio = 0
+    this.selezione.forEach((function (value, index, array) {
+      for (const key in this.edificioInAggregato) {
+        const list = this.edificioInAggregato[key]
+        list.forEach(function (edificio, edificioIndex, edificioArray) {
+          if (edificio.id === value) {
+            totalePunteggio = totalePunteggio + parseInt(edificio.punteggio)
+          }
+        })
       }
-    }
-    this.edificioFiltro = arr;
+    }).bind(this))
+    this.totalePunteggio = totalePunteggio
+    this.vediMuratura()
+    this.vulnerability
+    this.msg1 = true;
   }
 
-  onChangeAnother(value: Quality){
-  }*/
+  vediMuratura() {
+    console.log(this.varEmp)
+    if (this.varEmp == 1) {
+      this.vulnerability = 6;
+    }
+    if (this.varEmp == 3) {
+      if (this.totalePunteggio < 50) {
+        this.vulnerability = 5;
+      } else if (this.totalePunteggio >= 50) {
+        this.vulnerability = 6;
+      }
+    }
+    if (this.varEmp == 5) {
+      if (this.totalePunteggio < 30) {
+        this.vulnerability = 4;
+      } else if (this.totalePunteggio >= 60) {
+        this.vulnerability = 6;
+      } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
+        this.vulnerability = 5;
+      }
+    } if (this.varEmp == 6) {
+      if (this.totalePunteggio < 30) {
+        this.vulnerability = 3;
+      } else if (this.totalePunteggio >= 60) {
+        this.vulnerability = 5;
+      } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
+        this.vulnerability = 4;
+      }
+    } if (this.varEmp == 7) {
+      if (this.totalePunteggio < 30) {
+        this.vulnerability = 2;
+      } else if (this.totalePunteggio >= 60) {
+        this.vulnerability = 4;
+      } else if (this.totalePunteggio >= 30 && this.totalePunteggio <= 60) {
+        this.vulnerability = 3;
+      }
+    }
+  }
 
-  cleanQualityArray(): void{
+  trasferisciClassVul() {
+    this.router.navigate(['/zona-sismica'], {
+      state: { vulClass: this.vulnerability }
+    })
+  }
+
+  cleanQualityArray(): void {
     //Crea un array di numeri
     const qualityIds: number[] = [];
     //Metto nell'array ogni ID dell'elemento scelto
@@ -89,16 +154,12 @@ export class EdificioSingoloQComponent implements OnInit {
     //Questo Set filtra GLI ID DUPLICATI
     const unique = new Set(qualityIds);
     //Creo un altro array di tipo Quality
-    const qualityTemp : Quality[] = [];
-    unique.forEach( u => {
-    //Con questo push, associo ad ongi id il resto della stringa
-      qualityTemp.push(this.quality.find( qE => qE.id == u))
+    const qualityTemp: Quality[] = [];
+    unique.forEach(u => {
+      //Con questo push, associo ad ongi id il resto della stringa
+      qualityTemp.push(this.quality.find(qE => qE.id == u))
     });
     //Rimetto tutto qualityTempo all'interno di quality
     this.quality = qualityTemp
   }
-
-
-  
 }
-
