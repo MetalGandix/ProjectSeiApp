@@ -1,39 +1,38 @@
 <div class="container ems">
-
   <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
     <p><b>Seleziona la tipologia EMS</b></p>
   </div>
-
   <div class="card my-5">
     <div class="card-body">
-      <form>
-        <div class="form-group">
-          <label for="tipologiaStrutture"></label>
 
-          <div class="titolo" style="text-align: center;">
-            <p><b>Seleziona la tipologia EMS per l'edificio in aggregato</b></p>
-          </div>
+      <div class="form-group">
+        <label for="tipologiaStrutture"></label>
 
-          <select value="edificio" class="form-control" id="edificioInAggregato" name="edificio">
-            <option *ngFor="let TipoEdificio of edificioInAggregato; index as i"
-              [ngStyle]="{'background-color': i==1 ? 'orange' : 'transparent' && i==3 ? 'orange' : 'transparent'}">
-              {{i+1}} - {{ TipoEdificio.tipologiaStrutture }}
-            </option>
-          </select>
+        <div class="titolo" style="text-align: center;">
+          <p><b>Seleziona la tipologia EMS per l'edificio in aggregato</b></p>
+        </div>
 
-          <div class="container bottoni">
-            <div class="mbr-section-btn">
-              <a class="btn btn-md1 btn-secondary display-4" routerLink="/home" routerLinkActive="active"
-                role="button">&laquo; Indietro</a>
+        <select class="form-control" id="edificioInAggregato" name="edificio"
+          (change)="onChange($event.target.value)">
+          <option [ngValue]="undefined">Seleziona EMP</option>
+          <option [value]="tipoEdificio.id" *ngFor="let tipoEdificio of edificioInAggregato;"
+            [class.bg-warning]="tipoEdificio.abilitato">
+            {{tipoEdificio.id}} - {{ tipoEdificio.tipologiaStrutture }} 
+          </option>
+        </select>
 
-              <a class="btn btn-md2 btn-secondary display-4" routerLink="/edificio-in-aggregato-q"
-                routerLinkActive="active" button type="submit" (click)="outputSelezione()" role="button">Avanti &raquo;
-              </a>
+        <div class="container bottoni">
+          <div class="mbr-section-btn">
+            <a class="btn btn-md1 btn-secondary display-4" routerLink="/home" routerLinkActive="active"
+              role="button">&laquo; Indietro</a>
 
-            </div>
+            <button class="btn btn-md2 btn-secondary display-4" [disabled]="avantiAbilitato"
+              (click)="outputSelezione()">Avanti &raquo;
+            </button>
+
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>

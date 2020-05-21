@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { QualitàEdificiService } from 'src/app/classi-servizi/service/qualità-edifici.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EdificioInAggregato } from 'src/app/classi-servizi/classes/edificio-in-aggregato';
 import { Quality } from 'src/app/classi-servizi/classes/quality';
 import { EdificioInaggregatoComponent } from '../edificio-inaggregato/edificio-inaggregato.component';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { EdificioInaggregatoComponent } from '../edificio-inaggregato/edificio-i
   templateUrl: './edificio-in-aggregato-q.component.html',
   styleUrls: ['./edificio-in-aggregato-q.component.css']
 })
-export class EdificioInAggregatoQComponent implements OnInit {
+export class EdificioInAggregatoQComponent implements OnInit, OnDestroy {
 
   edificioInAggregato: { [key: string]: EdificioInAggregato[] } = {}
   edificioSelezionato1: EdificioInAggregato[];
@@ -24,11 +25,11 @@ export class EdificioInAggregatoQComponent implements OnInit {
   edificioFiltro: EdificioInAggregato[];
   quality: Quality[] = [];
   totalePunteggio: Number
-  varEmp: Number
+  varEmp: number
   vulnerability: Number
   msg1: boolean = false;
   edificioByQuality: { [key: number]: EdificioInAggregato[] } = {}
-
+  subscriptionsToDelete: Subscription = new Subscription();
 
   constructor(
     private route: ActivatedRoute,
@@ -37,9 +38,17 @@ export class EdificioInAggregatoQComponent implements OnInit {
   ) {
   }
 
+  ngOnDestroy() {
+    this.subscriptionsToDelete.unsubscribe();
+  }
 
   ngOnInit() {
-    this.varEmp = window.history.state.varEmp;
+    this.subscriptionsToDelete.add(
+      this.route.params.subscribe(params => {
+        console.log("questo è il valore che ho passato",params['id']);
+        Object.keys(params['id'])
+        this.varEmp = params['id']
+      }));
     //Prendo il metodo dal servizio e lo metto dentro un dizionario edifici
     this.qualità.getQEdificio().subscribe(data => {
       //Creo un dizionario edifici (const edifici = new Object() è la sintassi più vecchia)
@@ -68,7 +77,7 @@ export class EdificioInAggregatoQComponent implements OnInit {
         if (qualityId !== element.quality.id) {
           this.selezione.push(element.id)
         }
-        if(!this.edificioByQuality[element.quality.id]){
+        if (!this.edificioByQuality[element.quality.id]) {
           this.edificioByQuality[element.quality.id] = []
         }
         this.edificioByQuality[element.quality.id].push(element)
@@ -80,7 +89,7 @@ export class EdificioInAggregatoQComponent implements OnInit {
         if (qualityId !== element.quality.id) {
           this.selezione.push(element.id)
         }
-        if(!this.edificioByQuality[element.quality.id]){
+        if (!this.edificioByQuality[element.quality.id]) {
           this.edificioByQuality[element.quality.id] = []
         }
         this.edificioByQuality[element.quality.id].push(element)
@@ -107,12 +116,12 @@ export class EdificioInAggregatoQComponent implements OnInit {
     }).bind(this))
     this.totalePunteggio = totalePunteggio
     this.vediMuratura()
+    console.log("Questo è il valore EMS: ",this.varEmp)
     this.vulnerability
     this.msg1 = true;
   }
 
   vediMuratura() {
-    console.log(this.varEmp)
     if (this.varEmp == 1) {
       this.vulnerability = 6;
     }

@@ -1,4 +1,5 @@
 export class TipoEdificio {
     id: number;
-    tipologiaStruttura: string;
+    tipologiaStrutture: string;
+    abilitato: boolean
 }

@@ -11,8 +11,8 @@
     <label for="tipologiaStrutture" style="margin-top: 20px;">
       Seleziona il tipo di zona sismica</label>
     <select class="form-control" id="id1">
-      <option *ngFor="let id of zonaSismica;index as i">
-      {{i+1}}
+      <option [value]="id.id" *ngFor="let id of zonaSismica;index as i">
+      {{id.id}}
       </option>
     </select>
   </div>

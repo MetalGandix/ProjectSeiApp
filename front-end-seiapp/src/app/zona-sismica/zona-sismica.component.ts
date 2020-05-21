@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Zona } from '../classi-servizi/classes/zona';
 
 @Component({
   selector: 'app-zona-sismica',
@@ -13,8 +14,8 @@ export class ZonaSismicaComponent implements OnInit {
   msg1: boolean = false;
   riskType: Number;
   value: number[] = [];
-
-
+  zona: Zona[]
+  zonaSelezionata: Zona
 
   constructor(
     private route: ActivatedRoute,
@@ -27,10 +28,10 @@ export class ZonaSismicaComponent implements OnInit {
   }
 
   zonaSismica = [
-    { id: " " },
-    { id: " " },
-    { id: " " },
-    { id: " " }
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 }
   ];
 
   viewRiskClass() {

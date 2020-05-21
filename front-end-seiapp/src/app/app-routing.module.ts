@@ -26,8 +26,8 @@ const routes: Routes = [
   { path: 'modifica-interventi', component: ModificaInterventoComponent },
   { path: 'edificio-singolo', component: EdificioSingoloComponent },
   { path: 'edificio-in-aggregato', component: EdificioInaggregatoComponent },
-  { path: 'edificio-in-aggregato-q', component: EdificioInAggregatoQComponent },
-  { path: 'edificio-singolo-q', component: EdificioSingoloQComponent },
+  { path: 'edificio-in-aggregato-q/:id', component: EdificioInAggregatoQComponent },
+  { path: 'edificio-singolo-q/:id', component: EdificioSingoloQComponent },
   { path: 'zona-sismica', component: ZonaSismicaComponent }
 ];
 

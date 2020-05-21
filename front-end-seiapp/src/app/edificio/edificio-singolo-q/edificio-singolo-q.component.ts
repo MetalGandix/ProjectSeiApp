@@ -4,6 +4,7 @@ import { QualitàEdificiService } from 'src/app/classi-servizi/service/qualità-
 import { EdificioInAggregato } from 'src/app/classi-servizi/classes/edificio-in-aggregato';
 import { Quality } from 'src/app/classi-servizi/classes/quality';
 import { EdificioInaggregatoComponent } from '../edificio-inaggregato/edificio-inaggregato.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edificio-singolo-q',
@@ -14,19 +15,17 @@ export class EdificioSingoloQComponent implements OnInit {
 
   edificioInAggregato: { [key: string]: EdificioInAggregato[] } = {}
   edificioSelezionato1: EdificioInAggregato[];
-  edificioSelezionato2: EdificioInAggregato;
-  edificioSelezionato3: EdificioInAggregato;
-  edificioSelezionato4: EdificioInAggregato;
   selezione: number[] = [];
   value: number[] = [];
   muratura: EdificioInaggregatoComponent;
   edificioFiltro: EdificioInAggregato[];
   quality: Quality[] = [];
   totalePunteggio: Number
-  varEmp: Number
+  varEmp: number
   vulnerability: Number
   msg1: boolean = false;
   edificioByQuality: { [key: number]: EdificioInAggregato[] } = {}
+  subscriptionsToDelete: Subscription = new Subscription();
 
 
   constructor(
@@ -38,7 +37,12 @@ export class EdificioSingoloQComponent implements OnInit {
 
 
   ngOnInit() {
-    this.varEmp = window.history.state.varEmp;
+    this.subscriptionsToDelete.add(
+      this.route.params.subscribe(params => {
+        console.log("questo è il valore che ho passato",params['id']);
+        Object.keys(params['id'])
+        this.varEmp = params['id']
+      }));
     //Prendo il metodo dal servizio e lo metto dentro un dizionario edifici
     this.qualità.getQEdificio().subscribe(data => {
       //Creo un dizionario edifici (const edifici = new Object() è la sintassi più vecchia)
