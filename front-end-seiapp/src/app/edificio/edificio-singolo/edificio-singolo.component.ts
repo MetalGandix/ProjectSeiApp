@@ -47,14 +47,12 @@ export class EdificioSingoloComponent implements OnInit {
     }
     if(valore1.valueOf() == 2){
       alert("Questo edificio non può essere selezionato");
-      this.router.navigate(['/edificio-singolo']);
     }
     if(valore1.valueOf() == 3){
       muraturaSelezionata.push(this.pietraSbozzata)
     }
     if(valore1.valueOf() == 4){
       alert("Questo edificio non può essere selezionato");
-      this.router.navigate(['/edificio-singolo']);
     }
     if(valore1.valueOf() == 5){
       muraturaSelezionata.push(this.pietraLavorata)
