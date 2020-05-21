@@ -12,26 +12,22 @@
           <p><b>Seleziona la tipologia EMS per l'edificio in aggregato</b></p>
         </div>
 
-        <select class="form-control" id="edificioInAggregato" name="edificio"
-          (change)="onChange($event.target.value)">
+        <select class="form-control" id="edificioInAggregato" name="edificio" (change)="onChange($event.target.value)">
           <option [ngValue]="undefined">Seleziona EMP</option>
           <option [value]="tipoEdificio.id" *ngFor="let tipoEdificio of edificioInAggregato;"
             [class.bg-warning]="tipoEdificio.abilitato">
-            {{tipoEdificio.id}} - {{ tipoEdificio.tipologiaStrutture }} 
+            {{tipoEdificio.id}} - {{ tipoEdificio.tipologiaStrutture }}
           </option>
         </select>
 
-        <div class="container bottoni">
-          <div class="mbr-section-btn">
-            <a class="btn btn-md1 btn-secondary display-4" routerLink="/home" routerLinkActive="active"
-              role="button">&laquo; Indietro</a>
-
-            <button class="btn btn-md2 btn-secondary display-4" [disabled]="avantiAbilitato"
-              (click)="outputSelezione()">Avanti &raquo;
-            </button>
-
-          </div>
+        <div class="mbr-section-btn">
+          <button class="btn btn-md1 btn-secondary display-4" style="width: 94px;" routerLink="/home"
+            routerLinkActive="active">&laquo; Indietro</button>
+          <button class="btn btn-md1 btn-secondary display-4" [disabled]="avantiAbilitato"
+            style="margin-left: 13px; width: 94px; float: right;" (click)="outputSelezione()">Avanti &raquo;
+          </button>
         </div>
+
       </div>
     </div>
   </div>

@@ -14,8 +14,6 @@ export class ZonaSismicaComponent implements OnInit {
   msg1: boolean = false;
   riskType: Number;
   value: number[] = [];
-  zona: Zona[]
-  zonaSelezionata: Zona
 
   constructor(
     private route: ActivatedRoute,
@@ -27,38 +25,18 @@ export class ZonaSismicaComponent implements OnInit {
     console.log(this.vulClass)
   }
 
+  onChange(zonaId: number){
+   this.zonaSismica.find(t => t.id == zonaId);
+   this.riskType = zonaId
+   console.log(zonaId)
+  }
+
   zonaSismica = [
     { id: 1 },
     { id: 2 },
     { id: 3 },
     { id: 4 }
   ];
-
-  viewRiskClass() {
-    var select1 = (<HTMLInputElement>document.getElementById("id1")).value;
-    var valore1 = parseInt(select1)
-    const numeriSelezionati: number[] = []
-    const totale = (accumulator, currentValue) => accumulator + currentValue;
-    if (valore1.valueOf() == 1) {
-      this.value[0] = 1;
-      numeriSelezionati.push(this.value[0]);
-    }
-    if (valore1.valueOf() == 2) {
-      this.value[0] = 2;
-      numeriSelezionati.push(this.value[0]);
-    }
-    if (valore1.valueOf() == 3) {
-      this.value[0] = 3;
-      numeriSelezionati.push(this.value[0]);
-    }
-    if (valore1.valueOf() == 4) {
-      this.value[0] = 4;
-      numeriSelezionati.push(this.value[0]);
-    }
-    this.riskType = numeriSelezionati.reduce(totale);
-    this.gradoDiRischio();
-    this.msg1 = true;
-  }
 
   vediValori() {
     console.log("Grado di vulnerabilità da 1 a 6: " + this.vulClass)
@@ -146,6 +124,7 @@ export class ZonaSismicaComponent implements OnInit {
       this.risk = "A+"
       this.pam = "≤0,5%"
     }
+    this.msg1 = true;
   }
 
 }

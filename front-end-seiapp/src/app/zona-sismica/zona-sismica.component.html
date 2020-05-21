@@ -10,9 +10,10 @@
 <div>
     <label for="tipologiaStrutture" style="margin-top: 20px;">
       Seleziona il tipo di zona sismica</label>
-    <select class="form-control" id="id1">
-      <option [value]="id.id" *ngFor="let id of zonaSismica;index as i">
-      {{id.id}}
+    <select class="form-control" id="id1" (change)="onChange($event.target.value)">
+      <option [ngValue]="undefined">Seleziona la zona sismica</option>
+      <option [value]="numero.id" *ngFor="let numero of zonaSismica;index as i">
+      {{numero.id}}
       </option>
     </select>
   </div>
@@ -30,7 +31,7 @@
     </div>
 </div>
 
-  <button type="submit" (click)="viewRiskClass()" (click)="vediValori()" style="margin-top: 30px;" class="btn btn-primary"
+  <button type="submit" (click)="gradoDiRischio()" (click)="vediValori()" style="margin-top: 30px;" class="btn btn-primary"
   class="btn btn-info">Avanti</button>
 
 </form>
