@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Zona } from '../classi-servizi/classes/zona';
+import { ValutazioniService } from '../classi-servizi/service/valutazioni.service';
+import { ValutazioniClass } from '../classi-servizi/classes/valutazioni-class';
 
 @Component({
   selector: 'app-zona-sismica',
@@ -14,11 +16,14 @@ export class ZonaSismicaComponent implements OnInit {
   punteggio: Number
   msg1: boolean = false;
   riskType: Number;
-  value: number[] = [];
+  value: number[] = []
+  messaggio1: boolean = false
+  valutazioni: ValutazioniClass
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private service: ValutazioniService
   ) { }
 
   ngOnInit() {
@@ -31,6 +36,12 @@ export class ZonaSismicaComponent implements OnInit {
    this.zonaSismica.find(t => t.id == zonaId);
    this.riskType = zonaId
    console.log(zonaId)
+  }
+
+  onSubmit(){
+    this.service.postValutazione(this.valutazioni).subscribe(data =>{
+      this.messaggio1 = true
+    })
   }
 
   zonaSismica = [
@@ -128,5 +139,7 @@ export class ZonaSismicaComponent implements OnInit {
     }
     this.msg1 = true;
   }
+
+  
 
 }
