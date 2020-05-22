@@ -11,6 +11,7 @@ export class ZonaSismicaComponent implements OnInit {
   vulClass: Number;
   risk: String
   pam: String
+  punteggio: Number
   msg1: boolean = false;
   riskType: Number;
   value: number[] = [];
@@ -22,6 +23,7 @@ export class ZonaSismicaComponent implements OnInit {
 
   ngOnInit() {
     this.vulClass = window.history.state.vulClass;
+    this.punteggio = window.history.state.punteggio;
     console.log(this.vulClass)
   }
 
