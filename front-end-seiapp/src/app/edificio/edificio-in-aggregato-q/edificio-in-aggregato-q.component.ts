@@ -160,9 +160,8 @@ export class EdificioInAggregatoQComponent implements OnInit, OnDestroy {
   }
 
   trasferisciClassVul() {
-    this.router.navigate(['/zona-sismica'], {
-      state: { vulClass: this.vulnerability }
-    })
+    this.router.navigate(['/zona-sismica'], { state: { vulClass: this.vulnerability, punteggio: this.totalePunteggio } 
+  })
   }
 
   cleanQualityArray(): void {

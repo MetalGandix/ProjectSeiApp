@@ -25,6 +25,11 @@ public class StrutturaVerticaleController {
     return (List<StrutturaVerticale>) verticaleRepository.findAll();
     }
 
+    @GetMapping("/struttureDiElevazioniOrizzontali")
+    public List<StrutturaVerticale> getStrutturaDiElevazioniOrizzontali(){
+    return (List<StrutturaVerticale>) verticaleRepository.findAll();
+    }
+
     @PostMapping("/strutturaVerticale")
     void addUser(@RequestBody StrutturaVerticale strutturaVerticale) {
         verticaleRepository.save(strutturaVerticale);
