@@ -1,9 +1,9 @@
-package com.project.seiapp.controller;
+package com.project.seiapp.controller.elementiStrutturaController;
 
 import java.util.List;
 
 import com.project.seiapp.entità.elementiStruttura.StrutturaVerticale;
-import com.project.seiapp.repository.StrutturaVerticaleRepository;
+import com.project.seiapp.repository.elementiStrutturaRepository.StrutturaVerticaleRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

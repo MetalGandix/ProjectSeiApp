@@ -1,4 +1,4 @@
-package com.project.seiapp.repository;
+package com.project.seiapp.repository.elementiStrutturaRepository;
 
 import com.project.seiapp.entità.elementiStruttura.StrutturaVerticale;
 
