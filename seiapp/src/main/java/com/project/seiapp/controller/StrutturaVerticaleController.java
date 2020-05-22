@@ -30,6 +30,26 @@ public class StrutturaVerticaleController {
     return (List<StrutturaVerticale>) verticaleRepository.findAll();
     }
 
+    @GetMapping("/struttureDiElevazioniInclinate")
+    public List<StrutturaVerticale> getstruttureDiElevazioniInclinate(){
+    return (List<StrutturaVerticale>) verticaleRepository.findAll();
+    }
+
+    @GetMapping("/struttureDiElevazioneSpaziali")
+    public List<StrutturaVerticale> getstruttureDiElevazioneSpaziali(){
+    return (List<StrutturaVerticale>) verticaleRepository.findAll();
+    }
+
+    @GetMapping("/infissiEsterniVerticali")
+    public List<StrutturaVerticale> getinfissiEsterniVerticali(){
+    return (List<StrutturaVerticale>) verticaleRepository.findAll();
+    }
+
+    @GetMapping("/elementiNonStrutturali")
+    public List<StrutturaVerticale> getelementiNonStrutturali(){
+    return (List<StrutturaVerticale>) verticaleRepository.findAll();
+    }
+
     @PostMapping("/strutturaVerticale")
     void addUser(@RequestBody StrutturaVerticale strutturaVerticale) {
         verticaleRepository.save(strutturaVerticale);
