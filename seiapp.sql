@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 09, 2020 alle 20:14
+-- Creato il: Mag 22, 2020 alle 19:52
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -52,7 +52,7 @@ INSERT INTO `caratterisitche_qualitative` (`id`, `caratteristiche_qualitative`) 
 CREATE TABLE `edificio` (
   `id` bigint(20) NOT NULL,
   `descrizione` varchar(255) DEFAULT NULL,
-  `punteggio` varchar(255) DEFAULT NULL,
+  `punteggio` int(255) DEFAULT NULL,
   `valutazione` varchar(255) DEFAULT NULL,
   `tipologia` int(11) NOT NULL,
   `quality_id` bigint(20) DEFAULT NULL
@@ -63,71 +63,82 @@ CREATE TABLE `edificio` (
 --
 
 INSERT INTO `edificio` (`id`, `descrizione`, `punteggio`, `valutazione`, `tipologia`, `quality_id`) VALUES
-(1, '\"inerti di piccole dimensioni e malta di scarsa resistenza sul 30%\r\ndel volume della muratura\"', '3\r\n', 'A', 0, 1),
-(2, '\"caso precedente + giunti sottili (<10 mm), listature e/o diatoni\r\noppure caso precedente con incidenza minore del 30%\"\r\n', '2', 'M', 0, 1),
-(3, '\"giunti sottili,diatoni o listature per oltre il 70% della muratura con inerti medi o grandi\"\r\n', '0', 'B', 0, 1),
-(4, 'cattivo stato di conservazione per almeno il 70% delle murature, della copertura o dei solai di interpiano\r\n', '15', 'A', 0, 2),
-(5, 'percentuale tra 30% e 70%\r\n', '8', 'M', 0, 2),
-(6, 'percentuale <30%\r\n', '0', 'B', 0, 2),
-(7, 'più del 50% di copertura e solai sono spingenti senza cordoli o catene\r\n', '4', 'A', 0, 3),
-(8, 'percentuale tra 20% e 50%\r\n', '2', 'M', 0, 3),
-(9, 'percentuale <20%\r\n', '0', 'B', 0, 3),
-(10, 'connessioni efficaci per meno del 20%\r\n', '4', 'A', 0, 4),
-(11, 'percentuale tra 20% e 80%\r\n', '2', 'M', 0, 4),
-(12, 'connessioni efficaci per l\'80%\r\n', '0', 'B', 0, 4),
-(13, 'collegamenti di piano efficaci per meno del 50% (punteggio 8)\r\n', '8', 'A', 0, 5),
-(14, 'percentuale tra 50% e 80% (punteggio 4)\r\n', '4', 'M', 0, 5),
-(15, 'collegamenti di piano efficaci per l\'80% (punteggio 0)\r\n', '0', 'B', 0, 5),
-(16, 'strutture non adeguate per oltre il 70% (punteggio 20)\r\n', '20', 'A', 0, 6),
-(17, 'percentuale tra 30% e 70% (punteggio 10)\r\n', '10', 'M', 0, 6),
-(18, 'strutture non adeguate meno del 30% (punteggio 0)\r\n', '0', 'B', 0, 6),
-(19, 'bucature per oltre il 50%\r\n', '4', 'A', 0, 7),
-(20, 'percentuale tra 25% e 50%\r\n', '2', 'M', 0, 7),
-(21, 'bucature per meno del 25%\r\n', '0', 'B', 0, 7),
-(22, 'bucature per oltre il 50%\r\n', '4', 'A', 0, 8),
-(23, 'percentuale tra 25% e 50%\r\n', '2', 'M', 0, 8),
-(24, 'bucature per meno del 25%\r\n', '0', 'B', 0, 8),
-(25, 'rapporto interasse dei muri di spina/spessore >15\r\n', '4', 'A', 0, 9),
-(26, 'rapporto tra 10 e 15\r\n', '2', 'M', 0, 9),
-(27, 'rapporto <10\r\n', '0', 'B', 0, 9),
-(28, 'sviluppo lineare dei pannelli murari a doppio strato con camera d\'aria >15%\r\n', '4', 'A', 0, 10),
-(29, 'percentuale tra 5% e 15%\r\n', '2', 'M', 0, 10),
-(30, 'sviluppo lineare dei pannelli murari a doppio strato con camera d\'aria <5%\r\n', '0', 'B', 0, 10),
-(31, 'collegamenti efficaci per meno del 50% (punteggio 4)\r\n', '4', 'A', 0, 11),
-(32, 'collegamenti efficaci tra il 50% e l\'80% (punteggio 2)\r\n', '2', 'M', 0, 11),
-(33, 'collegamenti efficaci per almeno l\'80% (punteggio 0)\r\n', '0', 'B', 0, 11),
-(34, 'strutture non adeguate per oltre il 70% (punteggio 8)\r\n', '8', 'A', 0, 12),
-(35, 'percentuale tra 30% e 70% (punteggio 4)\r\n', '4', 'M', 0, 12),
-(36, 'strutture non adeguate per meno del 30% (punteggio 0)\r\n', '0', 'B', 0, 12),
-(37, 'rapporto lato maggiore/lato minore >4 + posizione all\'estremità o d\'angolo\r\n', '0', 'A', 0, 13),
-(38, 'rapporto lato maggiore/lato minore tra 3 e 4 + posizione all\'estremità o d\'angolo\r\n', '0', 'M', 0, 13),
-(39, 'altri casi\r\n', '0', 'B', 0, 13),
-(40, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta >20% rispetto al piano inferiore\"\r\n', '0', 'A', 0, 14),
-(41, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta tra il 10% e il 20% rispetto al piano inferiore\"\r\n', '0', 'M', 0, 14),
-(42, 'superfici decrescono con continuità + riduzione <10%\r\n', '0', 'B', 0, 14),
-(43, 'elementi non strutturali non ben collegati con dimensioni o massa grandi\r\n', '3', 'A', 0, 15),
-(44, 'elementi non strutturali non ben collegati ma con dimensioni o massa piccole\r\n', '1', 'M', 0, 15),
-(45, 'elementi non strutturali ben collegati\r\n', '0', 'B', 0, 15),
-(46, 'edificio compreso tra edifici di pari h\r\n', '-5', 'a', 0, 16),
-(47, 'edificio adiacente a edifici più alti o a uno più alto e uno di h uguale\r\n', '0', 'b', 0, 16),
-(48, 'edificio adiacente a un edificio più basso e a uno di pari h, o a uno più basso e uno più alto\r\n', '4', 'c', 0, 16),
-(49, 'edificio adiacente a due edifici più bassi\r\n', '11', 'd', 0, 16),
-(50, 'posizione interclusa e vincolata su tre lati\r\n', '-15', 'a', 0, 17),
-(51, 'posizione interclusa e vincolata su due lati \r\n', '-9', 'b', 0, 17),
-(52, 'posizione d\'angolo \r\n', '-5', 'c', 0, 17),
-(53, 'posizione di testata\r\n', '0', 'd', 0, 17),
-(54, 'assenza di solai sfalsati (differenza di quota pari a 50 cm)\r\n', '0', 'a', 0, 18),
-(55, 'presenza di una coppia di solai sfalsati\r\n', '2', 'b', 0, 18),
-(56, 'presenza di due coppie di solai sfalsati\r\n', '3', 'c', 0, 18),
-(57, 'presenza di più di due coppie di solai sfalsati\r\n', '6', 'd', 0, 18),
-(58, 'l\'edificio presenta un\'eterogeneità strutturale rispetto all\'edificio adiacente (es. in muratura/c.a)\r\n', '-4', 'a', 0, 19),
-(59, 'l\'edificio confina con un altro in muratura ma con caratteristiche migliori (es. tufo/mur. in blocchi)\r\n', '-3', 'b', 0, 19),
-(60, 'continuità sia tipologica che strutturale con gli edifici adiacenti\r\n', '0', 'c', 0, 19),
-(61, 'l\'edificio confina con un altro in muratura ma con caratteristiche peggiori (es. tufo/mur. caotica)\r\n', '13', 'd', 0, 19),
-(62, 'differenza tra % di aperture < 5%\r\n', '-5', 'a', 0, 20),
-(63, 'differenza tra % di aperture compresa tra 5% e 10%\r\n', '0', 'b', 0, 20),
-(64, 'differenza tra % di aperture compresa tra 10% e 20%\r\n', '6', 'c', 0, 20),
-(65, 'differenza tra % di aperture > 20%\r\n', '11', 'd', 0, 20);
+(1, '\"inerti di piccole dimensioni e malta di scarsa resistenza sul 30%\r\ndel volume della muratura\"', 3, 'A', 0, 1),
+(2, '\"caso precedente + giunti sottili (<10 mm), listature e/o diatoni\r\noppure caso precedente con incidenza minore del 30%\"\r\n', 2, 'M', 0, 1),
+(3, '\"giunti sottili,diatoni o listature per oltre il 70% della muratura con inerti medi o grandi\"\r\n', 0, 'B', 0, 1),
+(4, 'cattivo stato di conservazione per almeno il 70% delle murature, della copertura o dei solai di interpiano\r\n', 15, 'A', 0, 2),
+(5, 'percentuale tra 30% e 70%\r\n', 8, 'M', 0, 2),
+(6, 'percentuale <30%\r\n', 0, 'B', 0, 2),
+(7, 'più del 50% di copertura e solai sono spingenti senza cordoli o catene\r\n', 4, 'A', 0, 3),
+(8, 'percentuale tra 20% e 50%\r\n', 2, 'M', 0, 3),
+(9, 'percentuale <20%\r\n', 0, 'B', 0, 3),
+(10, 'connessioni efficaci per meno del 20%\r\n', 4, 'A', 0, 4),
+(11, 'percentuale tra 20% e 80%\r\n', 2, 'M', 0, 4),
+(12, 'connessioni efficaci per l\'80%\r\n', 0, 'B', 0, 4),
+(13, 'collegamenti di piano efficaci per meno del 50% (punteggio 8)\r\n', 8, 'A', 0, 5),
+(14, 'percentuale tra 50% e 80% (punteggio 4)\r\n', 4, 'M', 0, 5),
+(15, 'collegamenti di piano efficaci per l\'80% (punteggio 0)\r\n', 0, 'B', 0, 5),
+(16, 'strutture non adeguate per oltre il 70% (punteggio 20)\r\n', 20, 'A', 0, 6),
+(17, 'percentuale tra 30% e 70% (punteggio 10)\r\n', 10, 'M', 0, 6),
+(18, 'strutture non adeguate meno del 30% (punteggio 0)\r\n', 0, 'B', 0, 6),
+(19, 'bucature per oltre il 50%\r\n', 4, 'A', 0, 7),
+(20, 'percentuale tra 25% e 50%\r\n', 2, 'M', 0, 7),
+(21, 'bucature per meno del 25%\r\n', 0, 'B', 0, 7),
+(22, 'bucature per oltre il 50%\r\n', 4, 'A', 0, 8),
+(23, 'percentuale tra 25% e 50%\r\n', 2, 'M', 0, 8),
+(24, 'bucature per meno del 25%\r\n', 0, 'B', 0, 8),
+(25, 'rapporto interasse dei muri di spina/spessore >15\r\n', 4, 'A', 0, 9),
+(26, 'rapporto tra 10 e 15\r\n', 2, 'M', 0, 9),
+(27, 'rapporto <10\r\n', 0, 'B', 0, 9),
+(28, 'sviluppo lineare dei pannelli murari a doppio strato con camera d\'aria >15%\r\n', 4, 'A', 0, 10),
+(29, 'percentuale tra 5% e 15%\r\n', 2, 'M', 0, 10),
+(30, 'sviluppo lineare dei pannelli murari a doppio strato con camera d\'aria <5%\r\n', 0, 'B', 0, 10),
+(31, 'collegamenti efficaci per meno del 50% (punteggio 4)\r\n', 4, 'A', 0, 11),
+(32, 'collegamenti efficaci tra il 50% e l\'80% (punteggio 2)\r\n', 2, 'M', 0, 11),
+(33, 'collegamenti efficaci per almeno l\'80% (punteggio 0)\r\n', 0, 'B', 0, 11),
+(34, 'strutture non adeguate per oltre il 70% (punteggio 8)\r\n', 8, 'A', 0, 12),
+(35, 'percentuale tra 30% e 70% (punteggio 4)\r\n', 4, 'M', 0, 12),
+(36, 'strutture non adeguate per meno del 30% (punteggio 0)\r\n', 0, 'B', 0, 12),
+(37, 'rapporto lato maggiore/lato minore >4 + posizione all\'estremità o d\'angolo\r\n', 0, 'A', 0, 13),
+(38, 'rapporto lato maggiore/lato minore tra 3 e 4 + posizione all\'estremità o d\'angolo\r\n', 0, 'M', 0, 13),
+(39, 'altri casi\r\n', 0, 'B', 0, 13),
+(40, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta >20% rispetto al piano inferiore\"\r\n', 0, 'A', 0, 14),
+(41, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta tra il 10% e il 20% rispetto al piano inferiore\"\r\n', 0, 'M', 0, 14),
+(42, 'superfici decrescono con continuità + riduzione <10%\r\n', 0, 'B', 0, 14),
+(43, 'elementi non strutturali non ben collegati con dimensioni o massa grandi\r\n', 3, 'A', 0, 15),
+(44, 'elementi non strutturali non ben collegati ma con dimensioni o massa piccole\r\n', 1, 'M', 0, 15),
+(45, 'elementi non strutturali ben collegati\r\n', 0, 'B', 0, 15),
+(46, 'edificio compreso tra edifici di pari h\r\n', -5, 'a', 0, 16),
+(47, 'edificio adiacente a edifici più alti o a uno più alto e uno di h uguale\r\n', 0, 'b', 0, 16),
+(48, 'edificio adiacente a un edificio più basso e a uno di pari h, o a uno più basso e uno più alto\r\n', 4, 'c', 0, 16),
+(49, 'edificio adiacente a due edifici più bassi\r\n', 11, 'd', 0, 16),
+(50, 'posizione interclusa e vincolata su tre lati\r\n', -15, 'a', 0, 17),
+(51, 'posizione interclusa e vincolata su due lati \r\n', -9, 'b', 0, 17),
+(52, 'posizione d\'angolo \r\n', -5, 'c', 0, 17),
+(53, 'posizione di testata\r\n', 0, 'd', 0, 17),
+(54, 'assenza di solai sfalsati (differenza di quota pari a 50 cm)\r\n', 0, 'a', 0, 18),
+(55, 'presenza di una coppia di solai sfalsati\r\n', 2, 'b', 0, 18),
+(56, 'presenza di due coppie di solai sfalsati\r\n', 3, 'c', 0, 18),
+(57, 'presenza di più di due coppie di solai sfalsati\r\n', 6, 'd', 0, 18),
+(58, 'l\'edificio presenta un\'eterogeneità strutturale rispetto all\'edificio adiacente (es. in muratura/c.a)\r\n', -4, 'a', 0, 19),
+(59, 'l\'edificio confina con un altro in muratura ma con caratteristiche migliori (es. tufo/mur. in blocchi)\r\n', -3, 'b', 0, 19),
+(60, 'continuità sia tipologica che strutturale con gli edifici adiacenti\r\n', 0, 'c', 0, 19),
+(61, 'l\'edificio confina con un altro in muratura ma con caratteristiche peggiori (es. tufo/mur. caotica)\r\n', 13, 'd', 0, 19),
+(62, 'differenza tra % di aperture < 5%\r\n', -5, 'a', 0, 20),
+(63, 'differenza tra % di aperture compresa tra 5% e 10%\r\n', 0, 'b', 0, 20),
+(64, 'differenza tra % di aperture compresa tra 10% e 20%\r\n', 6, 'c', 0, 20),
+(65, 'differenza tra % di aperture > 20%\r\n', 11, 'd', 0, 20);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `elementi_non_strutturali`
+--
+
+CREATE TABLE `elementi_non_strutturali` (
+  `id` bigint(20) NOT NULL,
+  `infissi_esterni_verticali` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -145,6 +156,27 @@ CREATE TABLE `hibernate_sequence` (
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
 (1);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `infissi_esterni_verticali`
+--
+
+CREATE TABLE `infissi_esterni_verticali` (
+  `id` bigint(20) NOT NULL,
+  `infissi_esterni_verticali` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `infissi_esterni_verticali`
+--
+
+INSERT INTO `infissi_esterni_verticali` (`id`, `infissi_esterni_verticali`) VALUES
+(1, 'Aperture con architravi in pietra'),
+(2, 'Aperture con architravi in mattoni'),
+(3, 'Aperture con architravi in legno'),
+(4, 'Aperture con piattabande');
 
 -- --------------------------------------------------------
 
@@ -329,6 +361,62 @@ INSERT INTO `role` (`id`, `description`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `struttura_inclinata`
+--
+
+CREATE TABLE `struttura_inclinata` (
+  `id` bigint(20) NOT NULL,
+  `struttura_inclinata` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `struttura_inclinata`
+--
+
+INSERT INTO `struttura_inclinata` (`id`, `struttura_inclinata`) VALUES
+(1, 'Strutture per coperture inclinate in legno	\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `struttura_orizzontale`
+--
+
+CREATE TABLE `struttura_orizzontale` (
+  `id` bigint(20) NOT NULL,
+  `struttura_orizzontale` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `struttura_orizzontale`
+--
+
+INSERT INTO `struttura_orizzontale` (`id`, `struttura_orizzontale`) VALUES
+(1, 'Strutture per impalcati piani in legno'),
+(2, 'Strutture per impalcati piani metalliche');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `struttura_spaziale`
+--
+
+CREATE TABLE `struttura_spaziale` (
+  `id` bigint(20) NOT NULL,
+  `struttura_spaziale` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `struttura_spaziale`
+--
+
+INSERT INTO `struttura_spaziale` (`id`, `struttura_spaziale`) VALUES
+(1, 'Strutture voltate in muratura'),
+(2, 'Strutture voltate in camorcanna');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `struttura_verticale`
 --
 
@@ -427,6 +515,21 @@ CREATE TABLE `user_roles` (
 INSERT INTO `user_roles` (`role_id`, `user_id`) VALUES
 (1, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `valutazioni`
+--
+
+CREATE TABLE `valutazioni` (
+  `id` bigint(20) NOT NULL,
+  `classe_rischio` varchar(255) DEFAULT NULL,
+  `pam` varchar(255) DEFAULT NULL,
+  `punteggio` int(11) DEFAULT NULL,
+  `vulnerability_grade` varchar(255) DEFAULT NULL,
+  `zona_sismica` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indici per le tabelle scaricate
 --
@@ -443,6 +546,18 @@ ALTER TABLE `caratterisitche_qualitative`
 ALTER TABLE `edificio`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FKipm7snploikid5ubp4xpu8xgl` (`quality_id`);
+
+--
+-- Indici per le tabelle `elementi_non_strutturali`
+--
+ALTER TABLE `elementi_non_strutturali`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `infissi_esterni_verticali`
+--
+ALTER TABLE `infissi_esterni_verticali`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `interventoa1`
@@ -477,6 +592,24 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indici per le tabelle `struttura_inclinata`
+--
+ALTER TABLE `struttura_inclinata`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `struttura_orizzontale`
+--
+ALTER TABLE `struttura_orizzontale`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `struttura_spaziale`
+--
+ALTER TABLE `struttura_spaziale`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indici per le tabelle `struttura_verticale`
 --
 ALTER TABLE `struttura_verticale`
@@ -508,6 +641,12 @@ ALTER TABLE `user_roles`
   ADD KEY `FKrhfovtciq1l558cw6udg0h0d3` (`role_id`);
 
 --
+-- Indici per le tabelle `valutazioni`
+--
+ALTER TABLE `valutazioni`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
@@ -522,6 +661,18 @@ ALTER TABLE `caratterisitche_qualitative`
 --
 ALTER TABLE `edificio`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+
+--
+-- AUTO_INCREMENT per la tabella `elementi_non_strutturali`
+--
+ALTER TABLE `elementi_non_strutturali`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `infissi_esterni_verticali`
+--
+ALTER TABLE `infissi_esterni_verticali`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `interventoa1`
@@ -540,6 +691,24 @@ ALTER TABLE `interventoa2`
 --
 ALTER TABLE `quality`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT per la tabella `struttura_inclinata`
+--
+ALTER TABLE `struttura_inclinata`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT per la tabella `struttura_orizzontale`
+--
+ALTER TABLE `struttura_orizzontale`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT per la tabella `struttura_spaziale`
+--
+ALTER TABLE `struttura_spaziale`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `struttura_verticale`
@@ -564,6 +733,12 @@ ALTER TABLE `type_quality`
 --
 ALTER TABLE `user`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT per la tabella `valutazioni`
+--
+ALTER TABLE `valutazioni`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- Limiti per le tabelle scaricate
