@@ -22,23 +22,27 @@
     <div class="col-xs-12">
         <div class="alert alert-secondary">
           <p>
-            Il totale del punteggio è: {{punteggio}}
+            Il totale del punteggio è: <strong>{{punteggio}}</strong> 
           </p>
           <p>
-            La classe di vulnerabilità è V{{vulClass}}
+            La classe di vulnerabilità è <strong>V{{vulClass}}</strong>
           </p>
             <p>
                La classe di rischio è: <strong>{{risk}}</strong>
               </p>
               <p>
-               Il PAM è: <strong>{{pam}}</strong>
+               Il valore della PAM è: <strong>{{pam}}</strong>
                </p>
+               <a class="btn btn-secondary" routerLink="/home" routerLinkActive="active" role="button">Torna alla Home</a>
+
         </div>
     </div>
 </div>
 
   <button type="submit" (click)="gradoDiRischio()" (click)="vediValori()" style="margin-top: 30px;" class="btn btn-primary"
-  class="btn btn-info">Avanti</button>
+  class="btn btn-info">Ottieni risultato</button>
+
+
 
 </form>
 

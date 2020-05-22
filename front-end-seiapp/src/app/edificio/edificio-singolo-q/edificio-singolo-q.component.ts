@@ -144,7 +144,7 @@ export class EdificioSingoloQComponent implements OnInit {
 
   trasferisciClassVul() {
     this.router.navigate(['/zona-sismica'], {
-      state: { vulClass: this.vulnerability }
+      state: { vulClass: this.vulnerability, punteggio: this.totalePunteggio }
     })
   }
 
