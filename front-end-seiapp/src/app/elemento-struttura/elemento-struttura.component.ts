@@ -16,6 +16,7 @@ export class ElementoStrutturaComponent implements OnInit {
 
   infissiEsterni: InfissiEsterni[];
   strutturaVerticale: StrutturaVerticale[];
+  verticale: StrutturaVerticale;
   strutturaInclinata: StruttureInclinate[];
   strutturaOrizzontale: StruttureOrizzontali[];
   strutturaSpaziale: StruttureSpaziali[];
@@ -27,23 +28,50 @@ export class ElementoStrutturaComponent implements OnInit {
   ) {
 
   }
+  
+  arrayStruttura = [
+    { id: 1, name: "Struttura verticale" },
+    { id: 2, name: "Struttura orizzontale" },
+    { id: 3, name: "Struttura ad elevazioni inclinate" },
+    { id: 4, name: "Strutture di elevazione spaziali" },
+    { id: 5, name: "Infissi esterni verticali" },
+    { id: 6, name: "Elementi non strutturali" },
+  ];
+
+  
+
+  onChange(struttura: number){
+    this.arrayStruttura.find(t => t.id == struttura)
+    console.log(struttura)
+    if(struttura == 1){
+      this.service.getStrutturaVerticale().subscribe(data => {
+        this.strutturaVerticale = data;
+        })
+    }
+    else if(struttura == 2){
+      this.service.getStrutturaInclinata().subscribe(data => {
+        this.strutturaInclinata = data;
+      })
+    }
+    else if(struttura == 3){
+      this.service.getStruttureOrizzontali().subscribe(data => {
+        this.strutturaOrizzontale = data;
+      })
+    }
+    else if(struttura == 4){
+      this.service.getStrutturaSpaziale().subscribe(data => {
+        this.strutturaSpaziale = data;
+      })
+    }
+    else if(struttura == 5){
+      this.service.getInfissiEsterni().subscribe(data => {
+        this.infissiEsterni = data;
+      })
+    }
+  }
+
 
   ngOnInit() {
-    this.service.getInfissiEsterni().subscribe(data => {
-      this.infissiEsterni = data;
-    })
-    this.service.getStrutturaInclinata().subscribe(data => {
-      this.strutturaInclinata = data;
-    })
-    this.service.getStrutturaSpaziale().subscribe(data => {
-      this.strutturaSpaziale = data;
-    })
-    this.service.getStrutturaVerticale().subscribe(data => {
-      this.strutturaVerticale = data;
-    })
-    this.service.getStruttureOrizzontali().subscribe(data => {
-      this.strutturaOrizzontale = data;
-    })
   }
 
 }

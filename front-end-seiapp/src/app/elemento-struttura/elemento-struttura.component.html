@@ -7,11 +7,29 @@
         <form>
   
           <div class="form-group">
-            <label for="struttura" ><b>Struttura verticale</b></label>
-            <select value="verticale" class="form-control" id="strutturaVerticale" name="struttura">
-              <option *ngFor="let struttura of strutturaInclinata; index as i">
-                {{i}} - {{ struttura.strutturaInclinata }}
-            </option>
+            <label for="struttura" ><b>Strutture</b></label>
+            <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)" name="struttura"> 
+                <option [value]="array.id"  *ngFor="let array of arrayStruttura; index as i">
+                    {{ array.name }}
+                </option>
+            </select>
+
+            <select value="struttura" class="form-control" id="structure" name="struttura">
+                <option *ngFor="let struttura1 of strutturaVerticale; index as i">
+                {{ struttura1.strutturaVerticale }}
+                </option>
+                <option *ngFor="let struttura2 of strutturaInclinata; index as i">
+                {{ struttura2.strutturaInclinata }}
+                </option>
+                <option *ngFor="let struttura3 of strutturaOrizzontale; index as i">
+                {{ struttura3.strutturaOrizzontale }}
+                </option>
+                <option *ngFor="let struttura4 of strutturaSpaziale; index as i">
+                {{ struttura4.strutturaSpaziale }}
+                </option>
+                <option *ngFor="let struttura5 of infissiEsterni; index as i">
+                {{ struttura5.infissiEsterniVerticali }}
+                </option>
             </select>
   
           <button type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
