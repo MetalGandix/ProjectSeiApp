@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { InfissiEsterni } from '../classi-servizi/classes/strutture/infissi-esterni';
 import { StruttureOrizzontali } from '../classi-servizi/classes/strutture/strutture-orizzontali';
 import { StruttureSpaziali } from '../classi-servizi/classes/strutture/strutture-spaziali';
@@ -6,6 +6,8 @@ import { StruttureInclinate } from '../classi-servizi/classes/strutture/struttur
 import { StrutturaVerticale } from '../classi-servizi/classes/strutture/struttura-verticale';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
+import { Subscription } from 'rxjs';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-elemento-struttura',
@@ -20,6 +22,7 @@ export class ElementoStrutturaComponent implements OnInit {
   strutturaInclinata: StruttureInclinate[];
   strutturaOrizzontale: StruttureOrizzontali[];
   strutturaSpaziale: StruttureSpaziali[];
+  subscriptionsToDelete: Subscription = new Subscription();
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +31,7 @@ export class ElementoStrutturaComponent implements OnInit {
   ) {
 
   }
-  
+
   arrayStruttura = [
     { id: 1, name: "Struttura verticale" },
     { id: 2, name: "Struttura orizzontale" },
@@ -38,11 +41,12 @@ export class ElementoStrutturaComponent implements OnInit {
     { id: 6, name: "Elementi non strutturali" },
   ];
 
-  
 
-  onChange(struttura: number){
+  onChange(struttura: number) {
     this.arrayStruttura.find(t => t.id == struttura)
     console.log(struttura)
+    const arr: number[] = []
+    arr.push(struttura)
     if(struttura == 1){
       this.service.getStrutturaVerticale().subscribe(data => {
         this.strutturaVerticale = data;
@@ -67,9 +71,14 @@ export class ElementoStrutturaComponent implements OnInit {
       this.service.getInfissiEsterni().subscribe(data => {
         this.infissiEsterni = data;
       })
+      arr.push(struttura)
     }
+    console.log(arr)
   }
 
+  ngOnDestroy() {
+    this.subscriptionsToDelete.unsubscribe();
+  }
 
   ngOnInit() {
   }

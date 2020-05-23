@@ -1,6 +1,6 @@
 <div class="container">
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-      <p><b>INDIVIDUAZIONE DEGLI INTERVENTI</b></p>
+      <p><b>STRUTTURE</b></p>
     </div>
     <div class="card my-5">
       <div class="card-body">
@@ -9,12 +9,15 @@
           <div class="form-group">
             <label for="struttura" ><b>Strutture</b></label>
             <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)" name="struttura"> 
+                <option selected disabled>
+                    Seleziona la struttura
+                </option>
                 <option [value]="array.id"  *ngFor="let array of arrayStruttura; index as i">
-                    {{ array.name }}
+                {{ array.name }}
                 </option>
             </select>
 
-            <select value="struttura" class="form-control" id="structure" name="struttura">
+            <select  style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
                 <option *ngFor="let struttura1 of strutturaVerticale; index as i">
                 {{ struttura1.strutturaVerticale }}
                 </option>
