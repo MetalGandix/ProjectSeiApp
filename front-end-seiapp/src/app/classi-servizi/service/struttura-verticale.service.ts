@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { StrutturaVerticale } from '../classes/struttura-verticale';
+import { StrutturaVerticale } from '../classes/strutture/struttura-verticale';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CaratteristicheQualitative } from '../classes/caratteristiche-qualitative';
 
@@ -36,7 +36,6 @@ export class StrutturaVerticaleService {
   public saveStrutturaVerticale(strutturaVerticale: StrutturaVerticale){
     return this.http.post<StrutturaVerticale>(this.url + 'strutturaVerticale', strutturaVerticale);
   }
-
   //Metodi per le caratteristiche qualitative
   public getCaratteristicheQualitative():Observable<CaratteristicheQualitative[]>{
     return this.http.get<CaratteristicheQualitative[]>(this.url + 'caratteristicheQualitative');

@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'edificio-in-aggregato-q/:id', component: EdificioInAggregatoQComponent },
   { path: 'edificio-singolo-q/:id', component: EdificioSingoloQComponent },
   { path: 'zona-sismica', component: ZonaSismicaComponent },
-  { path: 'elemento-struttura', component: ElementoStrutturaComponent }
+  { path: 'struttura', component: ElementoStrutturaComponent }
 ];
 
 @NgModule({

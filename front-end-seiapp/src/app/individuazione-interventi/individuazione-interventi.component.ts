@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { StrutturaVerticaleService } from '../classi-servizi/service/struttura-verticale.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StrutturaVerticale } from '../classi-servizi/classes/struttura-verticale';
+import { StrutturaVerticale } from '../classi-servizi/classes/strutture/struttura-verticale';
 import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 
 
