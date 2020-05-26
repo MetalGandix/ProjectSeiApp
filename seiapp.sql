@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 26, 2020 alle 16:33
+-- Creato il: Mag 26, 2020 alle 17:31
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -29,28 +29,27 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `caratterisitche_qualitative` (
   `id` bigint(20) NOT NULL,
-  `caratteristiche_qualitative` varchar(255) DEFAULT NULL,
-  `struttura_id` bigint(20) DEFAULT NULL
+  `caratteristiche_qualitative` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `caratterisitche_qualitative`
 --
 
-INSERT INTO `caratterisitche_qualitative` (`id`, `caratteristiche_qualitative`, `struttura_id`) VALUES
-(1, 'Scarsa qualità costruttiva', 2),
-(2, 'Elevato degrato', 1),
-(3, 'Spinte orizzontali non contrastate', 1),
-(4, 'Pannelli murari male ammorsati tra loro', 2),
-(7, 'Presenza di numerose nicchie', 3),
-(8, 'Pareti di elevate dimensioni non controventate', 2),
-(9, 'Pannelli murari a doppio strato con camera d\'aria - decoesione tra i paramenti\r\n', 3),
-(11, 'Scarsa qualità costruttiva', 3),
-(21, 'Elevato degrado', 2),
-(22, 'Elevato degrado', 3),
-(41, 'Pannelli murari male ammorsati tra loro', 3),
-(71, 'Presenza di numerose nicchie', 2),
-(81, 'Pareti di elevate dimensioni non controventate', 3);
+INSERT INTO `caratterisitche_qualitative` (`id`, `caratteristiche_qualitative`) VALUES
+(1, 'Scarsa qualità costruttiva'),
+(2, 'Elevato degrado'),
+(3, 'Spinte orizzontali non contrastate'),
+(4, 'Pannelli murari male ammorsati tra loro'),
+(6, 'Aperture di elevate dimensioni non controventate'),
+(7, 'Presenza di numerose nicchie'),
+(8, 'Pareti di elevate dimensioni non controventate'),
+(9, 'Pannelli murari a doppio strato con camera d\'aria - decoesione tra i paramenti'),
+(12, 'Presenza di elementi non strutturali - valutazione connessione/massa'),
+(51, 'Efficacia dei collegamenti con la muratura'),
+(52, 'Qualità delle strutture orizzontali'),
+(101, 'Efficacia dei collegamenti con la muratura'),
+(102, 'Qualità della copertura');
 
 -- --------------------------------------------------------
 
@@ -186,6 +185,17 @@ INSERT INTO `infissi_esterni_verticali` (`id`, `infissi_esterni_verticali`) VALU
 (2, 'Aperture con architravi in mattoni'),
 (3, 'Aperture con architravi in legno'),
 (4, 'Aperture con piattabande');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `info_struttura_verticale`
+--
+
+CREATE TABLE `info_struttura_verticale` (
+  `id` bigint(20) NOT NULL,
+  `info_struttura_verticale` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -431,28 +441,16 @@ INSERT INTO `struttura_spaziale` (`id`, `struttura_spaziale`) VALUES
 
 CREATE TABLE `struttura_verticale` (
   `id` bigint(20) NOT NULL,
-  `struttura_verticale` varchar(255) DEFAULT NULL
+  `struttura_verticale` varchar(255) DEFAULT NULL,
+  `info_struttura_verticale` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `struttura_verticale`
 --
 
-INSERT INTO `struttura_verticale` (`id`, `struttura_verticale`) VALUES
-(1, 'Struttura ad arco in muratura'),
-(2, 'Struttura a pareti portanti in muratura piena'),
-(3, 'Struttura a pareti portanti in muratura a sacco');
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `struttura_verticale_car_quality`
---
-
-CREATE TABLE `struttura_verticale_car_quality` (
-  `struttura_verticale_id` bigint(20) NOT NULL,
-  `car_quality_id` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `struttura_verticale` (`id`, `struttura_verticale`, `info_struttura_verticale`) VALUES
+(1, 'Strutture di elevazione verticali', NULL);
 
 -- --------------------------------------------------------
 
@@ -558,8 +556,7 @@ CREATE TABLE `valutazioni` (
 -- Indici per le tabelle `caratterisitche_qualitative`
 --
 ALTER TABLE `caratterisitche_qualitative`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FKdklmpkuw7ps7c578qxfd6gaj4` (`struttura_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `edificio`
@@ -578,6 +575,12 @@ ALTER TABLE `elementi_non_strutturali`
 -- Indici per le tabelle `infissi_esterni_verticali`
 --
 ALTER TABLE `infissi_esterni_verticali`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `info_struttura_verticale`
+--
+ALTER TABLE `info_struttura_verticale`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -637,13 +640,6 @@ ALTER TABLE `struttura_verticale`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `struttura_verticale_car_quality`
---
-ALTER TABLE `struttura_verticale_car_quality`
-  ADD UNIQUE KEY `UK_mk9oj5kmn83pwxr79jw2spjq` (`car_quality_id`),
-  ADD KEY `FKk96gjj1q4ka9vcu1dgweiy4tw` (`struttura_verticale_id`);
-
---
 -- Indici per le tabelle `tipologia_struttura`
 --
 ALTER TABLE `tipologia_struttura`
@@ -682,7 +678,7 @@ ALTER TABLE `valutazioni`
 -- AUTO_INCREMENT per la tabella `caratterisitche_qualitative`
 --
 ALTER TABLE `caratterisitche_qualitative`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT per la tabella `edificio`
@@ -773,16 +769,16 @@ ALTER TABLE `valutazioni`
 --
 
 --
--- Limiti per la tabella `caratterisitche_qualitative`
---
-ALTER TABLE `caratterisitche_qualitative`
-  ADD CONSTRAINT `FKdklmpkuw7ps7c578qxfd6gaj4` FOREIGN KEY (`struttura_id`) REFERENCES `struttura_verticale` (`id`);
-
---
 -- Limiti per la tabella `edificio`
 --
 ALTER TABLE `edificio`
   ADD CONSTRAINT `FKipm7snploikid5ubp4xpu8xgl` FOREIGN KEY (`quality_id`) REFERENCES `quality` (`id`);
+
+--
+-- Limiti per la tabella `info_struttura_verticale`
+--
+ALTER TABLE `info_struttura_verticale`
+  ADD CONSTRAINT `FK5wsd108cd61ydvda2y5jjtre5` FOREIGN KEY (`id`) REFERENCES `struttura_verticale` (`id`);
 
 --
 -- Limiti per la tabella `quality`
@@ -796,13 +792,6 @@ ALTER TABLE `quality`
 ALTER TABLE `quality_edificio`
   ADD CONSTRAINT `FK9m6k6h7rrca4tfwlw2cgbl9th` FOREIGN KEY (`quality_id`) REFERENCES `quality` (`id`),
   ADD CONSTRAINT `FKlv0vgpuvrl5s2s5l6pbyfrkqk` FOREIGN KEY (`edificio_id`) REFERENCES `edificio` (`id`);
-
---
--- Limiti per la tabella `struttura_verticale_car_quality`
---
-ALTER TABLE `struttura_verticale_car_quality`
-  ADD CONSTRAINT `FKhkxyev5h3b3e7huk9p7ea3bej` FOREIGN KEY (`car_quality_id`) REFERENCES `caratterisitche_qualitative` (`id`),
-  ADD CONSTRAINT `FKk96gjj1q4ka9vcu1dgweiy4tw` FOREIGN KEY (`struttura_verticale_id`) REFERENCES `struttura_verticale` (`id`);
 
 --
 -- Limiti per la tabella `user_roles`
