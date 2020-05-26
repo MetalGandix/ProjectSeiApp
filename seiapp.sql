@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 26, 2020 alle 17:31
+-- Creato il: Mag 26, 2020 alle 17:37
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -185,17 +185,6 @@ INSERT INTO `infissi_esterni_verticali` (`id`, `infissi_esterni_verticali`) VALU
 (2, 'Aperture con architravi in mattoni'),
 (3, 'Aperture con architravi in legno'),
 (4, 'Aperture con piattabande');
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `info_struttura_verticale`
---
-
-CREATE TABLE `info_struttura_verticale` (
-  `id` bigint(20) NOT NULL,
-  `info_struttura_verticale` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -441,16 +430,17 @@ INSERT INTO `struttura_spaziale` (`id`, `struttura_spaziale`) VALUES
 
 CREATE TABLE `struttura_verticale` (
   `id` bigint(20) NOT NULL,
-  `struttura_verticale` varchar(255) DEFAULT NULL,
-  `info_struttura_verticale` varchar(255) DEFAULT NULL
+  `struttura_verticale` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `struttura_verticale`
 --
 
-INSERT INTO `struttura_verticale` (`id`, `struttura_verticale`, `info_struttura_verticale`) VALUES
-(1, 'Strutture di elevazione verticali', NULL);
+INSERT INTO `struttura_verticale` (`id`, `struttura_verticale`) VALUES
+(1, 'Strutture ad arco in muratura'),
+(2, 'Strutture a pareti portanti in muratura	piena\r\n'),
+(3, 'Strutture a pareti portanti in muratura	a sacco\r\n');
 
 -- --------------------------------------------------------
 
@@ -575,12 +565,6 @@ ALTER TABLE `elementi_non_strutturali`
 -- Indici per le tabelle `infissi_esterni_verticali`
 --
 ALTER TABLE `infissi_esterni_verticali`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `info_struttura_verticale`
---
-ALTER TABLE `info_struttura_verticale`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -738,7 +722,7 @@ ALTER TABLE `struttura_spaziale`
 -- AUTO_INCREMENT per la tabella `struttura_verticale`
 --
 ALTER TABLE `struttura_verticale`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `tipologia_struttura`
@@ -773,12 +757,6 @@ ALTER TABLE `valutazioni`
 --
 ALTER TABLE `edificio`
   ADD CONSTRAINT `FKipm7snploikid5ubp4xpu8xgl` FOREIGN KEY (`quality_id`) REFERENCES `quality` (`id`);
-
---
--- Limiti per la tabella `info_struttura_verticale`
---
-ALTER TABLE `info_struttura_verticale`
-  ADD CONSTRAINT `FK5wsd108cd61ydvda2y5jjtre5` FOREIGN KEY (`id`) REFERENCES `struttura_verticale` (`id`);
 
 --
 -- Limiti per la tabella `quality`
