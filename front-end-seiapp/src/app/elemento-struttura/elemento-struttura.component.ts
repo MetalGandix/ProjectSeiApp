@@ -22,6 +22,7 @@ export class ElementoStrutturaComponent implements OnInit {
   strutturaInclinata: StruttureInclinate[];
   strutturaOrizzontale: StruttureOrizzontali[];
   strutturaSpaziale: StruttureSpaziali[];
+  selectedElement = [];
   subscriptionsToDelete: Subscription = new Subscription();
 
   constructor(
@@ -45,35 +46,52 @@ export class ElementoStrutturaComponent implements OnInit {
   onChange(struttura: number) {
     this.arrayStruttura.find(t => t.id == struttura)
     console.log(struttura)
-    const arr: number[] = []
-    arr.push(struttura)
-    if(struttura == 1){
+    if (struttura == 1) {
       this.service.getStrutturaVerticale().subscribe(data => {
         this.strutturaVerticale = data;
+        this.selectedElement.push(this.strutturaVerticale)
+        this.selectedElement.forEach(t => {
+          this.selectedElement = t
         })
-    }
-    else if(struttura == 2){
-      this.service.getStrutturaInclinata().subscribe(data => {
-        this.strutturaInclinata = data;
       })
     }
-    else if(struttura == 3){
+    else if (struttura == 2) {
       this.service.getStruttureOrizzontali().subscribe(data => {
         this.strutturaOrizzontale = data;
+        this.selectedElement.push(this.strutturaOrizzontale)
+        this.selectedElement.forEach(t => {
+          this.selectedElement = t
+        })
       })
     }
-    else if(struttura == 4){
+    else if (struttura == 3) {
+      this.service.getStrutturaInclinata().subscribe(data => {
+        this.strutturaInclinata = data;
+        this.selectedElement.push(this.strutturaInclinata)
+        this.selectedElement.forEach(t => {
+          this.selectedElement = t
+        })
+      })
+    }
+    else if (struttura == 4) {
       this.service.getStrutturaSpaziale().subscribe(data => {
         this.strutturaSpaziale = data;
+        this.selectedElement.push(this.strutturaSpaziale)
+        this.selectedElement.forEach(t => {
+          this.selectedElement = t
+        })
       })
     }
-    else if(struttura == 5){
+    else if (struttura == 5) {
       this.service.getInfissiEsterni().subscribe(data => {
         this.infissiEsterni = data;
+        this.selectedElement.push(this.infissiEsterni)
+        this.selectedElement.forEach(t => {
+          this.selectedElement = t
+        })
       })
-      arr.push(struttura)
     }
-    console.log(arr)
+    console.log(this.selectedElement)
   }
 
   ngOnDestroy() {
