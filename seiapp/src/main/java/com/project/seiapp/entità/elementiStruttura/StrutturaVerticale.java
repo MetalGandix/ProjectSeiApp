@@ -23,7 +23,7 @@ public class StrutturaVerticale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable 
     private List<CaratteristicheQualitative> carQuality;
 
