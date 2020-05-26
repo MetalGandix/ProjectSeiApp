@@ -10,8 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.project.seiapp.entità.elementiStruttura.StrutturaVerticale;
-import com.project.seiapp.entità.elementiStruttura.StruttureDiElevazioneInclinate;
-import com.project.seiapp.entità.elementiStruttura.StruttureDiElevazioneOrizzontali;
 
 @Entity
 @Table(name = "CaratterisitcheQualitative")
@@ -23,10 +21,6 @@ public class CaratteristicheQualitative {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private StrutturaVerticale struttura;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private StruttureDiElevazioneOrizzontali strutturaOrizzontale;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private StruttureDiElevazioneInclinate srtutturaInclinata;
 
     @Column
     private String CaratteristicheQualitative;
@@ -47,9 +41,6 @@ public class CaratteristicheQualitative {
         this.id = id;
     }
 
-
-    //Getter e setter per i join
-
     public StrutturaVerticale getStruttura() {
         return struttura;
     }
@@ -58,23 +49,6 @@ public class CaratteristicheQualitative {
         this.struttura = struttura;
     }
 
-    public StruttureDiElevazioneOrizzontali getStrutturaOrizzontale() {
-        return strutturaOrizzontale;
-    }
-
-    public void setStrutturaOrizzontale(StruttureDiElevazioneOrizzontali strutturaOrizzontale) {
-        this.strutturaOrizzontale = strutturaOrizzontale;
-    }
-
-    public StruttureDiElevazioneInclinate getSrtutturaInclinata() {
-        return srtutturaInclinata;
-    }
-
-    public void setSrtutturaInclinata(StruttureDiElevazioneInclinate srtutturaInclinata) {
-        this.srtutturaInclinata = srtutturaInclinata;
-    }
-
-    
 
     }
 
