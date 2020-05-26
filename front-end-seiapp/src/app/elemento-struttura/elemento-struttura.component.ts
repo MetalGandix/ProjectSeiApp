@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
 import { Subscription } from 'rxjs';
 import { NgModel } from '@angular/forms';
+import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 
 @Component({
   selector: 'app-elemento-struttura',
@@ -23,6 +24,7 @@ export class ElementoStrutturaComponent implements OnInit {
   strutturaOrizzontale: StruttureOrizzontali[];
   strutturaSpaziale: StruttureSpaziali[];
   selectedElement = [];
+  caratteristiche: CaratteristicheQualitative[];
   subscriptionsToDelete: Subscription = new Subscription();
 
   constructor(
@@ -30,7 +32,6 @@ export class ElementoStrutturaComponent implements OnInit {
     private router: Router,
     private service: ElementiStrutturaService
   ) {
-
   }
 
   arrayStruttura = [
@@ -42,10 +43,17 @@ export class ElementoStrutturaComponent implements OnInit {
     { id: 6, name: "Elementi non strutturali" },
   ];
 
+  onChangeSecondo(index: number){
+    this.selectedElement.find(x => x == index).map(x => x.number)
+    console.log(index)
+    this.service.getCaratteristicheQualitative().subscribe(data => {
+      this.caratteristiche = data.slice(0,2);
+    })
+  }
 
   onChange(struttura: number) {
     this.arrayStruttura.find(t => t.id == struttura)
-    console.log(struttura)
+    console.log("id:" , struttura)
     if (struttura == 1) {
       this.service.getStrutturaVerticale().subscribe(data => {
         this.strutturaVerticale = data;

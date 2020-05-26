@@ -6,6 +6,7 @@ import { InfissiEsterni } from '../classes/strutture/infissi-esterni';
 import { StruttureInclinate } from '../classes/strutture/strutture-inclinate';
 import { StruttureOrizzontali } from '../classes/strutture/strutture-orizzontali';
 import { StruttureSpaziali } from '../classes/strutture/strutture-spaziali';
+import { CaratteristicheQualitative } from '../classes/caratteristiche-qualitative';
 
 
 
@@ -39,5 +40,9 @@ export class ElementiStrutturaService {
 
   public getStrutturaSpaziale():Observable<StruttureSpaziali[]>{
     return this.http.get<StruttureSpaziali[]>(this.url + 'strutturaSpaziale');
+  }
+
+  public getCaratteristicheQualitative():Observable<CaratteristicheQualitative[]>{
+    return this.http.get<CaratteristicheQualitative[]>(this.url + 'caratteristicheQualitative');
   }
 }
