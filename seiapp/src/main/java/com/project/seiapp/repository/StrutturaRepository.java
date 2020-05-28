@@ -1,6 +1,6 @@
 package com.project.seiapp.repository;
 
-import com.project.seiapp.entità.elementiStruttura.Struttura;
+import com.project.seiapp.entità.Struttura;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

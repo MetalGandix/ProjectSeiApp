@@ -41,15 +41,6 @@ export class ElementoStrutturaComponent implements OnInit {
   ) {
   }
 
-  arrayStruttura = [
-    { id: 1, name: "Struttura verticale" },
-    { id: 2, name: "Struttura orizzontale" },
-    { id: 3, name: "Struttura ad elevazioni inclinate" },
-    { id: 4, name: "Strutture di elevazione spaziali" },
-    { id: 5, name: "Infissi esterni verticali" },
-    { id: 6, name: "Elementi non strutturali" }
-  ];
-
   onChangeSecondo(index: number){
     this.caratteristiche = this.selectedElement[index].carQuality
     this.selectArr = 0;
@@ -79,21 +70,4 @@ export class ElementoStrutturaComponent implements OnInit {
       console.log(this.caratteristiche)
     })
   }
-
-    /*arrayCaratteristica = [
-    { id: 1, name: "Scarsa qualità costruttiva"},
-    { id: 2, name: "Elevato degrado"},
-    { id: 3, name: "Spinte orizzontali non contrastate"},
-    { id: 4, name: "Pannelli murari male ammorsati tra loro"},
-    { id: 5, name: "Efficacia dei collegamenti con la muratura"},
-    { id: 6, name: "Qualità delle strutture orizzontali"},
-    { id: 7, name: "Aperture di elevate dimensioni non controventate"},
-    { id: 8, name: "Presenza di numerose nicchie"},
-    { id: 9, name: "Pareti di elevate dimensioni non controventate"},
-    { id: 10, name: "Pannelli murari a doppio strato con camera d'aria - decoesione tra i parametri"},
-    { id: 11, name: "Efficacia dei collegamenti con la muratura"},
-    { id: 12, name: "Qualità della copertura"},
-    { id: 13, name: "Presenza di elementi non strutturali - valutazione connessione/massa"}
-  ];*/
-
 }

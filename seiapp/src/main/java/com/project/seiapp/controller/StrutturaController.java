@@ -2,7 +2,7 @@ package com.project.seiapp.controller;
 
 import java.util.List;
 
-import com.project.seiapp.entità.elementiStruttura.Struttura;
+import com.project.seiapp.entità.Struttura;
 import com.project.seiapp.repository.StrutturaRepository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;

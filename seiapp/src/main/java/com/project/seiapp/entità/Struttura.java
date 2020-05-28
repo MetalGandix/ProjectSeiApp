@@ -1,7 +1,6 @@
-package com.project.seiapp.entità.elementiStruttura;
+package com.project.seiapp.entità;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,9 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.project.seiapp.entità.CaratteristicheQualitative;
-import com.project.seiapp.entità.TypeStruttura;
 
 @Entity
 @Table(name = "struttura")

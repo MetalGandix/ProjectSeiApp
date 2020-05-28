@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 26, 2020 alle 17:37
+-- Creato il: Mag 28, 2020 alle 11:50
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -140,17 +140,6 @@ INSERT INTO `edificio` (`id`, `descrizione`, `punteggio`, `valutazione`, `tipolo
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `elementi_non_strutturali`
---
-
-CREATE TABLE `elementi_non_strutturali` (
-  `id` bigint(20) NOT NULL,
-  `infissi_esterni_verticali` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `hibernate_sequence`
 --
 
@@ -164,27 +153,6 @@ CREATE TABLE `hibernate_sequence` (
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
 (1);
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `infissi_esterni_verticali`
---
-
-CREATE TABLE `infissi_esterni_verticali` (
-  `id` bigint(20) NOT NULL,
-  `infissi_esterni_verticali` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `infissi_esterni_verticali`
---
-
-INSERT INTO `infissi_esterni_verticali` (`id`, `infissi_esterni_verticali`) VALUES
-(1, 'Aperture con architravi in pietra'),
-(2, 'Aperture con architravi in mattoni'),
-(3, 'Aperture con architravi in legno'),
-(4, 'Aperture con piattabande');
 
 -- --------------------------------------------------------
 
@@ -369,78 +337,86 @@ INSERT INTO `role` (`id`, `description`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `struttura_inclinata`
+-- Struttura della tabella `struttura`
 --
 
-CREATE TABLE `struttura_inclinata` (
+CREATE TABLE `struttura` (
   `id` bigint(20) NOT NULL,
-  `struttura_inclinata` varchar(255) DEFAULT NULL
+  `struttura` varchar(255) DEFAULT NULL,
+  `tipo_struttura_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `struttura_inclinata`
+-- Dump dei dati per la tabella `struttura`
 --
 
-INSERT INTO `struttura_inclinata` (`id`, `struttura_inclinata`) VALUES
-(1, 'Strutture per coperture inclinate in legno	\r\n');
+INSERT INTO `struttura` (`id`, `struttura`, `tipo_struttura_id`) VALUES
+(1, 'Struttura ad arco in muratura', 1),
+(2, 'Strutture a pareti portanti in muratura	piena\r\n', 1),
+(3, 'Strutture a pareti portanti in muratura	a sacco', 1),
+(4, 'Strutture per impalcati piani in legno	\r\n', 2),
+(5, 'Strutture per impalcati piani metalliche	\r\n', 2),
+(7, 'Strutture per coperture inclinate in legno	\r\n', 3),
+(8, 'Strutture voltate in muratura	\r\n', 4),
+(9, 'Strutture voltate in camorcanna	\r\n', 4),
+(10, 'Aperture con architravi in pietra	\r\n', 5),
+(11, 'Aperture con architravi in mattoni	\r\n', 5),
+(12, 'Aperture con architravi in legno	\r\n', 5),
+(13, 'Aperture con piattabande	\r\n	\r\n', 5),
+(14, 'Elementi non strutturali', 6);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `struttura_orizzontale`
+-- Struttura della tabella `struttura_car_quality`
 --
 
-CREATE TABLE `struttura_orizzontale` (
-  `id` bigint(20) NOT NULL,
-  `struttura_orizzontale` varchar(255) DEFAULT NULL
+CREATE TABLE `struttura_car_quality` (
+  `struttura_id` bigint(20) NOT NULL,
+  `car_quality_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `struttura_orizzontale`
+-- Dump dei dati per la tabella `struttura_car_quality`
 --
 
-INSERT INTO `struttura_orizzontale` (`id`, `struttura_orizzontale`) VALUES
-(1, 'Strutture per impalcati piani in legno'),
-(2, 'Strutture per impalcati piani metalliche');
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `struttura_spaziale`
---
-
-CREATE TABLE `struttura_spaziale` (
-  `id` bigint(20) NOT NULL,
-  `struttura_spaziale` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `struttura_spaziale`
---
-
-INSERT INTO `struttura_spaziale` (`id`, `struttura_spaziale`) VALUES
-(1, 'Strutture voltate in muratura'),
-(2, 'Strutture voltate in camorcanna');
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `struttura_verticale`
---
-
-CREATE TABLE `struttura_verticale` (
-  `id` bigint(20) NOT NULL,
-  `struttura_verticale` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `struttura_verticale`
---
-
-INSERT INTO `struttura_verticale` (`id`, `struttura_verticale`) VALUES
-(1, 'Strutture ad arco in muratura'),
-(2, 'Strutture a pareti portanti in muratura	piena\r\n'),
-(3, 'Strutture a pareti portanti in muratura	a sacco\r\n');
+INSERT INTO `struttura_car_quality` (`struttura_id`, `car_quality_id`) VALUES
+(1, 2),
+(1, 3),
+(2, 1),
+(2, 2),
+(2, 4),
+(2, 7),
+(2, 8),
+(3, 1),
+(3, 2),
+(3, 4),
+(3, 7),
+(3, 8),
+(3, 9),
+(4, 2),
+(4, 51),
+(4, 52),
+(5, 2),
+(5, 51),
+(5, 52),
+(7, 2),
+(7, 3),
+(7, 101),
+(7, 102),
+(8, 2),
+(8, 3),
+(9, 2),
+(9, 3),
+(10, 2),
+(10, 6),
+(11, 2),
+(11, 6),
+(12, 2),
+(12, 6),
+(13, 2),
+(13, 6),
+(14, 12);
 
 -- --------------------------------------------------------
 
@@ -484,6 +460,29 @@ CREATE TABLE `type_quality` (
 INSERT INTO `type_quality` (`id`, `tipo_struttura`) VALUES
 (1, 'Edificio Singolo'),
 (2, 'Edificio In Aggregato');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `type_struttura`
+--
+
+CREATE TABLE `type_struttura` (
+  `id` bigint(20) NOT NULL,
+  `type_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `type_struttura`
+--
+
+INSERT INTO `type_struttura` (`id`, `type_name`) VALUES
+(1, 'Struttura verticale'),
+(2, 'Struttura orizzontale'),
+(3, 'Struttura ad elevazioni inclinate'),
+(4, 'Strutture di elevazione spaziali'),
+(5, 'Infissi esterni verticali'),
+(6, 'Elementi non strutturali');
 
 -- --------------------------------------------------------
 
@@ -556,18 +555,6 @@ ALTER TABLE `edificio`
   ADD KEY `FKipm7snploikid5ubp4xpu8xgl` (`quality_id`);
 
 --
--- Indici per le tabelle `elementi_non_strutturali`
---
-ALTER TABLE `elementi_non_strutturali`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `infissi_esterni_verticali`
---
-ALTER TABLE `infissi_esterni_verticali`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indici per le tabelle `interventoa1`
 --
 ALTER TABLE `interventoa1`
@@ -600,28 +587,18 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `struttura_inclinata`
+-- Indici per le tabelle `struttura`
 --
-ALTER TABLE `struttura_inclinata`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `struttura`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKmyjrvt2f4gug0ux6hjgyuyge2` (`tipo_struttura_id`);
 
 --
--- Indici per le tabelle `struttura_orizzontale`
+-- Indici per le tabelle `struttura_car_quality`
 --
-ALTER TABLE `struttura_orizzontale`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `struttura_spaziale`
---
-ALTER TABLE `struttura_spaziale`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `struttura_verticale`
---
-ALTER TABLE `struttura_verticale`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `struttura_car_quality`
+  ADD KEY `FKhcj4uahfo3gljxf762hs6dihh` (`car_quality_id`),
+  ADD KEY `FKcsyr6nm6jp1y3j08xquinw3ba` (`struttura_id`);
 
 --
 -- Indici per le tabelle `tipologia_struttura`
@@ -633,6 +610,12 @@ ALTER TABLE `tipologia_struttura`
 -- Indici per le tabelle `type_quality`
 --
 ALTER TABLE `type_quality`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `type_struttura`
+--
+ALTER TABLE `type_struttura`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -671,18 +654,6 @@ ALTER TABLE `edificio`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
--- AUTO_INCREMENT per la tabella `elementi_non_strutturali`
---
-ALTER TABLE `elementi_non_strutturali`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT per la tabella `infissi_esterni_verticali`
---
-ALTER TABLE `infissi_esterni_verticali`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT per la tabella `interventoa1`
 --
 ALTER TABLE `interventoa1`
@@ -701,28 +672,10 @@ ALTER TABLE `quality`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT per la tabella `struttura_inclinata`
+-- AUTO_INCREMENT per la tabella `struttura`
 --
-ALTER TABLE `struttura_inclinata`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT per la tabella `struttura_orizzontale`
---
-ALTER TABLE `struttura_orizzontale`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT per la tabella `struttura_spaziale`
---
-ALTER TABLE `struttura_spaziale`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT per la tabella `struttura_verticale`
---
-ALTER TABLE `struttura_verticale`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `struttura`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT per la tabella `tipologia_struttura`
@@ -735,6 +688,12 @@ ALTER TABLE `tipologia_struttura`
 --
 ALTER TABLE `type_quality`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT per la tabella `type_struttura`
+--
+ALTER TABLE `type_struttura`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `user`
@@ -770,6 +729,19 @@ ALTER TABLE `quality`
 ALTER TABLE `quality_edificio`
   ADD CONSTRAINT `FK9m6k6h7rrca4tfwlw2cgbl9th` FOREIGN KEY (`quality_id`) REFERENCES `quality` (`id`),
   ADD CONSTRAINT `FKlv0vgpuvrl5s2s5l6pbyfrkqk` FOREIGN KEY (`edificio_id`) REFERENCES `edificio` (`id`);
+
+--
+-- Limiti per la tabella `struttura`
+--
+ALTER TABLE `struttura`
+  ADD CONSTRAINT `FKmyjrvt2f4gug0ux6hjgyuyge2` FOREIGN KEY (`tipo_struttura_id`) REFERENCES `type_struttura` (`id`);
+
+--
+-- Limiti per la tabella `struttura_car_quality`
+--
+ALTER TABLE `struttura_car_quality`
+  ADD CONSTRAINT `FKcsyr6nm6jp1y3j08xquinw3ba` FOREIGN KEY (`struttura_id`) REFERENCES `struttura` (`id`),
+  ADD CONSTRAINT `FKhcj4uahfo3gljxf762hs6dihh` FOREIGN KEY (`car_quality_id`) REFERENCES `caratterisitche_qualitative` (`id`);
 
 --
 -- Limiti per la tabella `user_roles`
