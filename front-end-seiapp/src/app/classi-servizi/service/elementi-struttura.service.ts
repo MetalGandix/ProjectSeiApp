@@ -7,6 +7,8 @@ import { StruttureInclinate } from '../classes/strutture/strutture-inclinate';
 import { StruttureOrizzontali } from '../classes/strutture/strutture-orizzontali';
 import { StruttureSpaziali } from '../classes/strutture/strutture-spaziali';
 import { CaratteristicheQualitative } from '../classes/caratteristiche-qualitative';
+import { Struttura } from '../classes/strutture/struttura';
+import { TypeStruttura } from '../classes/strutture/type-struttura';
 
 
 
@@ -22,27 +24,15 @@ export class ElementiStrutturaService {
     this.url = 'http://localhost:8080/';
   }
 
-  public getInfissiEsterni():Observable<InfissiEsterni[]>{
-    return this.http.get<InfissiEsterni[]>(this.url + 'infissiEsterniVerticali');
-  }
-
-  public getStrutturaVerticale():Observable<StrutturaVerticale[]>{
-    return this.http.get<StrutturaVerticale[]>(this.url + 'strutturaVerticale'); 
-  }
-
-  public getStrutturaInclinata():Observable<StruttureInclinate[]>{
-    return this.http.get<StruttureInclinate[]>(this.url + 'strutturaInclinata');
-  }
-
-  public getStruttureOrizzontali():Observable<StruttureOrizzontali[]>{
-    return this.http.get<StruttureOrizzontali[]>(this.url + 'strutturaOrizzontale');
-  }
-
-  public getStrutturaSpaziale():Observable<StruttureSpaziali[]>{
-    return this.http.get<StruttureSpaziali[]>(this.url + 'strutturaSpaziale');
+  public getStruttura():Observable<Struttura[]>{
+    return this.http.get<Struttura[]>(this.url + 'struttura');
   }
 
   public getCaratteristicheQualitative():Observable<CaratteristicheQualitative[]>{
     return this.http.get<CaratteristicheQualitative[]>(this.url + 'caratteristicheQualitative');
+  }
+
+  public getTypeStruttura():Observable<TypeStruttura[]>{
+    return this.http.get<TypeStruttura[]>(this.url + 'typeStruttura');
   }
 }

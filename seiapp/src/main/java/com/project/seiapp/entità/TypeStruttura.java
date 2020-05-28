@@ -7,24 +7,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name = "CaratterisitcheQualitative")
-public class CaratteristicheQualitative {
-
+@Table(name = "TypeStruttura")
+public class TypeStruttura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
-    private String CaratteristicheQualitative;
+    private String typeName;
 
-    public String getCaratteristicheQualitative() {
-        return CaratteristicheQualitative;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setCaratteristicheQualitative(String caratteristicheQualitative) {
-        this.CaratteristicheQualitative = caratteristicheQualitative;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
     public long getId() {
@@ -34,7 +32,5 @@ public class CaratteristicheQualitative {
     public void setId(long id) {
         this.id = id;
     }
-    }
-
-
-
+    
+}

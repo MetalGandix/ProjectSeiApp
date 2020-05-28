@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 import { InfissiEsterni } from '../classi-servizi/classes/strutture/infissi-esterni';
+import { StrutturaVerticale } from '../classi-servizi/classes/strutture/struttura-verticale';
+import { StruttureInclinate } from '../classi-servizi/classes/strutture/strutture-inclinate';
 import { StruttureOrizzontali } from '../classi-servizi/classes/strutture/strutture-orizzontali';
 import { StruttureSpaziali } from '../classi-servizi/classes/strutture/strutture-spaziali';
-import { StruttureInclinate } from '../classi-servizi/classes/strutture/strutture-inclinate';
-import { StrutturaVerticale } from '../classi-servizi/classes/strutture/struttura-verticale';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
-import { Subscription } from 'rxjs';
-import { NgModel } from '@angular/forms';
-import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
+import { Struttura } from '../classi-servizi/classes/strutture/struttura';
+import { TypeStruttura } from '../classi-servizi/classes/strutture/type-struttura';
 
 @Component({
   selector: 'app-elemento-struttura',
@@ -17,6 +18,9 @@ import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteris
 })
 export class ElementoStrutturaComponent implements OnInit {
 
+  typeStruttura: TypeStruttura[];
+  struttura: Struttura[];
+  selectedIndex: number;
   infissiEsterni: InfissiEsterni[];
   strutturaVerticale: StrutturaVerticale[];
   verticale: StrutturaVerticale;
@@ -24,8 +28,11 @@ export class ElementoStrutturaComponent implements OnInit {
   strutturaOrizzontale: StruttureOrizzontali[];
   strutturaSpaziale: StruttureSpaziali[];
   selectedElement = [];
+  selectArr: number;
   caratteristiche: CaratteristicheQualitative[];
   subscriptionsToDelete: Subscription = new Subscription();
+  variabile1;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -40,73 +47,53 @@ export class ElementoStrutturaComponent implements OnInit {
     { id: 3, name: "Struttura ad elevazioni inclinate" },
     { id: 4, name: "Strutture di elevazione spaziali" },
     { id: 5, name: "Infissi esterni verticali" },
-    { id: 6, name: "Elementi non strutturali" },
+    { id: 6, name: "Elementi non strutturali" }
   ];
 
   onChangeSecondo(index: number){
-    this.selectedElement.find(x => x == index).map(x => x.number)
-    console.log(index)
-    this.service.getCaratteristicheQualitative().subscribe(data => {
-      this.caratteristiche = data.slice(0,2);
+    this.caratteristiche = this.selectedElement[index].carQuality
+    this.selectArr = 0;
+  }
+
+  onChange(index: number) {
+    this.selectedElement = []
+    this.struttura.forEach(t => {
+      if(t.tipoStruttura.id === this.typeStruttura[index].id){
+      this.selectedElement.push(t)
+      }
     })
-  }
-
-  onChange(struttura: number) {
-    this.arrayStruttura.find(t => t.id == struttura)
-    console.log("id:" , struttura)
-    if (struttura == 1) {
-      this.service.getStrutturaVerticale().subscribe(data => {
-        this.strutturaVerticale = data;
-        this.selectedElement.push(this.strutturaVerticale)
-        this.selectedElement.forEach(t => {
-          this.selectedElement = t
-        })
-      })
-    }
-    else if (struttura == 2) {
-      this.service.getStruttureOrizzontali().subscribe(data => {
-        this.strutturaOrizzontale = data;
-        this.selectedElement.push(this.strutturaOrizzontale)
-        this.selectedElement.forEach(t => {
-          this.selectedElement = t
-        })
-      })
-    }
-    else if (struttura == 3) {
-      this.service.getStrutturaInclinata().subscribe(data => {
-        this.strutturaInclinata = data;
-        this.selectedElement.push(this.strutturaInclinata)
-        this.selectedElement.forEach(t => {
-          this.selectedElement = t
-        })
-      })
-    }
-    else if (struttura == 4) {
-      this.service.getStrutturaSpaziale().subscribe(data => {
-        this.strutturaSpaziale = data;
-        this.selectedElement.push(this.strutturaSpaziale)
-        this.selectedElement.forEach(t => {
-          this.selectedElement = t
-        })
-      })
-    }
-    else if (struttura == 5) {
-      this.service.getInfissiEsterni().subscribe(data => {
-        this.infissiEsterni = data;
-        this.selectedElement.push(this.infissiEsterni)
-        this.selectedElement.forEach(t => {
-          this.selectedElement = t
-        })
-      })
-    }
-    console.log(this.selectedElement)
-  }
-
-  ngOnDestroy() {
-    this.subscriptionsToDelete.unsubscribe();
+    this.selectedIndex = 0;
   }
 
   ngOnInit() {
+    this.service.getTypeStruttura().subscribe(data => {
+      this.typeStruttura = data;
+      console.log(this.typeStruttura)
+    })
+    this.service.getStruttura().subscribe(data => {
+      this.struttura = data;
+      console.log(this.struttura)
+    })
+    this.service.getCaratteristicheQualitative().subscribe(data =>{
+      this.caratteristiche = data;
+      console.log(this.caratteristiche)
+    })
   }
+
+    /*arrayCaratteristica = [
+    { id: 1, name: "Scarsa qualità costruttiva"},
+    { id: 2, name: "Elevato degrado"},
+    { id: 3, name: "Spinte orizzontali non contrastate"},
+    { id: 4, name: "Pannelli murari male ammorsati tra loro"},
+    { id: 5, name: "Efficacia dei collegamenti con la muratura"},
+    { id: 6, name: "Qualità delle strutture orizzontali"},
+    { id: 7, name: "Aperture di elevate dimensioni non controventate"},
+    { id: 8, name: "Presenza di numerose nicchie"},
+    { id: 9, name: "Pareti di elevate dimensioni non controventate"},
+    { id: 10, name: "Pannelli murari a doppio strato con camera d'aria - decoesione tra i parametri"},
+    { id: 11, name: "Efficacia dei collegamenti con la muratura"},
+    { id: 12, name: "Qualità della copertura"},
+    { id: 13, name: "Presenza di elementi non strutturali - valutazione connessione/massa"}
+  ];*/
 
 }

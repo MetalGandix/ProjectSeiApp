@@ -4,8 +4,8 @@
   </div>
   <div class="card my-5">
     <div class="card-body">
-      <form>
 
+      <form>
         <div class="form-group">
           <label for="struttura"><b>Strutture</b></label>
           <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)"
@@ -13,31 +13,27 @@
             <option selected disabled>
               Seleziona la struttura
             </option>
-            <option [value]="array.id" *ngFor="let array of arrayStruttura; index as i">
-              {{ array.name }}
+            <option [value]="i" *ngFor="let array of typeStruttura; index as i">
+              {{ array.typeName }}
             </option>
           </select>
 
-          <select (change)="onChangeSecondo($event.target.value)" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
-            <option *ngFor="let arr of selectedElement; index as i;">
-              {{arr.strutturaVerticale}}
-              {{arr.strutturaOrizzontale}}
-              {{arr.strutturaInclinata}}
-              {{arr.strutturaSpaziale}}
-              {{arr.infissiEsterniVerticali}}
+          <select [(ngModel)]="selectedIndex" (change)="onChangeSecondo($event.target.value)" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
+            <option [value]="i" *ngFor="let arr of selectedElement; index as i;">
+              {{arr.struttura}}
             </option>
           </select>
 
           <button type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
 
-          <select style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
-            <option *ngFor="let car of caratteristiche; index as i">
+          <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
+            <option [value]="i" *ngFor="let car of caratteristiche; index as i">
               {{car.caratteristicheQualitative}}
             </option>
           </select>
         </div>
-
       </form>
+      
     </div>
   </div>
 </div>
