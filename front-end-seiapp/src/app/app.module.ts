@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { OptionComponent } from './option/option.component';
-import { IndividuazioneInterventiComponent } from './individuazione-interventi/individuazione-interventi.component';
-import { StrutturaVerticaleService } from './classi-servizi/service/struttura-verticale.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AggiungiInterventoComponent } from './aggiungi-intervento/aggiungi-intervento.component';
@@ -32,7 +30,6 @@ import { ElementoStrutturaComponent } from './elemento-struttura/elemento-strutt
     HomeComponent,
     LoginComponent,
     OptionComponent,
-    IndividuazioneInterventiComponent,
     AggiungiInterventoComponent,
     VisualizzaInterventiDisponibiliComponent,
     A1Component,
@@ -51,7 +48,7 @@ import { ElementoStrutturaComponent } from './elemento-struttura/elemento-strutt
     HttpClientModule,
     FormsModule,
   ],
-  providers: [StrutturaVerticaleService,InterventiService,EdificioService,QualitàEdificiService],
+  providers: [InterventiService,EdificioService,QualitàEdificiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
