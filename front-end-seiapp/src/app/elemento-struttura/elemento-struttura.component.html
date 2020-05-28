@@ -11,6 +11,7 @@
           <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)"
             name="struttura">
             <option selected disabled>
+              Seleziona
             </option>
             <option [value]="i" *ngFor="let array of typeStruttura; index as i">
               {{ array.typeName }}
@@ -21,6 +22,9 @@
           <p><b>Classificazione secondaria di elementi tecnici</b></p>
 
           <select [(ngModel)]="selectedIndex" (change)="onChangeSecondo($event.target.value)" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
+            <option selected disabled>
+              Seleziona
+            </option>
             <option [value]="i" *ngFor="let arr of selectedElement; index as i;">
               {{arr.struttura}}
             </option>
