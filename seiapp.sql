@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 28, 2020 alle 11:50
+-- Creato il: Mag 28, 2020 alle 15:02
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -50,6 +50,97 @@ INSERT INTO `caratterisitche_qualitative` (`id`, `caratteristiche_qualitative`) 
 (52, 'Qualità delle strutture orizzontali'),
 (101, 'Efficacia dei collegamenti con la muratura'),
 (102, 'Qualità della copertura');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `codice_intervento`
+--
+
+CREATE TABLE `codice_intervento` (
+  `id` bigint(20) NOT NULL,
+  `codice` varchar(255) DEFAULT NULL,
+  `descrizione` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `codice_intervento`
+--
+
+INSERT INTO `codice_intervento` (`id`, `codice`, `descrizione`) VALUES
+(1, 'A1', 'Inserimento di tiranti ancorati alle murature mediante capochiave -bolzoni o piastre-'),
+(2, 'A2', 'Introduzione di tiranti ancorati alle murature mediante ancoraggi per aderenza'),
+(3, 'A3', 'Inserimento di cerchiature esterne con elementi metallici o materiali compositi'),
+(4, 'A4', 'Scuci-cuci agli ammorsamenti'),
+(5, 'A5', 'Realizzazione di perforazioni armate con barre metalliche'),
+(6, 'A6', 'Realizzazione di cordoli in sommità'),
+(7, 'A7', 'Ancoraggio delle teste di travi alle murature tramite elementi metallici o in altro materiale resistente a trazione (capichiave)'),
+(8, 'A8', 'Cordoli di piano in acciaio'),
+(9, 'B1', 'Irrigidimento con introduzione di un secondo tavolato all’estradosso disposto con andamento ortogonale o inclinato'),
+(10, 'B2', 'Irrigidimento con introduzione di bandelle metalliche o di materiali compositi fissate al tavolato con andamento incrociato'),
+(11, 'B3', 'Controventamento realizzato con tiranti metallici'),
+(12, 'B4', 'Irrigidimento attraverso soletta collaborante in calcestruzzo eventualmente alleggerito'),
+(13, 'B5', 'Irrigidimento tramite saldatura dei profili con bandelle metalliche trasversali poste all’estradosso'),
+(14, 'B6', 'Irrigidimento tramite saldatura dei profili con bandelle metalliche trasversali poste all’intradosso'),
+(15, 'B7', 'Inserimento di travi metalliche (profilati metallici HEA) collaboranti all\'estradosso della trave lignea'),
+(16, 'B8', 'Rinforzo a flessione e/o riduzione della deformabilità per elementi inflessi in legno con applicazione di lamine pultruse di carbonio'),
+(17, 'B9', 'Sostituzione della trave lignea'),
+(18, 'B10', 'Introduzione di travi ascellari (travi collaboranti in profilato metallico) ai lati delle orditure principali in legno'),
+(19, 'B11', 'Rinforzo delle travi lignee con fasce e tiranti d\'intradosso'),
+(20, 'B12', 'Rinforzo delle travi lignee con tirante d\'intradosso e contraffissi (struttura reticolare)'),
+(21, 'B13', 'Trasformazione della trave lignea in una struttura con sezione a T attraverso il collocamento di un tavolato nello spessore del massetto (struttura composta legno-legno)'),
+(22, 'B14', 'Trasformazione della trave lignea in una struttura con sezione a T attraverso l\'introduzione di un profilato metallico collaborante (struttura composta legno-metallo)'),
+(23, 'C1', 'Irrigidimento della falda di copertura con doppio tavolato continuo con assetto preferibilmente a 45°'),
+(24, 'C2', 'Irrigidimento della falda di copertura con controventi in acciaio all\'intradosso/estradosso - croci di S.Andrea'),
+(25, 'C3', 'Irrigidimento della falda di copertura con cls alleggerito con rete elettrosaldata zincata'),
+(26, 'C4', 'Realizzazione di protesi in elementi in legno'),
+(27, 'C5', 'Sostituzione della trave lignea'),
+(28, 'C6', 'Rinforzo a flessione e/o riduzione della deformabilità per elementi inflessi con applicazione di lamine pultruse di carbonio'),
+(29, 'C7', 'Introduzione di travi ascellari (travi collaboranti in profilato metallico) ai lati delle orditure principali in legno'),
+(30, 'C8', 'Rinforzo delle travi lignee con fasce e tiranti d\'intradosso'),
+(31, 'D1', 'Ripristino della continuità muraria attraverso scuci e cuci'),
+(32, 'D2', 'Iniezioni di miscele leganti'),
+(33, 'D3', 'Ristilatura dei giunti della muratura'),
+(34, 'D4', 'Inserimento di diatoni artificiali in fori di carotaggio: c.a. e acciaio'),
+(35, 'D5', 'Inserimento di pietre passanti'),
+(36, 'D6', 'Inserimento di tirantini antiesplusivi'),
+(37, 'D7', 'Inserimento di tirantature diffuse/CAM'),
+(38, 'D8', 'Inserimento di tiranti verticali post-tesi'),
+(39, 'D9', 'Placcaggio delle murature con intonaco armato su entrambi i paramenti'),
+(40, 'D10', 'Placcaggio con tessuti o lamine in materiale fibroriforzato'),
+(41, 'D11', 'Inserimento di nuovo setto di spina con relativa fondazione'),
+(42, 'D12', 'Richiusura di nicchie e bucature'),
+(43, 'D13', 'Realizzazione di una nuova parte affiancata e resa solidale a quella esistente mediante barre in acciaio inox e resina epossidica'),
+(44, 'D14', 'Rivestimento delle pareti verticali all\'esterno con cappotto sismico'),
+(45, 'E1', 'Esecuzione di piastra di collegamento delle murature alla base'),
+(46, 'E2', 'Introduzione di pali e micropali da estendere all\'intero edificio'),
+(47, 'E3', 'Consolidamento dei terreni di fondazione per iniezione nel terreno di resine e di malte cementizie'),
+(48, 'E4', 'Realizzazione di sottofondazioni in muratura ammorsate a profondità idonea'),
+(49, 'E5', 'Irrigidimento e cerchiaggio della fondazione attraverso la realizzazione di travi in c.a. affiancate alla fondazione esistente (interno/esterno) e collegate tra loro mediante traversi in c.a.'),
+(50, 'F1', 'Inserimento di elementi di riquadratura: telai in c.a. o in acciaio'),
+(51, 'F2', 'Inserimento di profili in acciaio collegati tra loro da barre filettate in acciaio inox'),
+(52, 'F3', 'Consolidamento con inserimento di fibre in carbonio'),
+(53, 'F4', 'Consolidamento di piattabande tramite splintaggio degli elementi laterizi'),
+(54, 'G1', 'Inserimento di catene alle reni di archi e volte'),
+(55, 'G2', 'Realizzazione di contrafforti esterni'),
+(56, 'G3', 'Placcaggio all\'estradosso con fasce di materiale composito'),
+(57, 'G4', 'Placcaggio all\'intradosso con fasce di mareriale composito'),
+(58, 'G5', 'Iniezioni di malta per ripristinare le lesioni'),
+(59, 'G6', 'Incuneatura di elementi in legno o metallo con sigillatura e iniezione tramite prodotti specifici'),
+(60, 'G7', 'Realizzazione sull\'arco di perforazioni incrociate'),
+(61, 'G8', 'Rinforzo tramite accostamento di tavole e solidarizzazione degli elementi portanti tramite fascette in ferro chiodate alla struttura lignea'),
+(62, 'G9', 'Alleggerimento/svuotamento del riempimento della volta ed inserimento di frenelli'),
+(63, 'H1', 'Cerchiature e tassellature'),
+(64, 'H2', 'Incollaggi con resine'),
+(65, 'H3', 'Incatenamenti e tirantature'),
+(66, 'I1', 'Collegamenti puntuali e diffusi dell\'elemento non strutturale alla struttura muraria'),
+(67, 'I2', 'Calastrelli in acciaio per comignoli'),
+(68, 'L1', 'Inserimento di setti di irrigidimento'),
+(69, 'L2', 'Inserimento di controventi dissipativi'),
+(70, 'L3', 'Isolamento alla base'),
+(71, 'L4', 'Adeguamento di giunti non sismici tra unità strutturali distinte'),
+(72, 'L5', 'Inserimento di giunti sismici in edifici irregolari'),
+(73, 'L6', 'Realizzazione di collegamenti strutturali');
 
 -- --------------------------------------------------------
 
@@ -107,8 +198,8 @@ INSERT INTO `edificio` (`id`, `descrizione`, `punteggio`, `valutazione`, `tipolo
 (34, 'strutture non adeguate per oltre il 70% (punteggio 8)\r\n', 8, 'A', 0, 12),
 (35, 'percentuale tra 30% e 70% (punteggio 4)\r\n', 4, 'M', 0, 12),
 (36, 'strutture non adeguate per meno del 30% (punteggio 0)\r\n', 0, 'B', 0, 12),
-(37, 'rapporto lato maggiore/lato minore >4 + posizione all\'estremità o d\'angolo\r\n', 0, 'A', 0, 13),
-(38, 'rapporto lato maggiore/lato minore tra 3 e 4 + posizione all\'estremità o d\'angolo\r\n', 0, 'M', 0, 13),
+(37, 'rapporto lato maggiore/lato minore >4', 0, 'A', 0, 13),
+(38, 'rapporto lato maggiore/lato minore tra 3 e 4', 0, 'M', 0, 13),
 (39, 'altri casi\r\n', 0, 'B', 0, 13),
 (40, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta >20% rispetto al piano inferiore\"\r\n', 0, 'A', 0, 14),
 (41, '\"presenza di torrini con h compresa tra il 10% e il 40% dell\'altezza del fabbricato\r\n+ riduzione in pianta tra il 10% e il 20% rispetto al piano inferiore\"\r\n', 0, 'M', 0, 14),
@@ -362,7 +453,7 @@ INSERT INTO `struttura` (`id`, `struttura`, `tipo_struttura_id`) VALUES
 (10, 'Aperture con architravi in pietra	\r\n', 5),
 (11, 'Aperture con architravi in mattoni	\r\n', 5),
 (12, 'Aperture con architravi in legno	\r\n', 5),
-(13, 'Aperture con piattabande	\r\n	\r\n', 5),
+(13, 'Aperture con piattabande', 5),
 (14, 'Elementi non strutturali', 6);
 
 -- --------------------------------------------------------
@@ -477,9 +568,9 @@ CREATE TABLE `type_struttura` (
 --
 
 INSERT INTO `type_struttura` (`id`, `type_name`) VALUES
-(1, 'Struttura verticale'),
-(2, 'Struttura orizzontale'),
-(3, 'Struttura ad elevazioni inclinate'),
+(1, 'Strutture di elevazione verticali'),
+(2, 'Strutture di elevazione orizzontali'),
+(3, 'Strutture di elevazione inclinate'),
 (4, 'Strutture di elevazione spaziali'),
 (5, 'Infissi esterni verticali'),
 (6, 'Elementi non strutturali');
@@ -545,6 +636,12 @@ CREATE TABLE `valutazioni` (
 -- Indici per le tabelle `caratterisitche_qualitative`
 --
 ALTER TABLE `caratterisitche_qualitative`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `codice_intervento`
+--
+ALTER TABLE `codice_intervento`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -646,6 +743,12 @@ ALTER TABLE `valutazioni`
 --
 ALTER TABLE `caratterisitche_qualitative`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+
+--
+-- AUTO_INCREMENT per la tabella `codice_intervento`
+--
+ALTER TABLE `codice_intervento`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT per la tabella `edificio`
