@@ -1,22 +1,24 @@
 <div class="container">
   <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-    <p><b>STRUTTURE</b></p>
+    <p><b>CLASSIFICAZIONE DI VULNERABILITÀ</b></p>
   </div>
   <div class="card my-5">
     <div class="card-body">
 
       <form>
         <div class="form-group">
-          <label for="struttura"><b>Strutture</b></label>
+          <label for="struttura"><p><b>Classificazione primaria di elementi tecnici</b></p></label>
           <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)"
             name="struttura">
             <option selected disabled>
-              Seleziona la struttura
             </option>
             <option [value]="i" *ngFor="let array of typeStruttura; index as i">
               {{ array.typeName }}
             </option>
           </select>
+
+          <label></label>
+          <p><b>Classificazione secondaria di elementi tecnici</b></p>
 
           <select [(ngModel)]="selectedIndex" (change)="onChangeSecondo($event.target.value)" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
             <option [value]="i" *ngFor="let arr of selectedElement; index as i;">
@@ -24,6 +26,8 @@
             </option>
           </select>
 
+          <label></label>
+          <p><b>Caratteristiche qualitative</b></p>
 
           <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
             <option [value]="i" *ngFor="let car of caratteristiche; index as i">
@@ -32,6 +36,7 @@
           </select>
 
           <button type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
+
         </div>
       </form>
       
