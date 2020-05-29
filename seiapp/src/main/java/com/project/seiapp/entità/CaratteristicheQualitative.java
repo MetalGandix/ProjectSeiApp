@@ -1,10 +1,15 @@
 package com.project.seiapp.entità;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -18,6 +23,10 @@ public class CaratteristicheQualitative {
 
     @Column
     private String CaratteristicheQualitative;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Meccanismi> meccanismiAssociati;
+
 
     public String getCaratteristicheQualitative() {
         return CaratteristicheQualitative;
@@ -33,6 +42,14 @@ public class CaratteristicheQualitative {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<Meccanismi> getMeccanismiAssociati() {
+        return meccanismiAssociati;
+    }
+
+    public void setMeccanismiAssociati(List<Meccanismi> meccanismiAssociati) {
+        this.meccanismiAssociati = meccanismiAssociati;
     }
     }
 

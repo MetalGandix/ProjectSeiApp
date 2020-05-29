@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 29, 2020 alle 14:58
+-- Creato il: Mag 29, 2020 alle 15:30
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -193,6 +193,93 @@ INSERT INTO `caratterisitche_qualitative` (`id`, `caratteristiche_qualitative`) 
 (52, 'Qualità delle strutture orizzontali'),
 (101, 'Efficacia dei collegamenti con la muratura'),
 (102, 'Qualità della copertura');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `caratterisitche_qualitative_meccanismi_associati`
+--
+
+CREATE TABLE `caratterisitche_qualitative_meccanismi_associati` (
+  `caratteristiche_qualitative_id` bigint(20) NOT NULL,
+  `meccanismi_associati_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `caratterisitche_qualitative_meccanismi_associati`
+--
+
+INSERT INTO `caratterisitche_qualitative_meccanismi_associati` (`caratteristiche_qualitative_id`, `meccanismi_associati_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 5),
+(1, 8),
+(1, 9),
+(1, 12),
+(2, 11),
+(3, 3),
+(3, 4),
+(3, 6),
+(3, 10),
+(3, 13),
+(3, 14),
+(3, 15),
+(4, 3),
+(4, 4),
+(4, 6),
+(4, 8),
+(4, 9),
+(4, 10),
+(4, 14),
+(4, 16),
+(51, 3),
+(51, 4),
+(51, 5),
+(51, 6),
+(51, 10),
+(51, 16),
+(52, 10),
+(6, 1),
+(6, 2),
+(6, 3),
+(6, 4),
+(6, 12),
+(6, 14),
+(6, 15),
+(7, 1),
+(7, 7),
+(7, 12),
+(8, 1),
+(8, 2),
+(8, 3),
+(8, 4),
+(8, 5),
+(8, 6),
+(8, 8),
+(8, 10),
+(8, 12),
+(8, 14),
+(8, 15),
+(9, 1),
+(9, 2),
+(9, 3),
+(9, 4),
+(9, 5),
+(9, 6),
+(101, 2),
+(101, 3),
+(101, 4),
+(101, 6),
+(101, 13),
+(101, 14),
+(101, 15),
+(102, 2),
+(102, 3),
+(102, 4),
+(102, 13),
+(102, 15),
+(102, 16),
+(12, 12);
 
 -- --------------------------------------------------------
 
@@ -829,6 +916,13 @@ ALTER TABLE `caratterisitche_qualitative`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indici per le tabelle `caratterisitche_qualitative_meccanismi_associati`
+--
+ALTER TABLE `caratterisitche_qualitative_meccanismi_associati`
+  ADD KEY `FK812mc641jr6q5wfsd0cl5grl` (`meccanismi_associati_id`),
+  ADD KEY `FK15cu3jstiktv7xuvro3i7ys8c` (`caratteristiche_qualitative_id`);
+
+--
 -- Indici per le tabelle `codice_intervento`
 --
 ALTER TABLE `codice_intervento`
@@ -1029,6 +1123,13 @@ ALTER TABLE `associazione_intervento`
   ADD CONSTRAINT `FK1ubt1do9bbln7sddfy5w3cgw4` FOREIGN KEY (`caratteristica_associazione_intervento_id`) REFERENCES `caratterisitche_qualitative` (`id`),
   ADD CONSTRAINT `FKgg9x8sypaf66qi9st6mln8rfv` FOREIGN KEY (`intervento_id`) REFERENCES `codice_intervento` (`id`),
   ADD CONSTRAINT `FKr6x7mwp155w8khgpr8sa3ohde` FOREIGN KEY (`struttura_associazione_id`) REFERENCES `struttura` (`id`);
+
+--
+-- Limiti per la tabella `caratterisitche_qualitative_meccanismi_associati`
+--
+ALTER TABLE `caratterisitche_qualitative_meccanismi_associati`
+  ADD CONSTRAINT `FK15cu3jstiktv7xuvro3i7ys8c` FOREIGN KEY (`caratteristiche_qualitative_id`) REFERENCES `caratterisitche_qualitative` (`id`),
+  ADD CONSTRAINT `FK812mc641jr6q5wfsd0cl5grl` FOREIGN KEY (`meccanismi_associati_id`) REFERENCES `meccanismi` (`id`);
 
 --
 -- Limiti per la tabella `edificio`
