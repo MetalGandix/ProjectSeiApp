@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 29, 2020 alle 12:01
+-- Creato il: Mag 29, 2020 alle 12:15
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -152,7 +152,17 @@ INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_interv
 (111, 6, 52, 13),
 (112, 6, 53, 13),
 (113, 12, 66, 14),
-(114, 12, 67, 14);
+(114, 12, 67, 14),
+(115, 2, 74, 1),
+(116, 2, 74, 2),
+(117, 2, 74, 3),
+(118, 2, 75, 4),
+(119, 2, 75, 7),
+(120, 2, 74, 8),
+(121, 2, 74, 10),
+(122, 2, 74, 11),
+(123, 2, 75, 12),
+(124, 2, 74, 13);
 
 -- --------------------------------------------------------
 
@@ -273,7 +283,9 @@ INSERT INTO `codice_intervento` (`id`, `codice`, `descrizione`) VALUES
 (70, 'L3', 'Isolamento alla base'),
 (71, 'L4', 'Adeguamento di giunti non sismici tra unità strutturali distinte'),
 (72, 'L5', 'Inserimento di giunti sismici in edifici irregolari'),
-(73, 'L6', 'Realizzazione di collegamenti strutturali');
+(73, 'L6', 'Realizzazione di collegamenti strutturali'),
+(74, 'Tab.01', NULL),
+(75, 'Tab.02', NULL);
 
 -- --------------------------------------------------------
 
@@ -884,7 +896,7 @@ ALTER TABLE `valutazioni`
 -- AUTO_INCREMENT per la tabella `associazione_intervento`
 --
 ALTER TABLE `associazione_intervento`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT per la tabella `caratterisitche_qualitative`
@@ -896,7 +908,7 @@ ALTER TABLE `caratterisitche_qualitative`
 -- AUTO_INCREMENT per la tabella `codice_intervento`
 --
 ALTER TABLE `codice_intervento`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT per la tabella `edificio`
