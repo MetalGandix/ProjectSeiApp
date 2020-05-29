@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 29, 2020 alle 12:15
+-- Creato il: Mag 29, 2020 alle 14:58
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -433,6 +433,42 @@ INSERT INTO `interventoa2` (`id`, `corpo`, `immagine`, `titolo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `meccanismi`
+--
+
+CREATE TABLE `meccanismi` (
+  `id` bigint(20) NOT NULL,
+  `codice` int(11) DEFAULT NULL,
+  `descrizione` varchar(255) DEFAULT NULL,
+  `modi_di_danno_alle_strutture_orizzontali` varchar(255) DEFAULT NULL,
+  `modi_di_danno_alle_strutture_verticali` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `meccanismi`
+--
+
+INSERT INTO `meccanismi` (`id`, `codice`, `descrizione`, `modi_di_danno_alle_strutture_orizzontali`, `modi_di_danno_alle_strutture_verticali`) VALUES
+(1, 1, 'Da taglio nella parete per azioni nel piano', 'V1, V3,V7, V8, V10, V11,V15, V16', 'H8, H11'),
+(2, 2, 'Da taglio nella parete per azioni nel piano localizzato nella zona alta', 'V2, V4, V8, V10, V11, V15', 'H8, H11'),
+(3, 3, 'Da ribaltamento dell\'intera parete', 'V9, V10, V11, V14, V21', 'H5, H6, H8, H9, H10, H11, H12'),
+(4, 4, 'Da ribaltamento parziale della parete', 'V6, V9, V10, V11, V13, V14, V21', 'H5, H6, H8, H9, H10, H11, H12'),
+(5, 5, 'Da instabilità verticale della parete', 'V19, V20', 'H5, H6, H8, H9, H10, H11, H12'),
+(6, 6, 'Da rottura a flessione della parete', 'V1, V2, V9, V11, V20', 'H5, H6, H10, H11, H12'),
+(7, 7, 'Da scorrimento di piano orizzontale', 'V3, V6, V14', 'H12, H13'),
+(8, 8, 'Da cedimento fondale', 'V5, V22, V23', 'H7, H11'),
+(9, 9, 'Da irregolarità tra strutture adiacenti', 'V17, V18', 'H12'),
+(10, 10, 'Per sfilamento delle travi del solaio dalla parete di supporto', 'V9, V11, V19', 'H10, H12'),
+(11, 11, 'Per cedimento di architravi e/o piattabande', 'V6, V13', 'H11'),
+(12, 12, 'Da irregolarità del materiale, debolezze locali, etc', 'V1, V6, V13, V16, V17, V18', 'H11'),
+(13, 13, 'Da ribaltamento della parete del timpano', 'V12, V19', 'H10'),
+(14, 14, 'Da ribaltamento della parte alta del cantonale', 'V4, V6, V13', 'H10, H11'),
+(15, 15, 'Da ribaltamento della fascia sottotetto', 'V6, V13, V19', 'H9, H10, H11, H12'),
+(16, 16, 'Da rotazione delle spalle di volte e archi', 'V16, V21', 'H1, H2, H3, H4, H7');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `quality`
 --
 
@@ -818,6 +854,12 @@ ALTER TABLE `interventoa2`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indici per le tabelle `meccanismi`
+--
+ALTER TABLE `meccanismi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indici per le tabelle `quality`
 --
 ALTER TABLE `quality`
@@ -927,6 +969,12 @@ ALTER TABLE `interventoa1`
 --
 ALTER TABLE `interventoa2`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT per la tabella `meccanismi`
+--
+ALTER TABLE `meccanismi`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT per la tabella `quality`
