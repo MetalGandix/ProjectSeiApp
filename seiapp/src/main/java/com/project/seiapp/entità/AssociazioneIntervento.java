@@ -57,5 +57,4 @@ public class AssociazioneIntervento {
     public void setStrutturaAssociazione(Struttura strutturaAssociazione) {
         this.strutturaAssociazione = strutturaAssociazione;
     }
-
 }

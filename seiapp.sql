@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 28, 2020 alle 15:02
+-- Creato il: Mag 29, 2020 alle 12:01
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -20,6 +20,139 @@ SET time_zone = "+00:00";
 --
 -- Database: `seiapp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `associazione_intervento`
+--
+
+CREATE TABLE `associazione_intervento` (
+  `id` bigint(20) NOT NULL,
+  `caratteristica_associazione_intervento_id` bigint(20) DEFAULT NULL,
+  `intervento_id` bigint(20) DEFAULT NULL,
+  `struttura_associazione_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `associazione_intervento`
+--
+
+INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`) VALUES
+(1, 2, 58, 1),
+(2, 3, 54, 1),
+(3, 3, 55, 1),
+(4, 3, 56, 1),
+(5, 3, 57, 1),
+(6, 3, 59, 1),
+(7, 3, 60, 1),
+(8, 1, 31, 2),
+(9, 1, 32, 2),
+(10, 1, 33, 2),
+(11, 1, 37, 2),
+(12, 1, 38, 2),
+(13, 1, 39, 2),
+(14, 1, 40, 2),
+(15, 1, 43, 2),
+(16, 1, 44, 2),
+(17, 2, 31, 2),
+(18, 7, 42, 2),
+(19, 8, 1, 2),
+(20, 8, 2, 2),
+(21, 8, 3, 2),
+(22, 8, 6, 2),
+(23, 8, 41, 2),
+(24, 8, 43, 2),
+(25, 4, 1, 2),
+(26, 4, 2, 2),
+(27, 4, 3, 2),
+(28, 4, 4, 2),
+(29, 4, 5, 2),
+(30, 4, 6, 2),
+(31, 1, 31, 3),
+(32, 1, 32, 3),
+(33, 1, 33, 3),
+(34, 1, 37, 3),
+(35, 1, 38, 3),
+(36, 1, 39, 3),
+(37, 1, 40, 3),
+(38, 1, 43, 3),
+(39, 1, 44, 3),
+(40, 2, 31, 3),
+(41, 7, 42, 3),
+(42, 8, 1, 3),
+(43, 8, 2, 3),
+(44, 8, 3, 3),
+(45, 8, 6, 3),
+(46, 8, 41, 3),
+(47, 9, 34, 3),
+(48, 9, 35, 3),
+(49, 9, 36, 3),
+(50, 4, 1, 3),
+(51, 4, 2, 3),
+(52, 4, 3, 3),
+(53, 9, 4, 3),
+(54, 9, 5, 3),
+(55, 9, 6, 3),
+(56, 51, 7, 4),
+(57, 51, 8, 4),
+(58, 52, 9, 4),
+(59, 52, 10, 4),
+(60, 52, 11, 4),
+(61, 52, 12, 4),
+(62, 52, 15, 4),
+(63, 52, 16, 4),
+(64, 52, 17, 4),
+(65, 52, 18, 4),
+(66, 52, 19, 4),
+(67, 52, 20, 4),
+(68, 52, 21, 4),
+(69, 52, 22, 4),
+(70, 51, 8, 5),
+(71, 52, 11, 5),
+(72, 52, 12, 5),
+(73, 52, 13, 5),
+(74, 52, 14, 5),
+(75, 3, 1, 7),
+(76, 3, 2, 7),
+(77, 3, 3, 7),
+(78, 101, 6, 7),
+(79, 102, 23, 7),
+(80, 102, 24, 7),
+(81, 102, 25, 7),
+(82, 102, 26, 7),
+(83, 102, 27, 7),
+(84, 102, 28, 7),
+(85, 102, 28, 7),
+(86, 102, 29, 7),
+(87, 102, 30, 7),
+(88, 2, 58, 8),
+(89, 3, 54, 8),
+(90, 3, 55, 8),
+(91, 3, 56, 8),
+(92, 3, 57, 8),
+(93, 3, 59, 8),
+(94, 3, 62, 8),
+(95, 2, 61, 9),
+(96, 3, 54, 9),
+(97, 3, 55, 9),
+(98, 3, 56, 9),
+(99, 3, 62, 9),
+(100, 6, 50, 10),
+(101, 6, 51, 10),
+(102, 6, 52, 10),
+(103, 6, 50, 11),
+(104, 6, 51, 11),
+(105, 6, 52, 11),
+(106, 6, 50, 12),
+(107, 6, 51, 12),
+(108, 6, 52, 12),
+(109, 6, 50, 13),
+(110, 6, 51, 13),
+(111, 6, 52, 13),
+(112, 6, 53, 13),
+(113, 12, 66, 14),
+(114, 12, 67, 14);
 
 -- --------------------------------------------------------
 
@@ -633,6 +766,15 @@ CREATE TABLE `valutazioni` (
 --
 
 --
+-- Indici per le tabelle `associazione_intervento`
+--
+ALTER TABLE `associazione_intervento`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK1ubt1do9bbln7sddfy5w3cgw4` (`caratteristica_associazione_intervento_id`),
+  ADD KEY `FKgg9x8sypaf66qi9st6mln8rfv` (`intervento_id`),
+  ADD KEY `FKr6x7mwp155w8khgpr8sa3ohde` (`struttura_associazione_id`);
+
+--
 -- Indici per le tabelle `caratterisitche_qualitative`
 --
 ALTER TABLE `caratterisitche_qualitative`
@@ -739,6 +881,12 @@ ALTER TABLE `valutazioni`
 --
 
 --
+-- AUTO_INCREMENT per la tabella `associazione_intervento`
+--
+ALTER TABLE `associazione_intervento`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+
+--
 -- AUTO_INCREMENT per la tabella `caratterisitche_qualitative`
 --
 ALTER TABLE `caratterisitche_qualitative`
@@ -813,6 +961,14 @@ ALTER TABLE `valutazioni`
 --
 -- Limiti per le tabelle scaricate
 --
+
+--
+-- Limiti per la tabella `associazione_intervento`
+--
+ALTER TABLE `associazione_intervento`
+  ADD CONSTRAINT `FK1ubt1do9bbln7sddfy5w3cgw4` FOREIGN KEY (`caratteristica_associazione_intervento_id`) REFERENCES `caratterisitche_qualitative` (`id`),
+  ADD CONSTRAINT `FKgg9x8sypaf66qi9st6mln8rfv` FOREIGN KEY (`intervento_id`) REFERENCES `codice_intervento` (`id`),
+  ADD CONSTRAINT `FKr6x7mwp155w8khgpr8sa3ohde` FOREIGN KEY (`struttura_associazione_id`) REFERENCES `struttura` (`id`);
 
 --
 -- Limiti per la tabella `edificio`
