@@ -1,11 +1,14 @@
 <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
     <p><b>INTERVENTI E MECCANISMI</b></p>
   </div>
+  <div class="card-body">
 
-
-  <select style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
+<span>
+   <b>INTERVENTO</b>
+</span>
+  <select style="margin-bottom:30px" value="struttura" class="form-control" id="structure" name="struttura">
     <option selected disabled>
-      Seleziona intervento
+      Seleziona l'intervento
     </option>
     <option [value]="i" *ngFor="let arr of variabileIntervento; index as i;">
       Codice: {{arr.intervento.codice}}
@@ -13,11 +16,30 @@
     </option>
   </select>
 
-  <select style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
-    <option selected disabled>
-      Seleziona meccanismo
-    </option>
-    <option>
-    </option>
-  </select>
-
+    <table class="table table-hover table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Codice</th>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Modi di danno alle strutture verticali</th>
+          <th scope="col">Modi di danno alle strutture orizzontali</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+              {{caratteristica.meccanismiAssociati[selectedMeccanicaIndex].codice}}
+        </td>
+          <td>
+              {{caratteristica.meccanismiAssociati[selectedMeccanicaIndex].descrizione}}
+          </td>
+          <td>
+              {{caratteristica.meccanismiAssociati[selectedMeccanicaIndex].modi_di_danno_alle_strutture_verticali}}
+          </td>
+          <td>
+              {{caratteristica.meccanismiAssociati[selectedMeccanicaIndex].modi_di_danno_alle_strutture_orizzontali}}
+          </td>
+        </tr>
+      </tbody>   
+    </table>
+    </div>
