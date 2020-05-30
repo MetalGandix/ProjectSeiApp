@@ -1,0 +1,23 @@
+<div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+    <p><b>INTERVENTI E MECCANISMI</b></p>
+  </div>
+
+
+  <select style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
+    <option selected disabled>
+      Seleziona intervento
+    </option>
+    <option [value]="i" *ngFor="let arr of variabileIntervento; index as i;">
+      Codice: {{arr.intervento.codice}}
+      - {{arr.intervento.descrizione}}
+    </option>
+  </select>
+
+  <select style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
+    <option selected disabled>
+      Seleziona meccanismo
+    </option>
+    <option>
+    </option>
+  </select>
+

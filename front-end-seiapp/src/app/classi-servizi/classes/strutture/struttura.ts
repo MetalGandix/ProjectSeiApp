@@ -4,6 +4,6 @@ import { TypeStruttura } from './type-struttura'
 export class Struttura {
     id: number
     struttura: string
-    caratteristicheQualitative: CarQuality
+    carQuality: CarQuality[]
     tipoStruttura: TypeStruttura
 }

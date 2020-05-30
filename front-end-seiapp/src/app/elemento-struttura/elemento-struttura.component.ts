@@ -5,6 +5,8 @@ import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteris
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
 import { Struttura } from '../classi-servizi/classes/strutture/struttura';
 import { TypeStruttura } from '../classi-servizi/classes/strutture/type-struttura';
+import { AssociazioneInterventoService } from '../classi-servizi/service/associazione-intervento.service';
+import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
 
 @Component({
   selector: 'app-elemento-struttura',
@@ -17,22 +19,28 @@ export class ElementoStrutturaComponent implements OnInit {
   struttura: Struttura[];
   selectedIndex: number;
   selectedElement = [];
+  selectedMeccanicaIndex: number;
   selectArr: number;
-  caratteristiche: CaratteristicheQualitative[];
+  caratteristiche: CaratteristicheQualitative[] = [];
   subscriptionsToDelete: Subscription = new Subscription();
   variabile1;
+  associazioneIntervento: AssociazioneIntervento[];
+  variabileIntervento: AssociazioneIntervento[];
 
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: ElementiStrutturaService
+    private service: ElementiStrutturaService,
+    private serviceAssociazione: AssociazioneInterventoService
   ) {
   }
 
   onChangeSecondo(index: number){
     this.caratteristiche = this.selectedElement[index].carQuality
     this.selectArr = 0;
+    this.selectedMeccanicaIndex = 0;
+    this.onChangeCaratteristicheQualitative(0);
   }
 
   onChange(index: number) {
@@ -43,6 +51,26 @@ export class ElementoStrutturaComponent implements OnInit {
       }
     })
     this.selectedIndex = 0;
+    this.onChangeSecondo(0);
+  }
+
+  onChangeCaratteristicheQualitative(index: number){
+    // selectedIndex
+    // selectedArr
+    this.variabileIntervento = []
+    let elemento = this.selectedElement[this.selectedIndex]
+    let caratteristica = this.caratteristiche[index]
+    this.associazioneIntervento.forEach(t => {
+      if(elemento.id == t.strutturaAssociazione.id && caratteristica.id == t.caratteristicaAssociazioneIntervento.id){
+        this.variabileIntervento.push(t);
+      }
+    })
+    console.log(this.variabileIntervento)
+  }
+
+  trasferisciOggetti(){
+    this.router.navigate(['/report-intervento'], { state: { variabileIntervento: this.variabileIntervento,caratteristica: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex } 
+  })
   }
 
   ngOnInit() {
@@ -54,9 +82,9 @@ export class ElementoStrutturaComponent implements OnInit {
       this.struttura = data;
       console.log(this.struttura)
     })
-    this.service.getCaratteristicheQualitative().subscribe(data =>{
-      this.caratteristiche = data;
-      console.log(this.caratteristiche)
+    this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
+      this.associazioneIntervento = data;
+      console.log(this.associazioneIntervento)
     })
   }
 }
