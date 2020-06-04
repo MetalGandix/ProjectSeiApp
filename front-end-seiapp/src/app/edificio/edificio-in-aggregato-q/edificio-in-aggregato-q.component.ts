@@ -30,12 +30,40 @@ export class EdificioInAggregatoQComponent implements OnInit, OnDestroy {
   msg1: boolean = false;
   edificioByQuality: { [key: number]: EdificioInAggregato[] } = {}
   subscriptionsToDelete: Subscription = new Subscription();
+  Colors:Array<any> = ["#8b0000","#ff8c00","#228b22"];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private qualità: QualitàEdificiService,
   ) {
+  }
+
+  getColors(index) {
+
+    let num = this.getnumber(index);
+    return this.Colors[num];
+  }
+
+  getnumber(data){
+
+    let i = data;
+    if(i > this.Colors.length-1){
+
+       i = i - this.Colors.length;
+       if(i < this.Colors.length){
+        return i;
+       }
+       else {
+        this.getnumber(i);
+       }
+
+    }
+    else {
+      return i;
+    }
+
+
   }
 
   ngOnDestroy() {
