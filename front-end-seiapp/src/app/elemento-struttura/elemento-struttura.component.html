@@ -7,7 +7,7 @@
 
       <form>
         <div class="form-group">
-          <label for="struttura"><p><b>Classificazione primaria di elementi tecnici</b></p></label>
+          <label for="struttura"><p><b>Classi primarie di elementi tecnici</b></p></label>
           <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)"
             name="struttura">
             <option selected disabled>
@@ -19,7 +19,7 @@
           </select>
 
           <label></label>
-          <p><b>Classificazione secondaria di elementi tecnici</b></p>
+          <p><b>Classi secondarie di elementi tecnici</b></p>
 
           <select [(ngModel)]="selectedIndex" (change)="onChangeSecondo($event.target.value)" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
             <option selected disabled>
