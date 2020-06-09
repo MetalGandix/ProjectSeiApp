@@ -24,6 +24,7 @@ import { ZonaSismicaComponent } from './zona-sismica/zona-sismica.component';
 import { faSquare, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { ElementoStrutturaComponent } from './elemento-struttura/elemento-struttura.component';
 import { ReportInterventoComponent } from './report-intervento/report-intervento.component';
+import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ReportInterventoComponent } from './report-intervento/report-intervento
     EdificioInAggregatoQComponent,
     ZonaSismicaComponent,
     ElementoStrutturaComponent,
-    ReportInterventoComponent
+    ReportInterventoComponent,
+    MatriceComparazioneComponent
   ],
   imports: [
     BrowserModule,

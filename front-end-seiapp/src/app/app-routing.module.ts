@@ -14,6 +14,7 @@ import { EdificioSingoloQComponent } from './edificio/edificio-singolo-q/edifici
 import { ZonaSismicaComponent } from './zona-sismica/zona-sismica.component';
 import { ElementoStrutturaComponent } from './elemento-struttura/elemento-struttura.component';
 import { ReportInterventoComponent } from './report-intervento/report-intervento.component';
+import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'edificio-singolo-q/:id', component: EdificioSingoloQComponent },
   { path: 'zona-sismica', component: ZonaSismicaComponent },
   { path: 'struttura', component: ElementoStrutturaComponent },
-  { path: 'report-intervento', component: ReportInterventoComponent }
+  { path: 'report-intervento', component: ReportInterventoComponent },
+  { path: 'matrice', component: MatriceComparazioneComponent }
 ];
 
 @NgModule({
