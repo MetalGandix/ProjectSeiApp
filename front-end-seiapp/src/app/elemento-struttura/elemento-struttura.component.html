@@ -8,6 +8,7 @@
       <form>
         <div class="form-group">
           <label for="struttura"><p><b>Classi primarie di elementi tecnici</b></p></label>
+          
           <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)"
             name="struttura">
             <option selected disabled>
@@ -29,6 +30,12 @@
               {{arr.struttura}}
             </option>
           </select>
+          
+          <div class="freccia">
+
+          <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
+
+        </div>
 
           <label></label>
           <p><b>Caratteristiche qualitative</b></p>
@@ -38,13 +45,41 @@
             </option>
           </select>
 
-          <select *ngIf="caratteristiche[selectArr]" [(ngModel)]="selectedMeccanicaIndex" style="margin-top: 30px;" value="struttura" (change)="onChangeCaratteristicheQualitative($event.target.value)" class="form-control" id="structure" name="struttura">
+          <div class="freccia">
+
+            <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
+  
+          </div>
+
+
+          <label></label>
+          <p><b>Suggerimenti di intervento</b></p>
+
+           <select style="margin-top:30px" value="struttura" class="form-control" id="structure" name="struttura">
+             <option selected disabled>
+               Seleziona l'intervento
+             </option>
+             <option [value]="i" *ngFor="let arr of variabileIntervento; index as i;">
+               Codice: {{arr.intervento.codice}}
+               - {{arr.intervento.descrizione}}
+             </option>
+           </select>
+
+
+           <label></label>
+           <p><b>Meccanismi</b></p>
+
+
+          <select *ngIf="caratteristiche[selectArr]" [(ngModel)]="selectedMeccanicaIndex" style="margin-top: 30px;" value="struttura" 
+          (change)="onChangeCaratteristicheQualitative($event.target.value)" class="form-control" id="structure" name="struttura">
             <option [value]="i" *ngFor="let meccanismo of caratteristiche[selectArr].meccanismiAssociati; index as i">
               {{meccanismo.descrizione}}
               {{meccanismo.modi_di_danno_alle_strutture_orizzontali}}
               {{meccanismo.modi_di_danno_alle_strutture_verticali}}
             </option>
           </select>
+
+  
 
           <button (click)="trasferisciOggetti()" type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
 
