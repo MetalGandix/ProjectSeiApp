@@ -46,7 +46,6 @@ export class EdificioInAggregatoQComponent implements OnInit, OnDestroy {
   }
 
   getnumber(data){
-
     let i = data;
     if(i > this.Colors.length-1){
 

@@ -6,109 +6,124 @@
                     MODICITÀ DI COSTO
                 </th>
                 <td>{{x}}</td>
+                <td>{{y}}</td>
+                <td>{{a}}</td>
+                <td>{{c}}</td>
+                <td>{{f}}</td>
+                <td>{{j}}</td>
             </tr>
             <tr>
                 <th scope="row">
                     EFFICACIA
                 </th>
                 <td>
-                    <select>
-                        <option *ngFor="let a of arrayComparazione">
+                    <select (change)="metodo1($event.target.value)">
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select>
                 </td>
                 <td>{{x}}</td>
+                <td>{{b}}</td>
+                <td>{{d}}</td>
+                <td>{{g}}</td>
+                <td>{{k}}</td>
             </tr>
             <tr>
                 <th scope="row">
                     COMPATIBILITÀ VISIVA
                 </th>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo2($event.target.value)">
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo3($event.target.value)">
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
                 <td>{{x}}</td>
+                <td>{{e}}</td>
+                <td>{{h}}</td>
+                <td>{{l}}</td>
             </tr>
             <tr>
                 <th scope="row">
                     REVERSIBILITÀ
                 </th>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo4($event.target.value)">
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo5($event.target.value)">
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo6($event.target.value)">
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
                 <td>{{x}}</td>
+                <td>{{i}}</td>
+                <td>{{m}}</td>
             </tr>
             <tr>
                 <th scope="row">
                     SEMPLICITÀ DI CANTIERE
                 </th>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo7($event.target.value)" >
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select  (change)="metodo8($event.target.value)">
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo9($event.target.value)" >
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo10($event.target.value)">
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
                 <td>{{x}}</td>
+                <td>{{n}}</td>
             </tr>
             <tr>
                 <th scope="row">
                     ESIGUITÀ DI INGOMBRO
                 </th>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo11($event.target.value)" >
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo12($event.target.value)" >
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo13($event.target.value)" >
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo14($event.target.value)" >
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
-                <td> <select>
-                        <option *ngFor="let a of arrayComparazione">
+                <td> <select (change)="metodo15($event.target.value)" >
+                        <option value="{{a.num}}" *ngFor="let a of arrayComparazione">
                             {{a.char}}
                         </option>
                     </select></td>
