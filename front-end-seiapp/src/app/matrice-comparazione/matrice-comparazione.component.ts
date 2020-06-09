@@ -20,15 +20,14 @@ export class MatriceComparazioneComponent implements OnInit {
     { id:6, char:"1/4",num: 1/4 },
     { id:7, char:"1/3",num: 1/3 },
     { id:8, char:"1/2",num: 1/2 },
-    { id:9, char:"1",num: 1 },
-    { id:10, char:"2",num: 2 },
-    { id:11, char:"3",num: 3 },
-    { id:12, char:"4",num: 4 },
-    { id:13, char:"5",num: 5 },
-    { id:14, char:"6",num: 6 },
-    { id:15, char:"7",num: 7 },
-    { id:16, char:"8", num: 8 },
-    { id:17, char:"9", num: 9 }
+    { id:9, char:"2",num: 2 },
+    { id:10, char:"3",num: 3 },
+    { id:11, char:"4",num: 4 },
+    { id:12, char:"5",num: 5 },
+    { id:13, char:"6",num: 6 },
+    { id:14, char:"7",num: 7 },
+    { id:15, char:"8", num: 8 },
+    { id:16, char:"9", num: 9 }
   ]
 
   ngOnInit() {
