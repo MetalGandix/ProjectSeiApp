@@ -34,6 +34,11 @@ export class MatriceComparazioneComponent implements OnInit {
   numeroPrimario;
   z: number
 
+  oggetto: any = {}
+
+  matrix: number[][] = []
+  matrixRisultati: number[] = [0,0,0,0,0,0]
+
   arrayComparazione = [
     { id: 1, char: "1/9", num: 1 / 9 },
     { id: 2, char: "1/8", num: 1 / 8 },
@@ -53,6 +58,41 @@ export class MatriceComparazioneComponent implements OnInit {
     { id: 16, char: "9", num: 9 }
   ]
 
+  ngOnInit() {
+    for(let r = 0; r<6; r++){
+      this.matrix[r] = []
+      this.oggetto[r] = {}
+      this.oggetto[r][r] = 1
+      for(let c=0; c<6; c++){
+        if(r == c){
+          this.matrix[r].push(1) 
+          this.oggetto[r][c] = 1
+        }
+        if(r > c){
+          this.matrix[r].push(1/9) 
+          this.oggetto[r][c] = 1/9
+        }
+        else if(r < c){
+          this.matrix[r].push(9) 
+          this.oggetto[r][c] = 9
+        }
+      }
+    }
+    this.onSelectChange(0,0)
+  }
+
+  onSelectChange(r: number, c: number){
+    this.oggetto[c][r] = 1/this.oggetto[r][c]
+    this.matrixRisultati = [0,0,0,0,0,0]
+    for(let r = 0; r<this.matrix.length; r++){
+      for(let c=0; c<this.matrix[r].length; c++){
+        this.matrixRisultati[c] += this.oggetto[r][c] !== undefined ? this.oggetto[r][c] : 0
+      }
+    }
+    console.log(this.matrix)
+    console.log(this.matrixRisultati)
+  }
+
   metodo1(element: number){
     this.arrayComparazione.find(t => t.id == element);
     this.numeroPrimario = element;
@@ -62,174 +102,6 @@ export class MatriceComparazioneComponent implements OnInit {
     }
     if (this.numeroPrimario > 1) {
       this.y = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-
-  metodo2(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.a = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.a = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo3(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.b = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.b = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo4(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.c = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.c = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo5(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.d = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.d = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo6(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.e = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.e = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo7(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.f = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.f = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo8(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.g = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.g = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo9(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.h = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.h = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo10(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.i = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.i = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo11(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.j = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.j = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo12(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.k = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.k = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo13(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.l = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.l = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo14(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.m = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.m = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
-    }
-  }
-  
-  metodo15(element: number){
-    this.arrayComparazione.find(t => t.id == element);
-    this.numeroPrimario = element;
-    console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
-      this.n = 1 / (this.numeroPrimario.valueOf())
-    }
-    if (this.numeroPrimario > 1) {
-      this.n = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
     }
   }
 
@@ -265,7 +137,6 @@ export class MatriceComparazioneComponent implements OnInit {
   this.j = (Math.floor(numerator) + '/' + Math.floor(denominator));
 }*/
 
-  ngOnInit() {
-  }
+
 
 }

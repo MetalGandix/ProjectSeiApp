@@ -76,6 +76,4 @@ public class Edificio{
     public void setQuality(Quality quality) {
         this.quality = quality;
     }
-
-    
 }
