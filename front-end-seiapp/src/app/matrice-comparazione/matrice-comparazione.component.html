@@ -1,4 +1,16 @@
-<table>
+<div class = "container">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+          <th scope="col">MODICITÀ DI COSTO</th>
+          <th scope="col">EFFICACIA</th>
+          <th scope="col">COMPATIBILITÀ VISIVA</th>
+          <th scope="col">REVERSIBILITÀ</th>
+          <th scope="col">SEMPLICITÀ DI CANTIERE</th>
+          <th scope="col">ESIGUITÀ DI INGOMBRO</th>
+        </tr>
+      </thead>
+
 <tr *ngFor="let row of matrix; index as r">
     <td *ngFor="let column of row; index as c">
         <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)" *ngIf = "r > c">
@@ -18,7 +30,7 @@
 </tr>
 </table>
 
-<table>
+<table class="table table-bordered">
     <tr *ngFor="let row of matrix; index as r">
         <td *ngFor="let column of row; index as c">
             <div>
@@ -27,3 +39,4 @@
         </td>
     </tr>
     </table>
+</div>
