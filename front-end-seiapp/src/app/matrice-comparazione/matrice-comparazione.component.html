@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container" style="margin-top: 30px;">
     <table class="table table-bordered">
         <thead class="thead-dark">
@@ -21,7 +20,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let row of matrix; index as r ">
-                <th scope="row">MODICITÀ DI COSTO
+                <th scope="row">{{arrayStringhe[r]}}
                 </th>
                 <td *ngFor="let column of row; index as c">
                     <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)" *ngIf="r > c">
@@ -35,12 +34,11 @@
                     </div>
                 </td>
             </tr>
-
             <tr>
                 <th scope="row">RISULTATO
                 </th>
                 <td *ngFor="let risultato of matrixRisultati">
-                    {{risultato}}
+                    {{risultato |  number: '1.2-2'}}
                 </td>
             </tr>
         </tbody>
@@ -52,59 +50,36 @@
                 <th>
                     MATRICE NORMALIZZATA
                 </th>
+                <th>
+                </th>
+                <th>
+                </th>
+                <th>
+                </th>
+                <th>
+                </th>
+                <th>
+                </th>
+                <th>
+                    PONDERAZIONE (VETTORE P)
+                </th>
             </thead>
             <tr *ngFor="let row of matrix; index as r">
                 <td *ngFor="let column of row; index as c">
                     <div>
-                        {{oggetto[r][c]/matrixRisultati[c]}}
+                        {{matriceNormalizzata[r][c] | number: '1.2-2' }}
                     </div>
+                </td>
+                <td>
+                    {{ponderazione[r] | number: '1.2-2'}}
+                    <!--{{ponderazione[r] * 100 | number: '1.0-0'}}%-->
                 </td>
             </tr>
         </table>
     </div>
 
+    <div [ngClass] = "{'crGood': cr < 0.1, 'crBad': cr >= 0.1}">
+        {{cr | number: '1.2-2'}}
+    </div>
 </div>
-=======
-<div class = "container">
-<table class="table table-bordered">
-    <thead>
-        <tr>
-          <th scope="col">MODICITÀ DI COSTO</th>
-          <th scope="col">EFFICACIA</th>
-          <th scope="col">COMPATIBILITÀ VISIVA</th>
-          <th scope="col">REVERSIBILITÀ</th>
-          <th scope="col">SEMPLICITÀ DI CANTIERE</th>
-          <th scope="col">ESIGUITÀ DI INGOMBRO</th>
-        </tr>
-      </thead>
 
-<tr *ngFor="let row of matrix; index as r">
-    <td *ngFor="let column of row; index as c">
-        <select [(ngModel)]="oggetto[r][c]" (change)="onSelectChange(r,c)" *ngIf = "r > c">
-            <option [ngValue]="a.num" *ngFor="let a of arrayComparazione">
-                {{a.char}} <!--{{r}} :: {{c}}-->
-            </option>
-        </select>
-        <div *ngIf=" c >= r">
-            {{oggetto[r][c]}}
-        </div>
-    </td>
-</tr>
-<tr >
-    <td *ngFor="let risultato of matrixRisultati">
-        {{risultato}}
-    </td>
-</tr>
-</table>
-
-<table class="table table-bordered">
-    <tr *ngFor="let row of matrix; index as r">
-        <td *ngFor="let column of row; index as c">
-            <div>
-                {{oggetto[r][c]/matrixRisultati[c]}}
-            </div>
-        </td>
-    </tr>
-    </table>
-</div>
->>>>>>> 7f782a03d8d37f61a1dde45a3f0bf9126091dbc9

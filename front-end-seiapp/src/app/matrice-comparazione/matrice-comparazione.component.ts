@@ -28,16 +28,20 @@ export class MatriceComparazioneComponent implements OnInit {
   m: number;
   n: number;
 
+  cr: number
+
+  mxp: number[] = [0,0,0,0,0,0]
+
+  ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   arrayOpposite: number[];
   arr: number[];
-  arrayProva: number [] = []
+  arrayProva: number[] = []
   numeroPrimario;
   z: number
-
+  matriceNormalizzata: number[][] = []
   oggetto: any = {}
-
   matrix: number[][] = []
-  matrixRisultati: number[] = [0,0,0,0,0,0]
+  matrixRisultati: number[] = [0, 0, 0, 0, 0, 0]
 
   arrayComparazione = [
     { id: 1, char: "1/9", num: 1 / 9 },
@@ -58,46 +62,96 @@ export class MatriceComparazioneComponent implements OnInit {
     { id: 16, char: "9", num: 9 }
   ]
 
+  arrayStringhe = [
+    "MODICITà DI COSTO",
+    "EFFICACIA",
+    "COMPATIBILITÀ VISIVA",
+    "REVERSIBILITÀ",
+    "SEMPLICITÀ DI CANTIERE",
+    "ESIGUITÀ DI INGOMBRO"
+  ]
+
   ngOnInit() {
-    for(let r = 0; r<6; r++){
+    for (let r = 0; r < 6; r++) {
+      this.matriceNormalizzata.push([0, 0, 0, 0, 0, 0])
       this.matrix[r] = []
       this.oggetto[r] = {}
       this.oggetto[r][r] = 1
-      for(let c=0; c<6; c++){
-        if(r == c){
-          this.matrix[r].push(1) 
+      for (let c = 0; c < 6; c++) {
+        if (r == c) {
+          this.matrix[r].push(1)
           this.oggetto[r][c] = 1
         }
-        if(r > c){
-          this.matrix[r].push(1/9) 
-          this.oggetto[r][c] = 1/9
+        if (r > c) {
+          this.matrix[r].push(1 / 9)
+          this.oggetto[r][c] = 1 / 9
         }
-        else if(r < c){
-          this.matrix[r].push(9) 
+        else if (r < c) {
+          this.matrix[r].push(9)
           this.oggetto[r][c] = 9
         }
       }
     }
-    this.onSelectChange(0,0)
+    this.onSelectChange(0, 0)
   }
 
-  onSelectChange(r: number, c: number){
-    this.oggetto[c][r] = 1/this.oggetto[r][c]
-    this.matrixRisultati = [0,0,0,0,0,0]
-    for(let r = 0; r<this.matrix.length; r++){
-      for(let c=0; c<this.matrix[r].length; c++){
+  onSelectChange(r: number, c: number) {
+    //i risultati della prima matrice
+    this.oggetto[c][r] = 1 / this.oggetto[r][c]
+    this.matrixRisultati = [0, 0, 0, 0, 0, 0]
+    for (let r = 0; r < this.matrix.length; r++) {
+      for (let c = 0; c < this.matrix[r].length; c++) {
         this.matrixRisultati[c] += this.oggetto[r][c] !== undefined ? this.oggetto[r][c] : 0
       }
     }
     console.log(this.matrix)
     console.log(this.matrixRisultati)
+    //La seconda matrice
+    for (let r = 0; r < this.matriceNormalizzata.length; r++) {
+      for (let c = 0; c < this.matriceNormalizzata[r].length; c++) {
+        this.matriceNormalizzata[r][c] = this.oggetto[r][c] / this.matrixRisultati[c]
+      }
+    }
+    //i risultati della secconda matrice
+    this.ponderazione = [0, 0, 0, 0, 0, 0]
+    for (let r = 0; r < this.matriceNormalizzata.length; r++) {
+      for (let c = 0; c < this.matriceNormalizzata[r].length; c++) {
+        this.ponderazione[r] += this.matriceNormalizzata[r][c]
+      }
+      this.ponderazione[r] = this.ponderazione[r] / this.matriceNormalizzata.length
+    }
+    //Matrice x 
+    for(let r=0; r<6; r++){
+      let riga = []
+      for(let c=0; c<6; c++){
+        riga.push(this.oggetto[r][c] !== undefined ? this.oggetto[r][c] : 0)
+      }
+      this.mxp[r] =  this.prodottoVettoriale(riga, this.ponderazione)
+    }
+    //Calcolo di lambda e di cr
+    let lambda = 0
+    for(let r in this.mxp){
+      lambda += this.mxp[r]/this.ponderazione[r]
+    }
+    lambda = lambda/6
+    let ci = (lambda-6)/5
+    let ri = 1.24
+    this.cr = ci/ri
   }
 
-  metodo1(element: number){
+  prodottoVettoriale(array1: number[], array2: number[]) {
+    let risultato = 0
+    for (let r = 0; r < array1.length; r++) {
+      risultato = risultato + array1[r] * array2[r]
+    }
+    return risultato
+  }
+
+  metodo1(element: number) {
     this.arrayComparazione.find(t => t.id == element);
     this.numeroPrimario = element;
     console.log(this.numeroPrimario)
-    if(this.numeroPrimario < 1){
+    if (this.numeroPrimario < 1) {
       this.y = 1 / (this.numeroPrimario.valueOf())
     }
     if (this.numeroPrimario > 1) {
