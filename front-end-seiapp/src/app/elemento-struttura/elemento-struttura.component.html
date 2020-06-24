@@ -58,7 +58,7 @@
                <td>
                Codice: {{arr.intervento.codice}}
                - {{arr.intervento.descrizione}}
-               <button style="margin-left: 20px;" class="btn btn-outline-primary">
+               <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary">
                 Vai all'intervento
               </button>
               </td>
@@ -66,7 +66,7 @@
           </table>
 
            <table class="table table-bordered" *ngIf="caratteristiche[selectArr]" [(ngModel)]="selectedMeccanicaIndex" style="margin-top: 30px;" value="struttura" 
-           (change)="onChangeCaratteristicheQualitative($event.target.value)" id="structure" name="struttura">
+           id="structure" name="struttura">
             <thead class="thead-dark">
               <th>
             <p><b>Meccanismi</b></p>
@@ -77,14 +77,12 @@
               {{meccanismo.descrizione}}
               {{meccanismo.modi_di_danno_alle_strutture_orizzontali}}
               {{meccanismo.modi_di_danno_alle_strutture_verticali}}
-              <button style="margin-left: 20px;" class="btn btn-outline-primary">
+              <button (click)="onChangeCaratteristicheQualitative($event.target.value)" (click)="trasferisciOggetti()" type="submit" style="margin-left: 20px; float: right;" class="btn btn-outline-primary">
                 Vai al meccanismo
               </button>
             </td>
             </tr>
            </table>
-
-          <button (click)="trasferisciOggetti()" type="submit" style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Avanti</button>
         </div>
       </form>
     </div>
