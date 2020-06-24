@@ -44,7 +44,7 @@
         </tbody>
     </table>
 
-    <div class="Second_table" style="margin-top: 65px">
+    <div class="Second_table" style="float: left; margin-right: 30px;">
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <th>
@@ -78,8 +78,25 @@
         </table>
     </div>
 
-    <div [ngClass] = "{'crGood': cr < 0.1, 'crBad': cr >= 0.1}">
+    <div>
+        <table class="table table-bordered" style="text-align: center; width: 30px;">
+        <th>
+            TABELLA PERCENTUALI
+        </th>
+        <tr *ngFor="let row of matrix; index as r">
+            <td>
+                {{ponderazione[r]*100 | number: '1.0-0'}}%
+                <!--{{ponderazione[r] * 100 | number: '1.0-0'}}%-->
+            </td>
+        </tr>
+    </table>
+    </div>
+
+
+    <div [ngClass] = "{'crGood': cr < 0.1, 'crBad': cr >= 0.1}" style="margin-bottom: 30px; margin-top: 60px;">
         {{cr | number: '1.2-2'}}
     </div>
+
+
 </div>
 
