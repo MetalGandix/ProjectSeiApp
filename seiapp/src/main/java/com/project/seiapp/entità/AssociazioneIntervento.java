@@ -1,6 +1,7 @@
 package com.project.seiapp.entità;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +25,16 @@ public class AssociazioneIntervento {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Struttura strutturaAssociazione;
+
+    @Column
+    private int modicitàDiCosto;
+    private int efficacia;
+    private int supIntonacate;
+    private int supVista;
+    private int reversibilità;
+    private int semplicitàDiCantiere;
+    private int esiguitàDiIngombro;
+
 
     public long getId() {
         return id;
@@ -56,5 +67,61 @@ public class AssociazioneIntervento {
 
     public void setStrutturaAssociazione(Struttura strutturaAssociazione) {
         this.strutturaAssociazione = strutturaAssociazione;
+    }
+
+    public int getModicitàDiCosto() {
+        return modicitàDiCosto;
+    }
+
+    public void setModicitàDiCosto(int modicitàDiCosto) {
+        this.modicitàDiCosto = modicitàDiCosto;
+    }
+
+    public int getEfficacia() {
+        return efficacia;
+    }
+
+    public void setEfficacia(int efficacia) {
+        this.efficacia = efficacia;
+    }
+
+    public int getSupIntonacate() {
+        return supIntonacate;
+    }
+
+    public void setSupIntonacate(int supIntonacate) {
+        this.supIntonacate = supIntonacate;
+    }
+
+    public int getSupVista() {
+        return supVista;
+    }
+
+    public void setSupVista(int supVista) {
+        this.supVista = supVista;
+    }
+
+    public int getReversibilità() {
+        return reversibilità;
+    }
+
+    public void setReversibilità(int reversibilità) {
+        this.reversibilità = reversibilità;
+    }
+
+    public int getSemplicitàDiCantiere() {
+        return semplicitàDiCantiere;
+    }
+
+    public void setSemplicitàDiCantiere(int semplicitàDiCantiere) {
+        this.semplicitàDiCantiere = semplicitàDiCantiere;
+    }
+
+    public int getEsiguitàDiIngombro() {
+        return esiguitàDiIngombro;
+    }
+
+    public void setEsiguitàDiIngombro(int esiguitàDiIngombro) {
+        this.esiguitàDiIngombro = esiguitàDiIngombro;
     }
 }

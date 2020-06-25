@@ -4,11 +4,11 @@
   </div>
   <div class="card my-5">
     <div class="card-body">
-
       <form>
         <div class="form-group">
-          <label for="struttura"><p><b>Classi primarie di elementi tecnici</b></p></label>
-          
+          <label for="struttura">
+            <p><b>Classi primarie di elementi tecnici</b></p>
+          </label>
           <select value="structure" class="form-control" id="structure" (change)="onChange($event.target.value)"
             name="struttura">
             <option selected disabled>
@@ -18,11 +18,10 @@
               {{ array.typeName }}
             </option>
           </select>
-
           <label></label>
           <p><b>Classi secondarie di elementi tecnici</b></p>
-
-          <select [(ngModel)]="selectedIndex" (change)="onChangeSecondo($event.target.value)" style="margin-top: 30px;" value="struttura" class="form-control" id="structure" name="struttura">
+          <select [(ngModel)]="selectedIndex" (change)="onChangeSecondo($event.target.value)" style="margin-top: 30px;"
+            value="struttura" class="form-control" id="structure" name="struttura">
             <option selected disabled>
               Seleziona
             </option>
@@ -30,59 +29,57 @@
               {{arr.struttura}}
             </option>
           </select>
-          
           <div class="freccia">
-          <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
-        </div>
-
+            <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
+          </div>
           <label></label>
           <p><b>Caratteristiche qualitative</b></p>
-          <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura" (change)="onChangeCaratteristicheQualitative($event.target.value)" class="form-control" id="structure" name="struttura">
+          <select [(ngModel)]="selectArr" style="margin-top: 30px;" value="struttura"
+            (change)="onChangeCaratteristicheQualitative($event.target.value)" class="form-control" id="structure"
+            name="struttura">
             <option [value]="i" *ngFor="let car of caratteristiche; index as i">
               {{car.caratteristicheQualitative}}
             </option>
           </select>
-
           <div class="freccia">
             <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
           </div>
-
           <label></label>
           <table class="table table-bordered">
             <thead class="thead-dark">
-            <th>
-          <p><b>Multi criteria decision making</b></p>
-            </th>
-          </thead>
-             <tr *ngFor="let arr of variabileIntervento; index as i;">
-               <td>
-               Codice: {{arr.intervento.codice}}
-               - {{arr.intervento.descrizione}}
-               <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary">
-                Vai all'intervento
-              </button>
+              <th>
+                <p><b>Multi criteria decision making</b></p>
+              </th>
+            </thead>
+            <tr *ngFor="let arr of variabileIntervento; index as i;">
+              <td>
+                Codice: {{arr.intervento.codice}}
+                - {{arr.intervento.descrizione}}
+                <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary">
+                  Vai all'intervento
+                </button>
               </td>
-             </tr>
+            </tr>
           </table>
-
-           <table class="table table-bordered" *ngIf="caratteristiche[selectArr]" [(ngModel)]="selectedMeccanicaIndex" style="margin-top: 30px;" value="struttura" 
-           id="structure" name="struttura">
+          <table class="table table-bordered" *ngIf="caratteristiche[selectArr]" [(ngModel)]="selectedMeccanicaIndex"
+            style="margin-top: 30px;" value="struttura" id="structure" name="struttura">
             <thead class="thead-dark">
               <th>
-            <p><b>Meccanismi</b></p>
+                <p><b>Meccanismi</b></p>
               </th>
             </thead>
             <tr *ngFor="let meccanismo of caratteristiche[selectArr].meccanismiAssociati; index as i">
               <td>
-              {{meccanismo.descrizione}}
-              {{meccanismo.modi_di_danno_alle_strutture_orizzontali}}
-              {{meccanismo.modi_di_danno_alle_strutture_verticali}}
-              <button (click)="onChangeCaratteristicheQualitative($event.target.value)" (click)="trasferisciOggetti()" type="submit" style="margin-left: 20px; float: right;" class="btn btn-outline-primary">
-                Vai al meccanismo
-              </button>
-            </td>
+                {{meccanismo.descrizione}}
+                {{meccanismo.modi_di_danno_alle_strutture_orizzontali}}
+                {{meccanismo.modi_di_danno_alle_strutture_verticali}}
+                <button (click)="onChangeCaratteristicheQualitative($event.target.value)" (click)="trasferisciOggetti()"
+                  type="submit" style="margin-left: 20px; float: right;" class="btn btn-outline-primary">
+                  Vai al meccanismo
+                </button>
+              </td>
             </tr>
-           </table>
+          </table>
         </div>
       </form>
     </div>

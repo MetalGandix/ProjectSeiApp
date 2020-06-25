@@ -41,6 +41,5 @@ public class CodiceIntervento {
 
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
-    }
-    
+    }    
 }

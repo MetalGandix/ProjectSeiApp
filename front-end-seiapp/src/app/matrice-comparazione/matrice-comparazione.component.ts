@@ -12,26 +12,9 @@ export class MatriceComparazioneComponent implements OnInit {
   numeroArray: number = 0;
   x: number = 1;
   y: number;
-
   a: number;
-  b: number;
-  c: number;
-  d: number;
-  e: number;
-  f: number;
-  g: number;
-  h: number;
-  i: number;
-  j: number;
-  k: number;
-  l: number;
-  m: number;
-  n: number;
-
   cr: number
-
-  mxp: number[] = [0,0,0,0,0,0]
-
+  mxp: number[] = [0, 0, 0, 0, 0, 0]
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   arrayOpposite: number[];
   arr: number[];
@@ -121,22 +104,22 @@ export class MatriceComparazioneComponent implements OnInit {
       this.ponderazione[r] = this.ponderazione[r] / this.matriceNormalizzata.length
     }
     //Matrice x 
-    for(let r=0; r<6; r++){
+    for (let r = 0; r < 6; r++) {
       let riga = []
-      for(let c=0; c<6; c++){
+      for (let c = 0; c < 6; c++) {
         riga.push(this.oggetto[r][c] !== undefined ? this.oggetto[r][c] : 0)
       }
-      this.mxp[r] =  this.prodottoVettoriale(riga, this.ponderazione)
+      this.mxp[r] = this.prodottoVettoriale(riga, this.ponderazione)
     }
     //Calcolo di lambda e di cr
     let lambda = 0
-    for(let r in this.mxp){
-      lambda += this.mxp[r]/this.ponderazione[r]
+    for (let r in this.mxp) {
+      lambda += this.mxp[r] / this.ponderazione[r]
     }
-    lambda = lambda/6
-    let ci = (lambda-6)/5
+    lambda = lambda / 6
+    let ci = (lambda - 6) / 5
     let ri = 1.24
-    this.cr = ci/ri
+    this.cr = ci / ri
   }
 
   prodottoVettoriale(array1: number[], array2: number[]) {
@@ -159,21 +142,6 @@ export class MatriceComparazioneComponent implements OnInit {
     }
   }
 
-  /*outputSelection(){
-    let p = 0
-      this.selectedCasella.forEach((function (value, index, array){
-        for(const key in this.arrayComparazione){
-          const list = this.arrayComparazione[key]
-          list.forEach(function (numero, indexDue, arrayDue){
-            if(numero.id === value) {
-              p = p + parseInt(numero.num)
-            }
-          })
-        } 
-      }).bind(this))
-      this.p = p
-  }*/
-
   /*numeriContrapposti(){
   var gcd = function(a, b) {
     if (b < 0.0000001) return a;                // Since there is a limited precision we need to limit the value.
@@ -190,7 +158,4 @@ export class MatriceComparazioneComponent implements OnInit {
   denominator /= divisor; 
   this.j = (Math.floor(numerator) + '/' + Math.floor(denominator));
 }*/
-
-
-
 }
