@@ -15,6 +15,8 @@ import { ZonaSismicaComponent } from './zona-sismica/zona-sismica.component';
 import { ElementoStrutturaComponent } from './elemento-struttura/elemento-struttura.component';
 import { ReportInterventoComponent } from './report-intervento/report-intervento.component';
 import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
+import { McdmComponent } from './mcdm/mcdm.component';
+
 
 
 const routes: Routes = [
@@ -32,7 +34,9 @@ const routes: Routes = [
   { path: 'zona-sismica', component: ZonaSismicaComponent },
   { path: 'struttura', component: ElementoStrutturaComponent },
   { path: 'report-intervento', component: ReportInterventoComponent },
-  { path: 'matrice', component: MatriceComparazioneComponent }
+  { path: 'matrice', component: MatriceComparazioneComponent },
+  { path: 'mcdm', component: McdmComponent }
+
 ];
 
 @NgModule({

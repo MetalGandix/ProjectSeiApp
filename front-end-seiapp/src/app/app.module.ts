@@ -25,6 +25,7 @@ import { faSquare, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { ElementoStrutturaComponent } from './elemento-struttura/elemento-struttura.component';
 import { ReportInterventoComponent } from './report-intervento/report-intervento.component';
 import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
+import { McdmComponent } from './mcdm/mcdm.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-com
     ZonaSismicaComponent,
     ElementoStrutturaComponent,
     ReportInterventoComponent,
-    MatriceComparazioneComponent
+    MatriceComparazioneComponent,
+    McdmComponent
   ],
   imports: [
     BrowserModule,
