@@ -24,16 +24,18 @@
                     <td>{{interventi.reversibilita}}</td>
                     <td>{{interventi.semplicitaDiCantiere}}</td>
                     <td>{{interventi.esiguitaDiIngombro}}</td>
-                    <td *ngIf="flag">{{interventi.totale | number: '1.2-2'}}</td>
+                    <td *ngIf="result">{{interventi.totale | number: '1.2-2'}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
 
+
 <button (click)="metodoMoltiplicazionePesi()">
     Calcola
 </button>
+
 
 
 <table>

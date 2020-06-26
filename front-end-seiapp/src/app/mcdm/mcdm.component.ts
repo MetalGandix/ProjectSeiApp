@@ -22,12 +22,19 @@ export class McdmComponent {
   ) {
   }
 
-  flag: boolean = false
+  result: boolean = false
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   struttura: Struttura[];
   variabileIntervento: AssociazioneIntervento[];
   caratteristiche: CaratteristicheQualitative[]
   totale: number[];
+  modCos: number
+  effic: number
+  supInton: number
+  supVis: number
+  revers: number
+  semplCant: number
+  esigIngom: number
 
     ngOnInit() {
       this.ponderazione = window.history.state.ponderazione;
@@ -44,16 +51,16 @@ export class McdmComponent {
         this.variabileIntervento = data;
       })
       this.variabileIntervento.forEach(t =>{
-        t.modicitaDiCosto = t.modicitaDiCosto * this.ponderazione[0]
-        t.efficacia = t.efficacia * this.ponderazione[1]
-        t.supIntonacate = t.supIntonacate * this.ponderazione[2]
-        t.supVista = t.supVista * this.ponderazione[2]
-        t.reversibilita = t.reversibilita * this.ponderazione[3]
-        t.semplicitaDiCantiere = t.semplicitaDiCantiere * this.ponderazione[4]
-        t.esiguitaDiIngombro = t.esiguitaDiIngombro * this.ponderazione[5]
-        t.totale = t.modicitaDiCosto + t.efficacia + t.supIntonacate + t.supVista + t.reversibilita + t.semplicitaDiCantiere + t.esiguitaDiIngombro
+        this.modCos = t.modicitaDiCosto * this.ponderazione[0]
+        this.effic = t.efficacia * this.ponderazione[1]
+        this.supInton = t.supIntonacate * this.ponderazione[2]
+        this.supVis = t.supVista * this.ponderazione[2]
+        this.revers = t.reversibilita * this.ponderazione[3]
+        this.semplCant = t.semplicitaDiCantiere * this.ponderazione[4]
+        this.esigIngom = t.esiguitaDiIngombro * this.ponderazione[5]
+        t.totale = this.modCos + this.effic + this.supInton + this.supVis + this.revers + this.semplCant + this.esigIngom
         })
-        this.flag = true
+        this.result = true
     }
+    
 }
-
