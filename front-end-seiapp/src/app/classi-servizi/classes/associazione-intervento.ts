@@ -11,6 +11,6 @@ export class AssociazioneIntervento {
     supIntonacate: number
     supVista: number
     reversibilita: number
-    semplicitàDiCantiere: number
-    esiguitàDiIngombro: number
+    semplicitaDiCantiere: number
+    esiguitaDiIngombro: number
 }

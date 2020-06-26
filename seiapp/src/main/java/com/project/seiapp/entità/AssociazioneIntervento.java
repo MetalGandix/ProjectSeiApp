@@ -69,11 +69,11 @@ public class AssociazioneIntervento {
         this.strutturaAssociazione = strutturaAssociazione;
     }
 
-    public int getModicitàDiCosto() {
+    public int getModicitaDiCosto() {
         return modicitaDiCosto;
     }
 
-    public void setModicitàDiCosto(int modicitaDiCosto) {
+    public void setModicitaDiCosto(int modicitaDiCosto) {
         this.modicitaDiCosto = modicitaDiCosto;
     }
 
@@ -101,27 +101,27 @@ public class AssociazioneIntervento {
         this.supVista = supVista;
     }
 
-    public int getReversibilità() {
+    public int getReversibilita() {
         return reversibilita;
     }
 
-    public void setReversibilità(int reversibilita) {
+    public void setReversibilita(int reversibilita) {
         this.reversibilita = reversibilita;
     }
 
-    public int getSemplicitàDiCantiere() {
+    public int getSemplicitaDiCantiere() {
         return semplicitaDiCantiere;
     }
 
-    public void setSemplicitàDiCantiere(int semplicitaDiCantiere) {
+    public void setSemplicitaDiCantiere(int semplicitaDiCantiere) {
         this.semplicitaDiCantiere = semplicitaDiCantiere;
     }
 
-    public int getEsiguitàDiIngombro() {
+    public int getEsiguitaDiIngombro() {
         return esiguitaDiIngombro;
     }
 
-    public void setEsiguitàDiIngombro(int esiguitaDiIngombro) {
+    public void setEsiguitaDiIngombro(int esiguitaDiIngombro) {
         this.esiguitaDiIngombro = esiguitaDiIngombro;
     }
 }
