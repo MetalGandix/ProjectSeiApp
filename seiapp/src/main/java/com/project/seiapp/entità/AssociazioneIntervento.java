@@ -27,13 +27,13 @@ public class AssociazioneIntervento {
     private Struttura strutturaAssociazione;
 
     @Column
-    private int modicitàDiCosto;
+    private int modicitaDiCosto;
     private int efficacia;
     private int supIntonacate;
     private int supVista;
-    private int reversibilità;
-    private int semplicitàDiCantiere;
-    private int esiguitàDiIngombro;
+    private int reversibilita;
+    private int semplicitaDiCantiere;
+    private int esiguitaDiIngombro;
 
 
     public long getId() {
@@ -70,11 +70,11 @@ public class AssociazioneIntervento {
     }
 
     public int getModicitàDiCosto() {
-        return modicitàDiCosto;
+        return modicitaDiCosto;
     }
 
-    public void setModicitàDiCosto(int modicitàDiCosto) {
-        this.modicitàDiCosto = modicitàDiCosto;
+    public void setModicitàDiCosto(int modicitaDiCosto) {
+        this.modicitaDiCosto = modicitaDiCosto;
     }
 
     public int getEfficacia() {
@@ -102,26 +102,26 @@ public class AssociazioneIntervento {
     }
 
     public int getReversibilità() {
-        return reversibilità;
+        return reversibilita;
     }
 
-    public void setReversibilità(int reversibilità) {
-        this.reversibilità = reversibilità;
+    public void setReversibilità(int reversibilita) {
+        this.reversibilita = reversibilita;
     }
 
     public int getSemplicitàDiCantiere() {
-        return semplicitàDiCantiere;
+        return semplicitaDiCantiere;
     }
 
-    public void setSemplicitàDiCantiere(int semplicitàDiCantiere) {
-        this.semplicitàDiCantiere = semplicitàDiCantiere;
+    public void setSemplicitàDiCantiere(int semplicitaDiCantiere) {
+        this.semplicitaDiCantiere = semplicitaDiCantiere;
     }
 
     public int getEsiguitàDiIngombro() {
-        return esiguitàDiIngombro;
+        return esiguitaDiIngombro;
     }
 
-    public void setEsiguitàDiIngombro(int esiguitàDiIngombro) {
-        this.esiguitàDiIngombro = esiguitàDiIngombro;
+    public void setEsiguitàDiIngombro(int esiguitaDiIngombro) {
+        this.esiguitaDiIngombro = esiguitaDiIngombro;
     }
 }

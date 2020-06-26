@@ -6,4 +6,11 @@ export class AssociazioneIntervento {
     intervento: Intervento
     caratteristicaAssociazioneIntervento: CaratteristicheQualitative
     strutturaAssociazione: Struttura
+    modicitaDiCosto: number
+    efficacia: number
+    supIntonacate: number
+    supVista: number
+    reversibilita: number
+    semplicitàDiCantiere: number
+    esiguitàDiIngombro: number
 }
