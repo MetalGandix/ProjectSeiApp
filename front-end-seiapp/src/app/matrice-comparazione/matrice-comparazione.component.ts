@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-matrice-comparazione',
@@ -7,7 +8,10 @@ import { Component, OnInit, Output, Input } from '@angular/core';
 })
 export class MatriceComparazioneComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  ) { }
 
   numeroArray: number = 0;
   x: number = 1;
@@ -140,6 +144,10 @@ export class MatriceComparazioneComponent implements OnInit {
     if (this.numeroPrimario > 1) {
       this.y = this.numeroPrimario.valueOf() * (1 / (this.numeroPrimario.valueOf() * this.numeroPrimario.valueOf()))
     }
+  }
+
+  trasferisciPonderazione(){
+    this.router.navigate(['/mcdm'], { state: { ponderazione: this.ponderazione }})
   }
 
   /*numeriContrapposti(){

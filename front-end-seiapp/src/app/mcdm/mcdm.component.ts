@@ -22,11 +22,14 @@ export class McdmComponent {
   ) {
   }
 
+  ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   struttura: Struttura[];
   variabileIntervento: AssociazioneIntervento[];
   caratteristiche: CaratteristicheQualitative[]
 
     ngOnInit() {
+      this.ponderazione = window.history.state.ponderazione;
+      console.log(this.ponderazione)
       this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
         this.variabileIntervento = data;
         console.log(this.variabileIntervento)

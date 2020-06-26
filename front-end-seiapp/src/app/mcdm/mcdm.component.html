@@ -29,3 +29,15 @@
     </div>
 </div>
 
+
+<table>
+    <thead>
+        <th>
+            Ponderazione
+        </th>
+    </thead>
+<tr *ngFor="let arr of ponderazione; index as i">
+    {{ponderazione[i]*100 | number: '1.0-0'}}%
+</tr>
+</table>
+
