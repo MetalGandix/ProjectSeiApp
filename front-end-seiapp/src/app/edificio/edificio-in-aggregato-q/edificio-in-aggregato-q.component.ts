@@ -6,7 +6,6 @@ import { Quality } from 'src/app/classi-servizi/classes/quality';
 import { EdificioInaggregatoComponent } from '../edificio-inaggregato/edificio-inaggregato.component';
 import { Subscription } from 'rxjs';
 
-
 @Component({
   selector: 'app-edificio-in-aggregato-q',
   templateUrl: './edificio-in-aggregato-q.component.html',
@@ -40,7 +39,6 @@ export class EdificioInAggregatoQComponent implements OnInit, OnDestroy {
   }
 
   getColors(index) {
-
     let num = this.getnumber(index);
     return this.Colors[num];
   }
@@ -48,7 +46,6 @@ export class EdificioInAggregatoQComponent implements OnInit, OnDestroy {
   getnumber(data){
     let i = data;
     if(i > this.Colors.length-1){
-
        i = i - this.Colors.length;
        if(i < this.Colors.length){
         return i;
@@ -56,13 +53,10 @@ export class EdificioInAggregatoQComponent implements OnInit, OnDestroy {
        else {
         this.getnumber(i);
        }
-
     }
     else {
       return i;
     }
-
-
   }
 
   ngOnDestroy() {

@@ -22,18 +22,38 @@ export class McdmComponent {
   ) {
   }
 
+  flag: boolean = false
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   struttura: Struttura[];
   variabileIntervento: AssociazioneIntervento[];
   caratteristiche: CaratteristicheQualitative[]
+  totale: number[];
 
     ngOnInit() {
       this.ponderazione = window.history.state.ponderazione;
       console.log(this.ponderazione)
       this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
         this.variabileIntervento = data;
-        console.log(this.variabileIntervento)
       })
+    }
+
+    metodoMoltiplicazionePesi(){
+      this.ponderazione = window.history.state.ponderazione;
+      console.log(this.ponderazione)
+      this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
+        this.variabileIntervento = data;
+      })
+      this.variabileIntervento.forEach(t =>{
+        t.modicitaDiCosto = t.modicitaDiCosto * this.ponderazione[0]
+        t.efficacia = t.efficacia * this.ponderazione[1]
+        t.supIntonacate = t.supIntonacate * this.ponderazione[2]
+        t.supVista = t.supVista * this.ponderazione[2]
+        t.reversibilita = t.reversibilita * this.ponderazione[3]
+        t.semplicitaDiCantiere = t.semplicitaDiCantiere * this.ponderazione[4]
+        t.esiguitaDiIngombro = t.esiguitaDiIngombro * this.ponderazione[5]
+        t.totale = t.modicitaDiCosto + t.efficacia + t.supIntonacate + t.supVista + t.reversibilita + t.semplicitaDiCantiere + t.esiguitaDiIngombro
+        })
+        this.flag = true
     }
 }
 

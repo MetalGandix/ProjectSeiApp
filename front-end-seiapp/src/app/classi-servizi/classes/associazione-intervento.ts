@@ -13,4 +13,5 @@ export class AssociazioneIntervento {
     reversibilita: number
     semplicitaDiCantiere: number
     esiguitaDiIngombro: number
+    totale: number
 }
