@@ -36,21 +36,12 @@ export class McdmComponent {
   semplCant: number
   esigIngom: number
 
-    ngOnInit() {
-      this.ponderazione = window.history.state.ponderazione;
-      console.log(this.ponderazione)
-      this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
-        this.variabileIntervento = data;
-      })
-    }
-
-    metodoMoltiplicazionePesi(){
-      this.ponderazione = window.history.state.ponderazione;
-      console.log(this.ponderazione)
-      this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
-        this.variabileIntervento = data;
-      })
-      this.variabileIntervento.forEach(t =>{
+  ngOnInit() {
+    this.ponderazione = window.history.state.ponderazione;
+    console.log(this.ponderazione)
+    this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
+      this.variabileIntervento = data;
+      this.variabileIntervento.forEach(t => {
         this.modCos = t.modicitaDiCosto * this.ponderazione[0]
         this.effic = t.efficacia * this.ponderazione[1]
         this.supInton = t.supIntonacate * this.ponderazione[2]
@@ -59,8 +50,7 @@ export class McdmComponent {
         this.semplCant = t.semplicitaDiCantiere * this.ponderazione[4]
         this.esigIngom = t.esiguitaDiIngombro * this.ponderazione[5]
         t.totale = this.modCos + this.effic + this.supInton + this.supVis + this.revers + this.semplCant + this.esigIngom
-        })
-        this.result = true
-    }
-    
+      })
+    }) 
+  }
 }

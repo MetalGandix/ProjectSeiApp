@@ -29,19 +29,12 @@
                     <td>{{interventi.reversibilita}}</td>
                     <td>{{interventi.semplicitaDiCantiere}}</td>
                     <td>{{interventi.esiguitaDiIngombro}}</td>
-                    <td *ngIf="result">{{interventi.totale | number: '1.2-2'}}</td>
+                    <td>{{interventi.totale | number: '1.2-2'}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-
-
-<button (click)="metodoMoltiplicazionePesi()">
-    Calcola
-</button>
-
-
 
 <table>
     <thead>
@@ -70,10 +63,8 @@
                     <th rowspan="2" scope="colgroup">Totale</th>
                 </tr>
                   <tr>
-
                     <th scope="col">supp. intonacate</th>
                     <th scope="col">supp. a vista</th>
-                    
                 </tr>
             </thead>
             <tbody>
@@ -86,7 +77,7 @@
                     <td>{{interventi.reversibilita}}</td>
                     <td>{{interventi.semplicitaDiCantiere}}</td>
                     <td>{{interventi.esiguitaDiIngombro}}</td>
-                    <td *ngIf="result">{{interventi.totale | number: '1.2-2'}}</td>
+                    <td>{{interventi.totale | number: '1.2-2'}}</td>
                 </tr>
             </tbody>
         </table>
