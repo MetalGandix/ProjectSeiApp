@@ -35,12 +35,14 @@ export class McdmComponent {
   revers: number
   semplCant: number
   esigIngom: number
+  carQual: number
+  intervento: number
+  strutturaAssociazione: number
 
   ngOnInit() {
+    this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
     console.log(this.ponderazione)
-    this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
-      this.variabileIntervento = data;
       this.variabileIntervento.forEach(t => {
         this.modCos = t.modicitaDiCosto * this.ponderazione[0]
         this.effic = t.efficacia * this.ponderazione[1]
@@ -51,6 +53,5 @@ export class McdmComponent {
         this.esigIngom = t.esiguitaDiIngombro * this.ponderazione[5]
         t.totale = this.modCos + this.effic + this.supInton + this.supVis + this.revers + this.semplCant + this.esigIngom
       })
-    }) 
   }
 }

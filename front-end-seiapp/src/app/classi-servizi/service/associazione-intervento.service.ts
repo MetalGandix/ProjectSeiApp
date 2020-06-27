@@ -14,7 +14,17 @@ export class AssociazioneInterventoService {
     this.url = 'http://localhost:8080/';
   }
 
-  public getAssociazioneIntervento(): Observable<AssociazioneIntervento[]>{
+  public getAssociazioneIntervento(): Observable<AssociazioneIntervento[]> {
     return this.http.get<AssociazioneIntervento[]>(this.url + "associazioneIntervento")
+  }
+
+  public getInterventoSingolo(carQual: number, intervento: number, strutturaAssociazione: number): Observable<AssociazioneIntervento[]> {
+    return this.http.get<AssociazioneIntervento[]>(this.url + "getInterventoSingolo", {
+      params: {
+        carQual: `${carQual}`,
+        intervento: `${intervento}`,
+        strutturaAssociazione: `${strutturaAssociazione}`
+      }
+    })
   }
 }

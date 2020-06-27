@@ -8,5 +8,5 @@ import com.project.seiapp.entità.AssociazioneIntervento;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AssociazioneInterventoRepository extends JpaRepository<AssociazioneIntervento,Long>{
-	List<AssociazioneIntervento> findByCaratteristicaAssociazioneInterventoIdAndStrutturaAssociazioneIdAndInterventoId(int caratteristicaAssociazioneInterventoId, int strutturaAssociazioneId, int interventoId);
+	List<AssociazioneIntervento> findByCaratteristicaAssociazioneInterventoIdAndStrutturaAssociazioneIdAndInterventoId(Long caratteristicaAssociazioneInterventoId, Long strutturaAssociazioneId, Long interventoId);
 }

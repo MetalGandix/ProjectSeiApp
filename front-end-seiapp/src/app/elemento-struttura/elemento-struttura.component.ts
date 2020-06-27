@@ -69,7 +69,7 @@ export class ElementoStrutturaComponent implements OnInit {
   }
 
   trasferisciOggetti(){
-    this.router.navigate(['/report-intervento'], { state: { variabileIntervento: this.variabileIntervento,caratteristica: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex } 
+    this.router.navigate(['/matrice'], { state: { variabileIntervento: this.variabileIntervento,caratteristica: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex } 
   })
   }
 
