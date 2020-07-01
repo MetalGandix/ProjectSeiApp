@@ -14,4 +14,5 @@ export class AssociazioneIntervento {
     semplicitaDiCantiere: number
     esiguitaDiIngombro: number
     totale: number
+    variante: String
 }

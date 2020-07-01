@@ -20,8 +20,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let interventi of variabileIntervento | slice:1:7 ;index as i">
-                    <td>{{interventi.intervento.codice}}</td>
+                <tr *ngFor="let interventi of variabileIntervento;index as i">
+                    <td>{{interventi.intervento.codice}} {{interventi.variante}}</td>
                     <td>{{interventi.modicitaDiCosto}}</td>
                     <td>{{interventi.efficacia}}</td>
                     <td>{{interventi.supIntonacate}}</td>
