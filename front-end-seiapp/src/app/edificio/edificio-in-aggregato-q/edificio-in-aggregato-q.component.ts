@@ -5,6 +5,7 @@ import { EdificioInAggregato } from 'src/app/classi-servizi/classes/edificio-in-
 import { Quality } from 'src/app/classi-servizi/classes/quality';
 import { EdificioInaggregatoComponent } from '../edificio-inaggregato/edificio-inaggregato.component';
 import { Subscription } from 'rxjs';
+import { debug } from 'console';
 
 @Component({
   selector: 'app-edificio-in-aggregato-q',
@@ -118,6 +119,7 @@ export class EdificioInAggregatoQComponent implements OnInit, OnDestroy {
       })
       this.cleanQualityArray()
     });
+    console.log(this.edificioInAggregato)
     this.qualità.getQEdificio().subscribe(data => {
       this.edificioSelezionato1 = data;
     })
@@ -135,6 +137,17 @@ export class EdificioInAggregatoQComponent implements OnInit, OnDestroy {
         })
       }
     }).bind(this))
+    const selezionati = {}
+    for(const value of this.selezione){
+      selezionati[value] = true
+    }
+    if(selezionati[37] && selezionati[40]){
+      totalePunteggio += 15
+    }else if(selezionati[42] && selezionati[45]){
+      totalePunteggio += 0
+    }else{
+      totalePunteggio += 8
+    }
     this.totalePunteggio = totalePunteggio
     this.vediMuratura()
     console.log("Questo è il valore EMS: ",this.varEmp)

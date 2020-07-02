@@ -13,6 +13,7 @@ export class AssociazioneIntervento {
     reversibilita: number
     semplicitaDiCantiere: number
     esiguitaDiIngombro: number
-    totale: number
+    totale: number[]
     variante: String
+    varianti: String[]
 }

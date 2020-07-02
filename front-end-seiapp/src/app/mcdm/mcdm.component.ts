@@ -38,20 +38,28 @@ export class McdmComponent {
   carQual: number
   intervento: number
   strutturaAssociazione: number
+  toggleSuperficie: boolean = true
 
   ngOnInit() {
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
     console.log(this.ponderazione)
-      this.variabileIntervento.forEach(t => {
-        this.modCos = t.modicitaDiCosto * this.ponderazione[0]
-        this.effic = t.efficacia * this.ponderazione[1]
-        this.supInton = t.supIntonacate * this.ponderazione[2]
-        this.supVis = t.supVista * this.ponderazione[2]
-        this.revers = t.reversibilita * this.ponderazione[3]
-        this.semplCant = t.semplicitaDiCantiere * this.ponderazione[4]
-        this.esigIngom = t.esiguitaDiIngombro * this.ponderazione[5]
-        t.totale = this.modCos + this.effic + this.supInton + this.supVis + this.revers + this.semplCant + this.esigIngom
-      })
+    this.cambiaTotale()
+  }
+
+  cambiaTotale(){
+    this.variabileIntervento.forEach(t => {
+      t.totale = []
+      for(const i in t.varianti){
+        this.modCos = t.modicitaDiCosto[i] * this.ponderazione[0]
+        this.effic = t.efficacia[i] * this.ponderazione[1]
+        this.supInton = this.toggleSuperficie ? t.supIntonacate[i] * this.ponderazione[2]: 0
+        this.supVis = !this.toggleSuperficie ? t.supVista[i] * this.ponderazione[2]: 0
+        this.revers = t.reversibilita[i] * this.ponderazione[3]
+        this.semplCant = t.semplicitaDiCantiere[i] * this.ponderazione[4]
+        this.esigIngom = t.esiguitaDiIngombro[i] * this.ponderazione[5]
+        t.totale.push(this.modCos + this.effic + this.supInton + this.supVis + this.revers + this.semplCant + this.esigIngom)
+      }
+    })
   }
 }

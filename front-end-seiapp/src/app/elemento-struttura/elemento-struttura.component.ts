@@ -36,7 +36,7 @@ export class ElementoStrutturaComponent implements OnInit {
   ) {
   }
 
-  onChangeSecondo(index: number){
+  onChangeSecondo(index: number) {
     this.caratteristiche = this.selectedElement[index].carQuality
     this.selectArr = 0;
     this.selectedMeccanicaIndex = 0;
@@ -46,31 +46,32 @@ export class ElementoStrutturaComponent implements OnInit {
   onChange(index: number) {
     this.selectedElement = []
     this.struttura.forEach(t => {
-      if(t.tipoStruttura.id === this.typeStruttura[index].id){
-      this.selectedElement.push(t)
+      if (t.tipoStruttura.id === this.typeStruttura[index].id) {
+        this.selectedElement.push(t)
       }
     })
     this.selectedIndex = 0;
     this.onChangeSecondo(0);
   }
 
-  onChangeCaratteristicheQualitative(index: number){
+  onChangeCaratteristicheQualitative(index: number) {
     // selectedIndex
     // selectedArr
     this.variabileIntervento = []
     let elemento = this.selectedElement[this.selectedIndex]
     let caratteristica = this.caratteristiche[index]
     this.associazioneIntervento.forEach(t => {
-      if(elemento.id == t.strutturaAssociazione.id && caratteristica.id == t.caratteristicaAssociazioneIntervento.id){
+      if (elemento.id == t.strutturaAssociazione.id && caratteristica.id == t.caratteristicaAssociazioneIntervento.id) {
         this.variabileIntervento.push(t);
       }
     })
     console.log(this.variabileIntervento)
   }
 
-  trasferisciOggetti(){
-    this.router.navigate(['/matrice'], { state: { variabileIntervento: this.variabileIntervento,caratteristica: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex } 
-  })
+  trasferisciOggetti() {
+    this.router.navigate(['/matrice'], {
+      state: { variabileIntervento: this.variabileIntervento, caratteristica: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
+    })
   }
 
   ngOnInit() {
@@ -83,7 +84,39 @@ export class ElementoStrutturaComponent implements OnInit {
       console.log(this.struttura)
     })
     this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
-      this.associazioneIntervento = data;
+      const result = []
+      const raggruppamento = {}
+      for (const value of data) {
+        const idIntervento = value.intervento.id
+        const idCaratteristica = value.caratteristicaAssociazioneIntervento.id
+        const idStruttura = value.strutturaAssociazione.id
+        const key = idIntervento + "_" + idCaratteristica + "_" + idStruttura
+        if (!raggruppamento[key]) {
+          raggruppamento[key] = {
+            ...value,
+            varianti: [],
+            modicitaDiCosto: [],
+            reversibilita: [],
+            semplicitaDiCantiere: [],
+            supIntonacate: [],
+            supVista: [],
+            esiguitaDiIngombro: [],
+            efficacia: []
+          }
+        }
+        raggruppamento[key].varianti.push(value.variante)
+        raggruppamento[key].modicitaDiCosto.push(value.modicitaDiCosto)
+        raggruppamento[key].reversibilita.push(value.reversibilita)
+        raggruppamento[key].semplicitaDiCantiere.push(value.semplicitaDiCantiere)
+        raggruppamento[key].supIntonacate.push(value.supIntonacate)
+        raggruppamento[key].supVista.push(value.supVista)
+        raggruppamento[key].esiguitaDiIngombro.push(value.esiguitaDiIngombro)
+        raggruppamento[key].efficacia.push(value.efficacia)
+      }
+      for (const key in raggruppamento) {
+        result.push(raggruppamento[key])
+      }
+      this.associazioneIntervento = result;
       console.log(this.associazioneIntervento)
     })
   }
