@@ -126,6 +126,17 @@ export class EdificioSingoloQComponent implements OnInit {
         })
       }
     }).bind(this))
+    const selezionati = {}
+    for(const value of this.selezione){
+      selezionati[value] = true
+    }
+    if(selezionati[37] && selezionati[40]){
+      totalePunteggio += 15
+    }else if(selezionati[42] && selezionati[45]){
+      totalePunteggio += 0
+    }else{
+      totalePunteggio += 8
+    }
     this.totalePunteggio = totalePunteggio
     this.vediMuratura()
     this.vulnerability
