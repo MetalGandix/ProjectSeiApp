@@ -1,6 +1,6 @@
 <div class="container">
   <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-    <p><b>CLASSIFICAZIONE DI VULNERABILITÀ</b></p>
+    <p><b>INDIVIDUAZIONE DEGLI INTERVENTI</b></p>
   </div>
   <div class="card my-5">
     <div class="card-body">
@@ -70,8 +70,12 @@
             </thead>
             <tr *ngFor="let meccanismo of caratteristiche[selectArr].meccanismiAssociati; index as i">
               <td>
-                {{meccanismo.descrizione}}
+                <b>{{meccanismo.descrizione}}</b>
+                <br>
+                Modi di danno alle strutture orizzontali:
                 {{meccanismo.modi_di_danno_alle_strutture_orizzontali}}
+                <br>
+                Modi di danno alle strutture verticali:
                 {{meccanismo.modi_di_danno_alle_strutture_verticali}}
                 <button (click)="onChangeCaratteristicheQualitative($event.target.value)" (click)="trasferisciOggetti()"
                   type="submit" style="margin-left: 20px; float: right;" class="btn btn-outline-primary">

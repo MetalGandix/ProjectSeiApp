@@ -12,8 +12,8 @@
                     <th rowspan="2" colspan="1">Codice</th>
                     <th rowspan="2" scope="colgroup">Modicità di costo</th>
                     <th rowspan="2" scope="colgroup">Efficacia</th>
-                    <th scope="colgroup" *ngIf="toggleSuperficie">Superfici intonacate</th>
-                    <th scope="colgroup" *ngIf="!toggleSuperficie">Superfici a vista</th>
+                    <th scope="colgroup" *ngIf="toggleSuperficie">Compatibilità visiva</th>
+                    <th scope="colgroup" *ngIf="!toggleSuperficie">Compatibilità visiva</th>
                     <th rowspan="2" scope="colgroup">Reversibilità</th>
                     <th rowspan="2" scope="colgroup">Semplicità di cantiere</th>
                     <th rowspan="2" scope="colgroup">Esiguità di ingombro</th>
@@ -38,14 +38,3 @@
         </table>
     </div>
 </div>
-
-<table>
-    <thead>
-        <th>
-            Ponderazione
-        </th>
-    </thead>
-    <tr *ngFor="let arr of ponderazione; index as i">
-        {{ponderazione[i]*100 | number: '1.0-0'}}%
-    </tr>
-</table>
