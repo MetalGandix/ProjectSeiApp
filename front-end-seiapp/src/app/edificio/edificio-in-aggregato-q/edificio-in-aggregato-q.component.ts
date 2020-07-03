@@ -5,7 +5,6 @@ import { EdificioInAggregato } from 'src/app/classi-servizi/classes/edificio-in-
 import { Quality } from 'src/app/classi-servizi/classes/quality';
 import { EdificioInaggregatoComponent } from '../edificio-inaggregato/edificio-inaggregato.component';
 import { Subscription } from 'rxjs';
-import { debug } from 'console';
 
 @Component({
   selector: 'app-edificio-in-aggregato-q',

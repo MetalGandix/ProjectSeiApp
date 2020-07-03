@@ -42,63 +42,90 @@
                 </td>
             </tr>
         </tbody>
-    </table>
-    <div class="Second_table" style="float: left; margin-right: 30px;">
-        <table class="table table-bordered">
-            <thead class="thead-dark">
-                <th>
-                    MATRICE NORMALIZZATA
-                </th>
-                <th>
-                </th>
-                <th>
-                </th>
-                <th>
-                </th>
-                <th>
-                </th>
-                <th>
-                </th>
-                <th>
-                    PONDERAZIONE (VETTORE P)
-                </th>
-            </thead>
-            <tr *ngFor="let row of matrix; index as r">
-                <td *ngFor="let column of row; index as c">
-                    <div>
-                        {{matriceNormalizzata[r][c] | number: '1.2-2' }}
-                    </div>
-                </td>
-                <td>
-                    {{ponderazione[r] | number: '1.2-2'}}
-                    <!--{{ponderazione[r] * 100 | number: '1.0-0'}}%-->
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div>
-        <table class="table table-bordered" style="text-align: center; width: 30px;">
-        <th>
-            TABELLA PERCENTUALI
-        </th>
-        <tr *ngFor="let row of matrix; index as r">
-            <td>
-                {{ponderazione[r]*100 | number: '1.0-0'}}%
-                <!--{{ponderazione[r] * 100 | number: '1.0-0'}}%-->
-            </td>
-        </tr>
-    </table>
-    </div>
+    </table>  
+    
+    
     <div [ngClass] = "{'crGood': cr < 0.1, 'crBad': cr >= 0.1}" style="margin-bottom: 30px; margin-top: 40px; text-align: center;">
         <div style="color: white">
-            Finchè il valore CR non diventa verde, non sarà possibile utilizzare i pesi.
+            <b>Finchè il valore CR non diventa verde, non sarà possibile utilizzare i pesi.</b>
         </div>
-        VALORE CR: {{cr | number: '1.2-2'}}
+        <b> VALORE CR: {{cr | number: '1.2-2'}}</b>
     </div>
-    <div>
-        <button (click)="trasferisciPonderazione()">
+    <div class= "divBottone">
+        <button class="btn btn-md1 btn-secondary display-4" style="align-content: center;" (click)="trasferisciPonderazione()">
             Premi per mandare i pesi
         </button>
     </div>
 </div>
+
+<label></label>
+
+<div class="container tabelle">
+
+    <!-- Colonne per tabelle -->
+    <div class="row">
+      <div class="col-lg-4">
+        <details>
+            <summary><b>Matrice Normalizzata</b></summary>
+            <div class="Second_table" style="float: left; margin-right: 30px;">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <th>
+                            MATRICE NORMALIZZATA
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                            PONDERAZIONE (VETTORE P)
+                        </th>
+                    </thead>
+                    <tr *ngFor="let row of matrix; index as r">
+                        <td *ngFor="let column of row; index as c">
+                            <div>
+                                {{matriceNormalizzata[r][c] | number: '1.2-2' }}
+                            </div>
+                        </td>
+                        <td>
+                            {{ponderazione[r] | number: '1.2-2'}}
+                            <!--{{ponderazione[r] * 100 | number: '1.0-0'}}%-->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        
+            
+            
+        </details>
+
+      </div><!-- /.col-lg-4 -->
+
+      <div class="col-lg-4">
+                <!-- Colonna vuota -->
+      </div><!-- /.col-lg-4 -->
+
+      <div class="col-lg-4">
+        <table class="table table-bordered" style="text-align: center; width: 30px;">
+            <thead class="thead-dark">
+            <th>
+                TABELLA PERCENTUALI
+            </th>
+        </thead>
+            <tr *ngFor="let row of matrix; index as r">
+                <td>
+                    {{ponderazione[r]*100 | number: '1.0-0'}}%
+                    <!--{{ponderazione[r] * 100 | number: '1.0-0'}}%-->
+                </td>
+            </tr>
+        </table>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
 
