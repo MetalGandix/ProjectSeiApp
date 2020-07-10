@@ -20,6 +20,15 @@ export class ZonaSismicaComponent implements OnInit {
   messaggio1: boolean = false
   valutazioni: ValutazioniClass
 
+  classeAA: boolean = false
+  classeA: boolean = false
+  classeB: boolean = false
+  classeC: boolean = false
+  classeD: boolean = false
+  classeE: boolean = false
+  classeF: boolean = false
+  classeG: boolean = false
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -60,82 +69,102 @@ export class ZonaSismicaComponent implements OnInit {
     if (this.vulClass == 6 && this.riskType == 1) {
       this.risk = "G"
       this.pam = "7,5%"
+      this.classeG = true
     }
     if (this.vulClass == 6 && this.riskType == 2) {
       this.risk = "F"
       this.pam = "4,5% ÷ 7,5%"
+      this.classeF = true
     }
     if (this.vulClass == 6 && this.riskType == 3) {
       this.risk = "D"
       this.pam = "2,5% ÷ 3,5%"
+      this.classeD = true
     }
     if (this.vulClass == 6 && this.riskType == 4) {
       this.risk = "C"
       this.pam = "1,5% ÷ 2,5%"
+      this.classeC = true
     }
     if (this.vulClass == 5 && this.riskType == 1) {
       this.risk = "F"
       this.pam = "4,5% ÷ 7,5%"
+      this.classeF = true
     }
     if (this.vulClass == 5 && this.riskType == 2) {
       this.risk = "E"
       this.pam = "3,5% ÷ 4,5%"
+      this.classeE = true
     }
     if (this.vulClass == 5 && this.riskType == 3) {
       this.risk = "D"
       this.pam = "2,5% ÷ 3,5%"
+      this.classeD = true
     }
     if (this.vulClass == 5 && this.riskType == 4) {
       this.risk = "B"
       this.pam = "1% ÷ 1,5%"
+      this.classeB = true
     }
     if (this.vulClass == 4 && this.riskType == 1) {
       this.risk = "E"
       this.pam = "3,5% ÷ 4,5%"
+      this.classeE = true
     }
     if (this.vulClass == 4 && this.riskType == 2) {
       this.risk = "D"
       this.pam = "2,5% ÷ 3,5%"
+      this.classeD = true
     }
     if (this.vulClass == 4 && this.riskType == 3) {
       this.risk = "C"
       this.pam = "1,5% ÷ 2,5%"
+      this.classeC = true
     }
     if (this.vulClass == 4 && this.riskType == 4) {
       this.risk = "A"
       this.pam = "0,5% ÷ 1%"
+      this.classeA = true
     }
     if (this.vulClass == 3 && this.riskType == 1) {
       this.risk = "D"
       this.pam = "2,5% ÷ 3,5%"
+      this.classeD = true
     }
     if (this.vulClass == 3 && this.riskType == 2) {
       this.risk = "C"
       this.pam = "1,5% ÷ 2,5%"
+      this.classeC = true
     }
     if (this.vulClass == 3 && this.riskType == 3) {
       this.risk = "B"
       this.pam = "1% ÷ 1,5%"
+      this.classeB = true
     }
     if (this.vulClass == 3 && this.riskType == 4) {
       this.risk = "A"
       this.pam = "0,5% ÷ 1%"
+      this.classeA = true
     }
     if (this.vulClass == 2 && this.riskType == 1) {
       this.risk = "C"
       this.pam = "1,5% ÷ 2,5%"
+      this.classeC = true
     }
     if (this.vulClass == 2 && this.riskType == 2) {
       this.risk = "B"
       this.pam = "1% ÷ 1,5%"
+      this.classeB = true
     }
     if (this.vulClass == 2 && this.riskType == 3) {
       this.risk = "A"
       this.pam = "0,5% ÷ 1%"
+      this.classeA = true
     }
     if (this.vulClass == 2 && this.riskType == 4) {
       this.risk = "A+"
       this.pam = "≤0,5%"
+      this.classeAA = true
     }
     this.msg1 = true;
   }
