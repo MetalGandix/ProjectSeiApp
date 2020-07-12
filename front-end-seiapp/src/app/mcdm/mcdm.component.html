@@ -18,6 +18,7 @@
                     <th rowspan="2" scope="colgroup">Semplicità di cantiere</th>
                     <th rowspan="2" scope="colgroup">Esiguità di ingombro</th>
                     <th rowspan="2" scope="colgroup">Totale</th>
+                    <th rowspan="2" scope="colgroup">*</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,9 +33,27 @@
                     <td>{{interventi.semplicitaDiCantiere[j]}}</td>
                     <td>{{interventi.esiguitaDiIngombro[j]}}</td>
                     <td>{{interventi.totale[j] | number: '1.2-2'}}</td>
+                    <td>
+                    <button (click)="premiBottone()">
+                        Premi qua per scegliere l'intervento
+                    </button>
+                </td>
                 </tr>
                 </ng-container>
             </tbody>
         </table>
+    </div>
+
+    <div *ngIf="buttonIntervento">
+        <div class="card-body">
+            {{caratteristiche.caratteristicheQualitative}}
+        </div>
+        <div>
+            <select>
+                <option>
+                    
+                </option>
+            </select>
+        </div>
     </div>
 </div>

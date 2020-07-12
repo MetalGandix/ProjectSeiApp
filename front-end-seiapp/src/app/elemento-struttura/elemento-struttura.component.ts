@@ -70,7 +70,7 @@ export class ElementoStrutturaComponent implements OnInit {
 
   trasferisciOggetti() {
     this.router.navigate(['/matrice'], {
-      state: { variabileIntervento: this.variabileIntervento, caratteristica: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
+      state: { variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
     })
   }
 

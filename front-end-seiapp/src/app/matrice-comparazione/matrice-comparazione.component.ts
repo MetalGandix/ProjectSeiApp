@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
+import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 
 @Component({
   selector: 'app-matrice-comparazione',
@@ -31,6 +32,7 @@ export class MatriceComparazioneComponent implements OnInit {
   matrix: number[][] = []
   matrixRisultati: number[] = [0, 0, 0, 0, 0, 0]
   variabileIntervento: AssociazioneIntervento[];
+  caratteristiche: CaratteristicheQualitative[];
 
   arrayComparazione = [
     { id: 1, char: "1/9", num: 1 / 9 },
@@ -62,6 +64,7 @@ export class MatriceComparazioneComponent implements OnInit {
 
   ngOnInit() {
     this.variabileIntervento = window.history.state.variabileIntervento
+    this.caratteristiche = window.history.state.caratteristiche
     for (let r = 0; r < 6; r++) {
       this.matriceNormalizzata.push([0, 0, 0, 0, 0, 0])
       this.matrix[r] = []
@@ -150,7 +153,7 @@ export class MatriceComparazioneComponent implements OnInit {
   }
 
   trasferisciPonderazione(){
-    this.router.navigate(['/mcdm'], { state: { ponderazione: this.ponderazione, variabileIntervento: this.variabileIntervento }})
+    this.router.navigate(['/mcdm'], { state: { caratteristiche: this.caratteristiche, ponderazione: this.ponderazione, variabileIntervento: this.variabileIntervento }})
   }
 
   /*numeriContrapposti(){

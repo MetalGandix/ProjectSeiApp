@@ -26,7 +26,7 @@ export class McdmComponent {
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   struttura: Struttura[];
   variabileIntervento: AssociazioneIntervento[];
-  caratteristiche: CaratteristicheQualitative[]
+  caratteristiche: CaratteristicheQualitative
   totale: number[];
   modCos: number
   effic: number
@@ -39,8 +39,10 @@ export class McdmComponent {
   intervento: number
   strutturaAssociazione: number
   toggleSuperficie: boolean = true
+  buttonIntervento: boolean = false
 
   ngOnInit() {
+    this.caratteristiche = window.history.state.caratteristiche
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
     console.log(this.ponderazione)
@@ -60,6 +62,11 @@ export class McdmComponent {
         this.esigIngom = t.esiguitaDiIngombro[i] * this.ponderazione[5]
         t.totale.push(this.modCos + this.effic + this.supInton + this.supVis + this.revers + this.semplCant + this.esigIngom)
       }
+      console.log("Totale: ",t.totale)
     })
+  }
+
+  premiBottone(){
+    this.buttonIntervento = true
   }
 }
