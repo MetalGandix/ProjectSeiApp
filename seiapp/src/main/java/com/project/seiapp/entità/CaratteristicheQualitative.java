@@ -8,8 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import com.project.seiapp.entità.edificientity.Edificio;
+
 
 
 @Entity
@@ -25,6 +29,10 @@ public class CaratteristicheQualitative {
 
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Meccanismi> meccanismiAssociati;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable
+    private List<Edificio> caratteristiche_punteggi;
 
 
     public String getCaratteristicheQualitative() {
@@ -50,6 +58,14 @@ public class CaratteristicheQualitative {
     public void setMeccanismiAssociati(List<Meccanismi> meccanismiAssociati) {
         this.meccanismiAssociati = meccanismiAssociati;
     }
+
+	public List<Edificio> getCaratteristiche_punteggi() {
+		return caratteristiche_punteggi;
+	}
+
+	public void setCaratteristiche_punteggi(List<Edificio> caratteristiche_punteggi) {
+		this.caratteristiche_punteggi = caratteristiche_punteggi;
+	}
     }
 
 
