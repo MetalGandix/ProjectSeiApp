@@ -52,7 +52,7 @@
         <b> VALORE CR: {{cr | number: '1.2-2'}}</b>
     </div>
     <div class= "divBottone">
-        <button class="btn btn-md1 btn-secondary display-4" style="align-content: center;" (click)="trasferisciPonderazione()">
+        <button *ngIf="cr < 0.1" class="btn btn-md1 btn-secondary display-4" style="align-content: center;" (click)="trasferisciPonderazione()">
             Premi per mandare i pesi
         </button>
     </div>
