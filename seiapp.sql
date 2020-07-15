@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 25, 2020 alle 23:19
+-- Creato il: Lug 15, 2020 alle 17:23
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -33,143 +33,145 @@ CREATE TABLE `associazione_intervento` (
   `intervento_id` bigint(20) DEFAULT NULL,
   `struttura_associazione_id` bigint(20) DEFAULT NULL,
   `efficacia` int(11) NOT NULL,
-  `esiguità_di_ingombro` int(11) NOT NULL,
-  `modicità_di_costo` int(11) NOT NULL,
-  `reversibilità` int(11) NOT NULL,
-  `semplicità_di_cantiere` int(11) NOT NULL,
+  `esiguita_di_ingombro` int(11) NOT NULL,
+  `modicita_di_costo` int(11) NOT NULL,
+  `reversibilita` int(11) NOT NULL,
+  `semplicita_di_cantiere` int(11) NOT NULL,
   `sup_intonacate` int(11) NOT NULL,
-  `sup_vista` int(11) NOT NULL
+  `sup_vista` int(11) NOT NULL,
+  `variante` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `associazione_intervento`
 --
 
-INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`, `efficacia`, `esiguità_di_ingombro`, `modicità_di_costo`, `reversibilità`, `semplicità_di_cantiere`, `sup_intonacate`, `sup_vista`) VALUES
-(1, 2, 58, 1, 0, 0, 0, 0, 0, 0, 0),
-(2, 3, 54, 1, 3, 2, 3, 3, 2, 1, 1),
-(3, 3, 55, 1, 3, 1, 1, 1, 2, 1, 1),
-(4, 3, 56, 1, 3, 3, 2, 2, 1, 3, 3),
-(5, 3, 57, 1, 1, 3, 2, 3, 2, 3, 1),
-(6, 3, 59, 1, 1, 3, 2, 1, 3, 3, 2),
-(7, 3, 60, 1, 1, 3, 2, 1, 2, 3, 2),
-(8, 1, 31, 2, 3, 3, 2, 3, 1, 3, 3),
-(9, 1, 32, 2, 2, 3, 3, 1, 3, 3, 3),
-(10, 1, 33, 2, 2, 3, 2, 3, 2, 3, 2),
-(11, 1, 37, 2, 3, 3, 1, 1, 2, 3, 1),
-(12, 1, 38, 2, 2, 2, 2, 2, 2, 1, 1),
-(13, 1, 39, 2, 2, 2, 2, 1, 3, 3, 0),
-(14, 1, 40, 2, 3, 3, 1, 2, 2, 3, 1),
-(15, 1, 43, 2, 3, 1, 2, 1, 1, 2, 2),
-(16, 1, 44, 2, 2, 1, 2, 1, 2, 2, 0),
-(17, 2, 31, 2, 0, 0, 0, 0, 0, 0, 0),
-(18, 7, 42, 2, 0, 0, 0, 0, 0, 0, 0),
-(19, 8, 1, 2, 3, 3, 3, 3, 2, 2, 2),
-(20, 8, 2, 2, 2, 3, 3, 3, 2, 3, 3),
-(21, 8, 3, 2, 3, 3, 2, 2, 2, 3, 1),
-(22, 8, 6, 2, 3, 3, 1, 1, 1, 3, 1),
-(23, 8, 41, 2, 3, 1, 3, 1, 1, 1, 1),
-(24, 8, 43, 2, 3, 1, 1, 1, 1, 2, 2),
-(25, 4, 1, 2, 3, 3, 3, 3, 2, 2, 2),
-(26, 4, 2, 2, 2, 3, 3, 3, 2, 3, 3),
-(27, 4, 3, 2, 3, 3, 2, 2, 2, 3, 1),
-(28, 4, 4, 2, 3, 3, 3, 3, 1, 3, 3),
-(29, 4, 5, 2, 1, 3, 3, 1, 2, 3, 2),
-(30, 4, 6, 2, 3, 3, 1, 1, 1, 3, 1),
-(31, 1, 31, 3, 0, 0, 0, 0, 0, 0, 0),
-(32, 1, 32, 3, 0, 0, 0, 0, 0, 0, 0),
-(33, 1, 33, 3, 0, 0, 0, 0, 0, 0, 0),
-(34, 1, 37, 3, 0, 0, 0, 0, 0, 0, 0),
-(35, 1, 38, 3, 0, 0, 0, 0, 0, 0, 0),
-(36, 1, 39, 3, 0, 0, 0, 0, 0, 0, 0),
-(37, 1, 40, 3, 0, 0, 0, 0, 0, 0, 0),
-(38, 1, 43, 3, 0, 0, 0, 0, 0, 0, 0),
-(39, 1, 44, 3, 0, 0, 0, 0, 0, 0, 0),
-(40, 2, 31, 3, 0, 0, 0, 0, 0, 0, 0),
-(41, 7, 42, 3, 0, 0, 0, 0, 0, 0, 0),
-(42, 8, 1, 3, 0, 0, 0, 0, 0, 0, 0),
-(43, 8, 2, 3, 0, 0, 0, 0, 0, 0, 0),
-(44, 8, 3, 3, 0, 0, 0, 0, 0, 0, 0),
-(45, 8, 6, 3, 0, 0, 0, 0, 0, 0, 0),
-(46, 8, 41, 3, 0, 0, 0, 0, 0, 0, 0),
-(47, 9, 34, 3, 3, 3, 3, 1, 2, 3, 2),
-(48, 9, 35, 3, 3, 3, 3, 2, 2, 3, 3),
-(49, 9, 36, 3, 3, 3, 3, 2, 2, 1, 1),
-(50, 4, 1, 3, 0, 0, 0, 0, 0, 0, 0),
-(51, 4, 2, 3, 0, 0, 0, 0, 0, 0, 0),
-(52, 4, 3, 3, 0, 0, 0, 0, 0, 0, 0),
-(53, 9, 4, 3, 0, 0, 0, 0, 0, 0, 0),
-(54, 9, 5, 3, 0, 0, 0, 0, 0, 0, 0),
-(55, 9, 6, 3, 0, 0, 0, 0, 0, 0, 0),
-(56, 51, 7, 4, 2, 3, 2, 3, 3, 2, 3),
-(57, 51, 8, 4, 3, 2, 3, 2, 2, 2, 3),
-(58, 52, 9, 4, 3, 2, 2, 1, 2, 3, 2),
-(59, 52, 10, 4, 3, 2, 2, 1, 2, 3, 2),
-(60, 52, 11, 4, 3, 2, 3, 1, 2, 3, 2),
-(61, 52, 12, 4, 2, 2, 1, 1, 2, 3, 1),
-(62, 52, 15, 4, 0, 0, 0, 0, 0, 0, 0),
-(63, 52, 16, 4, 0, 0, 0, 0, 0, 0, 0),
-(64, 52, 17, 4, 0, 0, 0, 0, 0, 0, 0),
-(65, 52, 18, 4, 0, 0, 0, 0, 0, 0, 0),
-(66, 52, 19, 4, 0, 0, 0, 0, 0, 0, 0),
-(67, 52, 20, 4, 0, 0, 0, 0, 0, 0, 0),
-(68, 52, 21, 4, 0, 0, 0, 0, 0, 0, 0),
-(69, 52, 22, 4, 0, 0, 0, 0, 0, 0, 0),
-(70, 51, 8, 5, 0, 0, 0, 0, 0, 0, 0),
-(71, 52, 11, 5, 3, 2, 2, 2, 1, 3, 3),
-(72, 52, 12, 5, 2, 2, 1, 1, 1, 3, 3),
-(73, 52, 13, 5, 2, 3, 2, 2, 1, 3, 3),
-(74, 52, 14, 5, 2, 3, 3, 3, 3, 3, 1),
-(75, 3, 1, 7, 3, 3, 3, 3, 2, 2, 2),
-(76, 3, 2, 7, 2, 3, 3, 3, 2, 3, 3),
-(77, 3, 3, 7, 3, 3, 2, 2, 2, 3, 1),
-(78, 101, 6, 7, 3, 3, 2, 1, 1, 3, 1),
-(79, 102, 23, 7, 3, 2, 2, 2, 1, 3, 3),
-(80, 102, 24, 7, 3, 2, 3, 2, 1, 3, 3),
-(81, 102, 25, 7, 2, 2, 1, 1, 1, 3, 3),
-(82, 102, 26, 7, 0, 0, 0, 0, 0, 0, 0),
-(83, 102, 27, 7, 0, 0, 0, 0, 0, 0, 0),
-(84, 102, 28, 7, 0, 0, 0, 0, 0, 0, 0),
-(85, 102, 28, 7, 0, 0, 0, 0, 0, 0, 0),
-(86, 102, 29, 7, 0, 0, 0, 0, 0, 0, 0),
-(87, 102, 30, 7, 0, 0, 0, 0, 0, 0, 0),
-(88, 2, 58, 8, 0, 0, 0, 0, 0, 0, 0),
-(89, 3, 54, 8, 3, 2, 3, 3, 2, 1, 1),
-(90, 3, 55, 8, 3, 1, 1, 1, 2, 1, 1),
-(91, 3, 56, 8, 3, 3, 1, 2, 1, 3, 3),
-(92, 3, 57, 8, 2, 1, 1, 2, 1, 1, 1),
-(93, 3, 59, 8, 1, 3, 2, 1, 3, 3, 2),
-(94, 3, 62, 8, 1, 3, 1, 1, 1, 3, 3),
-(95, 2, 61, 9, 0, 0, 0, 0, 0, 0, 0),
-(96, 3, 54, 9, 3, 2, 3, 3, 2, 1, 1),
-(97, 3, 55, 9, 3, 1, 1, 1, 2, 1, 1),
-(98, 3, 56, 9, 3, 3, 1, 2, 1, 3, 3),
-(99, 3, 62, 9, 1, 3, 1, 1, 1, 3, 3),
-(100, 6, 50, 10, 3, 1, 2, 2, 1, 1, 0),
-(101, 6, 51, 10, 2, 2, 2, 3, 2, 1, 0),
-(102, 6, 52, 10, 2, 3, 3, 3, 3, 2, 0),
-(103, 6, 50, 11, 3, 1, 2, 2, 1, 1, 0),
-(104, 6, 51, 11, 2, 2, 2, 3, 2, 1, 0),
-(105, 6, 52, 11, 2, 3, 3, 3, 3, 2, 0),
-(106, 6, 50, 12, 3, 1, 2, 2, 1, 1, 0),
-(107, 6, 51, 12, 2, 2, 2, 3, 2, 1, 0),
-(108, 6, 52, 12, 2, 3, 3, 3, 3, 2, 0),
-(109, 6, 50, 13, 3, 1, 2, 2, 1, 1, 0),
-(110, 6, 51, 13, 2, 2, 2, 3, 2, 1, 0),
-(111, 6, 52, 13, 2, 3, 3, 3, 3, 2, 0),
-(112, 6, 53, 13, 0, 0, 0, 0, 0, 0, 0),
-(113, 12, 66, 14, 0, 0, 0, 0, 0, 0, 0),
-(114, 12, 67, 14, 0, 0, 0, 0, 0, 0, 0),
-(115, 2, 74, 1, 0, 0, 0, 0, 0, 0, 0),
-(116, 2, 74, 2, 0, 0, 0, 0, 0, 0, 0),
-(117, 2, 74, 3, 0, 0, 0, 0, 0, 0, 0),
-(118, 2, 75, 4, 0, 0, 0, 0, 0, 0, 0),
-(119, 2, 75, 7, 0, 0, 0, 0, 0, 0, 0),
-(120, 2, 74, 8, 0, 0, 0, 0, 0, 0, 0),
-(121, 2, 74, 10, 0, 0, 0, 0, 0, 0, 0),
-(122, 2, 74, 11, 0, 0, 0, 0, 0, 0, 0),
-(123, 2, 75, 12, 0, 0, 0, 0, 0, 0, 0),
-(124, 2, 74, 13, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`, `efficacia`, `esiguita_di_ingombro`, `modicita_di_costo`, `reversibilita`, `semplicita_di_cantiere`, `sup_intonacate`, `sup_vista`, `variante`) VALUES
+(1, 2, 58, 1, 0, 0, 0, 0, 0, 0, 0, NULL),
+(2, 3, 54, 1, 3, 2, 3, 3, 2, 1, 1, NULL),
+(3, 3, 55, 1, 3, 1, 1, 1, 2, 1, 1, NULL),
+(4, 3, 56, 1, 3, 3, 2, 2, 1, 3, 3, NULL),
+(5, 3, 57, 1, 1, 3, 2, 3, 2, 3, 1, NULL),
+(6, 3, 59, 1, 1, 3, 2, 1, 3, 3, 2, NULL),
+(7, 3, 60, 1, 1, 3, 2, 1, 2, 3, 2, NULL),
+(8, 1, 31, 2, 3, 3, 2, 3, 1, 3, 3, NULL),
+(9, 1, 32, 2, 2, 3, 3, 1, 3, 3, 3, NULL),
+(10, 1, 33, 2, 2, 3, 2, 3, 2, 3, 2, 'b'),
+(11, 1, 37, 2, 3, 3, 1, 1, 2, 3, 1, NULL),
+(12, 1, 38, 2, 2, 2, 2, 2, 2, 1, 1, NULL),
+(13, 1, 39, 2, 2, 2, 2, 1, 3, 3, 0, NULL),
+(14, 1, 40, 2, 3, 3, 1, 2, 2, 3, 1, NULL),
+(15, 1, 43, 2, 3, 1, 2, 1, 1, 2, 2, NULL),
+(16, 1, 44, 2, 2, 1, 2, 1, 2, 2, 0, NULL),
+(17, 2, 31, 2, 0, 0, 0, 0, 0, 0, 0, NULL),
+(18, 7, 42, 2, 0, 0, 0, 0, 0, 0, 0, NULL),
+(19, 8, 1, 2, 3, 3, 3, 3, 2, 2, 2, NULL),
+(20, 8, 2, 2, 2, 3, 3, 3, 2, 3, 3, NULL),
+(21, 8, 3, 2, 3, 3, 2, 2, 2, 3, 1, NULL),
+(22, 8, 6, 2, 3, 3, 1, 1, 1, 3, 1, NULL),
+(23, 8, 41, 2, 3, 1, 3, 1, 1, 1, 1, NULL),
+(24, 8, 43, 2, 3, 1, 1, 1, 1, 2, 2, NULL),
+(25, 4, 1, 2, 3, 3, 3, 3, 2, 2, 2, NULL),
+(26, 4, 2, 2, 2, 3, 3, 3, 2, 3, 3, NULL),
+(27, 4, 3, 2, 3, 3, 2, 2, 2, 3, 1, NULL),
+(28, 4, 4, 2, 3, 3, 3, 3, 1, 3, 3, NULL),
+(29, 4, 5, 2, 1, 3, 3, 1, 2, 3, 2, NULL),
+(30, 4, 6, 2, 3, 3, 1, 1, 1, 3, 1, NULL),
+(31, 1, 31, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(32, 1, 32, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(33, 1, 33, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(34, 1, 37, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(35, 1, 38, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(36, 1, 39, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(37, 1, 40, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(38, 1, 43, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(39, 1, 44, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(40, 2, 31, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(41, 7, 42, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(42, 8, 1, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(43, 8, 2, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(44, 8, 3, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(45, 8, 6, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(46, 8, 41, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(47, 9, 34, 3, 3, 3, 3, 1, 2, 3, 2, NULL),
+(48, 9, 35, 3, 3, 3, 3, 2, 2, 3, 3, NULL),
+(49, 9, 36, 3, 3, 3, 3, 2, 2, 1, 1, NULL),
+(50, 4, 1, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(51, 4, 2, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(52, 4, 3, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(53, 9, 4, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(54, 9, 5, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(55, 9, 6, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(56, 51, 7, 4, 2, 3, 2, 3, 3, 2, 3, NULL),
+(57, 51, 8, 4, 3, 2, 3, 2, 2, 2, 3, NULL),
+(58, 52, 9, 4, 3, 2, 2, 1, 2, 3, 2, NULL),
+(59, 52, 10, 4, 3, 2, 2, 1, 2, 3, 2, NULL),
+(60, 52, 11, 4, 3, 2, 3, 1, 2, 3, 2, NULL),
+(61, 52, 12, 4, 2, 2, 1, 1, 2, 3, 1, NULL),
+(62, 52, 15, 4, 0, 0, 0, 0, 0, 0, 0, NULL),
+(63, 52, 16, 4, 0, 0, 0, 0, 0, 0, 0, NULL),
+(64, 52, 17, 4, 0, 0, 0, 0, 0, 0, 0, NULL),
+(65, 52, 18, 4, 0, 0, 0, 0, 0, 0, 0, NULL),
+(66, 52, 19, 4, 0, 0, 0, 0, 0, 0, 0, NULL),
+(67, 52, 20, 4, 0, 0, 0, 0, 0, 0, 0, NULL),
+(68, 52, 21, 4, 0, 0, 0, 0, 0, 0, 0, NULL),
+(69, 52, 22, 4, 0, 0, 0, 0, 0, 0, 0, NULL),
+(70, 51, 8, 5, 0, 0, 0, 0, 0, 0, 0, NULL),
+(71, 52, 11, 5, 3, 2, 2, 2, 1, 3, 3, NULL),
+(72, 52, 12, 5, 2, 2, 1, 1, 1, 3, 3, NULL),
+(73, 52, 13, 5, 2, 3, 2, 2, 1, 3, 3, NULL),
+(74, 52, 14, 5, 2, 3, 3, 3, 3, 3, 1, NULL),
+(75, 3, 1, 7, 3, 3, 3, 3, 2, 2, 2, NULL),
+(76, 3, 2, 7, 2, 3, 3, 3, 2, 3, 3, NULL),
+(77, 3, 3, 7, 3, 3, 2, 2, 2, 3, 1, NULL),
+(78, 101, 6, 7, 3, 3, 2, 1, 1, 3, 1, NULL),
+(79, 102, 23, 7, 3, 2, 2, 2, 1, 3, 3, NULL),
+(80, 102, 24, 7, 3, 2, 3, 2, 1, 3, 3, NULL),
+(81, 102, 25, 7, 2, 2, 1, 1, 1, 3, 3, NULL),
+(82, 102, 26, 7, 0, 0, 0, 0, 0, 0, 0, NULL),
+(83, 102, 27, 7, 0, 0, 0, 0, 0, 0, 0, NULL),
+(84, 102, 28, 7, 0, 0, 0, 0, 0, 0, 0, NULL),
+(85, 102, 28, 7, 0, 0, 0, 0, 0, 0, 0, NULL),
+(86, 102, 29, 7, 0, 0, 0, 0, 0, 0, 0, NULL),
+(87, 102, 30, 7, 0, 0, 0, 0, 0, 0, 0, NULL),
+(88, 2, 58, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
+(89, 3, 54, 8, 3, 2, 3, 3, 2, 1, 1, NULL),
+(90, 3, 55, 8, 3, 1, 1, 1, 2, 1, 1, NULL),
+(91, 3, 56, 8, 3, 3, 1, 2, 1, 3, 3, NULL),
+(92, 3, 57, 8, 2, 1, 1, 2, 1, 1, 1, NULL),
+(93, 3, 59, 8, 1, 3, 2, 1, 3, 3, 2, NULL),
+(94, 3, 62, 8, 1, 3, 1, 1, 1, 3, 3, NULL),
+(95, 2, 61, 9, 0, 0, 0, 0, 0, 0, 0, NULL),
+(96, 3, 54, 9, 3, 2, 3, 3, 2, 1, 1, NULL),
+(97, 3, 55, 9, 3, 1, 1, 1, 2, 1, 1, NULL),
+(98, 3, 56, 9, 3, 3, 1, 2, 1, 3, 3, NULL),
+(99, 3, 62, 9, 1, 3, 1, 1, 1, 3, 3, NULL),
+(100, 6, 50, 10, 3, 1, 2, 2, 1, 1, 0, NULL),
+(101, 6, 51, 10, 2, 2, 2, 3, 2, 1, 0, NULL),
+(102, 6, 52, 10, 2, 3, 3, 3, 3, 2, 0, NULL),
+(103, 6, 50, 11, 3, 1, 2, 2, 1, 1, 0, NULL),
+(104, 6, 51, 11, 2, 2, 2, 3, 2, 1, 0, NULL),
+(105, 6, 52, 11, 2, 3, 3, 3, 3, 2, 0, NULL),
+(106, 6, 50, 12, 3, 1, 2, 2, 1, 1, 0, NULL),
+(107, 6, 51, 12, 2, 2, 2, 3, 2, 1, 0, NULL),
+(108, 6, 52, 12, 2, 3, 3, 3, 3, 2, 0, NULL),
+(109, 6, 50, 13, 3, 1, 2, 2, 1, 1, 0, NULL),
+(110, 6, 51, 13, 2, 2, 2, 3, 2, 1, 0, NULL),
+(111, 6, 52, 13, 2, 3, 3, 3, 3, 2, 0, NULL),
+(112, 6, 53, 13, 0, 0, 0, 0, 0, 0, 0, NULL),
+(113, 12, 66, 14, 0, 0, 0, 0, 0, 0, 0, NULL),
+(114, 12, 67, 14, 0, 0, 0, 0, 0, 0, 0, NULL),
+(115, 2, 74, 1, 0, 0, 0, 0, 0, 0, 0, NULL),
+(116, 2, 74, 2, 0, 0, 0, 0, 0, 0, 0, NULL),
+(117, 2, 74, 3, 0, 0, 0, 0, 0, 0, 0, NULL),
+(118, 2, 75, 4, 0, 0, 0, 0, 0, 0, 0, NULL),
+(119, 2, 75, 7, 0, 0, 0, 0, 0, 0, 0, NULL),
+(120, 2, 74, 8, 0, 0, 0, 0, 0, 0, 0, NULL),
+(121, 2, 74, 10, 0, 0, 0, 0, 0, 0, 0, NULL),
+(122, 2, 74, 11, 0, 0, 0, 0, 0, 0, 0, NULL),
+(123, 2, 75, 12, 0, 0, 0, 0, 0, 0, 0, NULL),
+(124, 2, 74, 13, 0, 0, 0, 0, 0, 0, 0, NULL),
+(126, 1, 33, 2, 2, 3, 2, 3, 2, 3, 2, 'a');
 
 -- --------------------------------------------------------
 
@@ -287,6 +289,17 @@ INSERT INTO `caratterisitche_qualitative_meccanismi_associati` (`caratteristiche
 (102, 15),
 (102, 16),
 (12, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `caratterisitche_qualitative_valutazione_punteggio`
+--
+
+CREATE TABLE `caratterisitche_qualitative_valutazione_punteggio` (
+  `caratteristiche_qualitative_id` bigint(20) NOT NULL,
+  `valutazione_punteggio_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1539,6 +1552,63 @@ INSERT INTO `user_roles` (`role_id`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `valutazione_punteggio`
+--
+
+CREATE TABLE `valutazione_punteggio` (
+  `id` bigint(20) NOT NULL,
+  `punteggio` int(11) DEFAULT NULL,
+  `valutazione` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `valutazione_punteggio`
+--
+
+INSERT INTO `valutazione_punteggio` (`id`, `punteggio`, `valutazione`) VALUES
+(1, 3, 'A'),
+(2, 2, 'M'),
+(3, 0, 'B'),
+(4, 15, 'A'),
+(5, 8, 'M'),
+(6, 0, 'B'),
+(7, 4, 'A'),
+(8, 2, 'M'),
+(9, 0, 'B'),
+(10, 4, 'A'),
+(11, 2, 'M'),
+(12, 0, 'B'),
+(13, 8, 'A'),
+(14, 4, 'M'),
+(15, 0, 'B'),
+(16, 20, 'A'),
+(17, 10, 'M'),
+(18, 0, 'B'),
+(19, 4, 'A'),
+(20, 2, 'M'),
+(21, 0, 'B'),
+(22, 4, 'A'),
+(23, 2, 'M'),
+(24, 0, 'B'),
+(25, 4, 'A'),
+(26, 2, 'M'),
+(27, 0, 'B'),
+(28, 4, 'A'),
+(29, 2, 'M'),
+(30, 0, 'B'),
+(31, 4, 'A'),
+(32, 2, 'M'),
+(33, 0, 'B'),
+(34, 8, 'A'),
+(35, 4, 'M'),
+(36, 0, 'B'),
+(37, 3, 'A'),
+(38, 1, 'M'),
+(39, 0, 'B');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `valutazioni`
 --
 
@@ -1576,6 +1646,13 @@ ALTER TABLE `caratterisitche_qualitative`
 ALTER TABLE `caratterisitche_qualitative_meccanismi_associati`
   ADD KEY `FK812mc641jr6q5wfsd0cl5grl` (`meccanismi_associati_id`),
   ADD KEY `FK15cu3jstiktv7xuvro3i7ys8c` (`caratteristiche_qualitative_id`);
+
+--
+-- Indici per le tabelle `caratterisitche_qualitative_valutazione_punteggio`
+--
+ALTER TABLE `caratterisitche_qualitative_valutazione_punteggio`
+  ADD UNIQUE KEY `UK_2glwplh52xpmrev9gb9rx36s5` (`valutazione_punteggio_id`),
+  ADD KEY `FKa4kfapuapftgxx3gbydnuurmr` (`caratteristiche_qualitative_id`);
 
 --
 -- Indici per le tabelle `codice_intervento`
@@ -1686,6 +1763,12 @@ ALTER TABLE `user_roles`
   ADD KEY `FKrhfovtciq1l558cw6udg0h0d3` (`role_id`);
 
 --
+-- Indici per le tabelle `valutazione_punteggio`
+--
+ALTER TABLE `valutazione_punteggio`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indici per le tabelle `valutazioni`
 --
 ALTER TABLE `valutazioni`
@@ -1699,7 +1782,7 @@ ALTER TABLE `valutazioni`
 -- AUTO_INCREMENT per la tabella `associazione_intervento`
 --
 ALTER TABLE `associazione_intervento`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT per la tabella `caratterisitche_qualitative`
@@ -1786,6 +1869,12 @@ ALTER TABLE `user`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT per la tabella `valutazione_punteggio`
+--
+ALTER TABLE `valutazione_punteggio`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+
+--
 -- AUTO_INCREMENT per la tabella `valutazioni`
 --
 ALTER TABLE `valutazioni`
@@ -1809,6 +1898,13 @@ ALTER TABLE `associazione_intervento`
 ALTER TABLE `caratterisitche_qualitative_meccanismi_associati`
   ADD CONSTRAINT `FK15cu3jstiktv7xuvro3i7ys8c` FOREIGN KEY (`caratteristiche_qualitative_id`) REFERENCES `caratterisitche_qualitative` (`id`),
   ADD CONSTRAINT `FK812mc641jr6q5wfsd0cl5grl` FOREIGN KEY (`meccanismi_associati_id`) REFERENCES `meccanismi` (`id`);
+
+--
+-- Limiti per la tabella `caratterisitche_qualitative_valutazione_punteggio`
+--
+ALTER TABLE `caratterisitche_qualitative_valutazione_punteggio`
+  ADD CONSTRAINT `FKa4kfapuapftgxx3gbydnuurmr` FOREIGN KEY (`caratteristiche_qualitative_id`) REFERENCES `caratterisitche_qualitative` (`id`),
+  ADD CONSTRAINT `FKc3d91xqvrxewhwjaotyyybien` FOREIGN KEY (`valutazione_punteggio_id`) REFERENCES `valutazione_punteggio` (`id`);
 
 --
 -- Limiti per la tabella `edificio`

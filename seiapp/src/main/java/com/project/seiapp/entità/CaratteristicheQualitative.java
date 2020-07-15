@@ -5,10 +5,13 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -25,6 +28,10 @@ public class CaratteristicheQualitative {
 
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Meccanismi> meccanismiAssociati;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable 
+    private List<ValutazionePunteggio> valutazionePunteggio;
 
 
     public String getCaratteristicheQualitative() {
@@ -49,6 +56,14 @@ public class CaratteristicheQualitative {
 
     public void setMeccanismiAssociati(List<Meccanismi> meccanismiAssociati) {
         this.meccanismiAssociati = meccanismiAssociati;
+    }
+
+    public List<ValutazionePunteggio> getValutazionePunteggio() {
+        return valutazionePunteggio;
+    }
+
+    public void setValutazionePunteggio(List<ValutazionePunteggio> valutazionePunteggio) {
+        this.valutazionePunteggio = valutazionePunteggio;
     }
     }
 
