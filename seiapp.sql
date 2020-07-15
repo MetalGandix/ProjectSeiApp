@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 15, 2020 alle 17:23
+-- Creato il: Lug 15, 2020 alle 18:36
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -300,6 +300,51 @@ CREATE TABLE `caratterisitche_qualitative_valutazione_punteggio` (
   `caratteristiche_qualitative_id` bigint(20) NOT NULL,
   `valutazione_punteggio_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `caratterisitche_qualitative_valutazione_punteggio`
+--
+
+INSERT INTO `caratterisitche_qualitative_valutazione_punteggio` (`caratteristiche_qualitative_id`, `valutazione_punteggio_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(3, 7),
+(3, 8),
+(3, 9),
+(4, 10),
+(4, 11),
+(4, 12),
+(6, 19),
+(6, 20),
+(6, 21),
+(7, 22),
+(7, 23),
+(7, 24),
+(8, 25),
+(8, 26),
+(8, 27),
+(9, 28),
+(9, 29),
+(9, 30),
+(12, 37),
+(12, 38),
+(12, 39),
+(51, 13),
+(51, 14),
+(51, 15),
+(52, 16),
+(52, 17),
+(52, 18),
+(101, 31),
+(101, 32),
+(101, 33),
+(102, 34),
+(102, 35),
+(102, 36);
 
 -- --------------------------------------------------------
 

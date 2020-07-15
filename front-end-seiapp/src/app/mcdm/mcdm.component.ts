@@ -42,6 +42,8 @@ export class McdmComponent {
   toggleSuperficie: boolean = true
   buttonIntervento: boolean = false
   valutazionePunteggio: ValutazionePunteggio[]
+  a: boolean = false
+  selectedElement = []
 
   ngOnInit() {
     this.caratteristiche = window.history.state.caratteristiche
@@ -69,6 +71,9 @@ export class McdmComponent {
       }
       console.log("Totale: ",t.totale)
     })
+  }
+
+  deltaPunteggio(x: number){
   }
 
   premiBottone(){

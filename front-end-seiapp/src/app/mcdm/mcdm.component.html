@@ -46,15 +46,28 @@
 
     <div *ngIf="buttonIntervento">
         <div class="card-body">
-            {{caratteristiche.caratteristicheQualitative}}
+           CARATTERISTICA: {{caratteristiche.caratteristicheQualitative}}
         </div>
         <div>
-            <select>
-                <option *ngFor="let x of caratteristiche.valutazionePunteggio">
-                    {{x.valutazione}}
-                    {{x.punteggio}}
+            <p>ANTE</p>
+            <select (change)="deltaPunteggio($event.target.value)">
+                <option *ngFor="let ante of caratteristiche.valutazionePunteggio">
+                    {{ante.valutazione}}
+                    {{ante.punteggio}}
                 </option>
             </select>
+        </div>
+        <div>
+            <p>POST</p>
+            <select>
+                <option *ngFor="let post of caratteristiche.valutazionePunteggio">
+                    {{post.valutazione}}
+                    {{post.punteggio}}
+                </option>
+            </select>
+        </div>
+        <div *ngIf="a">
+
         </div>
     </div>
 </div>
