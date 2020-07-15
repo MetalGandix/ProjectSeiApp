@@ -50,8 +50,9 @@
         </div>
         <div>
             <select>
-                <option>
-                    
+                <option *ngFor="let x of caratteristiche.valutazionePunteggio">
+                    {{x.valutazione}}
+                    {{x.punteggio}}
                 </option>
             </select>
         </div>

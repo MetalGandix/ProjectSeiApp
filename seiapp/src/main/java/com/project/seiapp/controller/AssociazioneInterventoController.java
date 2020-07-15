@@ -3,9 +3,6 @@ package com.project.seiapp.controller;
 import java.util.List;
 
 import com.project.seiapp.entità.AssociazioneIntervento;
-import com.project.seiapp.entità.CaratteristicheQualitative;
-import com.project.seiapp.entità.CodiceIntervento;
-import com.project.seiapp.entità.Struttura;
 import com.project.seiapp.repository.AssociazioneInterventoRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

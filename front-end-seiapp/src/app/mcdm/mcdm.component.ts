@@ -6,6 +6,7 @@ import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-i
 import { Struttura } from '../classi-servizi/classes/strutture/struttura';
 import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 import { Intervento } from '../classi-servizi/classes/intervento';
+import { ValutazionePunteggio } from '../classi-servizi/classes/valutazione-punteggio';
 
 @Component({
   selector: 'app-mcdm',
@@ -40,11 +41,15 @@ export class McdmComponent {
   strutturaAssociazione: number
   toggleSuperficie: boolean = true
   buttonIntervento: boolean = false
+  valutazionePunteggio: ValutazionePunteggio[]
 
   ngOnInit() {
     this.caratteristiche = window.history.state.caratteristiche
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
+    //this.service.getValutazionePunteggio().subscribe(data => {
+    //  this.valutazionePunteggio = data
+    //})
     console.log(this.ponderazione)
     this.cambiaTotale()
   }

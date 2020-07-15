@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CaratteristicheQualitative } from '../classes/caratteristiche-qualitative';
 import { Struttura } from '../classes/strutture/struttura';
 import { TypeStruttura } from '../classes/strutture/type-struttura';
+import { ValutazionePunteggio } from '../classes/valutazione-punteggio';
 
 
 
@@ -25,6 +26,10 @@ export class ElementiStrutturaService {
 
   public getCaratteristicheQualitative():Observable<CaratteristicheQualitative[]>{
     return this.http.get<CaratteristicheQualitative[]>(this.url + 'caratteristicheQualitative');
+  }
+
+  public getValutazionePunteggio():Observable<ValutazionePunteggio[]>{
+    return this.http.get<ValutazionePunteggio[]>(this.url + 'valutazionePunteggio')
   }
 
   public getTypeStruttura():Observable<TypeStruttura[]>{
