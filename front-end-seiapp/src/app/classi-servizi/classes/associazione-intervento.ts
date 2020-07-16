@@ -6,14 +6,18 @@ export class AssociazioneIntervento {
     intervento: Intervento
     caratteristicaAssociazioneIntervento: CaratteristicheQualitative
     strutturaAssociazione: Struttura
-    modicitaDiCosto: number
-    efficacia: number
-    supIntonacate: number
-    supVista: number
-    reversibilita: number
-    semplicitaDiCantiere: number
-    esiguitaDiIngombro: number
+    modicitaDiCosto: number|number[]
+    efficacia: number|number[]
+    supIntonacate: number|number[]
+    supVista: number|number[]
+    reversibilita: number|number[]
+    semplicitaDiCantiere: number|number[]
+    esiguitaDiIngombro: number|number[]
     totale: number[]
     variante: String
     varianti: String[]
+    //Può non esistere
+    maxVariante?: number
+    ante?: number
+    post?: number
 }

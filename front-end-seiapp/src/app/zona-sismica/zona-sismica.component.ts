@@ -30,7 +30,7 @@ export class ZonaSismicaComponent implements OnInit {
   classeE: boolean = false
   classeF: boolean = false
   classeG: boolean = false
-  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -44,15 +44,15 @@ export class ZonaSismicaComponent implements OnInit {
     console.log(this.vulClass)
   }
 
-  onChange(zonaId: number){
-   this.zonaSismica.find(t => t.id == zonaId);
-   this.riskType = zonaId
-   console.log(zonaId)
+  onChange(zonaId: number) {
+    this.zonaSismica.find(t => t.id == zonaId);
+    this.riskType = zonaId
+    console.log(zonaId)
 
   }
 
-  onSubmit(){
-    this.service.postValutazione(this.valutazioni).subscribe(data =>{
+  onSubmit() {
+    this.service.postValutazione(this.valutazioni).subscribe(data => {
       this.messaggio1 = true
     })
   }
@@ -70,6 +70,15 @@ export class ZonaSismicaComponent implements OnInit {
   }
 
   gradoDiRischio() {
+    this.classeAA = false
+    this.classeA = false
+    this.classeB = false
+    this.classeC = false
+    this.classeD = false
+    this.classeE = false
+    this.classeF = false
+    this.classeG = false
+    
     if (this.vulClass == 6 && this.riskType == 1) {
       this.risk = "G"
       this.pam = "7,5%"
@@ -174,8 +183,9 @@ export class ZonaSismicaComponent implements OnInit {
     this.far = true;
   }
 
-  mandaValori(){
-  this.router.navigate(['/struttura'], { state: {emsType: this.emsType, vulClass: this.vulClass, punteggio: this.punteggio, risk: this.risk, pam: this.pam } 
-  })
+  mandaValori() {
+    this.router.navigate(['/struttura'], {
+      state: { emsType: this.emsType, vulClass: this.vulClass, punteggio: this.punteggio, risk: this.risk, pam: this.pam }
+    })
   }
 }

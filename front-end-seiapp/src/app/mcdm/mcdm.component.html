@@ -32,9 +32,9 @@
                   <td>{{interventi.reversibilita[j]}}</td>
                   <td>{{interventi.semplicitaDiCantiere[j]}}</td>
                   <td>{{interventi.esiguitaDiIngombro[j]}}</td>
-                  <td>{{interventi.totale[j] | number: '1.2-2'}}</td>
+                  <td [ngStyle]="{'background-color':interventi.maxVariante === j ? 'red' : 'white'}">{{interventi.totale[j] | number: '1.2-2'}}</td>
                   <td>
-                  <button (click)="premiBottone()">
+                  <button (click)="premiBottone(interventi, j, i)">
                       Premi qua per scegliere l'intervento
                   </button>
               </td>
@@ -70,14 +70,16 @@
                       <tr>
                           <td><select style="margin-bottom: 20px;" (change)="deltaPunteggio1($event.target.value)">
                               <option selected disabled>Seleziona il punteggio</option>
-                              <option *ngFor="let ante of caratteristiche.valutazionePunteggio">
+                              <option [value]="ante.punteggio" *ngFor="let ante of caratteristiche.valutazionePunteggio">
+                                  {{ante.valutazione}}
                                   {{ante.punteggio}}
                               </option>
                           </select></td>
                           <td><select (change)="deltaPunteggio2($event.target.value)">
                               <option selected disabled>Seleziona il punteggio</option>
-                              <option *ngFor="let post of caratteristiche.valutazionePunteggio">
-                                  {{post.punteggio}}
+                              <option [value]="post.punteggio" *ngFor="let post of caratteristiche.valutazionePunteggio">
+                                {{post.valutazione}}  
+                                {{post.punteggio}}
                               </option>
                               
                           </select></td>
@@ -130,10 +132,10 @@
                   <th scope="row">Valutazione post-intervento</th>
                   <td>{{deltaPunteggioFinale}}</td>
                 </tr>
-                <tr>
-                  <th scope="row">Incidenza intervento 1
+                <tr *ngFor="let interventi of arraySelezionati; index as i">
+                  <th scope="row" >Incidenza intervento {{i + 1}}
                   </th>
-                  <td></td>
+                  <td>{{interventi.ante - interventi.post}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Δpunteggio risultante
