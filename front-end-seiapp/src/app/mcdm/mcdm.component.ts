@@ -5,7 +5,6 @@ import { AssociazioneInterventoService } from '../classi-servizi/service/associa
 import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
 import { Struttura } from '../classi-servizi/classes/strutture/struttura';
 import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
-import { Intervento } from '../classi-servizi/classes/intervento';
 import { ValutazionePunteggio } from '../classi-servizi/classes/valutazione-punteggio';
 
 @Component({
@@ -47,11 +46,11 @@ export class McdmComponent {
   selectedElement1: any
   selectedElement2: any
   deltaPunteggioFinale: number
-  vulClass: Number;
+  vulClass: number;
   risk: String
   pam: String
-  punteggio: Number
-  soglia: Number
+  punteggio: number
+  soglia: number
   emsType: Number
 
   ngOnInit() {
@@ -68,6 +67,7 @@ export class McdmComponent {
     })
     console.log(this.ponderazione)
     this.cambiaTotale()
+    this.calcoloSoglia()
   }
 
   cambiaTotale(){
@@ -88,8 +88,13 @@ export class McdmComponent {
   }
 
   calcoloSoglia(){
-    if(this.vulClass==6){
+    if(this.emsType==3){
       this.soglia=50
+    }
+    if(this.emsType==5 && this.punteggio <50){
+      this.soglia=60
+    }else{
+      this.soglia=30
     }
   }
 
