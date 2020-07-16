@@ -50,24 +50,29 @@
         </div>
         <div>
             <p>ANTE</p>
-            <select (change)="deltaPunteggio($event.target.value)">
+            <select style="margin-bottom: 20px;" (change)="deltaPunteggio1($event.target.value)">
+                <option selected disabled>Seleziona il punteggio</option>
                 <option *ngFor="let ante of caratteristiche.valutazionePunteggio">
-                    {{ante.valutazione}}
                     {{ante.punteggio}}
                 </option>
             </select>
         </div>
         <div>
             <p>POST</p>
-            <select>
+            <select (change)="deltaPunteggio2($event.target.value)">
+                <option selected disabled>Seleziona il punteggio</option>
                 <option *ngFor="let post of caratteristiche.valutazionePunteggio">
-                    {{post.valutazione}}
                     {{post.punteggio}}
                 </option>
+                
             </select>
         </div>
-        <div *ngIf="a">
+        <button (click)="risultatoDelta()" style="margin-top: 30px;">
+            Clicca per il risultato
+        </button>
 
+        <div *ngIf="a" style="margin-top: 30px">
+            {{deltaPunteggioFinale}}
         </div>
     </div>
 </div>

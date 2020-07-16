@@ -28,6 +28,7 @@ export class McdmComponent {
   struttura: Struttura[];
   variabileIntervento: AssociazioneIntervento[];
   caratteristiche: CaratteristicheQualitative
+  car: CaratteristicheQualitative[]
   totale: number[];
   modCos: number
   effic: number
@@ -43,15 +44,17 @@ export class McdmComponent {
   buttonIntervento: boolean = false
   valutazionePunteggio: ValutazionePunteggio[]
   a: boolean = false
-  selectedElement = []
+  selectedElement1: any
+  selectedElement2: any
+  deltaPunteggioFinale: number
 
   ngOnInit() {
     this.caratteristiche = window.history.state.caratteristiche
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
-    //this.service.getValutazionePunteggio().subscribe(data => {
-    //  this.valutazionePunteggio = data
-    //})
+    this.service.getCaratteristicheQualitative().subscribe(data => {
+      this.car = data
+    })
     console.log(this.ponderazione)
     this.cambiaTotale()
   }
@@ -73,8 +76,20 @@ export class McdmComponent {
     })
   }
 
-  deltaPunteggio(x: number){
+  deltaPunteggio1(x: number){
+    console.log(x)
+    this.selectedElement1 = x
   }
+
+  deltaPunteggio2(y: number){
+    console.log(y)
+    this.selectedElement2 = y
+  }
+
+  risultatoDelta(){
+    this.deltaPunteggioFinale = this.selectedElement1 - this.selectedElement2
+    this.a = true
+  }  
 
   premiBottone(){
     this.buttonIntervento = true
