@@ -14,10 +14,12 @@ export class ZonaSismicaComponent implements OnInit {
   risk: String
   pam: String
   punteggio: Number
+  emsType: Number
   msg1: boolean = false;
   riskType: Number;
   value: number[] = []
   messaggio1: boolean = false
+  far: boolean = false
   valutazioni: ValutazioniClass
 
   classeAA: boolean = false
@@ -36,6 +38,7 @@ export class ZonaSismicaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.emsType = window.history.state.emsType
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
     console.log(this.vulClass)
@@ -45,6 +48,7 @@ export class ZonaSismicaComponent implements OnInit {
    this.zonaSismica.find(t => t.id == zonaId);
    this.riskType = zonaId
    console.log(zonaId)
+
   }
 
   onSubmit(){
@@ -167,8 +171,11 @@ export class ZonaSismicaComponent implements OnInit {
       this.classeAA = true
     }
     this.msg1 = true;
+    this.far = true;
   }
 
-  
-
+  mandaValori(){
+  this.router.navigate(['/struttura'], { state: {emsType: this.emsType, vulClass: this.vulClass, punteggio: this.punteggio, risk: this.risk, pam: this.pam } 
+  })
+  }
 }

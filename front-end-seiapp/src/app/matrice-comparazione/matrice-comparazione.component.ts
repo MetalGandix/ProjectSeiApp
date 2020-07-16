@@ -33,6 +33,11 @@ export class MatriceComparazioneComponent implements OnInit {
   matrixRisultati: number[] = [0, 0, 0, 0, 0, 0]
   variabileIntervento: AssociazioneIntervento[];
   caratteristiche: CaratteristicheQualitative[];
+  vulClass: Number;
+  risk: String
+  pam: String
+  punteggio: Number
+  emsType: Number
 
   arrayComparazione = [
     { id: 1, char: "1/9", num: 1 / 9 },
@@ -63,6 +68,11 @@ export class MatriceComparazioneComponent implements OnInit {
   ]
 
   ngOnInit() {
+    this.emsType = window.history.state.emsType
+    this.vulClass = window.history.state.vulClass;
+    this.punteggio = window.history.state.punteggio;
+    this.risk = window.history.state.risk;
+    this.pam = window.history.state.pam;
     this.variabileIntervento = window.history.state.variabileIntervento
     this.caratteristiche = window.history.state.caratteristiche
     for (let r = 0; r < 6; r++) {
@@ -153,7 +163,7 @@ export class MatriceComparazioneComponent implements OnInit {
   }
 
   trasferisciPonderazione(){
-    this.router.navigate(['/mcdm'], { state: { caratteristiche: this.caratteristiche, ponderazione: this.ponderazione, variabileIntervento: this.variabileIntervento }})
+    this.router.navigate(['/mcdm'], { state: {emsType: this.emsType, vulClass: this.vulClass, punteggio: this.punteggio, risk: this.risk, pam: this.pam, caratteristiche: this.caratteristiche, ponderazione: this.ponderazione, variabileIntervento: this.variabileIntervento }})
   }
 
   /*numeriContrapposti(){

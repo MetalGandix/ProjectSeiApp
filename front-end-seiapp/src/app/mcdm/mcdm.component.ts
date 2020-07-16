@@ -47,8 +47,19 @@ export class McdmComponent {
   selectedElement1: any
   selectedElement2: any
   deltaPunteggioFinale: number
+  vulClass: Number;
+  risk: String
+  pam: String
+  punteggio: Number
+  soglia: Number
+  emsType: Number
 
   ngOnInit() {
+    this.emsType = window.history.state.emsType
+    this.vulClass = window.history.state.vulClass;
+    this.punteggio = window.history.state.punteggio;
+    this.risk = window.history.state.risk;
+    this.pam = window.history.state.pam;
     this.caratteristiche = window.history.state.caratteristiche
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
@@ -74,6 +85,12 @@ export class McdmComponent {
       }
       console.log("Totale: ",t.totale)
     })
+  }
+
+  calcoloSoglia(){
+    if(this.vulClass==6){
+      this.soglia=50
+    }
   }
 
   deltaPunteggio1(x: number){

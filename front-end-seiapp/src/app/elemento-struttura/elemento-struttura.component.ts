@@ -26,6 +26,11 @@ export class ElementoStrutturaComponent implements OnInit {
   variabile1;
   associazioneIntervento: AssociazioneIntervento[];
   variabileIntervento: AssociazioneIntervento[];
+  vulClass: Number;
+  risk: String
+  pam: String
+  punteggio: Number
+  emsType: Number
 
 
   constructor(
@@ -55,8 +60,6 @@ export class ElementoStrutturaComponent implements OnInit {
   }
 
   onChangeCaratteristicheQualitative(index: number) {
-    // selectedIndex
-    // selectedArr
     this.variabileIntervento = []
     let elemento = this.selectedElement[this.selectedIndex]
     let caratteristica = this.caratteristiche[index]
@@ -70,11 +73,20 @@ export class ElementoStrutturaComponent implements OnInit {
 
   trasferisciOggetti() {
     this.router.navigate(['/matrice'], {
-      state: { variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
+      state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
     })
   }
 
   ngOnInit() {
+    this.emsType = window.history.state.emsType
+    this.vulClass = window.history.state.vulClass;
+    this.punteggio = window.history.state.punteggio;
+    this.risk = window.history.state.risk;
+    this.pam = window.history.state.pam;
+    console.log("Classe vul: ", this.vulClass)
+    console.log("Punteggio: ", this.punteggio)
+    console.log("Rischio: ", this.risk)
+    console.log("Pam: ", this.pam)
     this.service.getTypeStruttura().subscribe(data => {
       this.typeStruttura = data;
       console.log(this.typeStruttura)

@@ -16,6 +16,7 @@ export class EdificioInaggregatoComponent implements OnInit {
   //showMsg1: boolean = false
   avantiAbilitato = false
   tipoEdificioSelezionato: TipoEdificio;
+  emsType: Number
 
   constructor(
     private route: ActivatedRoute,
@@ -33,11 +34,12 @@ export class EdificioInaggregatoComponent implements OnInit {
   onChange(tipoEdificioId: number){
     this.tipoEdificioSelezionato = this.edificioInAggregato.find(t => t.id==tipoEdificioId);
     this.avantiAbilitato = this.tipoEdificioSelezionato.abilitato;
-    console.log(this.tipoEdificioSelezionato.id)
+    this.emsType = this.tipoEdificioSelezionato.id
+    console.log(this.emsType)
   }
 
   outputSelezione(){
-    this.router.navigate(['/edificio-in-aggregato-q', this.tipoEdificioSelezionato.id]);
+    this.router.navigate(['/edificio-in-aggregato-q', this.tipoEdificioSelezionato.id], { state: {emsType: this.emsType}});
     console.log("Passo questo valore: ", this.tipoEdificioSelezionato.id)
   }
 }
