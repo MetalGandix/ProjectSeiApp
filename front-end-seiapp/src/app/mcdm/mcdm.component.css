@@ -22,3 +22,14 @@
     margin-left: 0;
     border: 1px solid #999;
     }
+    .floatLeft { width: 50%; float: left; }
+    .floatRight {width: 50%; float: right; }
+    .container { overflow: hidden; }
+
+    .bottone{
+        text-align: center;
+    }
+
+    .btn{
+        margin-right: 50px;
+    }
