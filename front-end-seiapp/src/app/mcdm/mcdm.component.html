@@ -43,12 +43,8 @@
           </tbody>
       </table>
   </div>
-
-  
-
  
   <div class="container tabelle">
-
       <!-- Colonne per tabelle -->
       <div class="row">
         <div class="col-lg-4">
@@ -84,9 +80,7 @@
                               
                           </select></td>
                       </tr>
-
                   </thead>
-
               </table>  
               
               <button (click)="risultatoDelta()" style="margin-top: 30px;">
@@ -98,13 +92,10 @@
               </div>
           </div>
 
-  
         </div><!-- /.col-lg-4 -->
-  
         <div class="col-lg-4">
                   <!-- Colonna vuota -->
         </div><!-- /.col-lg-4 -->
-  
         <div class="col-lg-4">
           <table  class="table table-hover table-bordered table-striped">
               <tbody>
@@ -112,30 +103,33 @@
                   <th scope="row">Tipologia EMS</th>
                   <td>{{emsType}}</td>
                 </tr>
+                VALUTAZIONE PRE INTERVENTO
                 <tr>
-                  <th scope="row">Punteggio di vulnerabilità pre intervento</th>
+                  <th scope="row">Punteggio di vulnerabilità</th>
                   <td>{{punteggio}}</td>
                 </tr>
                 <tr>
-                  <th scope="row">Classe di vulnerabilità: pre intervento</th>
+                  <th scope="row">Classe di vulnerabilità</th>
                   <td>V{{vulClass}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Soglia di punteggio per il passaggio alla classe inferiore </th>
                   <td>{{soglia}}</td>
                 </tr>
+                <br>
                 <tr>
                   <th scope="row">Δpunteggio per il passaggio di classe</th>
                   <td>{{punteggio - soglia}}</td>
                 </tr>
-                <tr>
-                  <th scope="row">Valutazione post-intervento</th>
-                  <td>{{deltaPunteggioFinale}}</td>
-                </tr>
+                VALUTAZIONE POST INTERVENTO
                 <tr *ngFor="let interventi of arraySelezionati; index as i">
                   <th scope="row" >Incidenza intervento {{i + 1}}
                   </th>
                   <td>{{interventi.ante - interventi.post}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Incidenza del pacchetto di interventi</th>
+                  <td>{{deltaPunteggioFinale}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Δpunteggio risultante
@@ -143,12 +137,12 @@
                   <td></td>
                 </tr>
                 <tr>
-                  <th scope="row">Punteggio di vulnerabilità post intervento
+                  <th scope="row">Punteggio di vulnerabilità
                   </th>
                   <td></td>
                 </tr>
                 <tr>
-                  <th scope="row">Classe di vulnerabilità post intervento
+                  <th scope="row">Classe di vulnerabilità
                   </th>
                   <td>V{{vulClass - 1}}</td>
                 </tr>
@@ -157,5 +151,4 @@
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
     </div><!-- /.container -->
-  
 </div>
