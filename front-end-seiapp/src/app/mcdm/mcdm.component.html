@@ -96,13 +96,15 @@
                   <!-- Colonna vuota -->
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <table  class="table table-hover table-bordered table-striped">
+          <table class="table table-hover table-bordered table-striped">
               <tbody>
                 <tr>
                   <th scope="row">Tipologia EMS</th>
                   <td>{{emsType}}</td>
                 </tr>
-                VALUTAZIONE PRE INTERVENTO
+
+                <p style="margin-top:20px; margin-bottom:-1px">VALUTAZIONE PRE INTERVENTO</p>
+
                 <tr>
                   <th scope="row">Punteggio di vulnerabilità</th>
                   <td>{{punteggio}}</td>
@@ -120,7 +122,9 @@
                   <th scope="row">Δpunteggio per il passaggio di classe</th>
                   <td>{{punteggio - soglia}}</td>
                 </tr>
-                VALUTAZIONE POST INTERVENTO
+
+                <p style="margin-top:20px; margin-bottom:-1px">VALUTAZIONE POST INTERVENTO</p>
+
                 <tr *ngFor="let interventi of arraySelezionati; index as i">
                   <th scope="row" >Incidenza intervento {{i + 1}}
                   </th>
