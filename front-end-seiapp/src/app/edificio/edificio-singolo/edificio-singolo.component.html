@@ -15,7 +15,7 @@
         <select class="form-control" id="edificioInAggregato" name="edificio" (change)="onChange($event.target.value)">
           <option selected disabled>Seleziona EMP</option>
           <option [value]="tipoEdificio.id" *ngFor="let tipoEdificio of edificioInAggregato;"
-            [class.bg-warning]="tipoEdificio.abilitato">
+            [disabled]="tipoEdificio.abilitato">
             {{tipoEdificio.id}} - {{ tipoEdificio.tipologiaStrutture }}
           </option>
         </select>
