@@ -55,6 +55,7 @@ export class McdmComponent {
   emsType: Number
   arraySelezionati: AssociazioneIntervento[] = []
   selectedElement: AssociazioneIntervento
+  counterClickCheck: number = 0
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -150,12 +151,14 @@ export class McdmComponent {
   }
 
   premiBottone(selezionato: AssociazioneIntervento, variante: number, index: number) {
+    if(this.counterClickCheck == 0){
     const nuovo = Object.assign({}, selezionato)
     nuovo.ante = 0
     nuovo.post = 0
     this.selectedElement = nuovo
     this.arraySelezionati.push(nuovo)
-    selezionato.totale.splice(variante, 1);
+    //Rimuovo l'elemento dall'array
+    /*selezionato.totale.splice(variante, 1);
     (selezionato.efficacia as number[]).splice(variante, 1);
     (selezionato.esiguitaDiIngombro as number[]).splice(variante, 1);
     (selezionato.modicitaDiCosto as number[]).splice(variante, 1);
@@ -163,11 +166,15 @@ export class McdmComponent {
     (selezionato.semplicitaDiCantiere as number[]).splice(variante, 1);
     (selezionato.supIntonacate as number[]).splice(variante, 1);
     (selezionato.supVista as number[]).splice(variante, 1);
-    selezionato.varianti.splice(variante, 1);
+    selezionato.varianti.splice(variante, 1);*/
     this.buttonIntervento = true
     if(selezionato.varianti.length === 0){
       this.variabileIntervento.splice(index, 1)
     }
     this.massimoNumero()
+    this.counterClickCheck + 1
+  }else{
+
+  }
   }
 }

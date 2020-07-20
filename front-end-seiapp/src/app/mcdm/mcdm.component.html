@@ -32,11 +32,10 @@
                   <td>{{interventi.reversibilita[j]}}</td>
                   <td>{{interventi.semplicitaDiCantiere[j]}}</td>
                   <td>{{interventi.esiguitaDiIngombro[j]}}</td>
-                  <td [ngStyle]="{'background-color':interventi.maxVariante === j ? 'red' : 'white'}">{{interventi.totale[j] | number: '1.2-2'}}</td>
+                  <td [ngStyle]="{'background-color':interventi.maxVariante === j ? 'green' : 'white'}">{{interventi.totale[j] | number: '1.2-2'}}</td>
                   <td>
-                  <button (click)="premiBottone(interventi, j, i)">
-                      Premi qua per scegliere l'intervento
-                  </button>
+                    Premi qua per scegliere l'intervento
+                  <input type="checkbox" class="form-check-input" (click)="premiBottone(interventi, j, i)">
               </td>
               </tr>
               </ng-container>
