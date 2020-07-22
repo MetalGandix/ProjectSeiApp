@@ -141,7 +141,7 @@
           </tr>
           <tr>
             <th scope="row">Δpunteggio per il passaggio di classe</th>
-            <td>{{punteggio - soglia}}</td>
+            <td>{{punteggioPassaggioClasse}}</td>
           </tr>
 
           <tr>
@@ -173,6 +173,11 @@
             </th>
             <td>V{{vulClass - 1}}</td>
           </tr>
+          <div *ngIf="punteggioPassaggioClasse > 0">
+            <button (click)="aggiuntaInterventoSecondario()">
+              Premi qua per aggiungere un altro intervento
+            </button>
+          </div>
         </tbody>
       </table>
     </div>

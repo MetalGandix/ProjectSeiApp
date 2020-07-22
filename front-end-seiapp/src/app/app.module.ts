@@ -26,6 +26,7 @@ import { ElementoStrutturaComponent } from './elemento-struttura/elemento-strutt
 import { ReportInterventoComponent } from './report-intervento/report-intervento.component';
 import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
 import { McdmComponent } from './mcdm/mcdm.component';
+import { AggiuntaInterventoSecondarioComponent } from './aggiunta-intervento-secondario/aggiunta-intervento-secondario.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { McdmComponent } from './mcdm/mcdm.component';
     ElementoStrutturaComponent,
     ReportInterventoComponent,
     MatriceComparazioneComponent,
-    McdmComponent
+    McdmComponent,
+    AggiuntaInterventoSecondarioComponent
   ],
   imports: [
     BrowserModule,

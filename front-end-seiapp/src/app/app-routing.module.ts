@@ -16,6 +16,7 @@ import { ElementoStrutturaComponent } from './elemento-struttura/elemento-strutt
 import { ReportInterventoComponent } from './report-intervento/report-intervento.component';
 import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
 import { McdmComponent } from './mcdm/mcdm.component';
+import { AggiuntaInterventoSecondarioComponent } from './aggiunta-intervento-secondario/aggiunta-intervento-secondario.component';
 
 
 
@@ -35,8 +36,8 @@ const routes: Routes = [
   { path: 'struttura', component: ElementoStrutturaComponent },
   { path: 'report-intervento', component: ReportInterventoComponent },
   { path: 'matrice', component: MatriceComparazioneComponent },
-  { path: 'mcdm', component: McdmComponent }
-
+  { path: 'mcdm', component: McdmComponent },
+  { path: 'aggiunta-intervento-secondario', component: AggiuntaInterventoSecondarioComponent }
 ];
 
 @NgModule({
