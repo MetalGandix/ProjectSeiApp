@@ -1,15 +1,13 @@
 <div>
-    <select>
-        <option>
-            {{caratteristiche}}
-        </option>
-    </select>
+    <div>
+        <p>EMS: {{emsType}}</p>
+    </div>
+    <div>
+        <p>CARATTERISTICA: {{caratteristiche}}</p>
+    </div>
     <select>
         <option *ngFor="let inte of variabileIntervento">
             {{inte.intervento.codice}}
         </option>
     </select>
-
-
-
 </div>

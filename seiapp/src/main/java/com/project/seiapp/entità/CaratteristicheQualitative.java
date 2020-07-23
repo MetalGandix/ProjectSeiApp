@@ -32,6 +32,9 @@ public class CaratteristicheQualitative {
     @JoinTable 
     private List<ValutazionePunteggio> valutazionePunteggio;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<TipologiaStruttura> emsCarQual;
+
 
     public String getCaratteristicheQualitative() {
         return CaratteristicheQualitative;
@@ -63,6 +66,14 @@ public class CaratteristicheQualitative {
 
     public void setValutazionePunteggio(List<ValutazionePunteggio> valutazionePunteggio) {
         this.valutazionePunteggio = valutazionePunteggio;
+    }
+
+    public List<TipologiaStruttura> getEmsCarQual() {
+        return emsCarQual;
+    }
+
+    public void setEmsCarQual(List<TipologiaStruttura> emsCarQual) {
+        this.emsCarQual = emsCarQual;
     }
     }
 
