@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 20, 2020 alle 17:18
+-- Creato il: Lug 23, 2020 alle 17:16
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -211,6 +211,50 @@ INSERT INTO `caratterisitche_qualitative` (`id`, `caratteristiche_qualitative`) 
 (52, 'Qualità delle strutture orizzontali'),
 (101, 'Efficacia dei collegamenti con la muratura'),
 (102, 'Qualità della copertura');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `caratterisitche_qualitative_ems_car_qual`
+--
+
+CREATE TABLE `caratterisitche_qualitative_ems_car_qual` (
+  `caratteristiche_qualitative_id` bigint(20) NOT NULL,
+  `ems_car_qual_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `caratterisitche_qualitative_ems_car_qual`
+--
+
+INSERT INTO `caratterisitche_qualitative_ems_car_qual` (`caratteristiche_qualitative_id`, `ems_car_qual_id`) VALUES
+(2, 3),
+(2, 5),
+(6, 2),
+(2, 7),
+(3, 3),
+(8, 3),
+(51, 3),
+(101, 3),
+(4, 3),
+(6, 3),
+(2, 6),
+(3, 5),
+(8, 5),
+(51, 5),
+(101, 5),
+(12, 5),
+(4, 5),
+(6, 5),
+(3, 6),
+(8, 6),
+(9, 6),
+(12, 6),
+(4, 6),
+(6, 6),
+(8, 7),
+(12, 7),
+(6, 7);
 
 -- --------------------------------------------------------
 
@@ -1695,6 +1739,13 @@ ALTER TABLE `caratterisitche_qualitative`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indici per le tabelle `caratterisitche_qualitative_ems_car_qual`
+--
+ALTER TABLE `caratterisitche_qualitative_ems_car_qual`
+  ADD KEY `FKh76aenpntosh1viotx1ayuont` (`ems_car_qual_id`),
+  ADD KEY `FKyp97pojwg3stemhn7bityy82` (`caratteristiche_qualitative_id`);
+
+--
 -- Indici per le tabelle `caratterisitche_qualitative_meccanismi_associati`
 --
 ALTER TABLE `caratterisitche_qualitative_meccanismi_associati`
@@ -1945,6 +1996,13 @@ ALTER TABLE `associazione_intervento`
   ADD CONSTRAINT `FK1ubt1do9bbln7sddfy5w3cgw4` FOREIGN KEY (`caratteristica_associazione_intervento_id`) REFERENCES `caratterisitche_qualitative` (`id`),
   ADD CONSTRAINT `FKgg9x8sypaf66qi9st6mln8rfv` FOREIGN KEY (`intervento_id`) REFERENCES `codice_intervento` (`id`),
   ADD CONSTRAINT `FKr6x7mwp155w8khgpr8sa3ohde` FOREIGN KEY (`struttura_associazione_id`) REFERENCES `struttura` (`id`);
+
+--
+-- Limiti per la tabella `caratterisitche_qualitative_ems_car_qual`
+--
+ALTER TABLE `caratterisitche_qualitative_ems_car_qual`
+  ADD CONSTRAINT `FKh76aenpntosh1viotx1ayuont` FOREIGN KEY (`ems_car_qual_id`) REFERENCES `tipologia_struttura` (`id`),
+  ADD CONSTRAINT `FKyp97pojwg3stemhn7bityy82` FOREIGN KEY (`caratteristiche_qualitative_id`) REFERENCES `caratterisitche_qualitative` (`id`);
 
 --
 -- Limiti per la tabella `caratterisitche_qualitative_meccanismi_associati`
