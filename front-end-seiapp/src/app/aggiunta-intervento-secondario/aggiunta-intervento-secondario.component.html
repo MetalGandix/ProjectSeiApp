@@ -6,16 +6,17 @@
         {{emsCar[emsType - 1].tipologiaStrutture}}
     </div>
     <select>
-        CARATTERISTICHE: 
-        <option (change)="selezionaCaratteristica($event.target.value)" *ngFor="let arr of emsCar[emsType - 1].carQualEms">
+        <option selected disabled>Caratteristiche:</option>
+        <option (change)="selezionaCaratteristica($event.target.value)" 
+        *ngFor="let arr of emsCar[emsType - 1].carQualEms">
             {{arr.caratteristicheQualitative}}
         </option>
     </select>
     <select>
-        STRUTTURE
-        <otpion *ngFor="let a of strutturaObj">
-            {{a.id}}
-        </otpion>
+        <option selected disabled>Strutture:</option>
+        <option *ngFor="let a of strutturaObj">
+            {{a.tipoStruttura.typeName}}
+        </option>
     </select>
 
 

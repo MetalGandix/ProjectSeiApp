@@ -55,8 +55,8 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     this.emsService.getTipoEdificio().subscribe(data => {
       this.emsCar = data
     })
-    this.service.getStruttura().subscribe(data => {
-      this.strutturaObj = data
+    this.service.getStruttura().subscribe(t => {
+      this.strutturaObj = t
       console.log(this.strutturaObj)
     })
   }
