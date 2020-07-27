@@ -29,6 +29,4 @@ public class CaratteristicheQualitativeController {
     void addUser(@RequestBody CaratteristicheQualitative caratteristiche) {
         caratteristicheQualitativeRepository.save(caratteristiche);
     }
-      
-    
     }

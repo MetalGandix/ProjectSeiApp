@@ -7,6 +7,7 @@ import { AssociazioneInterventoService } from '../classi-servizi/service/associa
 import { EdificioInAggregato } from '../classi-servizi/classes/edificio-in-aggregato';
 import { EdificioService } from '../classi-servizi/service/edificio.service';
 import { TipoEdificio } from '../classi-servizi/classes/tipo-edificio';
+import { Struttura } from '../classi-servizi/classes/strutture/struttura';
 
 @Component({
   selector: 'app-aggiunta-intervento-secondario',
@@ -20,7 +21,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     private router: Router,
     private service: ElementiStrutturaService,
     private serviceAssociazione: AssociazioneInterventoService,
-    private emsService: EdificioService
+    private emsService: EdificioService,
   ) {
   }
 
@@ -33,6 +34,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   emsType: number
   variabileIntervento: AssociazioneIntervento[];
   caratteristiche: CaratteristicheQualitative
+  strutturaObj: Struttura[]
   car: CaratteristicheQualitative[]
   emsCar: TipoEdificio[]
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
@@ -52,6 +54,10 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     })
     this.emsService.getTipoEdificio().subscribe(data => {
       this.emsCar = data
+    })
+    this.service.getStruttura().subscribe(data => {
+      this.strutturaObj = data
+      console.log(this.strutturaObj)
     })
   }
 
