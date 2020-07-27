@@ -45,4 +45,5 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
       this.car = data
     })
   }
+
 }

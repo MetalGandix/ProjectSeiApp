@@ -1,6 +1,7 @@
 package com.project.seiapp.entità;
 
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "CaratterisitcheQualitative")
@@ -73,4 +75,7 @@ public class CaratteristicheQualitative {
     public void setEmsCarQual(List<TipologiaStruttura> emsCarQual) {
         this.emsCarQual = emsCarQual;
     }
-}
+    }
+
+
+
