@@ -1,13 +1,23 @@
 <div>
     <div>
-        <p>EMS: {{emsType}}</p>
+        {{emsType}}
     </div>
     <div>
-        <p>CARATTERISTICA: {{caratteristiche}}</p>
+        {{emsCar[emsType - 1].tipologiaStrutture}}
     </div>
     <select>
+        CARATTERISTICHE: 
+        <option (change)="selezionaCaratteristica($event.target.value)" *ngFor="let arr of emsCar[emsType - 1].carQualEms">
+            {{arr.caratteristicheQualitative}}
+        </option>
+    </select>
+    <select>
+
+    </select>
+
+    <!--<select>
         <option *ngFor="let inte of variabileIntervento">
             {{inte.intervento.codice}}
         </option>
-    </select>
+    </select>-->
 </div>

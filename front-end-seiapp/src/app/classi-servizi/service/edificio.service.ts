@@ -30,6 +30,7 @@ export class EdificioService {
         tipoEdificio.id = d.id;
         tipoEdificio.tipologiaStrutture = d.tipologiaStrutture;
         tipoEdificio.abilitato = d.id == 2 || d.id == 4;
+        tipoEdificio.carQualEms = d.carQualEms
         tipiEdificio.push(tipoEdificio);
        });
        return tipiEdificio;

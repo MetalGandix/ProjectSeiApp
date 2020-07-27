@@ -1,10 +1,14 @@
 package com.project.seiapp.entità;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +19,9 @@ public class TipologiaStruttura {
     private long id;
     @Column
     private String TipologiaStruttura;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<CaratteristicheQualitative> carQualEms;
 
     public long getId() {
         return id;
@@ -32,5 +39,11 @@ public class TipologiaStruttura {
         TipologiaStruttura = tipologiaStrutture;
     }
 
-  
+    public List<CaratteristicheQualitative> getCarQualEms() {
+        return carQualEms;
+    }
+
+    public void setCarQualEms(List<CaratteristicheQualitative> carQualEms) {
+        this.carQualEms = carQualEms;
+    }
 }

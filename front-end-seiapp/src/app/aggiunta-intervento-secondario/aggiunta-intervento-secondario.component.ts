@@ -4,6 +4,9 @@ import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteris
 import { ActivatedRoute, Router } from '@angular/router';
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
 import { AssociazioneInterventoService } from '../classi-servizi/service/associazione-intervento.service';
+import { EdificioInAggregato } from '../classi-servizi/classes/edificio-in-aggregato';
+import { EdificioService } from '../classi-servizi/service/edificio.service';
+import { TipoEdificio } from '../classi-servizi/classes/tipo-edificio';
 
 @Component({
   selector: 'app-aggiunta-intervento-secondario',
@@ -16,7 +19,8 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: ElementiStrutturaService,
-    private serviceAssociazione: AssociazioneInterventoService
+    private serviceAssociazione: AssociazioneInterventoService,
+    private emsService: EdificioService
   ) {
   }
 
@@ -26,11 +30,13 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   pam: String
   punteggio: number
   soglia: number
-  emsType: Number
+  emsType: number
   variabileIntervento: AssociazioneIntervento[];
   caratteristiche: CaratteristicheQualitative
   car: CaratteristicheQualitative[]
+  emsCar: TipoEdificio[]
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
+  selectedElement = []
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -44,6 +50,12 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     this.service.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
+    this.emsService.getTipoEdificio().subscribe(data => {
+      this.emsCar = data
+    })
   }
 
+  selezionaCaratteristica(id: number){
+    this.selectedElement = []
+  }
 }
