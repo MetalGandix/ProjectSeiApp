@@ -19,10 +19,11 @@ export class AssociazioneInterventoService {
     return this.http.get<AssociazioneIntervento[]>(this.url + "associazioneIntervento")
   }
 
-  public getInterventoByCaratteristica(carQualId: string): Observable<AssociazioneIntervento[]>{
+  public getInterventoByCaratteristica(carQualId: string, strutturaId: string): Observable<AssociazioneIntervento[]>{
     return this.http.get<AssociazioneIntervento[]>(this.url + "getInterventoByCaratteristica", {
       params: {
-        carQual: carQualId
+        carQual: carQualId,
+        struttura: strutturaId
       }
     })
   }

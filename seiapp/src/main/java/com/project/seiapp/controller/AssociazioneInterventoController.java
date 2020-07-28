@@ -30,7 +30,7 @@ public class AssociazioneInterventoController {
     }
 
     @GetMapping("/getInterventoByCaratteristica")
-    public List<AssociazioneIntervento> getInterventoByCaratteristica(@RequestParam Long carQual){
-        return rep.findByCaratteristicaAssociazioneInterventoId(carQual);
+    public List<AssociazioneIntervento> getInterventoByCaratteristica(@RequestParam Long carQual, @RequestParam Long struttura){
+        return rep.findByCaratteristicaAssociazioneInterventoIdAndStrutturaAssociazioneId(carQual, struttura);
     }
 }

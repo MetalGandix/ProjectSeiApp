@@ -44,6 +44,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   carStrutt: CaratteristicheStruttura[]
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   selectedElement = []
+  passaggio: string
 
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
@@ -66,16 +67,17 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     })
   }
 
-  selezionaCaratteristica(index: string){
-    this.strutturaService.getStruttureByCaratteristiche(index).subscribe(car => {
+  selezionaCaratteristica(indexCaratteristica: string){
+    this.strutturaService.getStruttureByCaratteristiche(indexCaratteristica).subscribe(car => {
       this.strutturaObj = car
     })
     this.selectedElement = []
+    this.selectedElement.push(indexCaratteristica)
   }
 
-  selezionaInterventiByCaratteristica(index: string){
-    this.serviceAssociazione.getInterventoByCaratteristica(index).subscribe(z => {
+  selezionaInterventiByCaratteristica(indexStruttura: string){
+    /*this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(indexStruttura).subscribe(z => {
       this.variabileIntervento = z
-    })
+    })*/
   }
 }
