@@ -75,7 +75,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     this.selectedElement.push(indexCaratteristica)
   }
 
-  selezionaInterventiByCaratteristica(indexStruttura: string){
+  selezionaInterventiByCaratteristicaAndStruttura(indexStruttura: string){
     /*this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(indexStruttura).subscribe(z => {
       this.variabileIntervento = z
     })*/

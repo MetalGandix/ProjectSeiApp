@@ -12,7 +12,7 @@
             {{arr.caratteristicheQualitative}}
         </option>
     </select>
-    <select (change)="selezionaInterventiByCaratteristica($event.target.value)">
+    <select (change)="selezionaInterventiByCaratteristicaAndStruttura($event.target.value)">
         <option selected disabled>Strutture:</option>
         <option [value]="a.id" *ngFor="let a of strutturaObj">
             {{a.struttura}}
