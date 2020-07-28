@@ -10,10 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "struttura")
+//@NamedQuery(name = "struttura.findByCaratteristicaQualitativa", query = "SELECT s FROM Struttura s JOIN s.carQuality as carLink with carLink = ?1")
 public class Struttura {
     //Shift alt o
     @Id

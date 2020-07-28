@@ -3,25 +3,27 @@
         {{emsType}}
     </div>
     <div>
-        {{emsCar[emsType - 1].tipologiaStrutture}}
+        {{emsCar.length > 0 ? emsCar[emsType - 1].tipologiaStrutture: ''}}
     </div>
-    <select>
+    <select (change)="selezionaCaratteristica($event.target.value)">
         <option selected disabled>Caratteristiche:</option>
-        <option (change)="selezionaCaratteristica($event.target.value)" 
-        *ngFor="let arr of emsCar[emsType - 1].carQualEms">
+        <option [value]="arr.id"
+        *ngFor="let arr of emsCar[emsType - 1].carQualEms; index as j"> <!-- carQualEms è un oggetto di tipo CaratteristicheQualitative -->
             {{arr.caratteristicheQualitative}}
         </option>
     </select>
-    <select>
+    <select (change)="selezionaInterventiByCaratteristica($event.target.value)">
         <option selected disabled>Strutture:</option>
-        <option *ngFor="let a of strutturaObj">
-            {{a.tipoStruttura.typeName}}
+        <option [value]="a.id" *ngFor="let a of strutturaObj">
+            {{a.struttura}}
         </option>
     </select>
-
-
-
-
+    <select>
+        <option selected disabled>Intervento:</option>
+        <option *ngFor="let int of variabileIntervento">
+            {{int.intervento.codice}}
+        </option>
+    </select>
 
     <!--<select>
         <option *ngFor="let inte of variabileIntervento">

@@ -24,6 +24,15 @@ export class ElementiStrutturaService {
     return this.http.get<Struttura[]>(this.url + 'struttura');
   }
 
+  public getStruttureByCaratteristiche(carQualId: string): Observable<Struttura[]>{
+    return this.http.get<Struttura[]>(this.url + "getStrutturaCaratteristica", {
+      params: {
+        carQual: carQualId
+      }
+    })
+  }
+  
+
   public getCaratteristicheQualitative():Observable<CaratteristicheQualitative[]>{
     return this.http.get<CaratteristicheQualitative[]>(this.url + 'caratteristicheQualitative');
   }

@@ -28,4 +28,9 @@ public class AssociazioneInterventoController {
     public List<AssociazioneIntervento> getInterventoSingolo(@RequestParam Long carQual, @RequestParam Long struttura, @RequestParam Long intervento){
         return rep.findByCaratteristicaAssociazioneInterventoIdAndStrutturaAssociazioneIdAndInterventoId(carQual, struttura, intervento);
     }
+
+    @GetMapping("/getInterventoByCaratteristica")
+    public List<AssociazioneIntervento> getInterventoByCaratteristica(@RequestParam Long carQual){
+        return rep.findByCaratteristicaAssociazioneInterventoId(carQual);
+    }
 }

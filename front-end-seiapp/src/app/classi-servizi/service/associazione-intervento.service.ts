@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AssociazioneIntervento } from '../classes/associazione-intervento';
+import { Intervento } from '../classes/intervento';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,14 @@ export class AssociazioneInterventoService {
 
   public getAssociazioneIntervento(): Observable<AssociazioneIntervento[]> {
     return this.http.get<AssociazioneIntervento[]>(this.url + "associazioneIntervento")
+  }
+
+  public getInterventoByCaratteristica(carQualId: string): Observable<AssociazioneIntervento[]>{
+    return this.http.get<AssociazioneIntervento[]>(this.url + "getInterventoByCaratteristica", {
+      params: {
+        carQual: carQualId
+      }
+    })
   }
 
   public getInterventoSingolo(carQual: number, intervento: number, strutturaAssociazione: number): Observable<AssociazioneIntervento[]> {

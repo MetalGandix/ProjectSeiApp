@@ -8,6 +8,9 @@ import { EdificioInAggregato } from '../classi-servizi/classes/edificio-in-aggre
 import { EdificioService } from '../classi-servizi/service/edificio.service';
 import { TipoEdificio } from '../classi-servizi/classes/tipo-edificio';
 import { Struttura } from '../classi-servizi/classes/strutture/struttura';
+import { CaratteristicheStrutturaServiceService } from '../classi-servizi/service/caratteristiche-struttura-service.service';
+import { CaratteristicheStruttura } from '../classi-servizi/classes/caratteristiche-struttura';
+import { Intervento } from '../classi-servizi/classes/intervento';
 
 @Component({
   selector: 'app-aggiunta-intervento-secondario',
@@ -19,9 +22,10 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: ElementiStrutturaService,
+    private strutturaService: ElementiStrutturaService,
     private serviceAssociazione: AssociazioneInterventoService,
     private emsService: EdificioService,
+    private caratteristicheStrutturaService: CaratteristicheStrutturaServiceService
   ) {
   }
 
@@ -32,15 +36,20 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   punteggio: number
   soglia: number
   emsType: number
-  variabileIntervento: AssociazioneIntervento[];
+  variabileIntervento: AssociazioneIntervento[] = []
   caratteristiche: CaratteristicheQualitative
-  strutturaObj: Struttura[]
+  strutturaObj: Struttura[] = []
   car: CaratteristicheQualitative[]
-  emsCar: TipoEdificio[]
+  emsCar: TipoEdificio[] = []
+  carStrutt: CaratteristicheStruttura[]
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   selectedElement = []
 
   ngOnInit() {
+    this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
+      this.carStrutt = caratteristicheStrutture
+      console.log(caratteristicheStrutture)
+    })
     this.emsType = window.history.state.emsType
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
@@ -49,19 +58,24 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     this.caratteristiche = window.history.state.caratteristiche
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
-    this.service.getCaratteristicheQualitative().subscribe(data => {
+    this.strutturaService.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
     this.emsService.getTipoEdificio().subscribe(data => {
       this.emsCar = data
     })
-    this.service.getStruttura().subscribe(t => {
-      this.strutturaObj = t
-      console.log(this.strutturaObj)
-    })
   }
 
-  selezionaCaratteristica(id: number){
+  selezionaCaratteristica(index: string){
+    this.strutturaService.getStruttureByCaratteristiche(index).subscribe(car => {
+      this.strutturaObj = car
+    })
     this.selectedElement = []
+  }
+
+  selezionaInterventiByCaratteristica(index: string){
+    this.serviceAssociazione.getInterventoByCaratteristica(index).subscribe(z => {
+      this.variabileIntervento = z
+    })
   }
 }
