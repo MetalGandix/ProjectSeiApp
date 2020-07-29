@@ -11,4 +11,6 @@ public interface AssociazioneInterventoRepository extends JpaRepository<Associaz
 	List<AssociazioneIntervento> findByCaratteristicaAssociazioneInterventoIdAndStrutturaAssociazioneIdAndInterventoId(Long caratteristicaAssociazioneInterventoId, Long strutturaAssociazioneId, Long interventoId);
 	
 	List<AssociazioneIntervento> findByCaratteristicaAssociazioneInterventoIdAndStrutturaAssociazioneId(Long caratteristicaAssociazioneInterventoId, Long strutturaAssociazioneId);
+
+	List<AssociazioneIntervento>findByStrutturaAssociazioneId(Long strutturaAssociazioneId);
 }

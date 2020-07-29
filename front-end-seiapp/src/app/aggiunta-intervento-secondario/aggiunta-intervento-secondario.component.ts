@@ -29,6 +29,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   ) {
   }
 
+  selectedIndex: number;
   deltaPunteggioFinale: number
   vulClass: number;
   risk: String
@@ -44,13 +45,18 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   carStrutt: CaratteristicheStruttura[]
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   selectedElement = []
-  passaggio: string
+  passaggioCaratteristica: string
+  interventiSecondari: AssociazioneIntervento[] = []
+  indexParam: number
+  punteggioPassaggioClasse: number
 
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
       this.carStrutt = caratteristicheStrutture
       console.log(caratteristicheStrutture)
     })
+    this.soglia = window.history.state.soglia
+    this.punteggioPassaggioClasse = window.history.state.punteggioPassaggioClasse
     this.emsType = window.history.state.emsType
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
@@ -67,17 +73,21 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     })
   }
 
-  selezionaCaratteristica(indexCaratteristica: string){
+  selezionaCaratteristica(indexCaratteristica: number){
     this.strutturaService.getStruttureByCaratteristiche(indexCaratteristica).subscribe(car => {
       this.strutturaObj = car
     })
+    this.emsCar[this.emsType].carQualEms.id = indexCaratteristica
+    this.indexParam = this.emsCar[this.emsType].carQualEms.id
     this.selectedElement = []
-    this.selectedElement.push(indexCaratteristica)
+    this.indexParam = indexCaratteristica
+    //this.selectedElement.push(this.strutturaObj[this.indexParam])
   }
 
-  selezionaInterventiByCaratteristicaAndStruttura(indexStruttura: string){
-    /*this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(indexStruttura).subscribe(z => {
-      this.variabileIntervento = z
-    })*/
+  selezionaInterventiByCaratteristicaAndStruttura(indexStruttura: number){
+      this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.indexParam,indexStruttura).subscribe(z => {
+        this.interventiSecondari = z
+      })
   }
+
 }
