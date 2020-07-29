@@ -19,6 +19,8 @@ import { Intervento } from '../classi-servizi/classes/intervento';
 })
 export class AggiuntaInterventoSecondarioComponent implements OnInit {
 
+  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -29,7 +31,12 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   ) {
   }
 
+  a: boolean;
+  arraySelezionati: AssociazioneIntervento[] = []
+  counterClickCheck: number;
+  selectedIndex: number;
   deltaPunteggioFinale: number
+  buttonIntervento: boolean = false
   vulClass: number;
   risk: String
   pam: String
@@ -43,14 +50,22 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   emsCar: TipoEdificio[] = []
   carStrutt: CaratteristicheStruttura[]
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
-  selectedElement = []
-  passaggio: string
+  selectedElement1: any
+  selectedElement2: any
+  selectedElement: AssociazioneIntervento
+  passaggioCaratteristica: string
+  interventiSecondari: AssociazioneIntervento[] = []
+  indexParam: number
+  punteggioPassaggioClasse: number
+  interventoTabella: string
 
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
       this.carStrutt = caratteristicheStrutture
       console.log(caratteristicheStrutture)
     })
+    this.soglia = window.history.state.soglia
+    this.punteggioPassaggioClasse = window.history.state.punteggioPassaggioClasse
     this.emsType = window.history.state.emsType
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
@@ -67,17 +82,83 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     })
   }
 
-  selezionaCaratteristica(indexCaratteristica: string){
+  deltaPunteggio1(x: number) {
+    console.log(x)
+    this.selectedElement.ante = x
+  }
+
+  deltaPunteggio2(y: number) {
+    console.log(y)
+    this.selectedElement.post = y
+  }
+
+  risultatoDelta() {
+    this.deltaPunteggioFinale = 0
+    this.arraySelezionati.forEach(selezionato => {
+      this.deltaPunteggioFinale += selezionato.ante - selezionato.post 
+    })
+    this.a = true
+  }
+
+  selezionaCaratteristica(indexCaratteristica: number){
     this.strutturaService.getStruttureByCaratteristiche(indexCaratteristica).subscribe(car => {
       this.strutturaObj = car
     })
-    this.selectedElement = []
-    this.selectedElement.push(indexCaratteristica)
+    this.emsCar[this.emsType].carQualEms.id = indexCaratteristica
+    this.indexParam = this.emsCar[this.emsType].carQualEms.id
+    this.indexParam = indexCaratteristica
+    //this.selectedElement.push(this.strutturaObj[this.indexParam])
   }
 
-  selezionaInterventiByCaratteristicaAndStruttura(indexStruttura: string){
-    /*this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(indexStruttura).subscribe(z => {
-      this.variabileIntervento = z
-    })*/
+  selezionaInterventiByCaratteristicaAndStruttura(indexStruttura: number){
+      this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.indexParam,indexStruttura).subscribe(z => {
+        this.interventiSecondari = z
+      })
   }
+
+  massimoNumero() {
+    let min = Infinity
+    let max = 0
+    let maxIndex: number
+    let maxIntervento: AssociazioneIntervento
+    this.variabileIntervento.forEach(interventi => {
+      for (let index in interventi.varianti) {
+        if (interventi.totale[index] > max) {
+          max = interventi.totale[index]
+          maxIntervento = interventi
+          maxIndex = parseInt(index)
+        }
+      }
+    })
+    maxIntervento.maxVariante = maxIndex
+  }
+
+  premiBottone(selezionato: AssociazioneIntervento, variante: number, index: number) {
+    if(this.counterClickCheck == 0){
+    const nuovo = Object.assign({}, selezionato)
+    nuovo.ante = 0
+    nuovo.post = 0
+    this.selectedElement = nuovo
+    this.arraySelezionati.push(nuovo)
+    //Rimuovo l'elemento dall'array
+    /*selezionato.totale.splice(variante, 1);
+    (selezionato.efficacia as number[]).splice(variante, 1);
+    (selezionato.esiguitaDiIngombro as number[]).splice(variante, 1);
+    (selezionato.modicitaDiCosto as number[]).splice(variante, 1);
+    (selezionato.reversibilita as number[]).splice(variante, 1);
+    (selezionato.semplicitaDiCantiere as number[]).splice(variante, 1);
+    (selezionato.supIntonacate as number[]).splice(variante, 1);
+    (selezionato.supVista as number[]).splice(variante, 1);
+    selezionato.varianti.splice(variante, 1);*/
+    this.buttonIntervento = true
+    if(selezionato.varianti.length === 0){
+      this.variabileIntervento.splice(index, 1)
+    }
+    this.massimoNumero()
+    this.counterClickCheck + 1
+  }else{
+
+  }
+  }
+
 }

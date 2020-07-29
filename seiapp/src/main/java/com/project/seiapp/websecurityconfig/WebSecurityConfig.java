@@ -69,7 +69,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				//Serve per autenticare queste pagine senza uso di alcun token (più avanti le toglieremo)
 				.authorizeRequests().antMatchers("/authenticate","/edificioSingolo","/edificio","/interventoA2","/quality","/edificioInAggregato","/interventoA1",
 				"/interventoA1/{interventoA1id}","/interventoA1/{interventoA1titolo}","/interventoA2/{interventoA2id}","/tipologiaStruttura", "/register","/typeStruttura",
-				"/struttura","/getStrutturaCaratteristica","/caratteristicheStruttura","/valutazionePunteggio", "/caratteristicheQualitative","/getInterventoByCaratteristica","/associazioneIntervento", "/codiceIntervento", "/getInterventoSingolo").permitAll().	
+				"/struttura","/getStrutturaCaratteristica","/caratteristicheStruttura","/valutazionePunteggio", "/caratteristicheQualitative","/getInterventoByCaratteristica","/associazioneIntervento","/getInterventoByStruttura", "/codiceIntervento", "/getInterventoSingolo").permitAll().	
 				anyRequest().authenticated().and().
 				exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

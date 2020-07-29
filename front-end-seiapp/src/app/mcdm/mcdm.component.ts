@@ -140,7 +140,16 @@ export class McdmComponent {
 
   aggiuntaInterventoSecondario(){
     this.router.navigate(['/aggiunta-intervento-secondario'], {
-      state: {emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche}
+      state: {soglia: this.soglia 
+        ,punteggioPassaggioClasse: this.punteggioPassaggioClasse
+        ,emsType: this.emsType
+        ,vulClass: this.vulClass
+        ,punteggio: this.punteggio
+        ,risk: this.risk
+        ,pam: this.pam
+        ,variabileIntervento: this.variabileIntervento
+        ,caratteristiche: this.caratteristiche
+      }
     })
   }
 

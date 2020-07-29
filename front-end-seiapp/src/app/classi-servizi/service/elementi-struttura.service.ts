@@ -24,10 +24,10 @@ export class ElementiStrutturaService {
     return this.http.get<Struttura[]>(this.url + 'struttura');
   }
 
-  public getStruttureByCaratteristiche(carQualId: string): Observable<Struttura[]>{
+  public getStruttureByCaratteristiche(carQualId: number): Observable<Struttura[]>{
     return this.http.get<Struttura[]>(this.url + "getStrutturaCaratteristica", {
       params: {
-        carQual: carQualId
+        carQual: `${carQualId}`
       }
     })
   }
