@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 23, 2020 alle 17:16
+-- Creato il: Lug 29, 2020 alle 11:28
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -215,50 +215,6 @@ INSERT INTO `caratterisitche_qualitative` (`id`, `caratteristiche_qualitative`) 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `caratterisitche_qualitative_ems_car_qual`
---
-
-CREATE TABLE `caratterisitche_qualitative_ems_car_qual` (
-  `caratteristiche_qualitative_id` bigint(20) NOT NULL,
-  `ems_car_qual_id` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `caratterisitche_qualitative_ems_car_qual`
---
-
-INSERT INTO `caratterisitche_qualitative_ems_car_qual` (`caratteristiche_qualitative_id`, `ems_car_qual_id`) VALUES
-(2, 3),
-(2, 5),
-(6, 2),
-(2, 7),
-(3, 3),
-(8, 3),
-(51, 3),
-(101, 3),
-(4, 3),
-(6, 3),
-(2, 6),
-(3, 5),
-(8, 5),
-(51, 5),
-(101, 5),
-(12, 5),
-(4, 5),
-(6, 5),
-(3, 6),
-(8, 6),
-(9, 6),
-(12, 6),
-(4, 6),
-(6, 6),
-(8, 7),
-(12, 7),
-(6, 7);
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `caratterisitche_qualitative_meccanismi_associati`
 --
 
@@ -398,6 +354,53 @@ INSERT INTO `caratterisitche_qualitative_valutazione_punteggio` (`caratteristich
 (102, 34),
 (102, 35),
 (102, 36);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `caratteristiche_struttura`
+--
+
+CREATE TABLE `caratteristiche_struttura` (
+  `id` bigint(20) NOT NULL,
+  `caratteristica_id` bigint(20) DEFAULT NULL,
+  `struttura_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `caratteristiche_struttura`
+--
+
+INSERT INTO `caratteristiche_struttura` (`id`, `caratteristica_id`, `struttura_id`) VALUES
+(1, 2, 1),
+(2, 2, 2),
+(3, 2, 3),
+(4, 2, 4),
+(5, 2, 5),
+(6, 2, 7),
+(7, 2, 8),
+(8, 2, 9),
+(9, 2, 10),
+(10, 2, 11),
+(11, 2, 12),
+(12, 2, 13),
+(13, 3, 1),
+(14, 3, 7),
+(15, 3, 8),
+(16, 3, 9),
+(17, 4, 2),
+(18, 4, 3),
+(19, 51, 4),
+(20, 51, 5),
+(21, 6, 10),
+(22, 6, 11),
+(23, 6, 12),
+(24, 6, 13),
+(25, 8, 2),
+(26, 8, 3),
+(27, 9, 3),
+(28, 101, 7),
+(29, 12, 14);
 
 -- --------------------------------------------------------
 
@@ -1570,6 +1573,49 @@ INSERT INTO `tipologia_struttura` (`id`, `tipologia_struttura`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `tipologia_struttura_car_qual_ems`
+--
+
+CREATE TABLE `tipologia_struttura_car_qual_ems` (
+  `tipologia_struttura_id` bigint(20) NOT NULL,
+  `car_qual_ems_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `tipologia_struttura_car_qual_ems`
+--
+
+INSERT INTO `tipologia_struttura_car_qual_ems` (`tipologia_struttura_id`, `car_qual_ems_id`) VALUES
+(3, 2),
+(3, 3),
+(3, 8),
+(3, 51),
+(3, 101),
+(3, 4),
+(3, 6),
+(5, 2),
+(5, 3),
+(5, 8),
+(5, 51),
+(5, 101),
+(5, 12),
+(5, 4),
+(5, 6),
+(6, 2),
+(6, 3),
+(6, 8),
+(6, 9),
+(6, 12),
+(6, 4),
+(6, 6),
+(7, 2),
+(7, 8),
+(7, 12),
+(7, 6);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `type_quality`
 --
 
@@ -1739,13 +1785,6 @@ ALTER TABLE `caratterisitche_qualitative`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `caratterisitche_qualitative_ems_car_qual`
---
-ALTER TABLE `caratterisitche_qualitative_ems_car_qual`
-  ADD KEY `FKh76aenpntosh1viotx1ayuont` (`ems_car_qual_id`),
-  ADD KEY `FKyp97pojwg3stemhn7bityy82` (`caratteristiche_qualitative_id`);
-
---
 -- Indici per le tabelle `caratterisitche_qualitative_meccanismi_associati`
 --
 ALTER TABLE `caratterisitche_qualitative_meccanismi_associati`
@@ -1758,6 +1797,14 @@ ALTER TABLE `caratterisitche_qualitative_meccanismi_associati`
 ALTER TABLE `caratterisitche_qualitative_valutazione_punteggio`
   ADD UNIQUE KEY `UK_2glwplh52xpmrev9gb9rx36s5` (`valutazione_punteggio_id`),
   ADD KEY `FKa4kfapuapftgxx3gbydnuurmr` (`caratteristiche_qualitative_id`);
+
+--
+-- Indici per le tabelle `caratteristiche_struttura`
+--
+ALTER TABLE `caratteristiche_struttura`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKgjs4836f2pjdfks7pbocr7no9` (`caratteristica_id`),
+  ADD KEY `FK2oojtnpvav2yfqc086daowvcv` (`struttura_id`);
 
 --
 -- Indici per le tabelle `codice_intervento`
@@ -1843,6 +1890,13 @@ ALTER TABLE `tipologia_struttura`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indici per le tabelle `tipologia_struttura_car_qual_ems`
+--
+ALTER TABLE `tipologia_struttura_car_qual_ems`
+  ADD KEY `FKkah86ex11nyjvuc5qegug90ei` (`car_qual_ems_id`),
+  ADD KEY `FKnp7j5lpwnichkjstk1be7ilr5` (`tipologia_struttura_id`);
+
+--
 -- Indici per le tabelle `type_quality`
 --
 ALTER TABLE `type_quality`
@@ -1894,6 +1948,12 @@ ALTER TABLE `associazione_intervento`
 --
 ALTER TABLE `caratterisitche_qualitative`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+
+--
+-- AUTO_INCREMENT per la tabella `caratteristiche_struttura`
+--
+ALTER TABLE `caratteristiche_struttura`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT per la tabella `codice_intervento`
@@ -1998,13 +2058,6 @@ ALTER TABLE `associazione_intervento`
   ADD CONSTRAINT `FKr6x7mwp155w8khgpr8sa3ohde` FOREIGN KEY (`struttura_associazione_id`) REFERENCES `struttura` (`id`);
 
 --
--- Limiti per la tabella `caratterisitche_qualitative_ems_car_qual`
---
-ALTER TABLE `caratterisitche_qualitative_ems_car_qual`
-  ADD CONSTRAINT `FKh76aenpntosh1viotx1ayuont` FOREIGN KEY (`ems_car_qual_id`) REFERENCES `tipologia_struttura` (`id`),
-  ADD CONSTRAINT `FKyp97pojwg3stemhn7bityy82` FOREIGN KEY (`caratteristiche_qualitative_id`) REFERENCES `caratterisitche_qualitative` (`id`);
-
---
 -- Limiti per la tabella `caratterisitche_qualitative_meccanismi_associati`
 --
 ALTER TABLE `caratterisitche_qualitative_meccanismi_associati`
@@ -2017,6 +2070,13 @@ ALTER TABLE `caratterisitche_qualitative_meccanismi_associati`
 ALTER TABLE `caratterisitche_qualitative_valutazione_punteggio`
   ADD CONSTRAINT `FKa4kfapuapftgxx3gbydnuurmr` FOREIGN KEY (`caratteristiche_qualitative_id`) REFERENCES `caratterisitche_qualitative` (`id`),
   ADD CONSTRAINT `FKc3d91xqvrxewhwjaotyyybien` FOREIGN KEY (`valutazione_punteggio_id`) REFERENCES `valutazione_punteggio` (`id`);
+
+--
+-- Limiti per la tabella `caratteristiche_struttura`
+--
+ALTER TABLE `caratteristiche_struttura`
+  ADD CONSTRAINT `FK2oojtnpvav2yfqc086daowvcv` FOREIGN KEY (`struttura_id`) REFERENCES `struttura` (`id`),
+  ADD CONSTRAINT `FKgjs4836f2pjdfks7pbocr7no9` FOREIGN KEY (`caratteristica_id`) REFERENCES `caratterisitche_qualitative` (`id`);
 
 --
 -- Limiti per la tabella `edificio`
@@ -2049,6 +2109,13 @@ ALTER TABLE `struttura`
 ALTER TABLE `struttura_car_quality`
   ADD CONSTRAINT `FKcsyr6nm6jp1y3j08xquinw3ba` FOREIGN KEY (`struttura_id`) REFERENCES `struttura` (`id`),
   ADD CONSTRAINT `FKhcj4uahfo3gljxf762hs6dihh` FOREIGN KEY (`car_quality_id`) REFERENCES `caratterisitche_qualitative` (`id`);
+
+--
+-- Limiti per la tabella `tipologia_struttura_car_qual_ems`
+--
+ALTER TABLE `tipologia_struttura_car_qual_ems`
+  ADD CONSTRAINT `FKkah86ex11nyjvuc5qegug90ei` FOREIGN KEY (`car_qual_ems_id`) REFERENCES `caratterisitche_qualitative` (`id`),
+  ADD CONSTRAINT `FKnp7j5lpwnichkjstk1be7ilr5` FOREIGN KEY (`tipologia_struttura_id`) REFERENCES `tipologia_struttura` (`id`);
 
 --
 -- Limiti per la tabella `user_roles`

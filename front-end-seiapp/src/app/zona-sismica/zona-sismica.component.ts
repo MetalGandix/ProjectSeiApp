@@ -30,6 +30,12 @@ export class ZonaSismicaComponent implements OnInit {
   classeE: boolean = false
   classeF: boolean = false
   classeG: boolean = false
+  vulClassImg1: boolean = false;
+  vulClassImg2: boolean = false;
+  vulClassImg3 :boolean = false;
+  vulClassImg4 :boolean = false;
+  vulClassImg5 :boolean = false;
+  vulClassImg6 :boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -187,5 +193,32 @@ export class ZonaSismicaComponent implements OnInit {
     this.router.navigate(['/struttura'], {
       state: { emsType: this.emsType, vulClass: this.vulClass, punteggio: this.punteggio, risk: this.risk, pam: this.pam }
     })
+  }
+
+  prova(){
+    if (this.vulClass == 1){
+      var imageshown = "assets\images\V1.png"
+      this.vulClassImg1 =true
+    }
+    if (this.vulClass == 2){
+      var imageshown = "assets\images\V2.png"
+      this.vulClassImg2 =true
+    }
+    if (this.vulClass == 3){
+      var imageshown = "assets\images\V3.png"
+      this.vulClassImg3 =true
+    }
+    if (this.vulClass == 4){
+      var imageshown = "assets\images\V4.png"
+      this.vulClassImg4 =true
+    }
+    if (this.vulClass == 5){
+      var imageshown = "assets\images\V5.png"
+      this.vulClassImg5 =true
+    }
+    if (this.vulClass == 6){
+      var imageshown = "assets\images\V6.png"
+      this.vulClassImg6 =true
+    }
   }
 }
