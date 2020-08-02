@@ -132,7 +132,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     })
     maxIntervento.maxVariante = maxIndex
   }
-
+/*
   premiBottone(selezionato: AssociazioneIntervento, variante: number, index: number) {
     if(this.counterClickCheck == 0){
     const nuovo = Object.assign({}, selezionato)
@@ -150,7 +150,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     (selezionato.supIntonacate as number[]).splice(variante, 1);
     (selezionato.supVista as number[]).splice(variante, 1);
     selezionato.varianti.splice(variante, 1);*/
-    this.buttonIntervento = true
+    /*this.buttonIntervento = true
     if(selezionato.varianti.length === 0){
       this.variabileIntervento.splice(index, 1)
     }
@@ -159,6 +159,6 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   }else{
 
   }
-  }
+  }*/
 
 }

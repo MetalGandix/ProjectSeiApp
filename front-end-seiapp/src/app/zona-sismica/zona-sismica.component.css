@@ -1,3 +1,26 @@
-img{
-    width: 300px;
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.flex-container > div {
+    margin: 10px;
+    padding: 20px;
+  }
+.imgRisk{
+    width: 390px;
+    height: 290px;
+}
+.imgVulClass{
+    width: 400px;
+    height: 290px;
+}
+#boxPunteggio {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px  #999;
+  }
+.s{
+    align-self: right;
+
 }
