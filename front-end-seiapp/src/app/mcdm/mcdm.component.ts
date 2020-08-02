@@ -179,7 +179,8 @@ export class McdmComponent {
     this.selectedElement = nuovo
     this.arraySelezionati.push(nuovo)
     //Rimuovo l'elemento dall'array
-    /*selezionato.totale.splice(variante, 1);
+    selezionato.totale.splice(variante, 1);
+    /*
     (selezionato.efficacia as number[]).splice(variante, 1);
     (selezionato.esiguitaDiIngombro as number[]).splice(variante, 1);
     (selezionato.modicitaDiCosto as number[]).splice(variante, 1);

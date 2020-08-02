@@ -20,7 +20,7 @@
 
     <select>
         <option selected disabled>Intervento:</option>
-        <option [value]="int.intervento.codice" (click)="premiBottone()" *ngFor="let int of interventiSecondari">
+        <option [value]="int.intervento.codice" *ngFor="let int of interventiSecondari">
             {{int.intervento.codice}}
         </option>
     </select>
