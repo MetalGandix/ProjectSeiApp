@@ -57,6 +57,7 @@ export class McdmComponent {
   selectedElement: AssociazioneIntervento
   counterClickCheck: number = 0
   punteggioPassaggioClasse: number
+  
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -126,29 +127,38 @@ export class McdmComponent {
     let max = 0
     let maxIndex: number
     let maxIntervento: AssociazioneIntervento
+    let minIntervento: AssociazioneIntervento
+    let minIndex: number
     this.variabileIntervento.forEach(interventi => {
       for (let index in interventi.varianti) {
         if (interventi.totale[index] > max) {
           max = interventi.totale[index]
           maxIntervento = interventi
           maxIndex = parseInt(index)
+        } if (interventi.totale[index] < min) {
+          min = interventi.totale[index]
+          minIntervento = interventi
+          minIndex = parseInt(index)
         }
       }
     })
     maxIntervento.maxVariante = maxIndex
+    minIntervento.minVariante = minIndex
   }
 
-  aggiuntaInterventoSecondario(){
+  aggiuntaInterventoSecondario() {
     this.router.navigate(['/aggiunta-intervento-secondario'], {
-      state: {soglia: this.soglia 
-        ,punteggioPassaggioClasse: this.punteggioPassaggioClasse
-        ,emsType: this.emsType
-        ,vulClass: this.vulClass
-        ,punteggio: this.punteggio
-        ,risk: this.risk
-        ,pam: this.pam
-        ,variabileIntervento: this.variabileIntervento
-        ,caratteristiche: this.caratteristiche
+      state: {
+        soglia: this.soglia
+        , punteggioPassaggioClasse: this.punteggioPassaggioClasse
+        , emsType: this.emsType
+        , vulClass: this.vulClass
+        , punteggio: this.punteggio
+        , risk: this.risk
+        , pam: this.pam
+        , variabileIntervento: this.variabileIntervento
+        , caratteristiche: this.caratteristiche
+        , deltaPunteggioFinale: this.deltaPunteggioFinale
       }
     })
   }
@@ -166,37 +176,34 @@ export class McdmComponent {
   risultatoDelta() {
     this.deltaPunteggioFinale = 0
     this.arraySelezionati.forEach(selezionato => {
-      this.deltaPunteggioFinale += selezionato.ante - selezionato.post 
+      this.deltaPunteggioFinale += selezionato.ante - selezionato.post
     })
     this.a = true
   }
 
-  premiBottone(selezionato: AssociazioneIntervento, variante: number, index: number) {
-    if(this.counterClickCheck == 0){
-    const nuovo = Object.assign({}, selezionato)
-    nuovo.ante = 0
-    nuovo.post = 0
-    this.selectedElement = nuovo
-    this.arraySelezionati.push(nuovo)
-    //Rimuovo l'elemento dall'array
-    selezionato.totale.splice(variante, 1);
-    /*
-    (selezionato.efficacia as number[]).splice(variante, 1);
-    (selezionato.esiguitaDiIngombro as number[]).splice(variante, 1);
-    (selezionato.modicitaDiCosto as number[]).splice(variante, 1);
-    (selezionato.reversibilita as number[]).splice(variante, 1);
-    (selezionato.semplicitaDiCantiere as number[]).splice(variante, 1);
-    (selezionato.supIntonacate as number[]).splice(variante, 1);
-    (selezionato.supVista as number[]).splice(variante, 1);
-    selezionato.varianti.splice(variante, 1);*/
-    this.buttonIntervento = true
-    if(selezionato.varianti.length === 0){
-      this.variabileIntervento.splice(index, 1)
+  premiBottone(selezionato: AssociazioneIntervento, variante: number, index: number, checkBox: boolean) {
+    if (!checkBox) {
+      let indexToRemove = -1
+      for (let index in this.arraySelezionati) {
+        let current = this.arraySelezionati[index]
+        if (current.caratteristicaAssociazioneIntervento.id === selezionato.caratteristicaAssociazioneIntervento.id && current.strutturaAssociazione.id === selezionato.strutturaAssociazione.id && current.intervento.id === selezionato.intervento.id) {
+          indexToRemove = parseInt(index)
+          break
+        }
+      }
+      this.arraySelezionati.splice(indexToRemove, 1)
+    } else {
+      const nuovo = Object.assign({}, selezionato)
+      nuovo.ante = 0
+      nuovo.post = 0
+      this.selectedElement = nuovo
+      this.arraySelezionati.push(nuovo)
+      this.buttonIntervento = true
+      if (selezionato.varianti.length === 0) {
+        this.variabileIntervento.splice(index, 1)
+      }
+      this.massimoNumero()
     }
-    this.massimoNumero()
-    this.counterClickCheck + 1
-  }else{
+  }
 
-  }
-  }
 }

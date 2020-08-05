@@ -18,6 +18,7 @@ export class AssociazioneIntervento {
     varianti: String[]
     //Può non esistere
     maxVariante?: number
+    minVariante?: number
     ante?: number
     post?: number
 }

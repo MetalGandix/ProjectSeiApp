@@ -18,15 +18,16 @@
         </option>
     </select>
 
-    <select>
+    <select (change)="onChangeIntervento($event.target.value)">
         <option selected disabled>Intervento:</option>
-        <option [value]="int.intervento.codice" *ngFor="let int of interventiSecondari">
+        <option [value]="x" *ngFor="let int of interventiSecondari; index as x">
             {{int.intervento.codice}}
+            {{int.variante}}
         </option>
     </select>
 
     
-    <div class="container" *ngIf="buttonIntervento">
+    <div class="container" *ngIf="interventoSelezionato !== null">
         <table class="table table-bordered" style="width: 30%;">
           <thead class="thead-dark">
             <tr>
@@ -42,14 +43,14 @@
             <tr>
               <td><select style="margin-bottom: 20px;" (change)="deltaPunteggio1($event.target.value)">
                   <option selected disabled>Seleziona il punteggio</option>
-                  <option [value]="ante.punteggio" *ngFor="let ante of caratteristiche.valutazionePunteggio">
+                  <option [value]="ante.punteggio" *ngFor="let ante of interventoSelezionato.caratteristicaAssociazioneIntervento.valutazionePunteggio">
                     {{ante.valutazione}}
                     {{ante.punteggio}}
                   </option>
                 </select></td>
               <td><select (change)="deltaPunteggio2($event.target.value)">
                   <option selected disabled>Seleziona il punteggio</option>
-                  <option [value]="post.punteggio" *ngFor="let post of caratteristiche.valutazionePunteggio">
+                  <option [value]="post.punteggio" *ngFor="let post of interventoSelezionato.caratteristicaAssociazioneIntervento.valutazionePunteggio">
                     {{post.valutazione}}
                     {{post.punteggio}}
                   </option>
@@ -57,9 +58,9 @@
             </tr>
           </thead>
         </table>
-        <div class="bottone">
-          <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()" style="margin-top: 30px;">
-            Aggingi risultato </button>
+        <div class="bottone" style="margin-bottom: 30px">
+          <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()" style="margin-top: 10px;">
+            Aggiungi risultato </button>
         </div>
       </div>
 
@@ -98,14 +99,14 @@
               <th scope="col" colspan="2" style="text-align: center; background-color: #343a40; color: white;">VALUTAZIONE
                 POST INTERVENTO</th>
             </tr>
-            <tr *ngFor="let interventi of interventiSecondari; index as i">
-              <th scope="row">Incidenza intervento {{i + 1}}
+            <tr *ngIf="interventoSelezionato !== null">
+              <th scope="row">Incidenza intervento
               </th>
-              <td>{{interventi.ante - interventi.post}}</td>
+              <td>{{interventoSelezionato.ante - interventoSelezionato.post}}</td>
             </tr>
             <tr>
               <th scope="row">Incidenza del pacchetto di interventi</th>
-              <td>{{deltaPunteggioFinale}}</td>
+              <td>{{deltaPunteggioPrecedente + deltaPunteggioFinale}}</td>
             </tr>
             <tr>
               <th scope="row">Δpunteggio risultante

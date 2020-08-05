@@ -56,11 +56,11 @@
             <td>{{interventi.reversibilita[j]}}</td>
             <td>{{interventi.semplicitaDiCantiere[j]}}</td>
             <td>{{interventi.esiguitaDiIngombro[j]}}</td>
-            <td [ngStyle]="{'background-color':interventi.maxVariante === j ? 'green' : 'white'}">
+            <td [ngStyle]="{'background-color':interventi.maxVariante === j ? 'green' : interventi.minVariante === j ? 'red' : 'white'}">
               {{interventi.totale[j] | number: '1.2-2'}}</td>
             <td>
               <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="form-check-input" (click)="premiBottone(interventi, j, i)">
+              <input type="checkbox" [disabled]="arraySelezionati.length > 0" class="form-check-input" (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
             </div>
             </td>
           </tr>
@@ -72,7 +72,7 @@
   <div class="container">
     <div class="floatLeft">
 
-      <div *ngIf="buttonIntervento">
+      <div *ngIf="arraySelezionati.length > 0">
         <table class="table table-bordered" style="width: 30%;">
           <thead class="thead-dark">
             <tr>
@@ -106,7 +106,7 @@
         </table>
         <div class="bottone">
           <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()" style="margin-top: 30px;">
-            Aggingi risultato </button>
+            Aggiungi risultato </button>
         </div>
       </div>
     </div>

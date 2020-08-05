@@ -35,7 +35,8 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   arraySelezionati: AssociazioneIntervento[] = []
   counterClickCheck: number;
   selectedIndex: number;
-  deltaPunteggioFinale: number
+  deltaPunteggioFinale: number = 0
+  deltaPunteggioPrecedente: number
   buttonIntervento: boolean = false
   vulClass: number;
   risk: String
@@ -58,6 +59,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   indexParam: number
   punteggioPassaggioClasse: number
   interventoTabella: string
+  interventoSelezionato: AssociazioneIntervento|null = null
 
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
@@ -74,6 +76,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     this.caratteristiche = window.history.state.caratteristiche
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
+    this.deltaPunteggioPrecedente = window.history.state.deltaPunteggioFinale
     this.strutturaService.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
@@ -84,36 +87,39 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
 
   deltaPunteggio1(x: number) {
     console.log(x)
-    this.selectedElement.ante = x
+    this.interventoSelezionato.ante = x
   }
 
   deltaPunteggio2(y: number) {
     console.log(y)
-    this.selectedElement.post = y
+    this.interventoSelezionato.post = y
   }
 
   risultatoDelta() {
     this.deltaPunteggioFinale = 0
-    this.arraySelezionati.forEach(selezionato => {
-      this.deltaPunteggioFinale += selezionato.ante - selezionato.post 
-    })
+      this.deltaPunteggioFinale += this.interventoSelezionato.ante - this.interventoSelezionato.post 
     this.a = true
+    debugger
   }
 
-  selezionaCaratteristica(indexCaratteristica: number){
-    this.strutturaService.getStruttureByCaratteristiche(indexCaratteristica).subscribe(car => {
+  selezionaCaratteristica(idCaratteristica: number){
+    this.strutturaService.getStruttureByCaratteristiche(idCaratteristica).subscribe(car => {
       this.strutturaObj = car
+      this.selezionaInterventiByCaratteristicaAndStruttura(this.strutturaObj[0].id)
     })
-    this.emsCar[this.emsType].carQualEms.id = indexCaratteristica
-    this.indexParam = this.emsCar[this.emsType].carQualEms.id
-    this.indexParam = indexCaratteristica
+    this.emsCar[this.emsType].carQualEms.id = idCaratteristica
+    this.indexParam = idCaratteristica
     //this.selectedElement.push(this.strutturaObj[this.indexParam])
   }
 
-  selezionaInterventiByCaratteristicaAndStruttura(indexStruttura: number){
-      this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.indexParam,indexStruttura).subscribe(z => {
+  selezionaInterventiByCaratteristicaAndStruttura(idStruttura: number){
+      this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.indexParam,idStruttura).subscribe(z => {
         this.interventiSecondari = z
       })
+  }
+
+  onChangeIntervento(indexIntervento: number){
+   this.interventoSelezionato = this.interventiSecondari[indexIntervento]
   }
 
   massimoNumero() {
