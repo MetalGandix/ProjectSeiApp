@@ -80,9 +80,9 @@
               </th>
             </tr>
             <tr>
-              <th scope="col">Ante
+              <th scope="col">Punteggio pre intervento
               </th>
-              <th scope="col">Post
+              <th scope="col">Punteggio post intervento
               </th>
             </tr>
             <tr>
@@ -159,14 +159,18 @@
             <td>{{deltaPunteggioFinale}}</td>
           </tr>
           <tr>
-            <th scope="row">Δpunteggio risultante
+            <th scope="row">Δpunteggio passaggio di classe aggiornato
             </th>
-            <td></td>
+            <td>
+              {{punteggioPassaggioClasseAggiornato}}
+            </td>
           </tr>
           <tr>
             <th scope="row">Punteggio di vulnerabilità
             </th>
-            <td></td>
+            <td>
+              {{punteggioDiVul}}
+            </td>
           </tr>
           <tr>
             <th scope="row">Classe di vulnerabilità
@@ -175,7 +179,7 @@
           </tr>
           <div *ngIf="punteggioPassaggioClasse > 0">
             <button (click)="aggiuntaInterventoSecondario()">
-              Premi qua per aggiungere un altro intervento
+              Premi qua per aggiungere un intervento ulteriore
             </button>
           </div>
         </tbody>

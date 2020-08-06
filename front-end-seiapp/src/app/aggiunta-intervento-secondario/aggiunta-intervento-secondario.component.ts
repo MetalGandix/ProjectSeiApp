@@ -60,6 +60,8 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   punteggioPassaggioClasse: number
   interventoTabella: string
   interventoSelezionato: AssociazioneIntervento|null = null
+  punteggioDiVul: number
+  punteggioPassaggioClasseAggiornato: number
 
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
@@ -77,6 +79,8 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
     this.deltaPunteggioPrecedente = window.history.state.deltaPunteggioFinale
+    this.punteggioDiVul = window.history.state.punteggioDiVul
+    this.punteggioPassaggioClasseAggiornato = window.history.state.punteggioPassaggioClasseAggiornato
     this.strutturaService.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })

@@ -46,7 +46,7 @@ export class McdmComponent {
   a: boolean = false
   selectedElement1: any
   selectedElement2: any
-  deltaPunteggioFinale: number
+  deltaPunteggioFinale: number = 0
   vulClass: number;
   risk: String
   pam: String
@@ -57,6 +57,8 @@ export class McdmComponent {
   selectedElement: AssociazioneIntervento
   counterClickCheck: number = 0
   punteggioPassaggioClasse: number
+  punteggioDiVul: number = 0
+  punteggioPassaggioClasseAggiornato: number = 0
   
 
   ngOnInit() {
@@ -79,7 +81,7 @@ export class McdmComponent {
   }
 
   sogliaUgualeZero() {
-    this.punteggioPassaggioClasse = this.punteggio - this.soglia
+    this.punteggioPassaggioClasse = this.punteggio - this.soglia    
   }
 
   cambiaTotale() {
@@ -159,6 +161,8 @@ export class McdmComponent {
         , variabileIntervento: this.variabileIntervento
         , caratteristiche: this.caratteristiche
         , deltaPunteggioFinale: this.deltaPunteggioFinale
+        , punteggioPassaggioClasseAggiornato: this.punteggioPassaggioClasseAggiornato
+        , punteggioDiVul: this.punteggioDiVul
       }
     })
   }
@@ -178,6 +182,8 @@ export class McdmComponent {
     this.arraySelezionati.forEach(selezionato => {
       this.deltaPunteggioFinale += selezionato.ante - selezionato.post
     })
+    this.punteggioDiVul = this.punteggio - this.deltaPunteggioFinale
+    this.punteggioPassaggioClasseAggiornato = this.punteggioPassaggioClasse - this.deltaPunteggioFinale
     this.a = true
   }
 

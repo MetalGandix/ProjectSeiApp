@@ -109,20 +109,29 @@
               <td>{{deltaPunteggioPrecedente + deltaPunteggioFinale}}</td>
             </tr>
             <tr>
-              <th scope="row">Δpunteggio risultante
+              <th scope="row">Δpunteggio passaggio di classe aggiornato
               </th>
-              <td></td>
+              <td>
+                {{punteggioPassaggioClasseAggiornato}}
+              </td>
             </tr>
             <tr>
               <th scope="row">Punteggio di vulnerabilità
               </th>
-              <td></td>
+              <td>
+                {{punteggioDiVul}}
+              </td>
             </tr>
             <tr>
               <th scope="row">Classe di vulnerabilità
               </th>
               <td>V{{vulClass - 1}}</td>
             </tr>
+            <div *ngIf="punteggioPassaggioClasse > 0">
+              <button>
+                Premi qua per aggiungere un intervento ulteriore
+              </button>
+            </div>
           </tbody>
         </table>
       </div>
