@@ -1,0 +1,196 @@
+<div class="card my-5">
+    <div class="card-body">
+        <div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="checkbox1" [(ngModel)]="toggleSuperficie"
+                    (change)="cambiaTotale()">
+                <label class="form-check-label" for="checkbox1">Premi per scegliere tra "Superfici a vista" o "Superfici
+                    intonacate"</label>
+            </div>
+
+            <div>
+                <details>
+                    <summary>Legenda scelta interventi</summary>
+
+                    <div class='my-legend'>
+                        <div class='legend-scale'>
+                            <ul class='legend-labels'>
+                                <li><span style='background:#8b0000;'></span>Intervento peggiore</li>
+                                <li><span style='background:#228b22;'></span>Intervento migliore</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </details>
+            </div>
+
+        </div>
+        <hr>
+
+        <table class="table table-hover table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th rowspan="2" colspan="1">Codice</th>
+                    <th rowspan="2" scope="colgroup">Modicità di costo</th>
+                    <th rowspan="2" scope="colgroup">Efficacia</th>
+                    <th scope="colgroup" *ngIf="toggleSuperficie">Compatibilità visiva</th>
+                    <th scope="colgroup" *ngIf="!toggleSuperficie">Compatibilità visiva</th>
+                    <th rowspan="2" scope="colgroup">Reversibilità</th>
+                    <th rowspan="2" scope="colgroup">Semplicità di cantiere</th>
+                    <th rowspan="2" scope="colgroup">Esiguità di ingombro</th>
+                    <th rowspan="2" scope="colgroup">Totale</th>
+                    <th rowspan="2" scope="colgroup">*</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let interventi of interventiSecondari; index as i">
+                    <tr *ngFor="let variante of interventi.varianti; index as j">
+                        <td>{{interventi.intervento.codice}} {{interventi.varianti[j]}}</td>
+                        <td>{{interventi.modicitaDiCosto[j]}}</td>
+                        <td>{{interventi.efficacia[j]}}</td>
+                        <td *ngIf="toggleSuperficie">{{interventi.supIntonacate[j]}}</td>
+                        <td *ngIf="!toggleSuperficie">{{interventi.supVista[j]}}</td>
+                        <td>{{interventi.reversibilita[j]}}</td>
+                        <td>{{interventi.semplicitaDiCantiere[j]}}</td>
+                        <td>{{interventi.esiguitaDiIngombro[j]}}</td>
+                        <td
+                            [ngStyle]="{'background-color':interventi.maxVariante === j ? 'green' : interventi.minVariante === j ? 'red' : 'white'}">
+                            {{interventi.totale[j] | number: '1.2-2'}}</td>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" [disabled]="arraySelezionati.length > 0" class="form-check-input"
+                                    (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
+                            </div>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <div class="floatLeft">
+            <div *ngIf="arraySelezionati.length > 0">
+                <table class="table table-bordered" style="width: 30%;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" colspan="2" style="text-align: center;">
+                                {{caratteristiche.caratteristicheQualitative}}
+                            </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Punteggio pre intervento
+                            </th>
+                            <th scope="col">Punteggio post intervento
+                            </th>
+                        </tr>
+                        <tr>
+                            <td><select style="margin-bottom: 20px;" (change)="deltaPunteggio1($event.target.value)">
+                                    <option selected disabled>Seleziona il punteggio</option>
+                                    <option [value]="ante.punteggio"
+                                        *ngFor="let ante of caratteristiche.valutazionePunteggio">
+                                        {{ante.valutazione}}
+                                        {{ante.punteggio}}
+                                    </option>
+                                </select></td>
+                            <td><select (change)="deltaPunteggio2($event.target.value)">
+                                    <option selected disabled>Seleziona il punteggio</option>
+                                    <option [value]="post.punteggio"
+                                        *ngFor="let post of caratteristiche.valutazionePunteggio">
+                                        {{post.valutazione}}
+                                        {{post.punteggio}}
+                                    </option>
+
+                                </select></td>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="bottone">
+                    <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()"
+                        style="margin-top: 30px;">
+                        Aggiungi risultato </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="floatRight">
+            <table class="table table-hover table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">Tipologia EMS</th>
+                        <td>{{emsType}}</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="col" colspan="2"
+                            style="text-align: center; background-color: #343a40; color: white;">
+                            VALUTAZIONE
+                            PRE INTERVENTO</th>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Punteggio di vulnerabilità</th>
+                        <td>{{punteggio}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Classe di vulnerabilità</th>
+                        <td>V{{vulClass}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Soglia di punteggio per il passaggio alla classe inferiore </th>
+                        <td>{{soglia}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="col" colspan="2" style="text-align: center; background-color: #343a40;"></th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Δpunteggio per il passaggio di classe</th>
+                        <td>{{punteggioPassaggioClasse}}</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="col" colspan="2"
+                            style="text-align: center; background-color: #343a40; color: white;">
+                            VALUTAZIONE
+                            POST INTERVENTO</th>
+                    </tr>
+
+                    <tr *ngFor="let interventi of arraySelezionati; index as i">
+                        <th scope="row">Incidenza intervento {{i + 1}}
+                        </th>
+                        <td>{{interventi.ante - interventi.post}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Incidenza del pacchetto di interventi</th>
+                        <td>{{deltaPunteggioFinale}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Δpunteggio passaggio di classe aggiornato
+                        </th>
+                        <td>
+                            {{punteggioPassaggioClasseAggiornato}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Punteggio di vulnerabilità
+                        </th>
+                        <td>
+                            {{punteggioDiVul}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Classe di vulnerabilità
+                        </th>
+                        <td>V{{vulClass - 1}}</td>
+                    </tr>
+                    <div *ngIf="punteggioPassaggioClasse > 0">
+                        <button>
+                            Premi qua per aggiungere un intervento ulteriore
+                        </button>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

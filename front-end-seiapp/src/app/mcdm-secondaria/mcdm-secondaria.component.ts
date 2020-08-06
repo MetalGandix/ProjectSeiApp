@@ -2,18 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
 import { AssociazioneInterventoService } from '../classi-servizi/service/associazione-intervento.service';
-import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
 import { Struttura } from '../classi-servizi/classes/strutture/struttura';
+import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
 import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 import { ValutazionePunteggio } from '../classi-servizi/classes/valutazione-punteggio';
 
 @Component({
-  selector: 'app-mcdm',
-  templateUrl: './mcdm.component.html',
-  styleUrls: ['./mcdm.component.css']
+  selector: 'app-mcdm-secondaria',
+  templateUrl: './mcdm-secondaria.component.html',
+  styleUrls: ['./mcdm-secondaria.component.css']
 })
-
-export class McdmComponent {
+export class McdmSecondariaComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
@@ -59,8 +58,9 @@ export class McdmComponent {
   punteggioPassaggioClasse: number
   punteggioDiVul: number = 0
   punteggioPassaggioClasseAggiornato: number = 0
-  contatoreVolte: number
-  
+  idCaratteristica: number
+  idStruttura: number
+  interventiSecondari: AssociazioneIntervento[] = []
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -71,15 +71,20 @@ export class McdmComponent {
     this.caratteristiche = window.history.state.caratteristiche
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
-    this.contatoreVolte = window.history.state.contatoreVolte
-    this.service.getCaratteristicheQualitative().subscribe(data => {
-      this.car = data
-    })
-    console.log(this.ponderazione)
+    this.idCaratteristica = window.history.state.idCaratteristica
+    this.idStruttura = window.history.state.idStruttura
+    this.selezionaInterventiByCaratteristicaAndStruttura()
     this.cambiaTotale()
     this.calcoloSoglia()
     this.massimoNumero()
     this.sogliaUgualeZero()
+  }
+
+  selezionaInterventiByCaratteristicaAndStruttura(){
+    this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.idCaratteristica, this.idStruttura).subscribe(z => {
+      this.interventiSecondari = z
+      console.log("interventi: ", this.interventiSecondari)
+    })
   }
 
   sogliaUgualeZero() {
@@ -101,29 +106,6 @@ export class McdmComponent {
       }
       console.log("Totale: ", t.totale)
     })
-  }
-
-  calcoloSoglia() {
-    if (this.emsType == 3) {
-      this.soglia = 50
-    }
-    if (this.emsType == 5 && (this.punteggio >= 30 && this.punteggio <= 60)) {
-      this.soglia = 30
-    } else {
-      this.soglia = 60
-    }
-
-    if (this.emsType == 6 && (this.punteggio >= 30 && this.punteggio <= 60)) {
-      this.soglia = 30
-    } else {
-      this.soglia = 60
-    }
-
-    if (this.emsType == 7 && (this.punteggio >= 30 && this.punteggio <= 60)) {
-      this.soglia = 30
-    } else {
-      this.soglia = 60
-    }
   }
 
   massimoNumero() {
@@ -150,26 +132,6 @@ export class McdmComponent {
     minIntervento.minVariante = minIndex
   }
 
-  aggiuntaInterventoSecondario() {
-    this.router.navigate(['/aggiunta-intervento-secondario'], {
-      state: {
-        soglia: this.soglia
-        , punteggioPassaggioClasse: this.punteggioPassaggioClasse
-        , emsType: this.emsType
-        , vulClass: this.vulClass
-        , punteggio: this.punteggio
-        , risk: this.risk
-        , pam: this.pam
-        , variabileIntervento: this.variabileIntervento
-        , caratteristiche: this.caratteristiche
-        , deltaPunteggioFinale: this.deltaPunteggioFinale
-        , punteggioPassaggioClasseAggiornato: this.punteggioPassaggioClasseAggiornato
-        , punteggioDiVul: this.punteggioDiVul
-        , contatoreVolte: this.contatoreVolte
-      }
-    })
-  }
-
   deltaPunteggio1(x: number) {
     console.log(x)
     this.selectedElement.ante = x
@@ -178,6 +140,29 @@ export class McdmComponent {
   deltaPunteggio2(y: number) {
     console.log(y)
     this.selectedElement.post = y
+  }
+
+  calcoloSoglia() {
+    if (this.emsType == 3) {
+      this.soglia = 50
+    }
+    if (this.emsType == 5 && (this.punteggio >= 30 && this.punteggio <= 60)) {
+      this.soglia = 30
+    } else {
+      this.soglia = 60
+    }
+
+    if (this.emsType == 6 && (this.punteggio >= 30 && this.punteggio <= 60)) {
+      this.soglia = 30
+    } else {
+      this.soglia = 60
+    }
+
+    if (this.emsType == 7 && (this.punteggio >= 30 && this.punteggio <= 60)) {
+      this.soglia = 30
+    } else {
+      this.soglia = 60
+    }
   }
 
   risultatoDelta() {

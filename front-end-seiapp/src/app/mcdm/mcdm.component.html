@@ -11,19 +11,15 @@
       <hr>
 
       <div>
-        <details>
           <summary>Legenda scelta interventi</summary>
-
           <div class='my-legend'>
             <div class='legend-scale'>
               <ul class='legend-labels'>
-                <li><span style='background:#8b0000;'></span>Intervento peggiore</li>
+                <li><span style='background:#d62828;'></span>Intervento peggiore</li>
                 <li><span style='background:#228b22;'></span>Intervento migliore</li>
               </ul>
             </div>
           </div>
-
-        </details>
       </div>
 
     </div>
@@ -56,12 +52,14 @@
             <td>{{interventi.reversibilita[j]}}</td>
             <td>{{interventi.semplicitaDiCantiere[j]}}</td>
             <td>{{interventi.esiguitaDiIngombro[j]}}</td>
-            <td [ngStyle]="{'background-color':interventi.maxVariante === j ? 'green' : interventi.minVariante === j ? 'red' : 'white'}">
+            <td
+              [ngStyle]="{'background-color':interventi.maxVariante === j ? '#228b22' : interventi.minVariante === j ? '#d62828' : 'white'}">
               {{interventi.totale[j] | number: '1.2-2'}}</td>
             <td>
               <div class="custom-control custom-checkbox">
-              <input type="checkbox" [disabled]="arraySelezionati.length > 0" class="form-check-input" (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
-            </div>
+                <input type="checkbox" [disabled]="arraySelezionati.length > 0" class="form-check-input"
+                  (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
+              </div>
             </td>
           </tr>
         </ng-container>
@@ -80,9 +78,15 @@
               </th>
             </tr>
             <tr>
-              <th scope="col">Punteggio pre intervento
+              <th scope = "col" colspan="2" style="text-align: center;">Giudizio di vulnerabilità:
+                <p>A = Alto, M = Medio, B = Basso</p>
               </th>
-              <th scope="col">Punteggio post intervento
+            </tr>
+            <tr>
+            <tr>
+              <th scope="col" style="text-align: center;">Punteggio <p>pre intervento</p>
+              </th>
+              <th scope="col" style="text-align: center;">Punteggio <p>post intervento</p>
               </th>
             </tr>
             <tr>
@@ -105,7 +109,7 @@
           </thead>
         </table>
         <div class="bottone">
-          <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()" style="margin-top: 30px;">
+          <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()" style="margin-top: 30px; margin-right: 135px;">
             Aggiungi risultato </button>
         </div>
       </div>
@@ -150,7 +154,7 @@
           </tr>
 
           <tr *ngFor="let interventi of arraySelezionati; index as i">
-            <th scope="row">Incidenza intervento {{i + 1}}
+            <th scope="row">Incidenza intervento {{interventi.intervento.codice}}
             </th>
             <td>{{interventi.ante - interventi.post}}</td>
           </tr>
@@ -172,20 +176,15 @@
               {{punteggioDiVul}}
             </td>
           </tr>
-          <tr>
-            <th scope="row">Classe di vulnerabilità
-            </th>
-            <td>V{{vulClass - 1}}</td>
-          </tr>
           <div *ngIf="punteggioPassaggioClasse > 0">
-            <button (click)="aggiuntaInterventoSecondario()">
-              Premi qua per aggiungere un intervento ulteriore
+            <button class="btn btn-primary" class="btn btn-info" (click)="aggiuntaInterventoSecondario()" style="margin-left: 150px;">
+              Aggiungi un intervento ulteriore
             </button>
           </div>
         </tbody>
       </table>
     </div>
-    
+
   </div>
 
 
