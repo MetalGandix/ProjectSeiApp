@@ -19,7 +19,7 @@ import { Intervento } from '../classi-servizi/classes/intervento';
 })
 export class AggiuntaInterventoSecondarioComponent implements OnInit {
 
-  
+
 
   constructor(
     private route: ActivatedRoute,
@@ -56,12 +56,14 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   selectedElement: AssociazioneIntervento
   passaggioCaratteristica: string
   interventiSecondari: AssociazioneIntervento[] = []
-  indexParam: number
+  idCaratteristica: number
   punteggioPassaggioClasse: number
   interventoTabella: string
-  interventoSelezionato: AssociazioneIntervento|null = null
+  interventoSelezionato: AssociazioneIntervento | null = null
   punteggioDiVul: number
   punteggioPassaggioClasseAggiornato: number
+  idStruttura: number
+  contatoreVolte: number
 
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
@@ -81,6 +83,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     this.deltaPunteggioPrecedente = window.history.state.deltaPunteggioFinale
     this.punteggioDiVul = window.history.state.punteggioDiVul
     this.punteggioPassaggioClasseAggiornato = window.history.state.punteggioPassaggioClasseAggiornato
+    this.contatoreVolte = window.history.state.contatoreVolte
     this.strutturaService.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
@@ -101,29 +104,30 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
 
   risultatoDelta() {
     this.deltaPunteggioFinale = 0
-      this.deltaPunteggioFinale += this.interventoSelezionato.ante - this.interventoSelezionato.post 
+    this.deltaPunteggioFinale += this.interventoSelezionato.ante - this.interventoSelezionato.post
     this.a = true
     debugger
   }
 
-  selezionaCaratteristica(idCaratteristica: number){
+  selezionaCaratteristica(idCaratteristica: number) {
     this.strutturaService.getStruttureByCaratteristiche(idCaratteristica).subscribe(car => {
       this.strutturaObj = car
       this.selezionaInterventiByCaratteristicaAndStruttura(this.strutturaObj[0].id)
     })
     this.emsCar[this.emsType].carQualEms.id = idCaratteristica
-    this.indexParam = idCaratteristica
-    //this.selectedElement.push(this.strutturaObj[this.indexParam])
+    this.idCaratteristica = idCaratteristica
+    //this.selectedElement.push(this.strutturaObj[this.idCaratteristica])
   }
 
-  selezionaInterventiByCaratteristicaAndStruttura(idStruttura: number){
-      this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.indexParam,idStruttura).subscribe(z => {
-        this.interventiSecondari = z
-      })
+  selezionaInterventiByCaratteristicaAndStruttura(idStruttura: number) {
+    this.idStruttura = idStruttura
+    this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.idCaratteristica, this.idStruttura).subscribe(z => {
+      this.interventiSecondari = z
+    })
   }
 
-  onChangeIntervento(indexIntervento: number){
-   this.interventoSelezionato = this.interventiSecondari[indexIntervento]
+  onChangeIntervento(indexIntervento: number) {
+    this.interventoSelezionato = this.interventiSecondari[indexIntervento]
   }
 
   massimoNumero() {
@@ -142,33 +146,50 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     })
     maxIntervento.maxVariante = maxIndex
   }
-/*
-  premiBottone(selezionato: AssociazioneIntervento, variante: number, index: number) {
-    if(this.counterClickCheck == 0){
-    const nuovo = Object.assign({}, selezionato)
-    nuovo.ante = 0
-    nuovo.post = 0
-    this.selectedElement = nuovo
-    this.arraySelezionati.push(nuovo)
-    //Rimuovo l'elemento dall'array
-    /*selezionato.totale.splice(variante, 1);
-    (selezionato.efficacia as number[]).splice(variante, 1);
-    (selezionato.esiguitaDiIngombro as number[]).splice(variante, 1);
-    (selezionato.modicitaDiCosto as number[]).splice(variante, 1);
-    (selezionato.reversibilita as number[]).splice(variante, 1);
-    (selezionato.semplicitaDiCantiere as number[]).splice(variante, 1);
-    (selezionato.supIntonacate as number[]).splice(variante, 1);
-    (selezionato.supVista as number[]).splice(variante, 1);
-    selezionato.varianti.splice(variante, 1);*/
-    /*this.buttonIntervento = true
-    if(selezionato.varianti.length === 0){
-      this.variabileIntervento.splice(index, 1)
-    }
-    this.massimoNumero()
-    this.counterClickCheck + 1
-  }else{
 
+  trasferisciOggetti() {
+    this.router.navigate(['/matrice'], {
+      state: {
+        emsType: this.emsType
+        , vulClass: this.vulClass
+        , punteggio: this.punteggio
+        , risk: this.risk
+        , pam: this.pam
+        , variabileIntervento: this.variabileIntervento
+        , interventoSelezionato: this.interventoSelezionato
+        , idCaratteristica: this.idCaratteristica
+        , idStruttura: this.idStruttura
+        , contatoreVolte: this.contatoreVolte
+      }
+    })
   }
-  }*/
+  /*
+    premiBottone(selezionato: AssociazioneIntervento, variante: number, index: number) {
+      if(this.counterClickCheck == 0){
+      const nuovo = Object.assign({}, selezionato)
+      nuovo.ante = 0
+      nuovo.post = 0
+      this.selectedElement = nuovo
+      this.arraySelezionati.push(nuovo)
+      //Rimuovo l'elemento dall'array
+      /*selezionato.totale.splice(variante, 1);
+      (selezionato.efficacia as number[]).splice(variante, 1);
+      (selezionato.esiguitaDiIngombro as number[]).splice(variante, 1);
+      (selezionato.modicitaDiCosto as number[]).splice(variante, 1);
+      (selezionato.reversibilita as number[]).splice(variante, 1);
+      (selezionato.semplicitaDiCantiere as number[]).splice(variante, 1);
+      (selezionato.supIntonacate as number[]).splice(variante, 1);
+      (selezionato.supVista as number[]).splice(variante, 1);
+      selezionato.varianti.splice(variante, 1);*/
+  /*this.buttonIntervento = true
+  if(selezionato.varianti.length === 0){
+    this.variabileIntervento.splice(index, 1)
+  }
+  this.massimoNumero()
+  this.counterClickCheck + 1
+}else{
+
+}
+}*/
 
 }

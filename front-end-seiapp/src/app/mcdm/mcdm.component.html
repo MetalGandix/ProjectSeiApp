@@ -56,12 +56,14 @@
             <td>{{interventi.reversibilita[j]}}</td>
             <td>{{interventi.semplicitaDiCantiere[j]}}</td>
             <td>{{interventi.esiguitaDiIngombro[j]}}</td>
-            <td [ngStyle]="{'background-color':interventi.maxVariante === j ? 'green' : interventi.minVariante === j ? 'red' : 'white'}">
+            <td
+              [ngStyle]="{'background-color':interventi.maxVariante === j ? 'green' : interventi.minVariante === j ? 'red' : 'white'}">
               {{interventi.totale[j] | number: '1.2-2'}}</td>
             <td>
               <div class="custom-control custom-checkbox">
-              <input type="checkbox" [disabled]="arraySelezionati.length > 0" class="form-check-input" (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
-            </div>
+                <input type="checkbox" [disabled]="arraySelezionati.length > 0" class="form-check-input"
+                  (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
+              </div>
             </td>
           </tr>
         </ng-container>
@@ -185,7 +187,7 @@
         </tbody>
       </table>
     </div>
-    
+
   </div>
 
 

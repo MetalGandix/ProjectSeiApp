@@ -38,6 +38,10 @@ export class MatriceComparazioneComponent implements OnInit {
   pam: String
   punteggio: Number
   emsType: Number
+  interventoSelezionato: AssociazioneIntervento | null = null
+  idStruttura: number = 0;
+  idCaratteristica: number = 0;
+  contatoreVolte: number;
 
   arrayComparazione = [
     { id: 1, char: "1/9", num: 1 / 9 },
@@ -75,6 +79,9 @@ export class MatriceComparazioneComponent implements OnInit {
     this.pam = window.history.state.pam;
     this.variabileIntervento = window.history.state.variabileIntervento
     this.caratteristiche = window.history.state.caratteristiche
+    this.interventoSelezionato = window.history.state.interventoSelezionato
+    this.idCaratteristica = window.history.state.idCaratteristica
+    this.idStruttura = window.history.state.idStruttura
     for (let r = 0; r < 6; r++) {
       this.matriceNormalizzata.push([0, 0, 0, 0, 0, 0])
       this.matrix[r] = []
@@ -162,8 +169,44 @@ export class MatriceComparazioneComponent implements OnInit {
     }
   }
 
-  trasferisciPonderazione(){
-    this.router.navigate(['/mcdm'], { state: {emsType: this.emsType, vulClass: this.vulClass, punteggio: this.punteggio, risk: this.risk, pam: this.pam, caratteristiche: this.caratteristiche, ponderazione: this.ponderazione, variabileIntervento: this.variabileIntervento }})
+  trasferisciPonderazione() {
+    this.contatoreVolte = window.history.state.contatoreVolte
+    console.log(this.contatoreVolte)
+    if(this.contatoreVolte == 0 || this.contatoreVolte == undefined){
+    this.contatoreVolte = 1
+    this.router.navigate(['/mcdm'], {
+      state: {
+        emsType: this.emsType
+        , vulClass: this.vulClass
+        , punteggio: this.punteggio
+        , risk: this.risk
+        , pam: this.pam
+        , caratteristiche: this.caratteristiche
+        , ponderazione: this.ponderazione
+        , variabileIntervento: this.variabileIntervento
+        , idStruttura: this.idStruttura
+        , idCaratteristica: this.idCaratteristica
+        , interventoSelezionato: this.interventoSelezionato
+        , contatoreVolte: this.contatoreVolte
+      }
+    })
+  }else{
+    this.router.navigate(['/mcdm-secondaria'], {
+      state: {
+        emsType: this.emsType
+        , vulClass: this.vulClass
+        , punteggio: this.punteggio
+        , risk: this.risk
+        , pam: this.pam
+        , caratteristiche: this.caratteristiche
+        , ponderazione: this.ponderazione
+        , variabileIntervento: this.variabileIntervento
+        , idStruttura: this.idStruttura
+        , idCaratteristica: this.idCaratteristica
+        , interventoSelezionato: this.interventoSelezionato
+      }
+    })
+  }
   }
 
   /*numeriContrapposti(){

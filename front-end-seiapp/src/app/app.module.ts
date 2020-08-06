@@ -27,6 +27,7 @@ import { ReportInterventoComponent } from './report-intervento/report-intervento
 import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-comparazione.component';
 import { McdmComponent } from './mcdm/mcdm.component';
 import { AggiuntaInterventoSecondarioComponent } from './aggiunta-intervento-secondario/aggiunta-intervento-secondario.component';
+import { McdmSecondariaComponent } from './mcdm-secondaria/mcdm-secondaria.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AggiuntaInterventoSecondarioComponent } from './aggiunta-intervento-sec
     ReportInterventoComponent,
     MatriceComparazioneComponent,
     McdmComponent,
-    AggiuntaInterventoSecondarioComponent
+    AggiuntaInterventoSecondarioComponent,
+    McdmSecondariaComponent
   ],
   imports: [
     BrowserModule,
