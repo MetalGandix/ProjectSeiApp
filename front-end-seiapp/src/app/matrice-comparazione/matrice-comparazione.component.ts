@@ -59,7 +59,7 @@ export class MatriceComparazioneComponent implements OnInit {
   ]
 
   arrayStringhe = [
-    "MODICITà DI COSTO",
+    "MODICITÀ DI COSTO",
     "EFFICACIA",
     "COMPATIBILITÀ VISIVA",
     "REVERSIBILITÀ",
