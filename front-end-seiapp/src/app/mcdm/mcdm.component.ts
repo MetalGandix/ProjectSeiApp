@@ -87,6 +87,7 @@ export class McdmComponent {
   }
 
   cambiaTotale() {
+    debugger
     this.variabileIntervento.forEach(t => {
       t.totale = []
       for (const i in t.varianti) {
