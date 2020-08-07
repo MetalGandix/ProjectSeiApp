@@ -96,8 +96,8 @@ export class McdmSecondariaComponent implements OnInit {
   cambiaTotale() {
     debugger
     this.interventiSecondari.forEach(t => {
-      if(t.varianti == undefined || t.varianti == null){
-        t.varianti = ["0"]      
+      if(t.varianti == undefined){
+        t.varianti = [null]     
       }
       t.totale = []
       for (const i in t.varianti) {
