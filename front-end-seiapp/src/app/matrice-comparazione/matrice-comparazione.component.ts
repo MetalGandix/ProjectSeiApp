@@ -42,6 +42,7 @@ export class MatriceComparazioneComponent implements OnInit {
   idStruttura: number = 0;
   idCaratteristica: number = 0;
   contatoreVolte: number;
+  interventiSecondari: AssociazioneIntervento[]
 
   arrayComparazione = [
     { id: 1, char: "1/9", num: 1 / 9 },
@@ -80,6 +81,7 @@ export class MatriceComparazioneComponent implements OnInit {
     this.variabileIntervento = window.history.state.variabileIntervento
     this.caratteristiche = window.history.state.caratteristiche
     this.interventoSelezionato = window.history.state.interventoSelezionato
+    this.interventiSecondari = window.history.state.interventiSecondari
     this.idCaratteristica = window.history.state.idCaratteristica
     this.idStruttura = window.history.state.idStruttura
     for (let r = 0; r < 6; r++) {
@@ -204,6 +206,7 @@ export class MatriceComparazioneComponent implements OnInit {
         , idStruttura: this.idStruttura
         , idCaratteristica: this.idCaratteristica
         , interventoSelezionato: this.interventoSelezionato
+        , interventiSecondari: this.interventiSecondari
       }
     })
   }

@@ -15,7 +15,7 @@ export class AssociazioneIntervento {
     esiguitaDiIngombro: number|number[]
     totale: number[]
     variante: String
-    varianti: String[]
+    varianti?: String[]
     //Può non esistere
     maxVariante?: number
     minVariante?: number

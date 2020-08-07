@@ -160,6 +160,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
         , idCaratteristica: this.idCaratteristica
         , idStruttura: this.idStruttura
         , contatoreVolte: this.contatoreVolte
+        , interventiSecondari: this.interventiSecondari
       }
     })
   }

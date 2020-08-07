@@ -60,7 +60,7 @@ export class McdmSecondariaComponent implements OnInit {
   punteggioPassaggioClasseAggiornato: number = 0
   idCaratteristica: number
   idStruttura: number
-  interventiSecondari: AssociazioneIntervento[] = []
+  interventiSecondari: AssociazioneIntervento[];
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -73,26 +73,32 @@ export class McdmSecondariaComponent implements OnInit {
     this.ponderazione = window.history.state.ponderazione;
     this.idCaratteristica = window.history.state.idCaratteristica
     this.idStruttura = window.history.state.idStruttura
-    this.selezionaInterventiByCaratteristicaAndStruttura()
+    this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.idCaratteristica, this.idStruttura).subscribe(z => {
+        this.interventiSecondari = z
     this.cambiaTotale()
-    this.calcoloSoglia()
     this.massimoNumero()
+    })
+    this.calcoloSoglia()
     this.sogliaUgualeZero()
   }
 
-  selezionaInterventiByCaratteristicaAndStruttura(){
+  /*selezionaInterventiByCaratteristicaAndStruttura() {
     this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.idCaratteristica, this.idStruttura).subscribe(z => {
       this.interventiSecondari = z
-      console.log("interventi: ", this.interventiSecondari)
     })
-  }
+    console.log("interventi: ", this.interventiSecondari)
+  }*/
 
   sogliaUgualeZero() {
-    this.punteggioPassaggioClasse = this.punteggio - this.soglia    
+    this.punteggioPassaggioClasse = this.punteggio - this.soglia
   }
 
   cambiaTotale() {
-    this.variabileIntervento.forEach(t => {
+    debugger
+    this.interventiSecondari.forEach(t => {
+      if(t.varianti == undefined || t.varianti == null){
+        t.varianti = ["0"]      
+      }
       t.totale = []
       for (const i in t.varianti) {
         this.modCos = t.modicitaDiCosto[i] * this.ponderazione[0]
@@ -111,11 +117,11 @@ export class McdmSecondariaComponent implements OnInit {
   massimoNumero() {
     let min = Infinity
     let max = 0
-    let maxIndex: number
     let maxIntervento: AssociazioneIntervento
     let minIntervento: AssociazioneIntervento
+    let maxIndex: number
     let minIndex: number
-    this.variabileIntervento.forEach(interventi => {
+    this.interventiSecondari.forEach(interventi => {
       for (let index in interventi.varianti) {
         if (interventi.totale[index] > max) {
           max = interventi.totale[index]
@@ -194,7 +200,7 @@ export class McdmSecondariaComponent implements OnInit {
       this.arraySelezionati.push(nuovo)
       this.buttonIntervento = true
       if (selezionato.varianti.length === 0) {
-        this.variabileIntervento.splice(index, 1)
+        this.interventiSecondari.splice(index, 1)
       }
       this.massimoNumero()
     }
