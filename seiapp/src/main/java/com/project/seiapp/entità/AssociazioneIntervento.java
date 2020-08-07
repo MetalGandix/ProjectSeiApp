@@ -35,6 +35,8 @@ public class AssociazioneIntervento {
     private int semplicitaDiCantiere;
     private int esiguitaDiIngombro;
     private String variante;
+    private double prezzo;
+    private String unitàMisura;
 
 
     public long getId() {
@@ -132,5 +134,21 @@ public class AssociazioneIntervento {
 
     public void setVariante(String variante) {
         this.variante = variante;
+    }
+
+    public double getPrezzo() {
+        return prezzo;
+    }
+
+    public void setPrezzo(double prezzo) {
+        this.prezzo = prezzo;
+    }
+
+    public String getUnitàMisura() {
+        return unitàMisura;
+    }
+
+    public void setUnitàMisura(String unitàMisura) {
+        this.unitàMisura = unitàMisura;
     }
 }
