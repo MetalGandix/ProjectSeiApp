@@ -7,6 +7,7 @@ import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-i
 import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 import { ValutazionePunteggio } from '../classi-servizi/classes/valutazione-punteggio';
 import { RisultatoSelezioneService } from '../classi-servizi/service/risultato-selezione.service';
+import { Intervento } from '../classi-servizi/classes/intervento';
 
 @Component({
   selector: 'app-mcdm-secondaria',
@@ -25,6 +26,7 @@ export class McdmSecondariaComponent implements OnInit {
   }
 
   result: boolean = false
+  interventiDaMostrare: Intervento[] = []
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   struttura: Struttura[];
   variabileIntervento: AssociazioneIntervento[];
@@ -63,9 +65,12 @@ export class McdmSecondariaComponent implements OnInit {
   idCaratteristica: number
   idStruttura: number
   contatoreVolte: number
+  interventoSingolo: number
   interventiSecondari: AssociazioneIntervento[];
+  arrayDiNumeriIntervento: number[] = []
 
   ngOnInit() {
+    this.interventoSingolo = window.history.state.interventoSingolo
     this.emsType = window.history.state.emsType
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
@@ -77,6 +82,10 @@ export class McdmSecondariaComponent implements OnInit {
     this.ponderazione = window.history.state.ponderazione;
     this.idCaratteristica = window.history.state.idCaratteristica
     this.idStruttura = window.history.state.idStruttura
+    this.risultatoSelezione.interventiSelezionati.forEach(z => {
+      this.interventiDaMostrare.push(z)
+      console.log("interventi: ", this.interventiDaMostrare)
+    })
     this.service.getCaratteristicheQualitative().subscribe(x => {
       this.car = x
       for(let caratteristicaDellArray of this.car){
@@ -123,11 +132,12 @@ export class McdmSecondariaComponent implements OnInit {
   }
 
   aggiuntaInterventoSecondario() {
-    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
     this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0].intervento)
+    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
     this.router.navigate(['/aggiunta-intervento-secondario'], {
       state: {
         soglia: this.soglia
+        , interventoSingolo: this.interventoSingolo
         , punteggioPassaggioClasse: this.punteggioPassaggioClasse
         , emsType: this.emsType
         , vulClass: this.vulClass
@@ -201,6 +211,10 @@ export class McdmSecondariaComponent implements OnInit {
     }
   }
 
+  interventoSingoloRisultato(){
+        this.interventoSingolo = this.selectedElement.ante - this.selectedElement.post
+  }
+
   risultatoDelta() {
     this.deltaPunteggioFinale = 0
     this.arraySelezionati.forEach(selezionato => {
@@ -234,6 +248,7 @@ export class McdmSecondariaComponent implements OnInit {
       }
       this.massimoNumero()
     }
+    this.interventoSingoloRisultato()
   }
 
 }

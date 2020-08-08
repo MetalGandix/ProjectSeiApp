@@ -109,7 +109,7 @@
           </thead>
         </table>
         <div class="bottone">
-          <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()" style="margin-top: 30px; margin-right: 135px;">
+          <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()" (click)="interventoSingoloRisultato()" style="margin-top: 30px; margin-right: 135px;">
             Aggiungi risultato </button>
         </div>
       </div>
@@ -156,7 +156,7 @@
           <tr *ngFor="let interventi of arraySelezionati; index as i">
             <th scope="row">Incidenza intervento {{interventi.intervento.codice}}
             </th>
-            <td>{{interventi.ante - interventi.post}}</td>
+            <td>{{interventoSingolo}}</td>
           </tr>
           <tr>
             <th scope="row">Incidenza del pacchetto di interventi</th>

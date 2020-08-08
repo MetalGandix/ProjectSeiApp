@@ -68,12 +68,14 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   idStruttura: number
   contatoreVolte: number
   caratteristicheSelezionabili: CaratteristicheQualitative[] = []
+  interventoSingolo: number
 
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
       this.carStrutt = caratteristicheStrutture
       console.log(caratteristicheStrutture)
     })
+    this.interventoSingolo = window.history.state.interventoSingolo
     this.soglia = window.history.state.soglia
     this.punteggioPassaggioClasse = window.history.state.punteggioPassaggioClasse
     this.emsType = window.history.state.emsType
@@ -165,6 +167,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     this.router.navigate(['/matrice'], {
       state: {
         emsType: this.emsType
+        , interventoSingolo: this.interventoSingolo
         , caratteristiche: this.caratteristiche
         , vulClass: this.vulClass
         , punteggio: this.punteggio

@@ -62,6 +62,7 @@ export class McdmComponent {
   punteggioDiVul: number = 0
   punteggioPassaggioClasseAggiornato: number = 0
   contatoreVolte: number
+  interventoSingolo: number
   
 
   ngOnInit() {
@@ -154,6 +155,7 @@ export class McdmComponent {
 
   aggiuntaInterventoSecondario() {
     this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0].intervento)
+    console.log("Interventi nell'Array: ",this.arraySelezionati)
     this.router.navigate(['/aggiunta-intervento-secondario'], {
       state: {
         soglia: this.soglia
@@ -169,6 +171,7 @@ export class McdmComponent {
         , punteggioPassaggioClasseAggiornato: this.punteggioPassaggioClasseAggiornato
         , punteggioDiVul: this.punteggioDiVul
         , contatoreVolte: this.contatoreVolte
+        , interventoSingolo: this.interventoSingolo
       }
     })
   }
@@ -181,6 +184,10 @@ export class McdmComponent {
   deltaPunteggio2(y: number) {
     console.log(y)
     this.selectedElement.post = y
+  }
+
+  interventoSingoloRisultato(){
+    this.interventoSingolo = this.selectedElement.ante - this.selectedElement.post
   }
 
   risultatoDelta() {
@@ -216,6 +223,7 @@ export class McdmComponent {
       }
       this.massimoNumero()
     }
+    this.interventoSingoloRisultato()
   }
 
 }

@@ -42,6 +42,7 @@ export class MatriceComparazioneComponent implements OnInit {
   idStruttura: number = 0;
   idCaratteristica: number = 0;
   contatoreVolte: number;
+  interventoSingolo: number
   interventiSecondari: AssociazioneIntervento[]
 
   arrayComparazione = [
@@ -73,6 +74,7 @@ export class MatriceComparazioneComponent implements OnInit {
   ]
 
   ngOnInit() {
+    this.interventoSingolo = window.history.state.interventoSingolo
     this.contatoreVolte = window.history.state.contatoreVolte
     console.log("Contatore: ",this.contatoreVolte)
     this.emsType = window.history.state.emsType
@@ -210,6 +212,7 @@ export class MatriceComparazioneComponent implements OnInit {
         , interventoSelezionato: this.interventoSelezionato
         , interventiSecondari: this.interventiSecondari
         , contatoreVolte: this.contatoreVolte
+        , interventoSingolo: this.interventoSingolo
       }
     })
   }
