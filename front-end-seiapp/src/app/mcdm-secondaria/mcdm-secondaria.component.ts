@@ -16,7 +16,7 @@ import { RisultatoSelezioneService } from '../classi-servizi/service/risultato-s
 export class McdmSecondariaComponent implements OnInit {
 
   constructor(
-    risultatoSelezione: RisultatoSelezioneService,
+    private risultatoSelezione: RisultatoSelezioneService,
     private route: ActivatedRoute,
     private router: Router,
     private service: ElementiStrutturaService,
@@ -62,6 +62,7 @@ export class McdmSecondariaComponent implements OnInit {
   punteggioPassaggioClasseAggiornato: number = 0
   idCaratteristica: number
   idStruttura: number
+  contatoreVolte: number
   interventiSecondari: AssociazioneIntervento[];
 
   ngOnInit() {
@@ -69,6 +70,8 @@ export class McdmSecondariaComponent implements OnInit {
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
     this.risk = window.history.state.risk;
+    this.contatoreVolte = window.history.state.contatoreVolte
+    console.log("Contatore: ", this.contatoreVolte)
     this.pam = window.history.state.pam;
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
@@ -116,6 +119,28 @@ export class McdmSecondariaComponent implements OnInit {
         t.totale.push(this.modCos + this.effic + this.supInton + this.supVis + this.revers + this.semplCant + this.esigIngom)
       }
       console.log("Totale: ", t.totale)
+    })
+  }
+
+  aggiuntaInterventoSecondario() {
+    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
+    this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0].intervento)
+    this.router.navigate(['/aggiunta-intervento-secondario'], {
+      state: {
+        soglia: this.soglia
+        , punteggioPassaggioClasse: this.punteggioPassaggioClasse
+        , emsType: this.emsType
+        , vulClass: this.vulClass
+        , punteggio: this.punteggio
+        , risk: this.risk
+        , pam: this.pam
+        , variabileIntervento: this.variabileIntervento
+        , caratteristiche: this.caratteristiche
+        , deltaPunteggioFinale: this.deltaPunteggioFinale
+        , punteggioPassaggioClasseAggiornato: this.punteggioPassaggioClasseAggiornato
+        , punteggioDiVul: this.punteggioDiVul
+        , contatoreVolte: this.contatoreVolte
+      }
     })
   }
 

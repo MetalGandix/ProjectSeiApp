@@ -73,6 +73,8 @@ export class MatriceComparazioneComponent implements OnInit {
   ]
 
   ngOnInit() {
+    this.contatoreVolte = window.history.state.contatoreVolte
+    console.log("Contatore: ",this.contatoreVolte)
     this.emsType = window.history.state.emsType
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
@@ -172,7 +174,7 @@ export class MatriceComparazioneComponent implements OnInit {
   }
 
   trasferisciPonderazione() {
-    this.contatoreVolte = window.history.state.contatoreVolte
+    //this.contatoreVolte = window.history.state.contatoreVolte
     console.log(this.contatoreVolte)
     if(this.contatoreVolte == 0 || this.contatoreVolte == undefined){
     this.contatoreVolte = 1
@@ -207,6 +209,7 @@ export class MatriceComparazioneComponent implements OnInit {
         , idCaratteristica: this.idCaratteristica
         , interventoSelezionato: this.interventoSelezionato
         , interventiSecondari: this.interventiSecondari
+        , contatoreVolte: this.contatoreVolte
       }
     })
   }

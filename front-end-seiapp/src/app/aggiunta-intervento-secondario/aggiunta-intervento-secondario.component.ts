@@ -87,6 +87,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     this.punteggioDiVul = window.history.state.punteggioDiVul
     this.punteggioPassaggioClasseAggiornato = window.history.state.punteggioPassaggioClasseAggiornato
     this.contatoreVolte = window.history.state.contatoreVolte
+    console.log("Contatore: ",this.contatoreVolte)
     this.strutturaService.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
     })
