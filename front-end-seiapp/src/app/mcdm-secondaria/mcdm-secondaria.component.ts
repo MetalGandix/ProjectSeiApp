@@ -6,6 +6,7 @@ import { Struttura } from '../classi-servizi/classes/strutture/struttura';
 import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
 import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 import { ValutazionePunteggio } from '../classi-servizi/classes/valutazione-punteggio';
+import { RisultatoSelezioneService } from '../classi-servizi/service/risultato-selezione.service';
 
 @Component({
   selector: 'app-mcdm-secondaria',
@@ -15,6 +16,7 @@ import { ValutazionePunteggio } from '../classi-servizi/classes/valutazione-punt
 export class McdmSecondariaComponent implements OnInit {
 
   constructor(
+    risultatoSelezione: RisultatoSelezioneService,
     private route: ActivatedRoute,
     private router: Router,
     private service: ElementiStrutturaService,
@@ -27,7 +29,7 @@ export class McdmSecondariaComponent implements OnInit {
   struttura: Struttura[];
   variabileIntervento: AssociazioneIntervento[];
   caratteristiche: CaratteristicheQualitative
-  car: CaratteristicheQualitative[]
+  car: CaratteristicheQualitative[] = []
   totale: number[];
   modCos: number
   effic: number
@@ -68,15 +70,22 @@ export class McdmSecondariaComponent implements OnInit {
     this.punteggio = window.history.state.punteggio;
     this.risk = window.history.state.risk;
     this.pam = window.history.state.pam;
-    this.caratteristiche = window.history.state.caratteristiche
     this.variabileIntervento = window.history.state.variabileIntervento
     this.ponderazione = window.history.state.ponderazione;
     this.idCaratteristica = window.history.state.idCaratteristica
     this.idStruttura = window.history.state.idStruttura
+    this.service.getCaratteristicheQualitative().subscribe(x => {
+      this.car = x
+      for(let caratteristicaDellArray of this.car){
+        if(caratteristicaDellArray.id === this.idCaratteristica){
+         this.caratteristiche = caratteristicaDellArray
+        }
+      }
+    })
     this.serviceAssociazione.getInterventoByCaratteristicaAndStruttura(this.idCaratteristica, this.idStruttura).subscribe(z => {
-        this.interventiSecondari = z
-    this.cambiaTotale()
-    this.massimoNumero()
+        this.interventiSecondari = this.serviceAssociazione.interventGrouping(z)
+        this.cambiaTotale()
+        this.massimoNumero()
     })
     this.calcoloSoglia()
     this.sogliaUgualeZero()
@@ -94,11 +103,7 @@ export class McdmSecondariaComponent implements OnInit {
   }
 
   cambiaTotale() {
-    debugger
     this.interventiSecondari.forEach(t => {
-      if(t.varianti == undefined){
-        t.varianti = [null]     
-      }
       t.totale = []
       for (const i in t.varianti) {
         this.modCos = t.modicitaDiCosto[i] * this.ponderazione[0]

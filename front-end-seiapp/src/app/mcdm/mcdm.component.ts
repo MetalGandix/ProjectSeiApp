@@ -6,6 +6,7 @@ import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-i
 import { Struttura } from '../classi-servizi/classes/strutture/struttura';
 import { CaratteristicheQualitative } from '../classi-servizi/classes/caratteristiche-qualitative';
 import { ValutazionePunteggio } from '../classi-servizi/classes/valutazione-punteggio';
+import { RisultatoSelezioneService } from '../classi-servizi/service/risultato-selezione.service';
 
 @Component({
   selector: 'app-mcdm',
@@ -16,6 +17,7 @@ import { ValutazionePunteggio } from '../classi-servizi/classes/valutazione-punt
 export class McdmComponent {
 
   constructor(
+    private risultatoSelezione: RisultatoSelezioneService,
     private route: ActivatedRoute,
     private router: Router,
     private service: ElementiStrutturaService,
@@ -87,7 +89,6 @@ export class McdmComponent {
   }
 
   cambiaTotale() {
-    debugger
     this.variabileIntervento.forEach(t => {
       t.totale = []
       for (const i in t.varianti) {
@@ -152,6 +153,7 @@ export class McdmComponent {
   }
 
   aggiuntaInterventoSecondario() {
+    this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0].intervento)
     this.router.navigate(['/aggiunta-intervento-secondario'], {
       state: {
         soglia: this.soglia

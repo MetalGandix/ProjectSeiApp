@@ -17,7 +17,7 @@
       <option selected disabled>
         Seleziona
       </option>
-      <option [value]="arr.id" *ngFor="let arr of emsCar[emsType - 1].carQualEms; index as j">
+      <option [value]="arr.id" *ngFor="let arr of caratteristicheSelezionabili; index as j">
         <!-- carQualEms è un oggetto di tipo CaratteristicheQualitative -->
         {{arr.caratteristicheQualitative}}
       </option>
@@ -84,31 +84,6 @@
 </form>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div>
   <div class="container" style="margin-top: 20px" *ngIf="interventoSelezionato !== null">

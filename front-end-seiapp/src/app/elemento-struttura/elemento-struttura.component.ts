@@ -7,6 +7,7 @@ import { Struttura } from '../classi-servizi/classes/strutture/struttura';
 import { TypeStruttura } from '../classi-servizi/classes/strutture/type-struttura';
 import { AssociazioneInterventoService } from '../classi-servizi/service/associazione-intervento.service';
 import { AssociazioneIntervento } from '../classi-servizi/classes/associazione-intervento';
+import { RisultatoSelezioneService } from '../classi-servizi/service/risultato-selezione.service';
 
 @Component({
   selector: 'app-elemento-struttura',
@@ -34,6 +35,7 @@ export class ElementoStrutturaComponent implements OnInit {
 
 
   constructor(
+    private risultatoSelezione: RisultatoSelezioneService,
     private route: ActivatedRoute,
     private router: Router,
     private service: ElementiStrutturaService,
@@ -72,12 +74,14 @@ export class ElementoStrutturaComponent implements OnInit {
   }
 
   trasferisciOggetti() {
+    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche[this.selectArr])
     this.router.navigate(['/matrice'], {
       state: { emsType: this.emsType, vulClass: this.vulClass,punteggio: this.punteggio, risk: this.risk, pam: this.pam,  variabileIntervento: this.variabileIntervento, caratteristiche: this.caratteristiche[this.selectArr], selectedMeccanicaIndex: this.selectedMeccanicaIndex }
     })
   }
 
   ngOnInit() {
+    this.risultatoSelezione.reset()
     this.emsType = window.history.state.emsType
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
@@ -96,40 +100,9 @@ export class ElementoStrutturaComponent implements OnInit {
       console.log(this.struttura)
     })
     this.serviceAssociazione.getAssociazioneIntervento().subscribe(data => {
-      const result = []
-      const raggruppamento = {}
-      for (const value of data) {
-        const idIntervento = value.intervento.id
-        const idCaratteristica = value.caratteristicaAssociazioneIntervento.id
-        const idStruttura = value.strutturaAssociazione.id
-        const key = idIntervento + "_" + idCaratteristica + "_" + idStruttura
-        if (!raggruppamento[key]) {
-          raggruppamento[key] = {
-            ...value,
-            varianti: [],
-            modicitaDiCosto: [],
-            reversibilita: [],
-            semplicitaDiCantiere: [],
-            supIntonacate: [],
-            supVista: [],
-            esiguitaDiIngombro: [],
-            efficacia: []
-          }
-        }
-        raggruppamento[key].varianti.push(value.variante)
-        raggruppamento[key].modicitaDiCosto.push(value.modicitaDiCosto)
-        raggruppamento[key].reversibilita.push(value.reversibilita)
-        raggruppamento[key].semplicitaDiCantiere.push(value.semplicitaDiCantiere)
-        raggruppamento[key].supIntonacate.push(value.supIntonacate)
-        raggruppamento[key].supVista.push(value.supVista)
-        raggruppamento[key].esiguitaDiIngombro.push(value.esiguitaDiIngombro)
-        raggruppamento[key].efficacia.push(value.efficacia)
-      }
-      for (const key in raggruppamento) {
-        result.push(raggruppamento[key])
-      }
-      this.associazioneIntervento = result;
+      this.associazioneIntervento = this.serviceAssociazione.interventGrouping(data);
       console.log(this.associazioneIntervento)
     })
   }
+
 }

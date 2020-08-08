@@ -11,6 +11,7 @@ import { Struttura } from '../classi-servizi/classes/strutture/struttura';
 import { CaratteristicheStrutturaServiceService } from '../classi-servizi/service/caratteristiche-struttura-service.service';
 import { CaratteristicheStruttura } from '../classi-servizi/classes/caratteristiche-struttura';
 import { Intervento } from '../classi-servizi/classes/intervento';
+import { RisultatoSelezioneService } from '../classi-servizi/service/risultato-selezione.service';
 
 @Component({
   selector: 'app-aggiunta-intervento-secondario',
@@ -22,6 +23,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
 
 
   constructor(
+    private risultatoSelezione: RisultatoSelezioneService,
     private route: ActivatedRoute,
     private router: Router,
     private strutturaService: ElementiStrutturaService,
@@ -64,6 +66,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   punteggioPassaggioClasseAggiornato: number
   idStruttura: number
   contatoreVolte: number
+  caratteristicheSelezionabili: CaratteristicheQualitative[] = []
 
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
@@ -88,8 +91,15 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
       this.car = data
     })
     this.emsService.getTipoEdificio().subscribe(data => {
+      this.caratteristicheSelezionabili = []
       this.emsCar = data
+      for (let caratteristica of this.emsCar[this.emsType - 1].carQualEms) {
+        if(!this.risultatoSelezione.checkCaratteristica(caratteristica.id)){
+          this.caratteristicheSelezionabili.push(caratteristica)
+        }
+      }
     })
+    console.log(this.strutturaService.test)
   }
 
   deltaPunteggio1(x: number) {
@@ -109,12 +119,12 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     debugger
   }
 
-  selezionaCaratteristica(idCaratteristica: number) {
+  selezionaCaratteristica(strCaratteristica: string) {
+    let idCaratteristica = parseInt(strCaratteristica)
     this.strutturaService.getStruttureByCaratteristiche(idCaratteristica).subscribe(car => {
       this.strutturaObj = car
       this.selezionaInterventiByCaratteristicaAndStruttura(this.strutturaObj[0].id)
     })
-    this.emsCar[this.emsType].carQualEms.id = idCaratteristica
     this.idCaratteristica = idCaratteristica
     //this.selectedElement.push(this.strutturaObj[this.idCaratteristica])
   }
@@ -148,9 +158,11 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   }
 
   trasferisciOggetti() {
+    this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
     this.router.navigate(['/matrice'], {
       state: {
         emsType: this.emsType
+        , caratteristiche: this.caratteristiche
         , vulClass: this.vulClass
         , punteggio: this.punteggio
         , risk: this.risk

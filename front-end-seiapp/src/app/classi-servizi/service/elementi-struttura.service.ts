@@ -14,6 +14,7 @@ import { ValutazionePunteggio } from '../classes/valutazione-punteggio';
 export class ElementiStrutturaService {
 
   url: string
+  test: string = ""
 
   //Costruttore
   constructor(private http: HttpClient) {
@@ -23,6 +24,8 @@ export class ElementiStrutturaService {
   public getStruttura():Observable<Struttura[]>{
     return this.http.get<Struttura[]>(this.url + 'struttura');
   }
+
+  
 
   public getStruttureByCaratteristiche(carQualId: number): Observable<Struttura[]>{
     return this.http.get<Struttura[]>(this.url + "getStrutturaCaratteristica", {

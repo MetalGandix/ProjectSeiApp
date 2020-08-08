@@ -3,6 +3,6 @@ import { CaratteristicheQualitative } from './caratteristiche-qualitative';
 export class TipoEdificio {
     id: number;
     tipologiaStrutture: string;
-    carQualEms: CaratteristicheQualitative
+    carQualEms: CaratteristicheQualitative[]
     abilitato: boolean
 }
