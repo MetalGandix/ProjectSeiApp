@@ -64,6 +64,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   interventoSelezionato: AssociazioneIntervento | null = null
   punteggioDiVul: number
   punteggioPassaggioClasseAggiornato: number
+  selectedMeccanicaIndex: number;
   idStruttura: number
   contatoreVolte: number
   caratteristicheSelezionabili: CaratteristicheQualitative[] = []
@@ -121,6 +122,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   }
 
   selezionaCaratteristica(strCaratteristica: string) {
+    this.selectedMeccanicaIndex = 0
     let idCaratteristica = parseInt(strCaratteristica)
     this.strutturaService.getStruttureByCaratteristiche(idCaratteristica).subscribe(car => {
       this.strutturaObj = car

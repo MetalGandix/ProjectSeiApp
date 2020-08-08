@@ -64,17 +64,28 @@
       </tr>
     </table>
 
-    <!-- INTERVENTI SELECT
-    <select class="form-control" (change)="onChangeIntervento($event.target.value)">
-      <option selected disabled>
-        Seleziona
-      </option>
-      <option [value]="x" *ngFor="let int of interventiSecondari; index as x">
-        {{int.intervento.codice}}
-        {{int.variante}}
-      </option>
-    </select>
-    -->
+    <!--<table class="table table-bordered" *ngIf="caratteristicheSelezionabili" [(ngModel)]="selectedMeccanicaIndex"
+    style="margin-top: 30px;" value="struttura" id="structure" name="struttura">
+    <thead class="thead-dark">
+      <th>
+        <p><b>Meccanismi</b></p>
+      </th>
+    </thead>
+    <tr *ngFor="let meccanismo of caratteristicheSelezionabili; index as i">
+      <td>
+        <b>{{meccanismo.meccanismiAssociati.descrizione}}</b>
+        <br>
+        Modi di danno alle strutture orizzontali:
+        {{meccanismo.meccanismiAssociati.modi_di_danno_alle_strutture_orizzontali}}
+        <br>
+        Modi di danno alle strutture verticali:
+        {{meccanismo.meccanismiAssociati.modi_di_danno_alle_strutture_verticali}}
+        <button type="submit" style="margin-left: 20px; float: right;" class="btn btn-outline-primary">
+          Vai al meccanismo
+        </button>
+      </td>
+    </tr>
+  </table>-->
 
     <button class="btn btn-md1 btn-secondary display-4" style="width: 94px;" (click)="trasferisciOggetti()">
       Avanti &raquo;
