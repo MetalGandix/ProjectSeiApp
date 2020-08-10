@@ -36,7 +36,7 @@ public class AssociazioneIntervento {
     private int esiguitaDiIngombro;
     private String variante;
     private double prezzo;
-    private String unitàMisura;
+    private String unitaMisura;
 
 
     public long getId() {
@@ -145,10 +145,10 @@ public class AssociazioneIntervento {
     }
 
     public String getUnitàMisura() {
-        return unitàMisura;
+        return unitaMisura;
     }
 
     public void setUnitàMisura(String unitàMisura) {
-        this.unitàMisura = unitàMisura;
+        this.unitaMisura = unitàMisura;
     }
 }
