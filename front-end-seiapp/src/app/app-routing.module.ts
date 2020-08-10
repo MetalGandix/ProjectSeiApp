@@ -20,8 +20,6 @@ import { AggiuntaInterventoSecondarioComponent } from './aggiunta-intervento-sec
 import { McdmSecondariaComponent } from './mcdm-secondaria/mcdm-secondaria.component';
 import { RiepilogoCostiComponent } from './riepilogo-costi/riepilogo-costi.component';
 
-
-
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -41,7 +39,8 @@ const routes: Routes = [
   { path: 'mcdm', component: McdmComponent },
   { path: 'aggiunta-intervento-secondario', component: AggiuntaInterventoSecondarioComponent },
   { path: 'mcdm-secondaria', component: McdmSecondariaComponent },
-  { path: 'riepilogo-costi', component: RiepilogoCostiComponent }
+  { path: 'riepilogo-costi', component: RiepilogoCostiComponent },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

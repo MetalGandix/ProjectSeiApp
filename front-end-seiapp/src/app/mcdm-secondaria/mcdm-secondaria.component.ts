@@ -153,6 +153,14 @@ export class McdmSecondariaComponent implements OnInit {
     })
   }
 
+  calcoloParziale(index: number){
+    let totale = this.deltaPunteggioFinale
+    for(let i=0; i<=index; i++){
+      totale += this.interventiDaMostrare[i].ante - this.interventiDaMostrare[i].post
+    }
+    return totale
+  }
+
   massimoNumero() {
     let min = Infinity
     let max = 0

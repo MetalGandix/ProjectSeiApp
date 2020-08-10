@@ -23,4 +23,6 @@ export class AssociazioneIntervento {
     post?: number
     prezzo: number
     unitaMisura: string
+    valoreCifra?: number
+    totalePrezzo?: number
 }

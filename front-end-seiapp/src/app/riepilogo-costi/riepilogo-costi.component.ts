@@ -19,22 +19,33 @@ export class RiepilogoCostiComponent implements OnInit {
 
   interventiDaMostrare: Intervento[] = []
   interventi: AssociazioneIntervento[] = []
-  valoreCifra: number
-  totale: number
+  elementoSelezionato: AssociazioneIntervento[] = []
+  selectedIntervento: number
 
-  calcolaPrezzo(){
+  selezionaIntervento() {
     this.interventi.forEach(z => {
-      debugger
-      this.totale = this.valoreCifra * z.prezzo
-      console.log("totale: ",this.totale, this.valoreCifra)
+      this.elementoSelezionato.push(z)
     })
   }
 
-  ngOnInit(){
+  calcolaPrezzo(){
+    this.interventi.forEach(z => {
+      z.totalePrezzo = z.valoreCifra * z.prezzo
+      console.log("totale: ", z.totalePrezzo, z.valoreCifra)
+    })
+    //let risultato = await chiamataAsincrona()
+  }
+
+  onChangeInput(index: number) {
+    this.selectedIntervento = 0
+  }
+
+  ngOnInit() {
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventi.push(z)
       console.log("interventi: ", this.interventi)
     })
+    this.selezionaIntervento()
   }
 
 }

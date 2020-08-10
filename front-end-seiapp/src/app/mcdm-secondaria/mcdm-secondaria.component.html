@@ -198,16 +198,19 @@
                     </tr>
                     <tr>
                         <td>
-                            <tr scope="row" *ngFor="let arr of interventiDaMostrare; index as j">
-                            <b>
+                    <tr scope="row" *ngFor="let arr of interventiDaMostrare; index as j">
+                        <b>
                             Incidenza intervento precedente {{arr.intervento.codice}}
-                            </b>
-                            </tr>
-                        </td>
+                        </b>
+                    </tr>
+                    </td>
+                    <td *ngFor="let arr of interventiDaMostrare; index as j">
+                        {{arr.ante - arr.post}}
+                    </td>
                     </tr>
                     <tr>
                         <th scope="row">Incidenza del pacchetto di interventi</th>
-                        <td>{{deltaPunteggioFinale}}</td>
+                        <td>{{calcoloParziale(interventiDaMostrare.length - 1)}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Δpunteggio passaggio di classe aggiornato
