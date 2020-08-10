@@ -28,6 +28,7 @@ import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-com
 import { McdmComponent } from './mcdm/mcdm.component';
 import { AggiuntaInterventoSecondarioComponent } from './aggiunta-intervento-secondario/aggiunta-intervento-secondario.component';
 import { McdmSecondariaComponent } from './mcdm-secondaria/mcdm-secondaria.component';
+import { RiepilogoCostiComponent } from './riepilogo-costi/riepilogo-costi.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { McdmSecondariaComponent } from './mcdm-secondaria/mcdm-secondaria.compo
     MatriceComparazioneComponent,
     McdmComponent,
     AggiuntaInterventoSecondarioComponent,
-    McdmSecondariaComponent
+    McdmSecondariaComponent,
+    RiepilogoCostiComponent
   ],
   imports: [
     BrowserModule,

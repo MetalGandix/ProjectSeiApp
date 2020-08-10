@@ -21,4 +21,6 @@ export class AssociazioneIntervento {
     minVariante?: number
     ante?: number
     post?: number
+    prezzo: number
+    unitaMisura: string
 }

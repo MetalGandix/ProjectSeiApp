@@ -26,7 +26,7 @@ export class McdmSecondariaComponent implements OnInit {
   }
 
   result: boolean = false
-  interventiDaMostrare: Intervento[] = []
+  interventiDaMostrare: AssociazioneIntervento[] = []
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
   struttura: Struttura[];
   variabileIntervento: AssociazioneIntervento[];
@@ -132,7 +132,6 @@ export class McdmSecondariaComponent implements OnInit {
   }
 
   aggiuntaInterventoSecondario() {
-    this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0].intervento)
     this.risultatoSelezione.aggiungiCaratteristica(this.caratteristiche)
     this.router.navigate(['/aggiunta-intervento-secondario'], {
       state: {
@@ -249,6 +248,7 @@ export class McdmSecondariaComponent implements OnInit {
       this.massimoNumero()
     }
     this.interventoSingoloRisultato()
+    this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
   }
 
 }

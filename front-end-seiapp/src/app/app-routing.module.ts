@@ -18,6 +18,7 @@ import { MatriceComparazioneComponent } from './matrice-comparazione/matrice-com
 import { McdmComponent } from './mcdm/mcdm.component';
 import { AggiuntaInterventoSecondarioComponent } from './aggiunta-intervento-secondario/aggiunta-intervento-secondario.component';
 import { McdmSecondariaComponent } from './mcdm-secondaria/mcdm-secondaria.component';
+import { RiepilogoCostiComponent } from './riepilogo-costi/riepilogo-costi.component';
 
 
 
@@ -39,7 +40,8 @@ const routes: Routes = [
   { path: 'matrice', component: MatriceComparazioneComponent },
   { path: 'mcdm', component: McdmComponent },
   { path: 'aggiunta-intervento-secondario', component: AggiuntaInterventoSecondarioComponent },
-  { path: 'mcdm-secondaria', component: McdmSecondariaComponent }
+  { path: 'mcdm-secondaria', component: McdmSecondariaComponent },
+  { path: 'riepilogo-costi', component: RiepilogoCostiComponent }
 ];
 
 @NgModule({

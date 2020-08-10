@@ -200,7 +200,7 @@
                         <td>
                             <tr scope="row" *ngFor="let arr of interventiDaMostrare; index as j">
                             <b>
-                            Incidenza intervento precedente {{arr.codice}} :
+                            Incidenza intervento precedente {{arr.intervento.codice}}
                             </b>
                             </tr>
                         </td>
@@ -237,6 +237,10 @@
                 </tbody>
             </table>
         </div>
+
+        <button routerLink="/riepilogo-costi">
+            premi per vedere i prezzi
+        </button>
 
     </div>
 </div>

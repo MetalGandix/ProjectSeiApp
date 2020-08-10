@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CaratteristicheQualitative } from '../classes/caratteristiche-qualitative';
 import { Intervento } from '../classes/intervento';
+import { AssociazioneIntervento } from '../classes/associazione-intervento';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class RisultatoSelezioneService {
   constructor() { }
 
   caratteristicheSelezionate: CaratteristicheQualitative[] = []
-  interventiSelezionati: Intervento[] = []
+  interventiSelezionati: AssociazioneIntervento[] = []
   
   public reset(){
     this.caratteristicheSelezionate = []
@@ -30,7 +31,7 @@ export class RisultatoSelezioneService {
     return false
   }
 
-  public aggiungiIntervento(x: Intervento){
+  public aggiungiIntervento(x: AssociazioneIntervento){
     this.interventiSelezionati.push(x)
   }
 }

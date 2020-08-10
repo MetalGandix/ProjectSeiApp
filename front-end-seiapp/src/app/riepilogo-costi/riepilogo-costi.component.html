@@ -1,0 +1,10 @@
+<div>
+<div *ngFor="let listaInterventi of interventi; index as j">
+            Interventi: {{listaInterventi.intervento.codice}} <br>
+            prezzo:{{listaInterventi.prezzo}}/{{listaInterventi.unitaMisura}} <br>
+            Risultato: {{totale}}<br>
+            <input [(ngModel)]="interventi[j]" type="number" [value]="valoreCifra" (input)="valoreCifra = $event.target.value">
+            <p>Hello {{valoreCifra}}</p>
+            <button (click)="calcolaPrezzo()">Calcola il prezzo totale: </button>
+</div>
+</div>

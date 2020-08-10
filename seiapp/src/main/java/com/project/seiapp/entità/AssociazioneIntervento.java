@@ -144,11 +144,11 @@ public class AssociazioneIntervento {
         this.prezzo = prezzo;
     }
 
-    public String getUnitàMisura() {
+    public String getUnitaMisura() {
         return unitaMisura;
     }
 
-    public void setUnitàMisura(String unitàMisura) {
-        this.unitaMisura = unitàMisura;
+    public void setUnitaMisura(String unitaMisura) {
+        this.unitaMisura = unitaMisura;
     }
 }
