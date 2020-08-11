@@ -90,6 +90,22 @@ export class RiepilogoCostiComponent implements OnInit {
       this.dannoIpotizzato[4].costo = 1200
       this.dannoIpotizzato[5].costo = 1200
     }
+    if(this.risk == "C"){
+      this.dannoIpotizzato[0].costo = 240
+      this.dannoIpotizzato[1].costo = 240
+      this.dannoIpotizzato[2].costo = 600
+      this.dannoIpotizzato[3].costo = 840
+      this.dannoIpotizzato[4].costo = 1200
+      this.dannoIpotizzato[5].costo = 1200
+    }
+    if(this.risk == "D" || this.risk == "E"){
+      this.dannoIpotizzato[0].costo = 600
+      this.dannoIpotizzato[1].costo = 600
+      this.dannoIpotizzato[2].costo = 840
+      this.dannoIpotizzato[3].costo = 1080
+      this.dannoIpotizzato[4].costo = 1200
+      this.dannoIpotizzato[5].costo = 1200
+    }
   }
 
   onChangeDannoIpotizzato(i: number){
