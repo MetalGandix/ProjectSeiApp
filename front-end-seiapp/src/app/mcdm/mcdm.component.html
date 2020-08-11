@@ -177,14 +177,14 @@
               {{punteggioDiVul}}
             </td>
           </tr>
-          <div *ngIf="punteggioPassaggioClasse > 0 && bottoneVisibile == true">
-            <button class="btn btn-primary" class="btn btn-info" (click)="aggiuntaInterventoSecondario()"
-              style="margin-left: 150px;">
-              Aggiungi un intervento ulteriore
-            </button>
-          </div>
         </tbody>
       </table>
+      <div *ngIf="punteggioPassaggioClasse > 0 && bottoneVisibile == true">
+        <button class="btn btn-primary" class="btn btn-info" (click)="aggiuntaInterventoSecondario()"
+          style="margin-left: 150px;">
+          Aggiungi un intervento ulteriore
+        </button>
+      </div>
     </div>
   </div>
 </div>

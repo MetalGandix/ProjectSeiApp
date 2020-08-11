@@ -1,31 +1,30 @@
 <div class="card my-5">
     <div class="card-body">
-        <div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="checkbox1" [(ngModel)]="toggleSuperficie"
-                    (change)="cambiaTotale()">
-                <label class="form-check-label" for="checkbox1">Premi per scegliere tra "Superfici a vista" o "Superfici
-                    intonacate"</label>
-            </div>
-
-            <div>
-                <details>
-                    <summary>Legenda scelta interventi</summary>
-
-                    <div class='my-legend'>
-                        <div class='legend-scale'>
-                            <ul class='legend-labels'>
-                                <li><span style='background:#8b0000;'></span>Intervento peggiore</li>
-                                <li><span style='background:#228b22;'></span>Intervento migliore</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </details>
-            </div>
-
+      <div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="checkbox1" [(ngModel)]="toggleSuperficie"
+            (change)="cambiaTotale()">
+          <label class="form-check-label" for="checkbox1">Premi per scegliere tra "Superfici a vista" o "Superfici
+            intonacate"</label>
         </div>
+  
         <hr>
+  
+        <div>
+          <summary>Legenda scelta interventi</summary>
+          <div class='my-legend'>
+            <div class='legend-scale'>
+              <ul class='legend-labels'>
+                <li><span style='background:#d62828;'></span>Intervento peggiore</li>
+                <li><span style='background:#228b22;'></span>Intervento migliore</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+      <hr>
 
         <!-- <table class="table table-hover table-bordered table-striped">
             <thead>
@@ -143,7 +142,7 @@
                 </table>
                 <div class="bottone">
                     <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()"
-                        (click)="interventoSingoloRisultato()" (click)="cambioClasse()" style="margin-top: 30px;">
+                        (click)="interventoSingoloRisultato()" (click)="cambioClasse()" style="margin-top: 30px; margin-right: 135px;">
                         Aggiungi risultato </button>
                 </div>
             </div>
@@ -235,13 +234,6 @@
                         </th>
                         <td>V{{vulClass - 1}}</td>
                     </tr>
-                    <div
-                        *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) > 0 && bottoneVisibile == true">
-                        <button class="btn btn-info" (click)="aggiuntaInterventoSecondario()"
-                            style="margin-left: 150px;">
-                            Premi qua per aggiungere un intervento ulteriore
-                        </button>
-                    </div>
                     <div *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) <= 0 && bottoneVisibile == true"
                         style="margin-left: 150px; background-color: #228b22;">
                         HAI FINALMENTE CAMBIATO CLASSE.
@@ -251,6 +243,15 @@
                     </div>
                 </tbody>
             </table>
+
+            <div
+            *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) > 0 && bottoneVisibile == true">
+            <button class="btn btn-info" (click)="aggiuntaInterventoSecondario()"
+                style="margin-left: 150px;">
+                Aggiungi un intervento ulteriore
+            </button>
+        </div>
+
         </div>
     </div>
 </div>

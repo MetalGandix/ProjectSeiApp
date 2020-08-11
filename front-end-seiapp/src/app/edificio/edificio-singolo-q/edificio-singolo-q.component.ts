@@ -26,7 +26,7 @@ export class EdificioSingoloQComponent implements OnInit {
   msg1: boolean = false;
   edificioByQuality: { [key: number]: EdificioInAggregato[] } = {}
   subscriptionsToDelete: Subscription = new Subscription();
-  Colors:Array<any> = ["#8b0000","#ff8c00","#228b22"];
+  Colors:Array<any> = ["#d62828","#ff8c00","#228b22"];
 
 
 
