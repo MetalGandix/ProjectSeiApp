@@ -25,4 +25,5 @@ export class AssociazioneIntervento {
     unitaMisura: string
     valoreCifra?: number
     totalePrezzo?: number
+    costoInvestimentoTotale?: number
 }

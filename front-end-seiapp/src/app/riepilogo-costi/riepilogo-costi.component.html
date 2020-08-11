@@ -1,9 +1,42 @@
 <form>
-    <div *ngFor="let elemento of interventi; index as j">
-        Interventi: {{elemento.intervento.codice}} <br>
-        prezzo: {{elemento.prezzo}}/{{elemento.unitaMisura}} <br>
-        Risultato: {{elemento.prezzo * elemento.valoreCifra}}<br>
-        <input type="number" [value]="elemento.valoreCifra" (input)="elemento.valoreCifra = $event.target.value">
-        <button (click)="calcolaPrezzo()">Calcola il prezzo totale: </button>
-    </div>
+    <head>
+        PACCHETTO INVESTIMENTI STRUTTURALI
+    </head>
+    <table class="table table-bordered">
+        <tr *ngFor="let elemento of interventi; index as j">
+            <thead class="thead-dark">
+                <th>
+                    Interventi:
+                </th>
+                <th>
+                    Prezzo unità/quantità:
+                </th>
+                <th>
+                    Costo parziale:
+                </th>
+                <th>
+                    Metri quadri:
+                </th>
+            </thead>
+            <tbody>
+                <td>
+                    {{elemento.intervento.codice}}
+                </td>
+                <td>
+                    {{elemento.prezzo}}€/{{elemento.unitaMisura}}
+                </td>
+                <td>
+                    {{elemento.prezzo * elemento.valoreCifra}}€
+                </td>
+                <td>
+                    <input type="number" [value]="elemento.valoreCifra"
+                        (input)="elemento.valoreCifra = $event.target.value" style="margin-left: 20px;">
+                </td>
+            </tbody>
+        </tr>
+    </table>
+    <button class="btn btn-info" (click)="calcolaInvestimentoTotale()">
+        Premi qua per calcolare il costo totale di investimento
+    </button>
+    <p>Costo di investimento totale: {{totale}}€</p>
 </form>
