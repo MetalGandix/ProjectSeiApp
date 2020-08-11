@@ -39,8 +39,41 @@
     <button class="btn btn-info" (click)="calcolaInvestimentoTotale()">
         Premi qua per calcolare il costo totale di investimento
     </button>
-    <p>Costo di investimento totale: {{totale}}€</p>
-    <p>Cu (S) = Costo per decremento unitario percentuale di vulnerabilità {{totale/soglia}}
+    <p>
+        Costo di investimento totale: {{totale}}€
     </p>
-    <p>La classe di rischio è {{risk}}</p>
+    <p>
+        Somma pacchetto interventi: {{sommaPacchettoInterventi}}
+    </p>
+    <p>
+        Cu(S) Costo per decremento unitario percentuale di vulnerabilità: 
+        {{risultatoDivisione}}
+    </p>
 </form>
+
+<table class="table table-bordered" style="margin-top: 30px;">
+    <thead>
+        <th>
+            Livello di danno ipotizzato: 
+            <select (click)="onChangeDannoIpotizzato($event.target.value)">
+                <option selected disabled>
+                    Seleziona: 
+                </option>
+                <option [value]="danno.id" *ngFor="let danno of dannoIpotizzato; index as j">
+                    {{danno.valore}} {{danno.costo}}€
+                </option>
+            </select>
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <input type="number" [value]="numeroUtente" 
+                (input)="numeroUtente = $event.target.value">
+            </td>
+            <td>
+                Costo di riparazione {{costoRiparazione}}
+            </td>
+        </tr>
+    </tbody>
+</table>

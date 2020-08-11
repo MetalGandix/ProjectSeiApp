@@ -273,7 +273,8 @@ export class McdmSecondariaComponent implements OnInit {
     this.router.navigate(['/riepilogo-costi'], {
       state: {
         risk: this.risk,
-        soglia: this.soglia
+        soglia: this.soglia,
+        sommaPacchettoInterventi: this.sommaPacchettoInterventi
       }
     })
   }
