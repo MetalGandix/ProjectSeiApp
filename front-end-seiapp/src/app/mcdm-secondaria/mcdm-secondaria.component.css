@@ -5,14 +5,14 @@
     padding: 0;
     list-style: none;
     }
-  .my-legend .legend-scale ul li {
+.my-legend .legend-scale ul li {
     font-size: 80%;
     list-style: none;
     margin-left: 0;
     line-height: 18px;
     margin-bottom: 2px;
     }
-  .my-legend ul.legend-labels li span {
+.my-legend ul.legend-labels li span {
     display: block;
     float: left;
     height: 16px;
@@ -21,11 +21,16 @@
     margin-left: 0;
     border: 1px solid #999;
     }
-    .floatLeft { width: 50%; float: left; }
-    .floatRight {width: 50%; float: right; }
-    .container { overflow: hidden; }
+.floatLeft { width: 50%; float: left; }
+.floatRight {width: 50%; float: right; }
+.container { overflow: hidden; }
 
-    .bottone{
+.bottone{
         text-align: center;
+    }
+#boxPunteggio {
+      border: 1px solid;
+      padding: 10px;
+      box-shadow: 5px 10px  #999;
     }
 
