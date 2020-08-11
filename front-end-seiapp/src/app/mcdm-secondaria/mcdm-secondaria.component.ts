@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ElementiStrutturaService } from '../classi-servizi/service/elementi-struttura.service';
 import { AssociazioneInterventoService } from '../classi-servizi/service/associazione-intervento.service';
@@ -68,6 +68,7 @@ export class McdmSecondariaComponent implements OnInit {
   interventoSingolo: number
   interventiSecondari: AssociazioneIntervento[];
   arrayDiNumeriIntervento: number[] = []
+  sommaPacchettoInterventi: number
 
   ngOnInit() {
     this.interventoSingolo = window.history.state.interventoSingolo
@@ -154,11 +155,28 @@ export class McdmSecondariaComponent implements OnInit {
   }
 
   calcoloParziale(index: number){
-    let totale = this.deltaPunteggioFinale
+    this.sommaPacchettoInterventi = this.deltaPunteggioFinale
     for(let i=0; i<=index; i++){
-      totale += this.interventiDaMostrare[i].ante - this.interventiDaMostrare[i].post
+      this.sommaPacchettoInterventi += this.interventiDaMostrare[i].ante - this.interventiDaMostrare[i].post
     }
-    return totale
+    return this.sommaPacchettoInterventi
+  }
+
+  risultatoDelta() {
+    this.deltaPunteggioFinale = 0
+    this.arraySelezionati.forEach(selezionato => {
+      this.deltaPunteggioFinale += selezionato.ante - selezionato.post
+    })
+    this.punteggioDiVul = this.punteggio - this.deltaPunteggioFinale
+    this.punteggioPassaggioClasseAggiornato = this.punteggioPassaggioClasse
+    this.a = true
+  }
+
+  cambioClasse(){
+    /*if(this.sommaPacchettoInterventi < this.punteggioPassaggioClasse){
+    }else{
+      alert("Hai cambiato classe! Yeee")
+    }*/
   }
 
   massimoNumero() {
@@ -220,16 +238,6 @@ export class McdmSecondariaComponent implements OnInit {
 
   interventoSingoloRisultato(){
         this.interventoSingolo = this.selectedElement.ante - this.selectedElement.post
-  }
-
-  risultatoDelta() {
-    this.deltaPunteggioFinale = 0
-    this.arraySelezionati.forEach(selezionato => {
-      this.deltaPunteggioFinale += selezionato.ante - selezionato.post
-    })
-    this.punteggioDiVul = this.punteggio - this.deltaPunteggioFinale
-    this.punteggioPassaggioClasseAggiornato = this.punteggioPassaggioClasse - this.deltaPunteggioFinale
-    this.a = true
   }
 
   premiBottone(selezionato: AssociazioneIntervento, variante: number, index: number, checkBox: boolean) {
