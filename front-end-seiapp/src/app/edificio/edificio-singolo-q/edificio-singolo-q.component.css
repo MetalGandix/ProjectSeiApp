@@ -22,3 +22,8 @@
     margin-left: 0;
     border: 1px solid #999;
     }
+    #boxPunteggio {
+      border: 1px solid;
+      padding: 10px;
+      box-shadow: 5px 10px  #999;
+    }

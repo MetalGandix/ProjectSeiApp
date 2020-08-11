@@ -369,7 +369,8 @@
 
         <div class="row" style="margin-top: 30px; justify-content: center;" *ngIf="msg1">
           <div class="col-xs-12">
-            <div class="alert alert-secondary">
+            <div class="alert">
+              <div id="boxPunteggio">
               <p>
                 Il risultato della somma dei punteggi è: <strong>{{totalePunteggio}}</strong>
               </p>
@@ -377,6 +378,7 @@
                 La classe di vulnerabilità è: <strong>V{{vulnerability}}</strong>
               </p>
               <a routerLink="active" (click)="trasferisciClassVul()">Scegli il tipo di zona sismica</a>
+            </div>
             </div>
           </div>
         </div>
