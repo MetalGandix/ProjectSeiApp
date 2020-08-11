@@ -236,13 +236,13 @@
                         <td>V{{vulClass - 1}}</td>
                     </tr>
                     <div
-                        *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) > 0">
+                        *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) > 0 && bottoneVisibile == true">
                         <button class="btn btn-info" (click)="aggiuntaInterventoSecondario()"
                             style="margin-left: 150px;">
                             Premi qua per aggiungere un intervento ulteriore
                         </button>
                     </div>
-                    <div *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) <= 0"
+                    <div *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) <= 0 && bottoneVisibile == true"
                         style="margin-left: 150px; background-color: #228b22;">
                         HAI FINALMENTE CAMBIATO CLASSE.
                         <button routerLink="/riepilogo-costi">

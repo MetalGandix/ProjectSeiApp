@@ -63,6 +63,7 @@ export class McdmComponent {
   punteggioPassaggioClasseAggiornato: number = 0
   contatoreVolte: number
   interventoSingolo: number
+  bottoneVisibile: boolean = false
   
 
   ngOnInit() {
@@ -198,6 +199,7 @@ export class McdmComponent {
     this.punteggioDiVul = this.punteggio - this.deltaPunteggioFinale
     this.punteggioPassaggioClasseAggiornato = this.punteggioPassaggioClasse - this.deltaPunteggioFinale
     this.a = true
+    this.bottoneVisibile = true
   }
 
   premiBottone(selezionato: AssociazioneIntervento, variante: number, index: number, checkBox: boolean) {

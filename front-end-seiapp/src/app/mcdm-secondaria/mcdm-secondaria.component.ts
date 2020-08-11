@@ -69,6 +69,7 @@ export class McdmSecondariaComponent implements OnInit {
   interventiSecondari: AssociazioneIntervento[];
   arrayDiNumeriIntervento: number[] = []
   sommaPacchettoInterventi: number
+  bottoneVisibile: boolean = false
 
   ngOnInit() {
     this.interventoSingolo = window.history.state.interventoSingolo
@@ -170,6 +171,7 @@ export class McdmSecondariaComponent implements OnInit {
     this.punteggioDiVul = this.punteggio - this.deltaPunteggioFinale
     this.punteggioPassaggioClasseAggiornato = this.punteggioPassaggioClasse
     this.a = true
+    this.bottoneVisibile = true
   }
 
   cambioClasse(){
