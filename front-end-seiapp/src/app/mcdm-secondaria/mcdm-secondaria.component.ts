@@ -269,4 +269,13 @@ export class McdmSecondariaComponent implements OnInit {
     this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
   }
 
+  trasferisciClasseDiRischio(){
+    this.router.navigate(['/riepilogo-costi'], {
+      state: {
+        risk: this.risk,
+        soglia: this.soglia
+      }
+    })
+  }
+
 }

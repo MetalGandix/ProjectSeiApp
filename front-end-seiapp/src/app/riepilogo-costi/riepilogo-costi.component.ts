@@ -22,6 +22,8 @@ export class RiepilogoCostiComponent implements OnInit {
   elementoSelezionato: AssociazioneIntervento[] = []
   prezzoSingoloIntervento: number[] = []
   totale: number
+  risk: String
+  soglia: number
 
   selezionaIntervento() {
     this.interventi.forEach(z => {
@@ -45,11 +47,23 @@ export class RiepilogoCostiComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.soglia = window.history.state.soglia
+    this.risk = window.history.state.risk;
     this.risultatoSelezione.interventiSelezionati.forEach(z => {
       this.interventi.push(z)
       console.log("interventi: ", this.interventi)
     })
     this.selezionaIntervento()
   }
+
+  dannoIpotizzato = [
+    { id: 1, valore: "D0" },
+    { id: 2, valore: "D1" },
+    { id: 3, valore: "D2" },
+    { id: 4, valore: "D3" },
+    { id: 5, valore: "D4" },
+    { id: 6, valore: "D5" }
+  ]
+
 
 }

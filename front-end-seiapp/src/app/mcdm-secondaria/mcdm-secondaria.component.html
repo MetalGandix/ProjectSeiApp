@@ -245,7 +245,7 @@
                     <div *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) <= 0 && bottoneVisibile == true"
                         style="margin-left: 150px; background-color: #228b22;">
                         HAI FINALMENTE CAMBIATO CLASSE.
-                        <button routerLink="/riepilogo-costi">
+                        <button (click)="trasferisciClasseDiRischio()">
                             Premi per andare a vedere i prezzi
                         </button>
                     </div>
