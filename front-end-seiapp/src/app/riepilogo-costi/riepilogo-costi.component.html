@@ -3,6 +3,10 @@
     <head>
         PACCHETTO INVESTIMENTI STRUTTURALI
     </head>
+
+    <p>
+        RIEPILOGO DEGLI INTERVENTI E CALCOLO DEI COSTI DI INVESTIMENTO
+    </p>
     <table class="table table-bordered">
         <tr *ngFor="let elemento of interventi; index as j">
             <thead class="thead-dark">
@@ -37,20 +41,23 @@
         </tr>
     </table>
     <button class="btn btn-info" (click)="calcolaInvestimentoTotale()">
-        Premi qua per calcolare il costo totale di investimento
+        Calcola il costo totale di investimento
     </button>
     <p>
         Costo di investimento totale: {{totale}}€
     </p>
     <p>
-        Somma pacchetto interventi: {{sommaPacchettoInterventi}}
+        Incidenza del pacchetto di interventi sul punteggio di vulnerabilità: {{sommaPacchettoInterventi}}
     </p>
     <p>
-        Cu(S) Costo per decremento unitario percentuale di vulnerabilità: 
+        Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità: 
         {{risultatoDivisione}}
     </p>
 </form>
 
+<p>
+    IPOTESI DI DANNO E PREVISIONE DEI COSTI DI RIPARAZIONE
+</p>
 <table class="table table-bordered" style="margin-top: 30px;">
     <thead>
         <th>
@@ -60,7 +67,7 @@
                     Seleziona: 
                 </option>
                 <option [value]="danno.id" *ngFor="let danno of dannoIpotizzato; index as j">
-                    {{danno.valore}} {{danno.costo}}€
+                    {{danno.valore}} {{danno.costo}}€/mq
                 </option>
             </select>
         </th>
@@ -73,7 +80,7 @@
                 (input)="numeroUtente = $event.target.value">
             </td>
             <td>
-                Costo di riparazione {{costoRiparazione}}
+                Costo di riparazione: {{costoRiparazione}}€
             </td>
         </tr>
     </tbody>
