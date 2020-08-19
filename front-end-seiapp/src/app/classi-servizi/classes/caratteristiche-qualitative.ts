@@ -7,4 +7,5 @@ export class CaratteristicheQualitative {
     caratteristicheQualitative: String;
     meccanismiAssociati: MeccanismiAssociati
     valutazionePunteggio: ValutazionePunteggio
+    abilitato: boolean
 }

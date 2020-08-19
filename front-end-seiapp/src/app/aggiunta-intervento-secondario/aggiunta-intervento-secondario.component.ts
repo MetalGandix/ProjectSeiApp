@@ -50,6 +50,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   caratteristiche: CaratteristicheQualitative
   strutturaObj: Struttura[] = []
   car: CaratteristicheQualitative[]
+  carSelezionata: CaratteristicheQualitative
   emsCar: TipoEdificio[] = []
   carStrutt: CaratteristicheStruttura[]
   ponderazione: number[] = [0, 0, 0, 0, 0, 0]
@@ -69,6 +70,8 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
   contatoreVolte: number
   caratteristicheSelezionabili: CaratteristicheQualitative[] = []
   interventoSingolo: number
+  cambiaCaratteristica: boolean = false
+  caratteristicheFinali: CaratteristicheQualitative[] = []
 
   ngOnInit() {
     this.caratteristicheStrutturaService.getStrutturaDalleCaratteristiche().subscribe(caratteristicheStrutture => {
@@ -93,6 +96,7 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
     console.log("Contatore: ",this.contatoreVolte)
     this.strutturaService.getCaratteristicheQualitative().subscribe(data => {
       this.car = data
+      console.log("elementi da cambiare: ", this.cambiaCaratteristica)
     })
     this.emsService.getTipoEdificio().subscribe(data => {
       this.caratteristicheSelezionabili = []
@@ -100,6 +104,17 @@ export class AggiuntaInterventoSecondarioComponent implements OnInit {
       for (let caratteristica of this.emsCar[this.emsType - 1].carQualEms) {
         if(!this.risultatoSelezione.checkCaratteristica(caratteristica.id)){
           this.caratteristicheSelezionabili.push(caratteristica)
+          const caratteristicheFinali: CaratteristicheQualitative[] = []
+          this.caratteristicheSelezionabili.forEach(d => {
+          const caratteristiche = new CaratteristicheQualitative();
+            caratteristiche.id = d.id
+            caratteristiche.caratteristicheQualitative = d.caratteristicheQualitative
+            caratteristiche.meccanismiAssociati = d.meccanismiAssociati
+            caratteristiche.valutazionePunteggio = d.valutazionePunteggio
+            caratteristiche.abilitato = d.id == 4 || d.id == 6
+            caratteristicheFinali.push(caratteristiche)
+            this.caratteristicheFinali = caratteristicheFinali
+          })
         }
       }
     })

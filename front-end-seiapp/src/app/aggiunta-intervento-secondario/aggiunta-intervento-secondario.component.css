@@ -5,3 +5,7 @@
 .fa{
     margin: 20px 0px;
 }
+
+:disabled{
+    color: brown;
+}
