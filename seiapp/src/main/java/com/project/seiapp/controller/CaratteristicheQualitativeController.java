@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class CaratteristicheQualitativeController {
     public CaratteristicheQualitativeController(CaratteristicheQualitativeRepository caratteristicheQualitativeRepository){
         this.caratteristicheQualitativeRepository = caratteristicheQualitativeRepository;
