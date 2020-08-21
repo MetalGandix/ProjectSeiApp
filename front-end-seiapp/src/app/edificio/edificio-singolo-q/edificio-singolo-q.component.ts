@@ -27,6 +27,8 @@ export class EdificioSingoloQComponent implements OnInit {
   edificioByQuality: { [key: number]: EdificioInAggregato[] } = {}
   subscriptionsToDelete: Subscription = new Subscription();
   Colors:Array<any> = ["#d62828","#ff8c00","#228b22"];
+  emsType: Number
+
 
 
 
@@ -66,6 +68,7 @@ export class EdificioSingoloQComponent implements OnInit {
 
 
   ngOnInit() {
+    this.emsType = window.history.state.emsType
     this.subscriptionsToDelete.add(
       this.route.params.subscribe(params => {
         console.log("questo è il valore che ho passato",params['id']);
@@ -183,9 +186,8 @@ export class EdificioSingoloQComponent implements OnInit {
   }
 
   trasferisciClassVul() {
-    this.router.navigate(['/zona-sismica'], {
-      state: { vulClass: this.vulnerability, punteggio: this.totalePunteggio }
-    })
+    this.router.navigate(['/zona-sismica'], { state: {emsType: this.emsType, vulClass: this.vulnerability, punteggio: this.totalePunteggio } 
+  })
   }
 
   cleanQualityArray(): void {

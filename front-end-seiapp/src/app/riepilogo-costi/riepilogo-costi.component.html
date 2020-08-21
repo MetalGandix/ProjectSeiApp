@@ -32,7 +32,7 @@
                     {{elemento.prezzo}}€/{{elemento.unitaMisura}}
                 </td>
                 <td>
-                    {{elemento.prezzo * elemento.valoreCifra}}€
+                    {{elemento.prezzo * elemento.valoreCifra | number: '1.0-2'}}€
                 </td>
                 <td>
                     <input type="number" [value]="elemento.valoreCifra"
@@ -51,14 +51,14 @@
 
 </div>
     <p>
-        Costo di investimento totale: {{totale}}€
+        Costo di investimento totale: {{totale | number: '1.0-2'}}€
     </p>
     <p>
         Incidenza del pacchetto di interventi sul punteggio di vulnerabilità: {{sommaPacchettoInterventi}}
     </p>
     <p>
         Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità: 
-        {{risultatoDivisione}}
+        {{risultatoDivisione | number: '1.0-2'}}
     </p>
 </form>
 
@@ -92,7 +92,7 @@
                 (input)="numeroUtente = $event.target.value">
             </td>
             <td>
-                Costo di riparazione: {{costoRiparazione}}€
+                Costo di riparazione: {{costoRiparazione | number: '1.0-2'}}€
             </td>
         </tr>
     </tbody>
