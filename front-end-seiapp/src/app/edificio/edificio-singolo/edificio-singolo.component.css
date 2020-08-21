@@ -1,7 +1,10 @@
 .btn-md1 {
   margin: .4rem .8rem;
 }
+.btn-info {
+  margin: .4rem .8rem;
+}
 
 :disabled {
-  color: red;
+  color: rgb(177, 176, 176);
 }

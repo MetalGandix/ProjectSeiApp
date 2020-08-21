@@ -1,8 +1,10 @@
-th{
-    margin-right: 20px;
-    margin-bottom: 20px;
+.fa{
+    margin: 20px 0px;
 }
 
-td{
-    margin-right: 20px;
+.freccia{
+    text-align: center;
+}
+.bottone1{
+    text-align: center;
 }

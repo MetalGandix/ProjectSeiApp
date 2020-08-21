@@ -10,10 +10,12 @@
 .imgRisk{
     width: 450px;
     height: 290px;
+    margin-right: 85px;
 }
 .imgVulClass{
-    width: 350px;
+    width: 285px;
     height: 300px;
+    margin-left: 85px;
 }
 #boxPunteggio {
     border: 1px solid;
