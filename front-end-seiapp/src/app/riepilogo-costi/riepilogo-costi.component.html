@@ -1,13 +1,12 @@
-<div class="container"> 
-<form>
+<div class="container">
 
     <head>
         PACCHETTO INVESTIMENTI STRUTTURALI
     </head>
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
         <p><b>RIEPILOGO DEGLI INTERVENTI E CALCOLO DEI COSTI DI INVESTIMENTO</b></p>
-      </div>
-      
+    </div>
+
     <table class="table table-bordered">
         <tr *ngFor="let elemento of interventi; index as j">
             <thead class="thead-dark">
@@ -32,7 +31,7 @@
                     {{elemento.prezzo}}€/{{elemento.unitaMisura}}
                 </td>
                 <td>
-                    {{elemento.prezzo * elemento.valoreCifra}}€
+                    {{elemento.prezzo * elemento.valoreCifra | number: '1.2-2'}}€
                 </td>
                 <td>
                     <input type="number" [value]="elemento.valoreCifra"
@@ -42,59 +41,67 @@
         </tr>
     </table>
     <div class="pulante1">
-    <button class="btn btn-info" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
-        Calcola il costo totale di investimento
-    </button>
-    <div class="freccia">
-        <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
-      </div>
+        <button class="btn btn-info" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
+            Calcola il costo totale di investimento
+        </button>
+        <div class="freccia">
+            <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
+        </div>
 
-</div>
+    </div>
     <p>
-        Costo di investimento totale: {{totale}}€
+        Costo di investimento totale: {{totale | number: '1.2-2'}}€
     </p>
     <p>
         Incidenza del pacchetto di interventi sul punteggio di vulnerabilità: {{sommaPacchettoInterventi}}
     </p>
     <p>
-        Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità: 
-        {{risultatoDivisione}}
+        Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità:
+        {{risultatoDivisione | number: '1.2-2'}}
     </p>
-</form>
 
-<div class="freccia">
-    <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
-  </div>
 
-  <div class="titolo" style="text-align: center;margin-top: 30px;">
-    <p><b>IPOTESI DI DANNO E PREVISIONE DEI COSTI DI RIPARAZIONE</b></p>
-  </div>
+    <div class="freccia">
+        <i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i>
+    </div>
 
-<table class="table table-bordered" style="margin-top: 30px;">
-    <thead>
-        <th>
-            Livello di danno ipotizzato: 
-            <select (click)="onChangeDannoIpotizzato($event.target.value)">
-                <option selected disabled>
-                    Seleziona: 
-                </option>
-                <option [value]="danno.id" *ngFor="let danno of dannoIpotizzato; index as j">
-                    {{danno.valore}} {{danno.costo}}€/mq
-                </option>
-            </select>
-        </th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                Superficie totale:
-                <input type="number" [value]="numeroUtente" 
-                (input)="numeroUtente = $event.target.value">
-            </td>
-            <td>
-                Costo di riparazione: {{costoRiparazione}}€
-            </td>
-        </tr>
-    </tbody>
-</table>
+
+    <table class="table table-bordered" style="margin-top: 30px;">
+        <thead class="thead-dark">
+            <th colspan="2" style="text-align: center;">IPOTESI DI DANNO E PREVISIONE DEI COSTI DI RIPARAZIONE</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Livello di danno ipotizzato:
+                </td>
+                <td>
+                    <select (click)="onChangeDannoIpotizzato($event.target.value)">
+                        <option selected disabled>
+                            Seleziona:
+                        </option>
+                        <option [value]="danno.id" *ngFor="let danno of dannoIpotizzato; index as j">
+                            {{danno.valore}} {{danno.costo}}€/mq
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Superficie totale:
+                </td>
+                <td>
+                    <input type="number" [value]="numeroUtente" (input)="numeroUtente = $event.target.value">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Costo di riparazione:
+                </td>
+                <td class="table-dark">
+                    {{costoRiparazione | number: '1.2-2'}}€
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

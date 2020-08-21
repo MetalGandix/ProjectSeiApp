@@ -88,7 +88,7 @@
                         <td>{{interventi.semplicitaDiCantiere[j]}}</td>
                         <td>{{interventi.esiguitaDiIngombro[j]}}</td>
                         <td
-                            [ngStyle]="{'background-color':interventi.maxVariante === j ? 'green' : interventi.minVariante === j ? 'red' : 'white'}">
+                            [ngStyle]="{'background-color':interventi.maxVariante === j ? '#228b22' : interventi.minVariante === j ? '#d62828' : 'white'}">
                             {{interventi.totale[j] | number: '1.2-2'}}</td>
                         <td>
                             <div class="custom-control custom-checkbox">
@@ -147,18 +147,22 @@
                 </table>
                 <div class="pulsante">
                     <button class="btn btn-primary" class="btn btn-info" (click)="risultatoDelta()"
-                        (click)="interventoSingoloRisultato()" (click)="cambioClasse()" style="margin-top: 30px; margin-right: 135px;">
+                        (click)="interventoSingoloRisultato()" (click)="cambioClasse()" style="margin-top: 30px;">
                         Aggiungi risultato </button>
                 </div>
             </div>
             <div *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) <= 0 && bottoneVisibile == true">
+                <hr>
                 <div id="boxPunteggio">
-    
-                è stato conseguito il passaggio alla classe di vulnerabilità inferiore.
-                <button (click)="trasferisciClasseDiRischio()">
+                    
+                    <b><p>È stato conseguito il passaggio</p></b>
+                    <b><p>alla classe di vulnerabilità inferiore.</p></b>
+                
+                <button class="btn btn-info" (click)="trasferisciClasseDiRischio()">
                     Prosegui
                 </button>
                  </div>
+                 <hr>
                 </div>
     
         </div>
