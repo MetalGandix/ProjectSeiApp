@@ -40,7 +40,7 @@
             </tbody>
         </tr>
     </table>
-    <div class="pulsante1">
+    <div class="pulante1">
         <button class="btn btn-info" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
             Calcola il costo totale di investimento
         </button>
@@ -56,7 +56,7 @@
         Incidenza del pacchetto di interventi sul punteggio di vulnerabilità: {{sommaPacchettoInterventi}}
     </p>
     <p>
-        Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità: 
+        Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità:
         {{risultatoDivisione | number: '1.0-2'}}
     </p>
 
@@ -66,31 +66,42 @@
     </div>
 
 
-<table class="table table-bordered" style="margin-top: 30px;">
-    <thead>
-        <th>
-            Livello di danno ipotizzato: 
-            <select (click)="onChangeDannoIpotizzato($event.target.value)">
-                <option selected disabled>
-                    Seleziona: 
-                </option>
-                <option [value]="danno.id" *ngFor="let danno of dannoIpotizzato; index as j">
-                    {{danno.valore}} {{danno.costo}}€/mq
-                </option>
-            </select>
-        </th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                Superficie totale:
-                <input type="number" [value]="numeroUtente" 
-                (input)="numeroUtente = $event.target.value">
-            </td>
-            <td>
-                Costo di riparazione: {{costoRiparazione | number: '1.0-2'}}€
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <table class="table table-bordered" style="margin-top: 30px;">
+        <thead class="thead-dark">
+            <th colspan="2" style="text-align: center;">IPOTESI DI DANNO E PREVISIONE DEI COSTI DI RIPARAZIONE</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Livello di danno ipotizzato:
+                </td>
+                <td>
+                    <select (click)="onChangeDannoIpotizzato($event.target.value)">
+                        <option selected disabled>
+                            Seleziona:
+                        </option>
+                        <option [value]="danno.id" *ngFor="let danno of dannoIpotizzato; index as j">
+                            {{danno.valore}} {{danno.costo}}€/mq
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Superficie totale:
+                </td>
+                <td>
+                    <input type="number" [value]="numeroUtente" (input)="numeroUtente = $event.target.value">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Costo di riparazione:
+                </td>
+                <td class="table-dark">
+                    {{costoRiparazione | number: '1.0-2'}}€
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
