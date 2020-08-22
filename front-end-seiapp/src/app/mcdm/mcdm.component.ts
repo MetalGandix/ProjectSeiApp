@@ -157,7 +157,6 @@ export class McdmComponent {
   }
 
   aggiuntaInterventoSecondario() {
-    this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
     console.log("Interventi nell'Array: ",this.arraySelezionati)
     this.router.navigate(['/aggiunta-intervento-secondario'], {
       state: {
