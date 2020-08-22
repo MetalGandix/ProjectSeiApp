@@ -59,8 +59,8 @@
           </thead>
           <tr *ngFor="let int of interventiSecondari; index as x">
             <td>
-              {{int.intervento.codice}}
-              {{int.variante}}
+              {{int.intervento.codice}}{{int.variante}} - {{int.intervento.descrizione}}
+              
               <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary">
                 Vai all'intervento
               </button>
