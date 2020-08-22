@@ -73,6 +73,14 @@
         <tbody>
             <tr>
                 <td>
+                    Superficie totale:
+                </td>
+                <td>
+                    <input type="number" [value]="numeroUtente" (input)="numeroUtente = $event.target.value">
+                </td>
+            </tr>
+            <tr>
+                <td>
                     Livello di danno ipotizzato:
                 </td>
                 <td>
@@ -84,14 +92,6 @@
                             {{danno.valore}} {{danno.costo}}€/mq
                         </option>
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Superficie totale:
-                </td>
-                <td>
-                    <input type="number" [value]="numeroUtente" (input)="numeroUtente = $event.target.value">
                 </td>
             </tr>
             <tr>

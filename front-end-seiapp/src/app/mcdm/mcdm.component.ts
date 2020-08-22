@@ -108,7 +108,6 @@ export class McdmComponent {
   }
 
   calcoloSoglia() {
-    debugger
     if (this.emsType == 3) {
       this.soglia = 50
     }
