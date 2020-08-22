@@ -140,11 +140,12 @@ export class McdmComponent {
     let minIndex: number
     this.variabileIntervento.forEach(interventi => {
       for (let index in interventi.varianti) {
-        if (interventi.totale[index] > max) {
+        if (interventi.totale[index] >= max) {
           max = interventi.totale[index]
           maxIntervento = interventi
           maxIndex = parseInt(index)
-        } if (interventi.totale[index] < min) {
+        }
+        if (interventi.totale[index] < min) {
           min = interventi.totale[index]
           minIntervento = interventi
           minIndex = parseInt(index)
@@ -227,6 +228,17 @@ export class McdmComponent {
       this.massimoNumero()
     }
     this.interventoSingoloRisultato()
+    this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
+  }
+
+  trasferisciClasseDiRischio(){
+    this.router.navigate(['/riepilogo-costi'], {
+      state: {
+        risk: this.risk,
+        soglia: this.soglia,
+        sommaPacchettoInterventi: this.interventoSingolo
+      }
+    })
   }
 
 }

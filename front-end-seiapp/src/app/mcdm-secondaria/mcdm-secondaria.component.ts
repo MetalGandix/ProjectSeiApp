@@ -190,7 +190,7 @@ export class McdmSecondariaComponent implements OnInit {
     let minIndex: number
     this.interventiSecondari.forEach(interventi => {
       for (let index in interventi.varianti) {
-        if (interventi.totale[index] > max) {
+        if (interventi.totale[index] >= max) {
           max = interventi.totale[index]
           maxIntervento = interventi
           maxIndex = parseInt(index)

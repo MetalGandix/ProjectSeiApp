@@ -26,41 +26,6 @@
   
       <hr>
 
-        <!-- <table class="table table-hover table-bordered table-striped">
-            <thead>
-                <tr>
-                <th rowspan="2" colspan="1">Codice</th>
-                <th rowspan="2" scope="colgroup">Modicità di costo</th>
-                <th rowspan="2" scope="colgroup">Efficacia</th>
-                <th scope="colgroup" *ngIf="toggleSuperficie">Compatibilità visiva</th>
-                <th scope="colgroup" *ngIf="!toggleSuperficie">Compatibilità visiva</th>
-                <th rowspan="2" scope="colgroup">Reversibilità</th>
-                <th rowspan="2" scope="colgroup">Semplicità di cantiere</th>
-                <th rowspan="2" scope="colgroup">Esiguità di ingombro</th>
-                <th rowspan="2" scope="colgroup">Totale</th>
-                <th rowspan="2" scope="colgroup">*</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let interventi of interventiSecondari; index as i">
-                    <td>
-                        {{interventi.intervento.codice}}
-                    </td>
-                    <td>{{interventi.modicitaDiCosto}}</td>
-                    <td>{{interventi.efficacia}}</td>
-                    <td *ngIf="toggleSuperficie">{{interventi.supIntonacate}}</td>
-                    <td *ngIf="!toggleSuperficie">{{interventi.supVista}}</td>
-                    <td>{{interventi.reversibilita}}</td>
-                    <td>{{interventi.semplicitaDiCantiere}}</td>
-                    <td>{{interventi.esiguitaDiIngombro}}</td>
-                    <td>
-                    {{interventi.totale[i] | number: '1.2-2'}}</td>
-                <td>
-                </tr>
-            </tbody>
-        </table>
-        -->
-
         <table class="table table-hover table-bordered table-striped">
             <thead class="thead-dark">
                 <tr>
