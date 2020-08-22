@@ -108,24 +108,26 @@ export class McdmComponent {
   }
 
   calcoloSoglia() {
+    debugger
     if (this.emsType == 3) {
       this.soglia = 50
     }
-    if (this.emsType == 5 && (this.punteggio >= 30 && this.punteggio <= 60)) {
+    else if (this.emsType == 5 && (this.punteggio >= 30 && this.punteggio <= 60)) {
       this.soglia = 30
-    } else {
+    } 
+    else if (this.emsType == 5 && (this.punteggio < 30 || this.punteggio > 60)){
       this.soglia = 60
     }
-
-    if (this.emsType == 6 && (this.punteggio >= 30 && this.punteggio <= 60)) {
+    else if (this.emsType == 6 && (this.punteggio >= 30 && this.punteggio <= 60)) {
       this.soglia = 30
-    } else {
+    } 
+    else if (this.emsType == 6 && (this.punteggio < 30 || this.punteggio > 60)){
       this.soglia = 60
     }
-
-    if (this.emsType == 7 && (this.punteggio >= 30 && this.punteggio <= 60)) {
+    else if (this.emsType == 7 && (this.punteggio >= 30 && this.punteggio <= 60)) {
       this.soglia = 30
-    } else {
+    } 
+    else if (this.emsType == 7 && (this.punteggio < 30 || this.punteggio > 60)){
       this.soglia = 60
     }
   }

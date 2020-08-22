@@ -83,6 +83,7 @@ export class ElementoStrutturaComponent implements OnInit {
   ngOnInit() {
     this.risultatoSelezione.reset()
     this.emsType = window.history.state.emsType
+    console.log("EmsType: ", this.emsType)
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
     this.risk = window.history.state.risk;

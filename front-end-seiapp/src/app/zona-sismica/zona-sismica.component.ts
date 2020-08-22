@@ -45,6 +45,7 @@ export class ZonaSismicaComponent implements OnInit {
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
+    console.log("EmsType: ", this.emsType)
     this.vulClass = window.history.state.vulClass;
     this.punteggio = window.history.state.punteggio;
     console.log(this.vulClass)
