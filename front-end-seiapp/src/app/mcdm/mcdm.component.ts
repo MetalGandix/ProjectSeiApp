@@ -64,6 +64,7 @@ export class McdmComponent {
   contatoreVolte: number
   interventoSingolo: number
   bottoneVisibile: boolean = false
+  bottoneVisibile1: boolean = false
   
 
   ngOnInit() {
