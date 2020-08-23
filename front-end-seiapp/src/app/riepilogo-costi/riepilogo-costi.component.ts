@@ -82,7 +82,7 @@ export class RiepilogoCostiComponent implements OnInit {
       this.dannoIpotizzato[4].costo = 1200
       this.dannoIpotizzato[5].costo = 1200
     }
-    if(this.risk == "F" || this.risk == "G"){
+    else if(this.risk == "F" || this.risk == "G"){
       this.dannoIpotizzato[0].costo = 840
       this.dannoIpotizzato[1].costo = 840
       this.dannoIpotizzato[2].costo = 1080
@@ -90,7 +90,7 @@ export class RiepilogoCostiComponent implements OnInit {
       this.dannoIpotizzato[4].costo = 1200
       this.dannoIpotizzato[5].costo = 1200
     }
-    if(this.risk == "C"){
+    else if(this.risk == "C"){
       this.dannoIpotizzato[0].costo = 240
       this.dannoIpotizzato[1].costo = 240
       this.dannoIpotizzato[2].costo = 600
@@ -98,7 +98,7 @@ export class RiepilogoCostiComponent implements OnInit {
       this.dannoIpotizzato[4].costo = 1200
       this.dannoIpotizzato[5].costo = 1200
     }
-    if(this.risk == "D" || this.risk == "E"){
+    else if(this.risk == "D" || this.risk == "E"){
       this.dannoIpotizzato[0].costo = 600
       this.dannoIpotizzato[1].costo = 600
       this.dannoIpotizzato[2].costo = 840
