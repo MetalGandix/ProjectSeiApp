@@ -7,7 +7,8 @@
         <p><b>RIEPILOGO DEGLI INTERVENTI E CALCOLO DEI COSTI DI INVESTIMENTO</b></p>
     </div>
 
-    <table class="table table-bordered">
+    <div class="tabella">
+    <table class="table table-bordered" style="display: contents;">
         <tr *ngFor="let elemento of interventi; index as j">
             <thead class="thead-dark">
                 <th>
@@ -40,14 +41,15 @@
             </tbody>
         </tr>
     </table>
-    <div class="pulante1">
+</div>
+    <div class="pulsante1">
         <button class="btn btn-info" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
             Calcola il costo totale di investimento
         </button>
 
-<hr>
-
     </div>
+
+    <hr>
     <p>
         Costo di investimento totale: {{totale | number: '1.0-2'}}€
     </p>

@@ -22,11 +22,19 @@
     margin-left: 0;
     border: 1px solid #999;
     }
-    .floatLeft { width: 50%; float: left; }
+    .floatLeft { width: 50%; float: left; inline-size: fit-content; text-align: center; }
     .floatRight {width: 50%; float: right; }
-    .container { overflow: hidden; }
+    .container { overflow: hidden; display: block;}
 
     .pulsante{
         text-align: center;
     }
+    #boxPunteggio {
+      border: 1px solid;
+      padding: 10px;
+      box-shadow: 5px 10px  #228b22;
+      width: 288px;
+      margin: auto;
+    }
+
 

@@ -7,7 +7,14 @@
 }
 .pulsante1{
     text-align: center;
+    margin-top: 20px;
 }
 .verde{
     color: #228b22;
+}
+.tabella{
+    margin-right: auto;
+    margin-left: auto;
+    width: fit-content;
+    text-align: center;
 }
