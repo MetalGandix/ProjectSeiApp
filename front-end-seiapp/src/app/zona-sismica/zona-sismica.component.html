@@ -18,8 +18,7 @@
       </div>
     </div>
 
-
-
+    <div class="overflow-auto">
       <div class="flex-container">
         <div class="s">
           <div style="margin-top: 30px;" *ngIf="vulClassImg1">
@@ -66,16 +65,17 @@
           <img class="imgRisk" src="assets\images\classe G.png" alt="Generic placeholder image">
         </div>
       </div>
+    </div>
 
-      <div id="boxPunteggio">
-        <p style="text-align: center;"><b>PUNTEGGIO: {{punteggio}}</b></p>
-      </div>
+    <div id="boxPunteggio">
+      <p style="text-align: center;"><b>PUNTEGGIO: {{punteggio}}</b></p>
+    </div>
 
-      <button type="submit" (click)="gradoDiRischio()" (click)="vediValori()" (click)="prova()"
-        style="margin-top: 30px;" class="btn btn-primary" class="btn btn-info">Ottieni risultato</button>
+    <button type="submit" (click)="gradoDiRischio()" (click)="vediValori()" (click)="prova()" style="margin-top: 30px;"
+      class="btn btn-primary" class="btn btn-info">Ottieni risultato</button>
 
-      <button *ngIf="far" style="margin-top: 30px; float: right; position: relative;"
-        (click)="mandaValori()" class="btn btn-primary" class="btn btn-info">Prosegui con la valutazione </button>
+    <button *ngIf="far" style="margin-top: 30px; float: right; position: relative;" (click)="mandaValori()"
+      class="btn btn-primary" class="btn btn-info">Prosegui con la valutazione </button>
 
-      </div>
+  </div>
 </div>
