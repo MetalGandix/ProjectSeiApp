@@ -33,6 +33,11 @@ body {
     height: 20rem;
   }
 
+  h1{
+    font-size: larger;
+    text-align: center;
+  }
+
 /* CONTAINER SCELTA CONTENT
 -------------------------------------------------- */
 
@@ -56,6 +61,12 @@ body {
     height: 20rem;
   }
 
+  img {
+    vertical-align: middle;
+    border-style: none;
+    margin-top: 100px;
+}
+
   @media all and (max-width: 500px){
 
   .carousel-item[_ngcontent-wpj-c18] > img[_ngcontent-wpj-c18] {
@@ -66,5 +77,16 @@ body {
     min-width: 100%;
     height: 20rem;
   }
+
+  img {
+    vertical-align: middle;
+    border-style: none;
+    margin-top: 5px;
+}
+
+h1{
+  font-size: larger;
+  text-align: center;
+}
 
 }
