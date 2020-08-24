@@ -25,3 +25,18 @@
 .s{
     align-self: right;
 }
+
+@media all and (max-width: 500px){
+  .imgRisk{
+    width: 195px;
+    height: 135px;
+    margin-right: 0px;
+    margin-left: -50px;
+    margin-top: 10px;
+}
+.imgVulClass{
+    width: 155px;
+    height: 140px;
+    margin-left: -20px;
+}
+}
