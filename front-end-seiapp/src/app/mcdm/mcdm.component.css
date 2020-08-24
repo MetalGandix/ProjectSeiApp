@@ -40,5 +40,25 @@
       float: left;
     }
 
+    .btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    width: max-content;
+    }
+
+@media all and (max-width: 500px){
+  .floatLeft { width: 50%; float: none; inline-size: fit-content; text-align: center; }
+  .floatRight {width: 50%; float: none; }
+  .container { overflow: hidden; display: block;}
+  .pulsante{
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: -5px;
+}
+  .table-bordered{
+    width: 300px;
+  }
+}
 
 

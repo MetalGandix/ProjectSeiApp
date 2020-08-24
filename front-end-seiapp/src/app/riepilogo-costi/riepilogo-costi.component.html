@@ -7,42 +7,47 @@
         <p><b>RIEPILOGO DEGLI INTERVENTI E CALCOLO DEI COSTI DI INVESTIMENTO</b></p>
     </div>
 
-    <div class="tabella">
-    <table class="table table-bordered" style="display: contents;">
-        <tr *ngFor="let elemento of interventi; index as j">
-            <thead class="thead-dark">
-                <th>
-                    Intervento:
-                </th>
-                <th>
-                    Prezzo unità/quantità:
-                </th>
-                <th>
-                    Costo parziale:
-                </th>
-                <th>
-                    Metri quadri:
-                </th>
-            </thead>
-            <tbody>
-                <td>
-                    {{elemento.intervento.codice}}
-                </td>
-                <td>
-                    {{elemento.prezzo}}€/{{elemento.unitaMisura}}
-                </td>
-                <td>
-                    {{elemento.prezzo * elemento.valoreCifra | number: '1.0-2'}}€
-                </td>
-                <td>
-                    <input type="number" [value]="elemento.valoreCifra"
-                        (input)="elemento.valoreCifra = $event.target.value" style="margin-left: 20px;">
-                </td>
-            </tbody>
-        </tr>
-    </table>
-</div>
+    <div class="overflow-auto">
+        <div class="tabella">
+            <table class="table table-bordered" style="display: contents;">
+                <tr *ngFor="let elemento of interventi; index as j">
+                    <thead class="thead-dark">
+                        <th>
+                            Intervento:
+                        </th>
+                        <th>
+                            Prezzo unità/quantità:
+                        </th>
+                        <th>
+                            Costo parziale:
+                        </th>
+                        <th>
+                            Metri quadri:
+                        </th>
+                    </thead>
+                    <tbody>
+                        <td>
+                            {{elemento.intervento.codice}}
+                        </td>
+                        <td>
+                            {{elemento.prezzo}}€/{{elemento.unitaMisura}}
+                        </td>
+                        <td>
+                            {{elemento.prezzo * elemento.valoreCifra | number: '1.0-2'}}€
+                        </td>
+                        <td>
+                            <input type="number" [value]="elemento.valoreCifra"
+                                (input)="elemento.valoreCifra = $event.target.value" style="margin-left: 20px;">
+                        </td>
+                    </tbody>
+                </tr>
+            </table>
+        </div>
+    </div>
     <div class="pulsante1">
+        <div class="scrollLaterale">
+            Fai uno scroll laterale per inserire i metri quadri
+        </div>
         <button class="btn btn-info" style="align-content: center;" (click)="calcolaInvestimentoTotale()">
             Calcola il costo totale di investimento
         </button>
@@ -62,7 +67,7 @@
     </p>
 
 
-<hr>
+    <hr>
 
 
     <table class="table table-bordered" style="margin-top: 30px;">
