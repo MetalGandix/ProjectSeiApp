@@ -48,3 +48,23 @@ body {
     margin-right: .75rem;
     margin-left: .75rem;
   }  
+
+  .carousel-item[_ngcontent-wpj-c18] > img[_ngcontent-wpj-c18] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20rem;
+  }
+
+  @media all and (max-width: 500px){
+
+  .carousel-item[_ngcontent-wpj-c18] > img[_ngcontent-wpj-c18] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 100%;
+    height: 20rem;
+  }
+
+}
