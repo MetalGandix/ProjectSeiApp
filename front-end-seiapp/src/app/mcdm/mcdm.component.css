@@ -47,6 +47,10 @@
     width: max-content;
     }
 
+    :disabled {
+      color: rgb(177, 176, 176);
+    }
+
 @media all and (max-width: 500px){
   .floatLeft { width: 50%; float: none; inline-size: fit-content; text-align: center; }
   .floatRight {width: 50%; float: none; }

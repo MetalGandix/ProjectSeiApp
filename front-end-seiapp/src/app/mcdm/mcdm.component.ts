@@ -65,7 +65,9 @@ export class McdmComponent {
   interventoSingolo: number
   bottoneVisibile: boolean = false
   bottoneVisibile1: boolean = false
-  
+  ugualeA0: boolean = false
+
+
 
   ngOnInit() {
     this.emsType = window.history.state.emsType
@@ -88,7 +90,7 @@ export class McdmComponent {
   }
 
   sogliaUgualeZero() {
-    this.punteggioPassaggioClasse = this.punteggio - this.soglia    
+    this.punteggioPassaggioClasse = this.punteggio - this.soglia
   }
 
   cambiaTotale() {
@@ -114,20 +116,20 @@ export class McdmComponent {
     }
     else if (this.emsType == 5 && (this.punteggio >= 30 && this.punteggio <= 60)) {
       this.soglia = 30
-    } 
-    else if (this.emsType == 5 && (this.punteggio < 30 || this.punteggio > 60)){
+    }
+    else if (this.emsType == 5 && (this.punteggio < 30 || this.punteggio > 60)) {
       this.soglia = 60
     }
     else if (this.emsType == 6 && (this.punteggio >= 30 && this.punteggio <= 60)) {
       this.soglia = 30
-    } 
-    else if (this.emsType == 6 && (this.punteggio < 30 || this.punteggio > 60)){
+    }
+    else if (this.emsType == 6 && (this.punteggio < 30 || this.punteggio > 60)) {
       this.soglia = 60
     }
     else if (this.emsType == 7 && (this.punteggio >= 30 && this.punteggio <= 60)) {
       this.soglia = 30
-    } 
-    else if (this.emsType == 7 && (this.punteggio < 30 || this.punteggio > 60)){
+    }
+    else if (this.emsType == 7 && (this.punteggio < 30 || this.punteggio > 60)) {
       this.soglia = 60
     }
   }
@@ -141,15 +143,19 @@ export class McdmComponent {
     let minIndex: number
     this.variabileIntervento.forEach(interventi => {
       for (let index in interventi.varianti) {
-        if (interventi.totale[index] >= max) {
-          max = interventi.totale[index]
-          maxIntervento = interventi
-          maxIndex = parseInt(index)
-        }
-        if (interventi.totale[index] < min) {
-          min = interventi.totale[index]
-          minIntervento = interventi
-          minIndex = parseInt(index)
+        if (interventi.totale[index] != 0) {
+          if (interventi.totale[index] >= max) {
+            max = interventi.totale[index]
+            maxIntervento = interventi
+            maxIndex = parseInt(index)
+          }
+          if (interventi.totale[index] < min) {
+            min = interventi.totale[index]
+            minIntervento = interventi
+            minIndex = parseInt(index)
+          }
+        }else if(interventi.totale[index] == 0){
+          interventi.ugualeA0 = true
         }
       }
     })
@@ -158,7 +164,7 @@ export class McdmComponent {
   }
 
   aggiuntaInterventoSecondario() {
-    console.log("Interventi nell'Array: ",this.arraySelezionati)
+    console.log("Interventi nell'Array: ", this.arraySelezionati)
     this.router.navigate(['/aggiunta-intervento-secondario'], {
       state: {
         soglia: this.soglia
@@ -189,7 +195,7 @@ export class McdmComponent {
     this.selectedElement.post = y
   }
 
-  interventoSingoloRisultato(){
+  interventoSingoloRisultato() {
     this.interventoSingolo = this.selectedElement.ante - this.selectedElement.post
   }
 
@@ -231,7 +237,7 @@ export class McdmComponent {
     this.risultatoSelezione.aggiungiIntervento(this.arraySelezionati[0])
   }
 
-  trasferisciClasseDiRischio(){
+  trasferisciClasseDiRischio() {
     this.router.navigate(['/riepilogo-costi'], {
       state: {
         risk: this.risk,

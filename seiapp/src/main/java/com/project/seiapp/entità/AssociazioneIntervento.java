@@ -10,13 +10,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "AssociazioneIntervento")
+@Table(name = "AssociazioneIntervento")
 public class AssociazioneIntervento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     @ManyToOne(cascade = CascadeType.ALL)
     private CodiceIntervento intervento;
 
@@ -37,7 +37,7 @@ public class AssociazioneIntervento {
     private String variante;
     private double prezzo;
     private String unitaMisura;
-
+    private int passaggio;
 
     public long getId() {
         return id;
@@ -150,5 +150,13 @@ public class AssociazioneIntervento {
 
     public void setUnitaMisura(String unitaMisura) {
         this.unitaMisura = unitaMisura;
+    }
+
+    public int getPassaggio() {
+        return passaggio;
+    }
+
+    public void setPassaggio(int passaggio) {
+        this.passaggio = passaggio;
     }
 }

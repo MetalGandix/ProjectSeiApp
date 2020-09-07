@@ -32,6 +32,8 @@ export class ElementoStrutturaComponent implements OnInit {
   pam: String
   punteggio: Number
   emsType: Number
+  arrayPassaggio: AssociazioneIntervento[];
+  noPass: boolean = false
 
 
   constructor(
@@ -62,6 +64,7 @@ export class ElementoStrutturaComponent implements OnInit {
   }
 
   onChangeCaratteristicheQualitative(index: number) {
+    debugger
     this.variabileIntervento = []
     let elemento = this.selectedElement[this.selectedIndex]
     let caratteristica = this.caratteristiche[index]

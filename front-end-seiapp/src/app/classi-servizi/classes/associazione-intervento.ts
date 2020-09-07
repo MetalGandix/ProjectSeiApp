@@ -26,4 +26,6 @@ export class AssociazioneIntervento {
     valoreCifra?: number
     totalePrezzo?: number
     costoInvestimentoTotale?: number
+    passaggio: number
+    ugualeA0?: boolean = false
 }
