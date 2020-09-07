@@ -17,7 +17,6 @@
                         <ul class='legend-labels'>
                             <li><span style='background:#d62828;'></span>Intervento peggiore</li>
                             <li><span style='background:#228b22;'></span>Intervento migliore</li>
-                            <li>Se gli interventi hanno la checkbox disabilitata, è perchè non possono essere selezioanbili.</li>
                         </ul>
                     </div>
                 </div>
@@ -59,7 +58,8 @@
                                 {{interventi.totale[j] | number: '1.2-2'}}</td>
                             <td>
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" [disabled]="arraySelezionati.length > 0 || interventi.passaggio == 1"
+                                    <input type="checkbox"
+                                        [disabled]="arraySelezionati.length > 0 || interventi.passaggio == 1"
                                         class="form-check-input"
                                         (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
                                 </div>
@@ -141,104 +141,105 @@
                     <hr>
                 </div>
             </div>
-        </div>
 
-        <div class="floatRight">
-            <table class="table table-hover table-bordered">
-                <tbody>
-                    <tr>
-                        <th scope="row">Tipologia EMS</th>
-                        <td>{{emsType}}</td>
-                    </tr>
+            <div class="floatRight">
+                <table class="table table-hover table-bordered">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Tipologia EMS</th>
+                            <td>{{emsType}}</td>
+                        </tr>
 
-                    <tr>
-                        <th scope="col" colspan="2"
-                            style="text-align: center; background-color: #343a40; color: white;">
-                            VALUTAZIONE
-                            PRE INTERVENTO</th>
-                    </tr>
+                        <tr>
+                            <th scope="col" colspan="2"
+                                style="text-align: center; background-color: #343a40; color: white;">
+                                VALUTAZIONE
+                                PRE INTERVENTO</th>
+                        </tr>
 
-                    <tr>
-                        <th scope="row">Punteggio di vulnerabilità</th>
-                        <td>{{punteggio}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Classe di vulnerabilità</th>
-                        <td>V{{vulClass}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Soglia di punteggio per il passaggio alla classe inferiore </th>
-                        <td>{{soglia}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="col" colspan="2" style="text-align: center; background-color: #343a40;"></th>
-                    </tr>
-                    <tr>
-                        <th scope="row">Δpunteggio per il passaggio di classe</th>
-                        <td>{{punteggioPassaggioClasse}}</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">Punteggio di vulnerabilità</th>
+                            <td>{{punteggio}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Classe di vulnerabilità</th>
+                            <td>V{{vulClass}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Soglia di punteggio per il passaggio alla classe inferiore </th>
+                            <td>{{soglia}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col" colspan="2" style="text-align: center; background-color: #343a40;"></th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Δpunteggio per il passaggio di classe</th>
+                            <td>{{punteggioPassaggioClasse}}</td>
+                        </tr>
 
-                    <tr>
-                        <th scope="col" colspan="2"
-                            style="text-align: center; background-color: #343a40; color: white;">
-                            VALUTAZIONE
-                            POST INTERVENTO</th>
-                    </tr>
+                        <tr>
+                            <th scope="col" colspan="2"
+                                style="text-align: center; background-color: #343a40; color: white;">
+                                VALUTAZIONE
+                                POST INTERVENTO</th>
+                        </tr>
 
-                    <tr *ngFor="let interventi of arraySelezionati; index as i">
-                        <th scope="row">Incidenza intervento {{interventi.intervento.codice}}
-                        </th>
-                        <td>{{interventoSingolo}}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                    <tr scope="row" *ngFor="let arr of interventiDaMostrare; index as j">
-                        <b>
-                            Incidenza intervento precedente {{arr.intervento.codice}}
-                        </b>
-                    </tr>
-                    </td>
-                    <td *ngFor="let arr of interventiDaMostrare; index as j">
-                        {{arr.ante - arr.post}}
-                    </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            Incidenza del pacchetto di interventi
-                        </th>
-                        <td>
-                            {{calcoloParziale(interventiDaMostrare.length - 1)}}
+                        <tr *ngFor="let interventi of arraySelezionati; index as i">
+                            <th scope="row">Incidenza intervento {{interventi.intervento.codice}}
+                            </th>
+                            <td>{{interventoSingolo}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <tr scope="row" *ngFor="let arr of interventiDaMostrare; index as j">
+                            <b>
+                                Incidenza intervento precedente {{arr.intervento.codice}}
+                            </b>
+                        </tr>
                         </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Δpunteggio passaggio di classe aggiornato
-                        </th>
-                        <td>
-                            {{punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1)}}
+                        <td *ngFor="let arr of interventiDaMostrare; index as j">
+                            {{arr.ante - arr.post}}
                         </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Punteggio di vulnerabilità
-                        </th>
-                        <td>
-                            {{punteggioDiVul}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Classe di vulnerabilità
-                        </th>
-                        <td>V{{vulClass - 1}}</td>
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                Incidenza del pacchetto di interventi
+                            </th>
+                            <td>
+                                {{calcoloParziale(interventiDaMostrare.length - 1)}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Δpunteggio passaggio di classe aggiornato
+                            </th>
+                            <td>
+                                {{punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1)}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Punteggio di vulnerabilità
+                            </th>
+                            <td>
+                                {{punteggioDiVul}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Classe di vulnerabilità
+                            </th>
+                            <td>V{{vulClass - 1}}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <div
-                *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) > 0 && bottoneVisibile == true">
-                <button class="btn btn-info" (click)="aggiuntaInterventoSecondario()" style="margin-left: 150px;">
-                    Aggiungi un intervento ulteriore
-                </button>
+                <div
+                    *ngIf="punteggioPassaggioClasseAggiornato - calcoloParziale(interventiDaMostrare.length - 1) > 0 && bottoneVisibile == true">
+                    <button class="btn btn-info" (click)="aggiuntaInterventoSecondario()" style="margin-left: 150px;">
+                        Aggiungi un intervento ulteriore
+                    </button>
+                </div>
             </div>
         </div>
+
     </div>
 
 

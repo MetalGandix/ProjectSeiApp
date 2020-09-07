@@ -117,23 +117,24 @@
               Aggiungi risultato </button>
           </div>
         </div>
+        <div *ngIf="punteggioPassaggioClasseAggiornato <= 0 && bottoneVisibile == true">
+          <hr>
+          <div id="boxPunteggio">
+            <b>
+              <p>È stato conseguito il passaggio</p>
+            </b>
+            <b>
+              <p>alla classe di vulnerabilità inferiore.</p>
+            </b>
+            <button class="btn btn-info" (click)="trasferisciClasseDiRischio()">
+              Prosegui
+            </button>
+          </div>
+          <hr>
+        </div>
       </div>
 
-      <div *ngIf="punteggioPassaggioClasseAggiornato <= 0 && bottoneVisibile == true">
-        <hr>
-        <div id="boxPunteggio">
-          <b>
-            <p>È stato conseguito il passaggio</p>
-          </b>
-          <b>
-            <p>alla classe di vulnerabilità inferiore.</p>
-          </b>
-          <button class="btn btn-info" (click)="trasferisciClasseDiRischio()">
-            Prosegui
-          </button>
-        </div>
-        <hr>
-      </div>
+
 
       <div class="floatRight">
         <table class="table table-hover table-bordered">
