@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Set 04, 2020 alle 19:51
+-- Creato il: Set 07, 2020 alle 17:08
 -- Versione del server: 10.4.11-MariaDB
 -- Versione PHP: 7.4.5
 
@@ -41,149 +41,149 @@ CREATE TABLE `associazione_intervento` (
   `sup_vista` int(11) NOT NULL,
   `variante` varchar(255) DEFAULT NULL,
   `prezzo` double NOT NULL,
-  `unità_misura` varchar(255) DEFAULT NULL,
-  `unita_misura` varchar(255) DEFAULT NULL
+  `unita_misura` varchar(255) DEFAULT NULL,
+  `passaggio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `associazione_intervento`
 --
 
-INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`, `efficacia`, `esiguita_di_ingombro`, `modicita_di_costo`, `reversibilita`, `semplicita_di_cantiere`, `sup_intonacate`, `sup_vista`, `variante`, `prezzo`, `unità_misura`, `unita_misura`) VALUES
-(1, 2, 58, 1, 0, 0, 0, 0, 0, 0, 0, NULL, 94.31, 'm', NULL),
-(2, 3, 54, 1, 3, 2, 3, 3, 2, 1, 1, NULL, 33.83, 'm', NULL),
-(3, 3, 55, 1, 3, 1, 1, 1, 2, 1, 1, NULL, 166.54, 'mq', NULL),
-(4, 3, 56, 1, 3, 3, 2, 2, 1, 3, 3, NULL, 120.66, 'mq', NULL),
-(5, 3, 57, 1, 1, 3, 2, 3, 2, 3, 1, NULL, 0, NULL, NULL),
-(6, 3, 59, 1, 1, 3, 2, 1, 3, 3, 2, NULL, 65.23, 'mq', NULL),
-(7, 3, 60, 1, 1, 3, 2, 1, 2, 3, 2, NULL, 87.3, 'mq', NULL),
-(8, 1, 31, 2, 3, 3, 2, 3, 1, 3, 3, NULL, 236.75, 'mq', NULL),
-(9, 1, 32, 2, 2, 3, 3, 1, 3, 3, 3, NULL, 55.23, 'mq', NULL),
-(10, 1, 33, 2, 1, 3, 2, 3, 3, 3, 3, 'a', 158.13, 'mq', NULL),
-(11, 1, 37, 2, 3, 3, 1, 1, 2, 3, 1, NULL, 320.94, 'mq', NULL),
-(12, 1, 38, 2, 2, 2, 2, 2, 2, 1, 1, NULL, 0, NULL, NULL),
-(13, 1, 39, 2, 2, 2, 2, 1, 3, 3, 0, NULL, 203.17, 'mq', NULL),
-(14, 1, 40, 2, 3, 3, 1, 2, 2, 3, 1, NULL, 266.78, 'mq', NULL),
-(15, 1, 43, 2, 3, 1, 2, 1, 1, 2, 2, NULL, 166.54, 'mq', NULL),
-(16, 1, 44, 2, 2, 1, 2, 1, 2, 2, 0, NULL, 157, 'mq', NULL),
-(17, 2, 31, 2, 0, 0, 0, 0, 0, 0, 0, NULL, 236.75, 'mq', NULL),
-(18, 7, 42, 2, 0, 0, 0, 0, 0, 0, 0, NULL, 238, 'mq', NULL),
-(19, 8, 1, 2, 3, 3, 3, 3, 2, 2, 2, NULL, 33.83, 'm', NULL),
-(20, 8, 2, 2, 2, 3, 3, 3, 2, 3, 3, NULL, 33.83, 'm', NULL),
-(21, 8, 3, 2, 3, 3, 2, 2, 2, 3, 1, NULL, 66.7, 'mq', NULL),
-(22, 8, 6, 2, 3, 3, 1, 1, 1, 3, 3, 'a', 157.78, 'm', NULL),
-(23, 8, 41, 2, 3, 1, 3, 1, 1, 1, 1, NULL, 309.38, 'mq', NULL),
-(24, 8, 43, 2, 3, 1, 1, 1, 1, 2, 2, NULL, 166.54, 'mq', NULL),
-(25, 4, 1, 2, 3, 3, 3, 3, 2, 2, 2, NULL, 33.83, 'm', NULL),
-(26, 4, 2, 2, 2, 3, 3, 3, 2, 3, 3, NULL, 33.83, 'm', NULL),
-(27, 4, 3, 2, 3, 3, 2, 2, 2, 3, 1, NULL, 66.7, 'mq', NULL),
-(28, 4, 4, 2, 3, 3, 3, 3, 1, 3, 3, NULL, 236.75, 'mq', NULL),
-(29, 4, 5, 2, 1, 3, 3, 1, 2, 3, 2, NULL, 87.3, 'mq', NULL),
-(30, 4, 6, 2, 3, 3, 1, 1, 1, 3, 1, 'a', 157.78, 'm', NULL),
-(31, 1, 31, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 236.75, 'mq', NULL),
-(32, 1, 32, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 55.23, 'mq', NULL),
-(33, 1, 33, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(34, 1, 37, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 320.94, 'mq', NULL),
-(35, 1, 38, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(36, 1, 39, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 203.17, 'mq', NULL),
-(37, 1, 40, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 266.78, 'mq', NULL),
-(38, 1, 43, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 166.54, 'mq', NULL),
-(39, 1, 44, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 157, 'mq', NULL),
-(40, 2, 31, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 236.75, 'mq', NULL),
-(41, 7, 42, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 238, 'mq', NULL),
-(42, 8, 1, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 33.83, 'm', NULL),
-(43, 8, 2, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 33.83, 'm', NULL),
-(44, 8, 3, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 66.7, 'mq', NULL),
-(45, 8, 6, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(46, 8, 41, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 309.38, 'mq', NULL),
-(47, 9, 34, 3, 3, 3, 3, 1, 2, 3, 2, NULL, 97.7, 'mq', NULL),
-(48, 9, 35, 3, 3, 3, 3, 2, 2, 3, 3, NULL, 97.7, 'mq', NULL),
-(49, 9, 36, 3, 3, 3, 3, 2, 2, 1, 1, NULL, 0, NULL, NULL),
-(50, 4, 1, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 33.83, 'm', NULL),
-(51, 4, 2, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 33.83, 'm', NULL),
-(52, 4, 3, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 66.7, 'mq', NULL),
-(53, 9, 4, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 236.75, 'mq', NULL),
-(54, 9, 5, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 87.3, 'mq', NULL),
-(55, 9, 6, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(56, 51, 7, 4, 2, 3, 2, 3, 3, 2, 2, NULL, 90, 'm', NULL),
-(57, 51, 8, 4, 3, 2, 3, 3, 2, 2, 2, NULL, 71.13, 'm', NULL),
-(58, 52, 9, 4, 3, 2, 2, 2, 1, 3, 3, NULL, 41.63, 'mq', NULL),
-(59, 52, 10, 4, 3, 2, 2, 2, 1, 3, 3, NULL, 51.57, 'mq', NULL),
-(60, 52, 11, 4, 3, 2, 3, 2, 1, 3, 3, NULL, 15.08, 'mq', NULL),
-(61, 52, 12, 4, 2, 2, 1, 1, 1, 3, 3, NULL, 63, 'mq', NULL),
-(62, 52, 15, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', NULL),
-(63, 52, 16, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 50.5, 'm', NULL),
-(64, 52, 17, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 1152.73, 'mc', NULL),
-(65, 52, 18, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', NULL),
-(66, 52, 19, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(67, 52, 20, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(68, 52, 21, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', NULL),
-(69, 52, 22, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', NULL),
-(70, 51, 8, 5, 0, 0, 0, 0, 0, 0, 0, NULL, 71.13, 'm', NULL),
-(71, 52, 11, 5, 3, 2, 2, 2, 1, 3, 3, NULL, 15.08, 'mq', NULL),
-(72, 52, 12, 5, 2, 2, 1, 1, 1, 3, 3, NULL, 63, 'mq', NULL),
-(73, 52, 13, 5, 2, 3, 2, 2, 1, 3, 3, NULL, 14.37, 'mq', NULL),
-(74, 52, 14, 5, 2, 3, 3, 3, 3, 3, 1, NULL, 4.24, 'mq', NULL),
-(75, 3, 1, 7, 3, 3, 3, 3, 2, 2, 2, NULL, 33.83, 'm', NULL),
-(76, 3, 2, 7, 2, 3, 3, 3, 2, 3, 3, NULL, 33.83, 'm', NULL),
-(77, 3, 3, 7, 3, 3, 2, 2, 2, 3, 1, NULL, 66.7, 'mq', NULL),
-(78, 101, 6, 7, 3, 3, 1, 1, 1, 3, 3, 'a', 157.78, 'm', NULL),
-(79, 102, 23, 7, 3, 2, 2, 2, 1, 3, 3, NULL, 115.27, 'mq', NULL),
-(80, 102, 24, 7, 3, 2, 3, 2, 1, 3, 3, NULL, 88.72, 'mq', NULL),
-(81, 102, 25, 7, 2, 2, 1, 1, 1, 3, 3, NULL, 0, NULL, NULL),
-(82, 102, 26, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 1152.73, 'mc', NULL),
-(83, 102, 27, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 1152.73, 'mc', NULL),
-(84, 102, 28, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 50.5, 'm', NULL),
-(85, 102, 28, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 50.5, 'm', NULL),
-(86, 102, 29, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', NULL),
-(87, 102, 30, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(88, 2, 58, 8, 0, 0, 0, 0, 0, 0, 0, NULL, 94.31, 'm', NULL),
-(89, 3, 54, 8, 3, 2, 3, 3, 2, 1, 1, NULL, 33.83, 'm', NULL),
-(90, 3, 55, 8, 3, 1, 1, 1, 2, 1, 1, NULL, 166.54, 'mq', NULL),
-(91, 3, 56, 8, 3, 3, 1, 2, 1, 3, 3, NULL, 120.66, 'mq', NULL),
-(92, 3, 57, 8, 2, 1, 1, 2, 1, 1, 1, NULL, 0, NULL, NULL),
-(93, 3, 59, 8, 1, 3, 2, 1, 3, 3, 2, NULL, 65.23, 'mq', NULL),
-(94, 3, 62, 8, 1, 3, 1, 1, 1, 3, 3, NULL, 90.25, 'mq', NULL),
-(95, 2, 61, 9, 0, 0, 0, 0, 0, 0, 0, NULL, 65.85, 'mq', NULL),
-(96, 3, 54, 9, 3, 2, 3, 3, 2, 1, 1, NULL, 33.83, 'm', NULL),
-(97, 3, 55, 9, 3, 1, 1, 1, 2, 1, 1, NULL, 166.54, 'mq', NULL),
-(98, 3, 56, 9, 3, 3, 1, 2, 1, 3, 3, NULL, 120.66, 'mq', NULL),
-(99, 3, 62, 9, 1, 3, 1, 1, 1, 3, 3, NULL, 90.25, 'mq', NULL),
-(100, 6, 50, 10, 3, 1, 2, 2, 1, 1, 1, NULL, 180, 'm', NULL),
-(101, 6, 51, 10, 2, 2, 2, 3, 2, 1, 1, NULL, 140.96, 'm', NULL),
-(102, 6, 52, 10, 2, 3, 3, 3, 3, 2, 2, NULL, 50.5, 'm', NULL),
-(103, 6, 50, 11, 3, 1, 2, 2, 1, 1, 0, NULL, 180, 'm', NULL),
-(104, 6, 51, 11, 2, 2, 2, 3, 2, 1, 0, NULL, 140.96, 'm', NULL),
-(105, 6, 52, 11, 2, 3, 3, 3, 3, 2, 0, NULL, 50.5, 'm', NULL),
-(106, 6, 50, 12, 3, 1, 2, 2, 1, 1, 0, NULL, 180, 'm', NULL),
-(107, 6, 51, 12, 2, 2, 2, 3, 2, 1, 0, NULL, 140.96, 'm', NULL),
-(108, 6, 52, 12, 2, 3, 3, 3, 3, 2, 0, NULL, 50.5, NULL, NULL),
-(109, 6, 50, 13, 3, 1, 2, 2, 1, 1, 0, NULL, 180, 'm', NULL),
-(110, 6, 51, 13, 2, 2, 2, 3, 2, 1, 0, NULL, 140.96, 'm', NULL),
-(111, 6, 52, 13, 2, 3, 3, 3, 3, 2, 0, NULL, 50.5, 'm', NULL),
-(112, 6, 53, 13, 0, 0, 0, 0, 0, 0, 0, NULL, 395, 'm', NULL),
-(113, 12, 66, 14, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(114, 12, 67, 14, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(115, 2, 74, 1, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(116, 2, 74, 2, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(117, 2, 74, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(118, 2, 75, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(119, 2, 75, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(120, 2, 74, 8, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(121, 2, 74, 10, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(122, 2, 74, 11, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(123, 2, 75, 12, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(124, 2, 74, 13, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, NULL),
-(126, 1, 33, 2, 2, 3, 2, 3, 2, 3, 2, 'b', 186.31, 'mq', NULL),
-(127, 8, 6, 2, 3, 2, 2, 3, 2, 2, 2, 'b', 71.13, 'm', NULL),
-(128, 8, 6, 2, 2, 3, 1, 1, 1, 3, 1, 'c', 131.85, 'm', NULL),
-(129, 8, 6, 2, 3, 3, 1, 1, 1, 3, 1, 'd', 112.78, 'm', NULL),
-(130, 4, 6, 2, 3, 2, 2, 3, 2, 2, 2, 'b', 71.13, 'm', NULL),
-(131, 4, 6, 2, 2, 3, 1, 1, 1, 3, 1, 'c', 131.85, 'm', NULL),
-(132, 4, 6, 2, 3, 3, 1, 1, 1, 3, 1, 'd', 112.78, 'm', NULL),
-(133, 101, 6, 7, 3, 2, 3, 3, 2, 2, 2, 'b', 71.13, 'm', NULL),
-(134, 101, 6, 7, 2, 3, 2, 1, 1, 3, 1, 'c', 131.85, 'm', NULL),
-(135, 101, 6, 7, 3, 3, 2, 1, 1, 3, 1, 'd', 112.78, 'm', NULL);
+INSERT INTO `associazione_intervento` (`id`, `caratteristica_associazione_intervento_id`, `intervento_id`, `struttura_associazione_id`, `efficacia`, `esiguita_di_ingombro`, `modicita_di_costo`, `reversibilita`, `semplicita_di_cantiere`, `sup_intonacate`, `sup_vista`, `variante`, `prezzo`, `unita_misura`, `passaggio`) VALUES
+(1, 2, 58, 1, 0, 0, 0, 0, 0, 0, 0, NULL, 94.31, 'm', 1),
+(2, 3, 54, 1, 3, 2, 3, 3, 2, 1, 1, NULL, 33.83, 'm', 0),
+(3, 3, 55, 1, 3, 1, 1, 1, 2, 1, 1, NULL, 166.54, 'mq', 0),
+(4, 3, 56, 1, 3, 3, 2, 2, 1, 3, 3, NULL, 120.66, 'mq', 0),
+(5, 3, 57, 1, 1, 3, 2, 3, 2, 3, 1, NULL, 0, NULL, 0),
+(6, 3, 59, 1, 1, 3, 2, 1, 3, 3, 2, NULL, 65.23, 'mq', 0),
+(7, 3, 60, 1, 1, 3, 2, 1, 2, 3, 2, NULL, 87.3, 'mq', 0),
+(8, 1, 31, 2, 3, 3, 2, 3, 1, 3, 3, NULL, 236.75, 'mq', 0),
+(9, 1, 32, 2, 2, 3, 3, 1, 3, 3, 3, NULL, 55.23, 'mq', 0),
+(10, 1, 33, 2, 1, 3, 2, 3, 3, 3, 3, 'a', 158.13, 'mq', 0),
+(11, 1, 37, 2, 3, 3, 1, 1, 2, 3, 1, NULL, 320.94, 'mq', 0),
+(12, 1, 38, 2, 2, 2, 2, 2, 2, 1, 1, NULL, 0, NULL, 0),
+(13, 1, 39, 2, 2, 2, 2, 1, 3, 3, 0, NULL, 203.17, 'mq', 0),
+(14, 1, 40, 2, 3, 3, 1, 2, 2, 3, 1, NULL, 266.78, 'mq', 0),
+(15, 1, 43, 2, 3, 1, 2, 1, 1, 2, 2, NULL, 166.54, 'mq', 0),
+(16, 1, 44, 2, 2, 1, 2, 1, 2, 2, 0, NULL, 157, 'mq', 0),
+(17, 2, 31, 2, 0, 0, 0, 0, 0, 0, 0, NULL, 236.75, 'mq', 1),
+(18, 7, 42, 2, 0, 0, 0, 0, 0, 0, 0, NULL, 238, 'mq', 1),
+(19, 8, 1, 2, 3, 3, 3, 3, 2, 2, 2, NULL, 33.83, 'm', 0),
+(20, 8, 2, 2, 2, 3, 3, 3, 2, 3, 3, NULL, 33.83, 'm', 0),
+(21, 8, 3, 2, 3, 3, 2, 2, 2, 3, 1, NULL, 66.7, 'mq', 0),
+(22, 8, 6, 2, 3, 3, 1, 1, 1, 3, 3, 'a', 157.78, 'm', 0),
+(23, 8, 41, 2, 3, 1, 3, 1, 1, 1, 1, NULL, 309.38, 'mq', 0),
+(24, 8, 43, 2, 3, 1, 1, 1, 1, 2, 2, NULL, 166.54, 'mq', 0),
+(25, 4, 1, 2, 3, 3, 3, 3, 2, 2, 2, NULL, 33.83, 'm', 0),
+(26, 4, 2, 2, 2, 3, 3, 3, 2, 3, 3, NULL, 33.83, 'm', 0),
+(27, 4, 3, 2, 3, 3, 2, 2, 2, 3, 1, NULL, 66.7, 'mq', 0),
+(28, 4, 4, 2, 3, 3, 3, 3, 1, 3, 3, NULL, 236.75, 'mq', 0),
+(29, 4, 5, 2, 1, 3, 3, 1, 2, 3, 2, NULL, 87.3, 'mq', 0),
+(30, 4, 6, 2, 3, 3, 1, 1, 1, 3, 1, 'a', 157.78, 'm', 0),
+(31, 1, 31, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 236.75, 'mq', 1),
+(32, 1, 32, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 55.23, 'mq', 1),
+(33, 1, 33, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(34, 1, 37, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 320.94, 'mq', 1),
+(35, 1, 38, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(36, 1, 39, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 203.17, 'mq', 1),
+(37, 1, 40, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 266.78, 'mq', 1),
+(38, 1, 43, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 166.54, 'mq', 1),
+(39, 1, 44, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 157, 'mq', 1),
+(40, 2, 31, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 236.75, 'mq', 1),
+(41, 7, 42, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 238, 'mq', 1),
+(42, 8, 1, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 33.83, 'm', 1),
+(43, 8, 2, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 33.83, 'm', 1),
+(44, 8, 3, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 66.7, 'mq', 1),
+(45, 8, 6, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(46, 8, 41, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 309.38, 'mq', 1),
+(47, 9, 34, 3, 3, 3, 3, 1, 2, 3, 2, NULL, 97.7, 'mq', 0),
+(48, 9, 35, 3, 3, 3, 3, 2, 2, 3, 3, NULL, 97.7, 'mq', 0),
+(49, 9, 36, 3, 3, 3, 3, 2, 2, 1, 1, NULL, 0, NULL, 0),
+(50, 4, 1, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 33.83, 'm', 1),
+(51, 4, 2, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 33.83, 'm', 1),
+(52, 4, 3, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 66.7, 'mq', 1),
+(53, 9, 4, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 236.75, 'mq', 1),
+(54, 9, 5, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 87.3, 'mq', 1),
+(55, 9, 6, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(56, 51, 7, 4, 2, 3, 2, 3, 3, 2, 2, NULL, 90, 'm', 0),
+(57, 51, 8, 4, 3, 2, 3, 3, 2, 2, 2, NULL, 71.13, 'm', 0),
+(58, 52, 9, 4, 3, 2, 2, 2, 1, 3, 3, NULL, 41.63, 'mq', 0),
+(59, 52, 10, 4, 3, 2, 2, 2, 1, 3, 3, NULL, 51.57, 'mq', 0),
+(60, 52, 11, 4, 3, 2, 3, 2, 1, 3, 3, NULL, 15.08, 'mq', 0),
+(61, 52, 12, 4, 2, 2, 1, 1, 1, 3, 3, NULL, 63, 'mq', 0),
+(62, 52, 15, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', 1),
+(63, 52, 16, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 50.5, 'm', 1),
+(64, 52, 17, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 1152.73, 'mc', 1),
+(65, 52, 18, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', 1),
+(66, 52, 19, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(67, 52, 20, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(68, 52, 21, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', 1),
+(69, 52, 22, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', 1),
+(70, 51, 8, 5, 0, 0, 0, 0, 0, 0, 0, NULL, 71.13, 'm', 1),
+(71, 52, 11, 5, 3, 2, 2, 2, 1, 3, 3, NULL, 15.08, 'mq', 0),
+(72, 52, 12, 5, 2, 2, 1, 1, 1, 3, 3, NULL, 63, 'mq', 0),
+(73, 52, 13, 5, 2, 3, 2, 2, 1, 3, 3, NULL, 14.37, 'mq', 0),
+(74, 52, 14, 5, 2, 3, 3, 3, 3, 3, 1, NULL, 4.24, 'mq', 0),
+(75, 3, 1, 7, 3, 3, 3, 3, 2, 2, 2, NULL, 33.83, 'm', 0),
+(76, 3, 2, 7, 2, 3, 3, 3, 2, 3, 3, NULL, 33.83, 'm', 0),
+(77, 3, 3, 7, 3, 3, 2, 2, 2, 3, 1, NULL, 66.7, 'mq', 0),
+(78, 101, 6, 7, 3, 3, 1, 1, 1, 3, 3, 'a', 157.78, 'm', 0),
+(79, 102, 23, 7, 3, 2, 2, 2, 1, 3, 3, NULL, 115.27, 'mq', 0),
+(80, 102, 24, 7, 3, 2, 3, 2, 1, 3, 3, NULL, 88.72, 'mq', 0),
+(81, 102, 25, 7, 2, 2, 1, 1, 1, 3, 3, NULL, 0, NULL, 0),
+(82, 102, 26, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 1152.73, 'mc', 1),
+(83, 102, 27, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 1152.73, 'mc', 1),
+(84, 102, 28, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 50.5, 'm', 1),
+(85, 102, 28, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 50.5, 'm', 1),
+(86, 102, 29, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 140.96, 'm', 1),
+(87, 102, 30, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(88, 2, 58, 8, 0, 0, 0, 0, 0, 0, 0, NULL, 94.31, 'm', 1),
+(89, 3, 54, 8, 3, 2, 3, 3, 2, 1, 1, NULL, 33.83, 'm', 0),
+(90, 3, 55, 8, 3, 1, 1, 1, 2, 1, 1, NULL, 166.54, 'mq', 0),
+(91, 3, 56, 8, 3, 3, 1, 2, 1, 3, 3, NULL, 120.66, 'mq', 0),
+(92, 3, 57, 8, 2, 1, 1, 2, 1, 1, 1, NULL, 0, NULL, 0),
+(93, 3, 59, 8, 1, 3, 2, 1, 3, 3, 2, NULL, 65.23, 'mq', 0),
+(94, 3, 62, 8, 1, 3, 1, 1, 1, 3, 3, NULL, 90.25, 'mq', 0),
+(95, 2, 61, 9, 0, 0, 0, 0, 0, 0, 0, NULL, 65.85, 'mq', 1),
+(96, 3, 54, 9, 3, 2, 3, 3, 2, 1, 1, NULL, 33.83, 'm', 0),
+(97, 3, 55, 9, 3, 1, 1, 1, 2, 1, 1, NULL, 166.54, 'mq', 0),
+(98, 3, 56, 9, 3, 3, 1, 2, 1, 3, 3, NULL, 120.66, 'mq', 0),
+(99, 3, 62, 9, 1, 3, 1, 1, 1, 3, 3, NULL, 90.25, 'mq', 0),
+(100, 6, 50, 10, 3, 1, 2, 2, 1, 1, 1, NULL, 180, 'm', 0),
+(101, 6, 51, 10, 2, 2, 2, 3, 2, 1, 1, NULL, 140.96, 'm', 0),
+(102, 6, 52, 10, 2, 3, 3, 3, 3, 2, 2, NULL, 50.5, 'm', 0),
+(103, 6, 50, 11, 3, 1, 2, 2, 1, 1, 0, NULL, 180, 'm', 0),
+(104, 6, 51, 11, 2, 2, 2, 3, 2, 1, 0, NULL, 140.96, 'm', 0),
+(105, 6, 52, 11, 2, 3, 3, 3, 3, 2, 0, NULL, 50.5, 'm', 0),
+(106, 6, 50, 12, 3, 1, 2, 2, 1, 1, 0, NULL, 180, 'm', 0),
+(107, 6, 51, 12, 2, 2, 2, 3, 2, 1, 0, NULL, 140.96, 'm', 0),
+(108, 6, 52, 12, 2, 3, 3, 3, 3, 2, 0, NULL, 50.5, NULL, 0),
+(109, 6, 50, 13, 3, 1, 2, 2, 1, 1, 0, NULL, 180, 'm', 0),
+(110, 6, 51, 13, 2, 2, 2, 3, 2, 1, 0, NULL, 140.96, 'm', 0),
+(111, 6, 52, 13, 2, 3, 3, 3, 3, 2, 0, NULL, 50.5, 'm', 0),
+(112, 6, 53, 13, 0, 0, 0, 0, 0, 0, 0, NULL, 395, 'm', 1),
+(113, 12, 66, 14, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(114, 12, 67, 14, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(115, 2, 74, 1, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(116, 2, 74, 2, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(117, 2, 74, 3, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(118, 2, 75, 4, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(119, 2, 75, 7, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(120, 2, 74, 8, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(121, 2, 74, 10, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(122, 2, 74, 11, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(123, 2, 75, 12, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(124, 2, 74, 13, 0, 0, 0, 0, 0, 0, 0, NULL, 0, NULL, 1),
+(126, 1, 33, 2, 2, 3, 2, 3, 2, 3, 2, 'b', 186.31, 'mq', 0),
+(127, 8, 6, 2, 3, 2, 2, 3, 2, 2, 2, 'b', 71.13, 'm', 0),
+(128, 8, 6, 2, 2, 3, 1, 1, 1, 3, 1, 'c', 131.85, 'm', 0),
+(129, 8, 6, 2, 3, 3, 1, 1, 1, 3, 1, 'd', 112.78, 'm', 0),
+(130, 4, 6, 2, 3, 2, 2, 3, 2, 2, 2, 'b', 71.13, 'm', 0),
+(131, 4, 6, 2, 2, 3, 1, 1, 1, 3, 1, 'c', 131.85, 'm', 0),
+(132, 4, 6, 2, 3, 3, 1, 1, 1, 3, 1, 'd', 112.78, 'm', 0),
+(133, 101, 6, 7, 3, 2, 3, 3, 2, 2, 2, 'b', 71.13, 'm', 0),
+(134, 101, 6, 7, 2, 3, 2, 1, 1, 3, 1, 'c', 131.85, 'm', 0),
+(135, 101, 6, 7, 3, 3, 2, 1, 1, 3, 1, 'd', 112.78, 'm', 0);
 
 -- --------------------------------------------------------
 
@@ -210,9 +210,9 @@ INSERT INTO `caratterisitche_qualitative` (`id`, `caratteristiche_qualitative`) 
 (8, 'Pareti di elevate dimensioni non controventate'),
 (9, 'Pannelli murari a doppio strato con camera d\'aria - decoesione tra i paramenti'),
 (12, 'Presenza di elementi non strutturali - valutazione connessione/massa'),
-(51, 'Efficacia dei collegamenti con la muratura'),
+(51, 'Efficacia dei collegamenti tra solai e muratura'),
 (52, 'Qualità delle strutture orizzontali'),
-(101, 'Efficacia dei collegamenti con la muratura'),
+(101, 'Efficacia dei collegamenti tra copertura e muratura'),
 (102, 'Qualità della copertura');
 
 -- --------------------------------------------------------
@@ -485,7 +485,7 @@ INSERT INTO `codice_intervento` (`id`, `codice`, `descrizione`) VALUES
 (61, 'G8', 'Rinforzo tramite accostamento di tavole e solidarizzazione degli elementi portanti tramite fascette in ferro chiodate alla struttura lignea'),
 (62, 'G9', 'Alleggerimento/svuotamento del riempimento della volta ed inserimento di frenelli'),
 (63, 'H1', 'Cerchiature e tassellature'),
-(64, 'H2', 'Incamiciatura in calcestruzzo armato'),
+(64, 'H2', 'Incamiciatura di calcestruzzo armato'),
 (65, 'H3', 'Incatenamenti e tirantature'),
 (66, 'I1', 'Collegamenti puntuali e diffusi dell\'elemento non strutturale alla struttura muraria'),
 (67, 'I2', 'Calastrelli in acciaio per comignoli'),
@@ -1253,46 +1253,6 @@ INSERT INTO `hibernate_sequence` (`next_val`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `interventoa1`
---
-
-CREATE TABLE `interventoa1` (
-  `id` bigint(20) NOT NULL,
-  `corpo` varchar(255) DEFAULT NULL,
-  `immagine` varchar(255) DEFAULT NULL,
-  `titolo` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `interventoa1`
---
-
-INSERT INTO `interventoa1` (`id`, `corpo`, `immagine`, `titolo`) VALUES
-(22, 'Questo è ciò che fa', NULL, 'Intervento A1');
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `interventoa2`
---
-
-CREATE TABLE `interventoa2` (
-  `id` bigint(20) NOT NULL,
-  `corpo` varchar(255) DEFAULT NULL,
-  `immagine` varchar(255) DEFAULT NULL,
-  `titolo` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `interventoa2`
---
-
-INSERT INTO `interventoa2` (`id`, `corpo`, `immagine`, `titolo`) VALUES
-(1, 'Questo è ciò che fa', 'img', 'Intervento A2');
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `meccanismi`
 --
 
@@ -1662,44 +1622,6 @@ INSERT INTO `type_struttura` (`id`, `type_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `user`
---
-
-CREATE TABLE `user` (
-  `id` bigint(20) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `user`
---
-
-INSERT INTO `user` (`id`, `email`, `password`, `username`) VALUES
-(1, 'leonardo.mogianesi@studenti.unicam.it', '$2a$04$VLfuPg3CHUwNXZm.AsVdOu32OV680pSmfo.kvcp/59/AhMt3nZr0m', 'leonardo');
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `user_roles`
---
-
-CREATE TABLE `user_roles` (
-  `role_id` bigint(20) NOT NULL,
-  `user_id` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dump dei dati per la tabella `user_roles`
---
-
-INSERT INTO `user_roles` (`role_id`, `user_id`) VALUES
-(1, 1);
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `valutazione_punteggio`
 --
 
@@ -1836,18 +1758,6 @@ ALTER TABLE `edifici_isolati_offida`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `interventoa1`
---
-ALTER TABLE `interventoa1`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `interventoa2`
---
-ALTER TABLE `interventoa2`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indici per le tabelle `meccanismi`
 --
 ALTER TABLE `meccanismi`
@@ -1913,19 +1823,6 @@ ALTER TABLE `type_struttura`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD PRIMARY KEY (`user_id`,`role_id`),
-  ADD KEY `FKrhfovtciq1l558cw6udg0h0d3` (`role_id`);
-
---
 -- Indici per le tabelle `valutazione_punteggio`
 --
 ALTER TABLE `valutazione_punteggio`
@@ -1963,7 +1860,7 @@ ALTER TABLE `caratteristiche_struttura`
 -- AUTO_INCREMENT per la tabella `codice_intervento`
 --
 ALTER TABLE `codice_intervento`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT per la tabella `edificio`
@@ -1982,18 +1879,6 @@ ALTER TABLE `edifici_in_aggregato_offida`
 --
 ALTER TABLE `edifici_isolati_offida`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
--- AUTO_INCREMENT per la tabella `interventoa1`
---
-ALTER TABLE `interventoa1`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT per la tabella `interventoa2`
---
-ALTER TABLE `interventoa2`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `meccanismi`
@@ -2030,12 +1915,6 @@ ALTER TABLE `type_quality`
 --
 ALTER TABLE `type_struttura`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT per la tabella `user`
---
-ALTER TABLE `user`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT per la tabella `valutazione_punteggio`
@@ -2120,13 +1999,6 @@ ALTER TABLE `struttura_car_quality`
 ALTER TABLE `tipologia_struttura_car_qual_ems`
   ADD CONSTRAINT `FKkah86ex11nyjvuc5qegug90ei` FOREIGN KEY (`car_qual_ems_id`) REFERENCES `caratterisitche_qualitative` (`id`),
   ADD CONSTRAINT `FKnp7j5lpwnichkjstk1be7ilr5` FOREIGN KEY (`tipologia_struttura_id`) REFERENCES `tipologia_struttura` (`id`);
-
---
--- Limiti per la tabella `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD CONSTRAINT `FK55itppkw3i07do3h7qoclqd4k` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `FKrhfovtciq1l558cw6udg0h0d3` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
