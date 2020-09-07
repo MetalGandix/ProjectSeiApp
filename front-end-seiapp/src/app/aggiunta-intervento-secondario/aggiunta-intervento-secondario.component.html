@@ -3,7 +3,19 @@
     <p><b>Tipologia EMS selezionata:<br></b></p>
     <h5>{{emsCar.length > 0 ? emsCar[emsType - 1].tipologiaStrutture: ''}}</h5>
   </div>
-
+  <hr>
+  <div>
+    <summary>Legenda scelta caratteristiche qualitative</summary>
+    <div class='my-legend'>
+      <div class='legend-scale'>
+        <ul class='legend-labels'>
+          <li><span style='background:#d62828;'></span>Scelta necessaria</li>
+          <li><span style='background:#228b22;'></span>Scelta auspicabile</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<hr>
     <div class="card my-5">
   <div class="card-body">
     <form>
@@ -21,7 +33,7 @@
           <option selected disabled>
             Seleziona
           </option>
-          <option [ngStyle]="{'color': arr.abilitato ? 'gray' : arr.abilitato ? '#d62828' : 'black'}" [value]="arr.id" *ngFor="let arr of caratteristicheFinali; index as j">
+          <option [ngStyle]="{'color': arr.abilitato ? '#228b22' : arr.abilitato ? '#d62828' : '#d62828'}" [value]="arr.id" *ngFor="let arr of caratteristicheFinali; index as j">
             <!-- carQualEms è un oggetto di tipo CaratteristicheQualitative -->
             {{arr.caratteristicheQualitative}}
           </option>
