@@ -17,6 +17,7 @@
                         <ul class='legend-labels'>
                             <li><span style='background:#d62828;'></span>Intervento peggiore</li>
                             <li><span style='background:#228b22;'></span>Intervento migliore</li>
+                            <li>Se gli interventi hanno la checkbox disabilitata, è perchè non possono essere selezioanbili.</li>
                         </ul>
                     </div>
                 </div>
@@ -58,7 +59,7 @@
                                 {{interventi.totale[j] | number: '1.2-2'}}</td>
                             <td>
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" [disabled]="arraySelezionati.length > 0"
+                                    <input type="checkbox" [disabled]="arraySelezionati.length > 0 || interventi.passaggio == 1"
                                         class="form-check-input"
                                         (click)="premiBottone(interventi, j, i, $event.currentTarget.checked)">
                                 </div>

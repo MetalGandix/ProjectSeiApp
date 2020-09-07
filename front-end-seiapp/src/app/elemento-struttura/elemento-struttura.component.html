@@ -52,7 +52,7 @@
               </th>
             </thead>
             <tr *ngFor="let arr of variabileIntervento; index as i;">
-              <td *ngIf="arr.passaggio == 1">
+              <td>
                 Codice: {{arr.intervento.codice}}
                 - {{arr.intervento.descrizione}}
                 <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary">

@@ -64,7 +64,6 @@ export class ElementoStrutturaComponent implements OnInit {
   }
 
   onChangeCaratteristicheQualitative(index: number) {
-    debugger
     this.variabileIntervento = []
     let elemento = this.selectedElement[this.selectedIndex]
     let caratteristica = this.caratteristiche[index]
