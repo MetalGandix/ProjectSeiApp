@@ -55,7 +55,7 @@
               <td>
                 Codice: {{arr.intervento.codice}}
                 - {{arr.intervento.descrizione}}
-                <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary">
+                <button style="margin-left: 20px; float: right;" class="btn btn-outline-primary" (click)="visualizzaCodiceIntervento(arr.intervento.codice)">
                   Vai all'intervento
                 </button>
               </td>
@@ -85,11 +85,199 @@
           </table>
         </div>
         <div class="pulsante">
-        <button class="btn btn-primary" class="btn btn-info" style="width: 94px;" (click)="trasferisciOggetti()">
+        <button class="btn btn-primary" class="btn btn-info" style="width: 94px;" style="margin-bottom: 15px;" (click)="trasferisciOggetti()">
           Avanti &raquo;
         </button>
       </div>
       </form>
+      <div *ngIf="imgA1 && imgA1parte2">
+        <img src="assets\images\A1_1.jpg" style="max-width: 100%; margin-top: 15px;">
+        <img src="assets\images\A1_2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgA2">
+        <img src="assets\images\A2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgA3 && imgA3parte2">
+        <img src="assets\images\A3_1.jpg" style="max-width: 100%; margin-top: 15px;">
+        <img src="assets\images\A3_2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgA4">
+        <img src="assets\images\A4.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgA5">
+        <img src="assets\images\A5.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgA6 == true && imgA6parte2 == true">
+        <img src="assets\images\A6_1.jpg" style="max-width: 100%; margin-top: 15px;">
+        <img src="assets\images\A6_2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgA7">
+        <img src="assets\images\A7.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgA8">
+        <img src="assets\images\A8.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB1">
+        <img src="assets\images\B1.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB2">
+        <img src="assets\images\B2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB3">
+        <img src="assets\images\B3.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB4">
+        <img src="assets\images\B4.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB5">
+        <img src="assets\images\B5.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB6">
+        <img src="assets\images\B6.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB7">
+        <img src="assets\images\B7.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB9">
+        <img src="assets\images\B8.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB10">
+        <img src="assets\images\B10.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB11">
+        <img src="assets\images\B11.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB12">
+        <img src="assets\images\B12.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB13">
+        <img src="assets\images\B13.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB14">
+        <img src="assets\images\B14.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgB15">
+        <img src="assets\images\B15.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgC1">
+        <img src="assets\images\C1.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgC2">
+        <img src="assets\images\C2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgC3">
+        <img src="assets\images\C3.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgC4">
+        <img src="assets\images\C4.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgC5">
+        <img src="assets\images\C5.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgC6">
+        <img src="assets\images\C6.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgC7">
+        <img src="assets\images\C7.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgC8">
+        <img src="assets\images\C8.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD1 == true && imgD1parte2 == true">
+        <img src="assets\images\D1_1.jpg" style="max-width: 100%; margin-top: 15px;">
+        <img src="assets\images\D1_2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD2 == true && imgD2 == true">
+        <img src="assets\images\D2_1.jpg" style="max-width: 100%; margin-top: 15px;">
+        <img src="assets\images\D2_2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD3">
+        <img src="assets\images\D3.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD4">
+        <img src="assets\images\D4.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD5">
+        <img src="assets\images\D5.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD6">
+        <img src="assets\images\D6.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD7 == true && imgD7parte2 == true">
+        <img src="assets\images\D7_1.jpg" style="max-width: 100%; margin-top: 15px;">
+        <img src="assets\images\D7_2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD8">
+        <img src="assets\images\D8.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD9">
+        <img src="assets\images\D9.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD10">
+        <img src="assets\images\D10.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD11">
+        <img src="assets\images\D11.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD12">
+        <img src="assets\images\D12.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD13">
+        <img src="assets\images\D13.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgD14">
+        <img src="assets\images\D14.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgF1">
+        <img src="assets\images\F1.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgF2">
+        <img src="assets\images\F2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgF3">
+        <img src="assets\images\F3.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgF4">
+        <img src="assets\images\F4.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgG1">
+        <img src="assets\images\G1.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgG2">
+        <img src="assets\images\G2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgG3">
+        <img src="assets\images\G3.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgG4">
+        <img src="assets\images\G4.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgG5">
+        <img src="assets\images\G5.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgG6">
+        <img src="assets\images\G6.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgG7">
+        <img src="assets\images\G7.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgG8">
+        <img src="assets\images\G8.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgG9">
+        <img src="assets\images\G9.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgH1 == true && imgH1parte2 == true">
+        <img src="assets\images\H1_1.jpg" style="max-width: 100%; margin-top: 15px;">
+        <img src="assets\images\H1_2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgH2">
+        <img src="assets\images\H2.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
+      <div *ngIf="imgI1">
+        <img src="assets\images\I1.jpg" style="max-width: 100%; margin-top: 15px;">
+      </div>
     </div>
   </div>
 </div>
+
