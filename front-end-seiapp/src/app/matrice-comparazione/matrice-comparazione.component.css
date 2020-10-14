@@ -9,3 +9,8 @@
 .pulsante{
     text-align: center;
 }
+
+.legenda{
+    font-size: 86%;
+    white-space: nowrap;
+}

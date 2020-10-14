@@ -1,17 +1,19 @@
+<div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+    <p><b>Valutazione multicriterio delle alternative di intervento</b>
+  </div>
 <div class="card my-5">
     <div class="card-body">
         <div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="checkbox1" [(ngModel)]="toggleSuperficie"
                     (change)="cambiaTotale()">
-                <label class="form-check-label" for="checkbox1">Premi per scegliere tra "Superfici a vista" o "Superfici
-                    intonacate"</label>
+                <label class="form-check-label" for="checkbox1"><b>Spunta la casella se le superfici verticali sono intonacate</b></label>
             </div>
 
             <hr>
 
             <div>
-                <summary>Legenda scelta interventi</summary>
+                <summary><b>Legenda scelta interventi</b></summary>
                 <div class='my-legend'>
                     <div class='legend-scale'>
                         <ul class='legend-labels'>
@@ -39,7 +41,7 @@
                         <th rowspan="2" scope="colgroup">Semplicità di cantiere</th>
                         <th rowspan="2" scope="colgroup">Esiguità di ingombro</th>
                         <th rowspan="2" scope="colgroup">Totale</th>
-                        <th rowspan="2" scope="colgroup">*</th>
+                        <th rowspan="2" scope="colgroup">Intervento selezionato</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -83,7 +85,7 @@
                                 </th>
                             </tr>
                             <tr>
-                                <th scope="col" colspan="2" style="text-align: center;">Giudizio di vulnerabilità:
+                                <th scope="col" colspan="2" style="text-align: center;">Livello di criticità:
                                     <p>A = Alto, M = Medio, B = Basso</p>
                                 </th>
                             </tr>
@@ -143,7 +145,9 @@
             </div>
 
             <div class="floatRight">
+
                 <table class="table table-hover table-bordered">
+                    <caption style="caption-side: top; text-align: center; font-size: 20px;"><b>Quadro di riepilogo</b></caption>
                     <tbody>
                         <tr>
                             <th scope="row">Tipologia EMS</th>

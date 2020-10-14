@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 15px;">
-    <p style="margin-left: 20px;"><b>Seleziona a zona sismica</b>
+  <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
+    <p><b>Determinazione della classe di rischio</b>
       <hr>
   </div>
 
@@ -8,7 +8,7 @@
     <div class="card-body">
       <div>
         <label for="tipologiaStrutture" style="margin-top: 20px;">
-          Seleziona il tipo di zona sismica</label>
+          </label>
         <select class="form-control" id="id1" (change)="onChange($event.target.value)">
           <option selected disabled>Seleziona la zona sismica</option>
           <option [value]="numero.id" *ngFor="let numero of zonaSismica;index as i">

@@ -4,7 +4,7 @@
         PACCHETTO INVESTIMENTI STRUTTURALI
     </head>
     <div class="titolo" style="text-align: center;margin-top: 30px; font-size: 30px;">
-        <p><b>RIEPILOGO DEGLI INTERVENTI E CALCOLO DEI COSTI DI INVESTIMENTO</b></p>
+        <p><b>Riepilogo degli interventi e calcolo dei costi</b></p>
     </div>
 
     <div class="overflow-auto">
@@ -55,16 +55,34 @@
     </div>
 
     <hr>
-    <p>
-        Costo di investimento totale: {{totale | number: '1.0-2'}}€
-    </p>
-    <p>
-        Incidenza del pacchetto di interventi sul punteggio di vulnerabilità: {{sommaPacchettoInterventi}}
-    </p>
-    <p>
-        Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità:
-        {{risultatoDivisione | number: '1.0-2'}}
-    </p>
+    <table class="table table-bordered" style="margin-top: 30px;">
+        <tbody>
+            <tr>
+                <td>
+                    Costo di investimento totale:
+                </td>
+                <td  style="background-color: #ffdd00;">
+                    {{totale | number: '1.0-2'}}€
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Incidenza del pacchetto di interventi sul punteggio di vulnerabilità:
+                </td>
+                <td>
+                    {{sommaPacchettoInterventi}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Cu(S) Indice di costo per decremento unitario percentuale di vulnerabilità:
+                </td>
+                <td>
+                    {{risultatoDivisione | number: '1.0-2'}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 
     <hr>
@@ -102,7 +120,7 @@
                 <td>
                     Costo di riparazione:
                 </td>
-                <td class="table-dark">
+                <td style="background-color: #ffdd00;">
                     {{costoRiparazione | number: '1.0-2'}}€
                 </td>
             </tr>

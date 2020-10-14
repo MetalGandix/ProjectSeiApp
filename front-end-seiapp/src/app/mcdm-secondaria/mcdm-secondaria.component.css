@@ -22,7 +22,7 @@
     border: 1px solid #999;
     }
 
-.floatLeft { width: 50%; float: left; inline-size: fit-content; text-align: center; }
+.floatLeft { width: 50%; float: left; inline-size: fit-content; text-align: center; margin-top: 55px;}
 .floatRight {width: 50%; float: right; }
 .container { overflow: hidden; display: block;}
 
