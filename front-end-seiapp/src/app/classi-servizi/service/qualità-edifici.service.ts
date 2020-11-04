@@ -14,7 +14,7 @@ export class QualitàEdificiService {
   url: string;
 
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:8080/';
+    this.url = 'http://46.101.192.240:8080/';
   }
 
   public getQEdificio(): Observable<EdificioInAggregato[]>{

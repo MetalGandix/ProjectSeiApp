@@ -19,7 +19,7 @@ export class EdificioService {
   edificioUrl: string
 
   constructor(private http: HttpClient) {
-    this.edificioUrl = 'http://localhost:8080/'
+    this.edificioUrl = 'http://46.101.192.240:8080/'
    }
 
    public getTipoEdificio():Observable<TipoEdificio[]>{
